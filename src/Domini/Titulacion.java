@@ -6,7 +6,7 @@ package Domini;
 
 /**
  *
- * @author Joan Pol
+ * @author Joan Pol Ñaaaa!
  */
 public class Titulacion {
     String titulacion;
