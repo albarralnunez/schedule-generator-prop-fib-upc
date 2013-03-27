@@ -10,4 +10,5 @@ package Domini;
  */
 public class Titulacion {
     String titulacion;
+    String titulacion2;
 }
