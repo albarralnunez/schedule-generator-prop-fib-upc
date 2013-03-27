@@ -6,7 +6,7 @@ package Domini;
 
 /**
  *
- * @author Joan Pol Ñaaaa!
+ * @author Joan Pol
  */
 public class Titulacion {
     
