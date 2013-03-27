@@ -9,5 +9,5 @@ package Domini;
  * @author Joan Pol
  */
 public class Titulacion {
-    
+    String titulacion;
 }
