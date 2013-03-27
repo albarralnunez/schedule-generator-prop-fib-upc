@@ -22,7 +22,7 @@ public class CtrArxius {
      * FALSE si no n'hi ha cap
      */
     public boolean existeix( String nomArxiu ) {
-        return new File( nomArxiu+".txt").canRead();
+        return new File( "./Data/"+nomArxiu+".txt").canRead();
     }
     
     
@@ -64,7 +64,7 @@ public class CtrArxius {
         PrintWriter pw = null;
         try
         {
-            fitxer = new FileWriter("./"+nomArxiu+".txt"); // crea l arxiu (sobrescriu)
+            fitxer = new FileWriter("./Data/"+nomArxiu+".txt"); // crea l arxiu (sobrescriu)
             pw = new PrintWriter(fitxer);
             
             for(int i = 0; i < llista.size(); ++i) //posa l array al fitxer
@@ -96,7 +96,7 @@ public class CtrArxius {
             BufferedReader br = null;
             String linia;
             
-                fr = new FileReader( nomArxiu+".txt"); //crea el fitxer i el buffer
+                fr = new FileReader("./Data/"+nomArxiu+".txt"); //crea el fitxer i el buffer
                 br = new BufferedReader(fr);
                          
                 while( (linia = br.readLine())!=null )  // posa cada linia a la llista 
@@ -117,7 +117,7 @@ public class CtrArxius {
      */
     void esborra( String nomArxiu ) {
         if ( existeix( nomArxiu ) ) 
-            new File( nomArxiu+".txt").delete();
+            new File( "./Data/"+nomArxiu+".txt").delete();
         
         else System.out.println(" no s'ha pogut esborrar");
     }
