@@ -30,7 +30,7 @@ public class AulaTeo extends Aula{
     
     /**
      *  
-     * @param pr A proyector.
+     * @param pro A proyector.
      */    
     public void setProyector(boolean pro){
         proyector = pro;
