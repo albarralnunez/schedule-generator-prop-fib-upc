@@ -6,11 +6,8 @@ package Domini;
 
 /**
  *
- * @author Joan Pol
+ * @author miquelmasrieraquevedo
  */
-public class Titulacion {
-    String titulacion;
-    String titulacion2;
-    String titulacion3;
-   int tit4;
+public class classe4 {
+    
 }
