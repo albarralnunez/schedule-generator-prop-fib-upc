@@ -15,9 +15,9 @@ public class AulaLab extends Aula{
     /** 
     * Create a AulaLab.
     */
-    public AulaLab (String nombreAula, int capacidadAula, boolean mat) {
-        super(nombreAula, capacidadAula);
-        material = mat;
+    public AulaLab (String nombre, int capacidad, boolean material) {
+        super(nombre, capacidad);
+        this.material = material;
     }
     
     /**
@@ -33,7 +33,7 @@ public class AulaLab extends Aula{
      * @param mar A material
      */    
     public void setMaterial(boolean mat){
-        material = mat;
+        this.material = material;
     }
 }
 

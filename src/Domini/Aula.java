@@ -24,13 +24,12 @@ public class Aula {
     /** 
     * Create a Aula.
     */
-    public Aula(String nomAula, int capacitatAula) {
-        nombre = nomAula;
-        capacidad = capacitatAula;
+    public Aula(String nombre, int capacidad) {
+        this.nombre = nombre;
+        this.capacidad = capacidad;
     }
-    
+ 
      /**
-     *  
      * @return Returns the name of Aula.
      */
     public String getNombre() {
@@ -38,27 +37,26 @@ public class Aula {
     }
     
      /**
-     *  
-     * @return Returns the capacity of Aula.
-     */
+      * 
+      * @return Returns the capacity of Aula.
+      */
     public int getCapacidad(){
         return capacidad;
     }
     
      /**
-     *  
-     * @param nomAula A nombre.
-     */
-    public void setNom(String nomAula) {
-        nombre = nomAula;
+      * 
+      * @param nombre 
+      */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     
     /**
-     *  
-     * @param capacitatAula A capacidad.
+     * 
+     * @param capacidad 
      */
-    public void setCapacidad (int capacitatAula) {
-        capacidad = capacitatAula;
+    public void setCapacidad (int capacidad) {
+        this.capacidad = capacidad;
     }
-    
 }

@@ -15,9 +15,9 @@ public class AulaTeo extends Aula{
     /** 
     * Create a AulaLab.
     */
-    public AulaTeo (String nomAula, int capacitatAula, boolean pro) {
-        super(nomAula, capacitatAula);
-        proyector = pro;
+    public AulaTeo (String nombre, int capacidad, boolean proyecto) {
+       super(nombre, capacidad);
+       this.proyector = proyecto;
     }
     
     /**
@@ -30,9 +30,9 @@ public class AulaTeo extends Aula{
     
     /**
      *  
-     * @param pro A proyector.
+     * @param proyector.
      */    
-    public void setProyector(boolean pro){
-        proyector = pro;
+    public void setProyector(boolean proyector){
+        this.proyector = proyector;
     }
 }
