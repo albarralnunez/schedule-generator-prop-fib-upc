@@ -100,12 +100,13 @@ public class CtrDomini {
         System.out.println("nom de la assigatura a crear ");
         String nomAsg = sc.next(); // nom de la assignatura 
         
-        if( cper.existeix( nomUnitat+"-"+nomAsg) ) System.out.println(" ya existeix "); // les assignatures es diuen ex: FIB-PROP
+        if( cper.existeix( nomUnitat+"-"+nomAsg) ) {
+            System.out.println(" ya existeix "); }// les assignatures es diuen ex: FIB-PROP
         else {
             Assignatura asg = new Assignatura(); // assignatura de prova
-            asg.nom = nomAsg;
+            asg.setNom(nomAsg);
             ArrayList params = new ArrayList();
-            params.add(asg.nom);
+            params.add(asg.getNom());
             
             cper.creaAssignatura( nomUnitat+"-"+nomAsg , params);
         }
