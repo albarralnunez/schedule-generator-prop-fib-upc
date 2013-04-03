@@ -59,4 +59,8 @@ public class Aula {
     public void SetCapacidad (int capacidad) {
         this.capacidad = capacidad;
     }
+    
+    public boolean CapacidadMayorDe(int x) {
+        return (capacidad > x);
+    }            
 }
