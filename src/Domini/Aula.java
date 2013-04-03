@@ -32,7 +32,7 @@ public class Aula {
      /**
      * @return Returns the name of Aula.
      */
-    public String getNombre() {
+    public String GetNombre() {
         return nombre;
     }
     
@@ -40,7 +40,7 @@ public class Aula {
       * 
       * @return Returns the capacity of Aula.
       */
-    public int getCapacidad(){
+    public int GetCapacidad(){
         return capacidad;
     }
     
@@ -48,7 +48,7 @@ public class Aula {
       * 
       * @param nombre 
       */
-    public void setNombre(String nombre) {
+    public void SetNombre(String nombre) {
         this.nombre = nombre;
     }
     
@@ -56,7 +56,7 @@ public class Aula {
      * 
      * @param capacidad 
      */
-    public void setCapacidad (int capacidad) {
+    public void SetCapacidad (int capacidad) {
         this.capacidad = capacidad;
     }
 }

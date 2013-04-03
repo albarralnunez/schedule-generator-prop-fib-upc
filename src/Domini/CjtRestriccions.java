@@ -4,7 +4,7 @@
  */
 package Domini;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,10 +13,11 @@ import java.util.List;
 public class CjtRestriccions {
     
     //Atributs
-    List<Restriccio> cjtRes;
+    ArrayList<Restriccio> cjtRes;
     
     //Constructora
     CjtRestriccions(){
+        cjtRes = new ArrayList<Restriccio>();
     }
     
     //Metodes

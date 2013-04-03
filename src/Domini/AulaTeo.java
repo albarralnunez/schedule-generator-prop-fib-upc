@@ -24,7 +24,7 @@ public class AulaTeo extends Aula{
      *  
      * @return Returns if the AulaLab has proyector.
      */
-    public boolean getProyector(){
+    public boolean GetProyector(){
         return proyector;
     }
     
@@ -32,7 +32,7 @@ public class AulaTeo extends Aula{
      *  
      * @param proyector.
      */    
-    public void setProyector(boolean proyector){
+    public void SetProyector(boolean proyector){
         this.proyector = proyector;
     }
 }
