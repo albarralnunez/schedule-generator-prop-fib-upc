@@ -30,7 +30,7 @@ public class CtrArxius {
      * retorna el numero d'arxius del directori
      */
     public int numArxius( ) {
-        return (int) new File(".").length(); 
+        return (int) new File("./Data/").length(); 
     }
     
     /*
@@ -39,7 +39,7 @@ public class CtrArxius {
      * 
      */
     public ArrayList llistaDirectori( String paraula ) {
-        File f = new File(".");
+        File f = new File("./Data/");
         int numArxius = f.list().length;
         String llistaArxius[] = f.list(); // llista amb els noms de tots els arxius
         ArrayList llista = new ArrayList(); 

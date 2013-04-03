@@ -127,6 +127,6 @@ public class CtrDomini {
             cper.esborraAssignatura( nomUnitat+"-"+nomAsg);
         }
     }
-    
+ 
     
 }

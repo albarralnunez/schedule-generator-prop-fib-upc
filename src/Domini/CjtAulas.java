@@ -13,13 +13,14 @@ import java.util.ArrayList;
 public class CjtAulas {
     
     private ArrayList<Aula> cjtAulas;
-
+    
    
     /**
      * Creator of CjtAulas.
      */
     public CjtAulas(){
         cjtAulas = new ArrayList<Aula>();
+        
     }
    
     public ArrayList<Aula> GetCjtAulas() {
@@ -44,6 +45,7 @@ public class CjtAulas {
             throw new Error ("No exsiste el aula");
         }
     }
+    
     
     
     /**
