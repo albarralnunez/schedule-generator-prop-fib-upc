@@ -18,7 +18,6 @@ public class Horario {
         for(int i = 0; i < numDias; i++) {
             Dias.add(i, new ArrayList(10));
             for (int j = 0; j < 10; j++) {
-                Dias.
             }
         }
     }
