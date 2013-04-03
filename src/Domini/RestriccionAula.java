@@ -4,6 +4,8 @@
  */
 package Domini;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Daniel
@@ -15,7 +17,13 @@ public class RestriccionAula extends Restriccio{
     }
     
     public boolean TieneMaterial(AulaLab aula) {
-           return aula.GetMaterial();
+       return aula.GetMaterial();
     }
     
+    public ArrayList AulaDispoible(Aula aula, CjtAulas cjtAulas) {
+        ArrayList L = new ArrayList();
+        L = cjtAulas.GetCjtAulas();
+        L.remove(aula);
+        return L;
+    }
 }

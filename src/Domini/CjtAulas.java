@@ -13,13 +13,19 @@ import java.util.ArrayList;
 public class CjtAulas {
     
     private ArrayList<Aula> cjtAulas;
-    
+
+   
     /**
      * Creator of CjtAulas.
      */
     public CjtAulas(){
         cjtAulas = new ArrayList<Aula>();
     }
+   
+    public ArrayList<Aula> GetCjtAulas() {
+        return cjtAulas;
+    }
+    
     
     /**
      * 

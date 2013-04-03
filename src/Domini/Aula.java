@@ -60,6 +60,12 @@ public class Aula {
         this.capacidad = capacidad;
     }
     
+    
+    /**
+     * 
+     * @param x
+     * @return Return if Aula has a greater capacity than x.
+     */
     public boolean CapacidadMayorDe(int x) {
         return (capacidad > x);
     }            
