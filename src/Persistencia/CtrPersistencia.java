@@ -31,19 +31,19 @@ public class CtrPersistencia {
      * @param a 
      */
     public void creaAssignatura( String nom, ArrayList a){
-        ca.creaArxiu(nom, a);
+        ca.creaArxiu("assignatura-" + nom, a);
     }
     
     public void creaAula( String nom, ArrayList a){
-        ca.creaArxiu("aula-"+ nom, a);
+        ca.creaArxiu("aula-" + nom, a);
     }
 
-    public boolean existeix( String nom ){
-        return ( ca.existeix(nom) ); // diu si existeix una assignatura amb aquell nom
+    public boolean existeixAssignatura( String nom ){
+        return ( ca.existeix("assignatura-"+nom) ); // diu si existeix una assignatura amb aquell nom
     }
     
     public boolean esborraAssignatura( String nomAsg) { // nomAsg = UD-nom
-        return ca.esborra( nomAsg);
+        return ca.esborra("assignatura-"+nomAsg);
     }
 
     public ArrayList llistaAssignatures(String nomUnitat) {

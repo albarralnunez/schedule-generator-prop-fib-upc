@@ -60,7 +60,7 @@ public class CtrDomini {
     }
 
     public boolean existeixAssignatura(String nomAsg) {
-        return cper.existeix(nomUnitat+"-"+nomAsg);
+        return cper.existeixAssignatura(nomUnitat+"-"+nomAsg);
     }
 
     public void printAssig( String nomaAsg){
@@ -72,5 +72,7 @@ public class CtrDomini {
         System.out.println("els valors actuals de "+n+" son \n hteoria="+nt+"\n hpractica="+np+"\n nivel="+nv);
         Assignatura a = new Assignatura( atributs.get(0), nt, np, nv );
     }
-
+    public ArrayList<String> llegirAssignatura( String nomAsg){
+        return cper.llegirAssignatura(nomAsg);
+    }
 }

@@ -136,6 +136,7 @@ public class CtrPresentacio {
     }
     
     private static void modificaAssignatura() {
+        
         System.out.println("nom de la assigatura a modificar ");
         String nomAsg;
         nomAsg = s.next(); // nom de la assignatura 
