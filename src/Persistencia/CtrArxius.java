@@ -11,52 +11,66 @@ import java.util.logging.Logger;
  */
 public class CtrArxius {
     
-   
+   /**
+     *creadora per defecte, crea en el directori del projecte la carpeta Data
+     * que contindrà tots els fitxers
+     */
     public CtrArxius() {
+        File carpetaData = new File("./Data");
+        if( ! carpetaData.exists() ) carpetaData.mkdirs();
     }
     
-    
-    /*
-     * a aquesta funció li passes un nom i retorna :
-     * TRUE si en el directori hi ha un arxiu amb aquell nom
-     * FALSE si no n'hi ha cap
+    /**
+     * 
+     * @param nomArxiu nom de l arxiu a buscar, sense el format
+     * 
+     * @return retorna un boleà que es cert si hi ha un arxiu amb aquell nom
      */
     public boolean existeix( String nomArxiu ) {
         return new File( "./Data/"+nomArxiu+".txt").canRead();
     }
     
     
-    /*
-     * retorna el numero d'arxius del directori
+    /**
+     * 
+     * @return retorna el nombre d arxius d'aquell directori
      */
     public int numArxius( ) {
-        return (int) new File(".").length(); 
+        return (int) new File("./Data/").length(); 
     }
     
-    /*
-     * retorna un ArrayList amb tots el noms d'arxius d aquell directori
-     * que contenen la paraula
+    /**
      * 
+     * @param paraula ha se ser part del nom (o el nom sencer) dels arxius 
+     * que es volen trobar en el directori
+     * 
+     * @return retorna un ArrayList amb tots els fitxers d aquell 
+     * directori que contenen la paraula que li passes per parametre 
      */
     public ArrayList llistaDirectori( String paraula ) {
-        File f = new File(".");
+        File f = new File("./Data/");
         int numArxius = f.list().length;
         String llistaArxius[] = f.list(); // llista amb els noms de tots els arxius
         ArrayList llista = new ArrayList(); 
         
         for( int i = 0; i < numArxius; ++i)
             if(llistaArxius[i].contains(paraula)) llista.add( llistaArxius[i] );
-        
+            
         return llista;
     }
     
-    /*
-     a aquesta funcio li passes un nom i una llista amb la informacio
-     * et crea un arxiu txt buit amb aquell nom i si ja existeix, el sobreescriu.
+    /**
      * 
-     * cada element de l array estara en una linia de l arxiu
+     * aquesta funció crea un fitxer de text .txt amb el nom i contingut que 
+     * se li passa 
      * 
-     * si no voleu sobreescriure, feu servir abans la de existeix
+     * per evitar sobreescriptures abans de cridar aquesta funció, fer existeix
+     * 
+     * @param nomArxiu nom de l'arxiu a crear ( sense format), si ja hi ha un 
+     * arxiu amb aquest nom el sobreescriu 
+     * 
+     * @param llista de la qual es posara cada element en una linia del fitxer
+     * de text
      */
     public void creaArxiu( String nomArxiu, ArrayList llista) {           
                                
@@ -83,15 +97,18 @@ public class CtrArxius {
         }     
     }
     
-    /*
-     * La funcio reb el nom d un arxiu
-     * i et retorna una lllista que te a cada posicio el que hi ha en cada 
-     * linia del fitxer 
+   /**
+     * 
+     * funció que llegeix un fitxer i posa el seu contingut en una llista
+     * 
+     * @param nomArxiu nom de l'arxiu a llegir
+     * 
+     * @return retorna un ArrayList amb el contingut del fitxer, a cada posició
+     * hi ha una linia del fitxer
      */
-    public ArrayList llegir( String nomArxiu ) {
+    public ArrayList<String> llegir( String nomArxiu ) {
         ArrayList llista= new ArrayList();
         try {
-            
             FileReader fr = null;
             BufferedReader br = null;
             String linia;
@@ -112,15 +129,15 @@ public class CtrArxius {
         return llista;
     }
     
-    /*
-     * esborra l' arxiu amb aquell nom
+    /**
+     * 
+     * @param nomArxiu nom de l arxiu a esborrar
+     * @return un bolea que indica que no s ha pogut esborrar l arxiu indicat
      */
-    void esborra( String nomArxiu ) {
+    public boolean esborra( String nomArxiu ) {
         if ( existeix( nomArxiu ) ) 
-            new File( "./Data/"+nomArxiu+".txt").delete();
-        
-        else System.out.println(" no s'ha pogut esborrar");
+            return new File( "./Data/"+nomArxiu+".txt").delete();
+        else return false; 
     }
-        
-    
+          
 }

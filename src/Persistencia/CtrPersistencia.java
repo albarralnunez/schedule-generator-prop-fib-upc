@@ -25,23 +25,37 @@ public class CtrPersistencia {
        return ca.numArxius();
     }
     
+    /**
+     * 
+     * @param nom
+     * @param a 
+     */
     public void creaAssignatura( String nom, ArrayList a){
         ca.creaArxiu(nom, a);
+    }
+    
+    public void creaAula( String nom, ArrayList a){
+        ca.creaArxiu("aula-"+ nom, a);
     }
     
     public boolean existeix( String nom ){
         return ( ca.existeix(nom) ); // diu si existeix una assignatura amb aquell nom
     }
     
-    public void esborraAssignatura( String nomAsg) { // nomAsg = UD-nom
-        ca.esborra( nomAsg);
+    public boolean esborraAssignatura( String nomAsg) { // nomAsg = UD-nom
+        return ca.esborra( nomAsg);
     }
 
-    public void llistaAssignatures(String nomUnitat) {
-        ArrayList llista = ca.llistaDirectori(nomUnitat); // te totes les assignatures de la unitat docent
-        System.out.println("ASSIGNATURES DE "+nomUnitat);
-        for( int i = 0; i < llista.size(); ++i)
-            System.out.println(llista.get(i) );
+    public ArrayList llistaAssignatures(String nomUnitat) {
+        return ca.llistaDirectori(nomUnitat); // te totes les assignatures de la unitat docent
         
+        
+    }
+    public ArrayList LlistaAulas(String nomUnitat) {
+        return ca.llegir(nomUnitat + "-aula-*"); //TODO: SE HA DE HACER UNA LECTORA PARA LAS AULAS
+    }
+    
+    public ArrayList<String> llegirAssignatura( String nomAsg){
+        return ca.llegir(nomAsg);
     }
 }

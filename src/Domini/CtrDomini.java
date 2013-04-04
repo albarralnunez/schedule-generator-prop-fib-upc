@@ -24,71 +24,7 @@ public class CtrDomini {
         cper = new CtrPersistencia(); 
     }
 
-    public void generar() {
-        
-    }
 
-    public void cargar() {
-        
-    }
-
-    public void midificar() {
-        
-        sc = new Scanner( System.in );
-        
-        int opcio = 0;
-        while( opcio != 4 ) {
-            System.out.println(" OPCIONS ");
-            System.out.println(" 1 - asignatures");
-            System.out.println(" 2 - aules");
-            System.out.println(" 3 - restriccions");
-            System.out.println(" 4 - tornar");
-            
-            opcio = sc.nextInt();
-            
-            if(opcio == 1) opcionsAsignatures();
-            else if(opcio == 2) opcionsAules();
-            else if(opcio == 3) opcionsRestriccions();
-        }
-    }
-    
-    private void opcionsAsignatures(){
-
-        int opcio = 0;
-        while( opcio != 4 ) {
-            
-            // llista de totes les assignatures de la unitat docent
-            System.out.println("C DOMINI OPCIONS ASG -> de la "+nomUnitat+" llista:");
-            cper.llistaAssignatures( nomUnitat );
-            
-            System.out.println("");
-            System.out.println(" OPCIONS ");
-            System.out.println(" 1 - crear");
-            System.out.println(" 2 - esborrar");
-            System.out.println(" 3 - modificar");
-            System.out.println(" 4 - tornar");
-            
-            opcio = sc.nextInt();
-            
-            System.out.println("");
-            if(opcio == 1) creaAssignatura();
-            else if(opcio == 2) esborraAssignatura();
-            else if(opcio == 3) modificaAssignatura();
-        }
-        
-    }
-    
-    private void opcionsAules(){
-        
-    }
-
-    public void logout() {
-        
-    }
-    
-    private void opcionsRestriccions(){
-        
-    }
    /*
     * Crea una assigatura (  un arxiu .txt amb tota la info)
     * nom de l arxiu (unitat docent)-(nom assignatura)
@@ -96,37 +32,46 @@ public class CtrDomini {
     * ara nomes posa el nom pero tenen que posarse i validar tots
     * els parametres
     */
-    private void creaAssignatura(){         
-        System.out.println("nom de la assigatura a crear ");
-        String nomAsg = sc.next(); // nom de la assignatura 
-        
-        if( cper.existeix( nomUnitat+"-"+nomAsg) ) {
-            System.out.println(" ya existeix "); }// les assignatures es diuen ex: FIB-PROP
-        else {
-            Assignatura asg = new Assignatura(); // assignatura de prova
-            asg.setNom(nomAsg);
+    public void creaAssignatura( String nomAsg, int ht, int hp, int nivel ){ 
             ArrayList params = new ArrayList();
-            params.add(asg.getNom());
-            
+            params.add(nomAsg);
+            params.add(ht);
+            params.add(hp);
+            params.add(nivel);
             cper.creaAssignatura( nomUnitat+"-"+nomAsg , params);
-        }
     }
-    
-    private void modificaAssignatura() {
+   
+    /**
+     * 
+     * @param nomAsg
+     * @return 
+     */
+    public boolean esborraAssignatura( String nomAsg){         
+        String nom = nomUnitat+"-"+nomAsg;
+        return( cper.esborraAssignatura(nom) );
         
     }
-    
-    private void esborraAssignatura(){         
-        System.out.println("nom de la assigatura a esborrar ");
-        String nomAsg = sc.next(); // nom de la assignatura 
-        
-        if( ! cper.existeix( nomUnitat+"-"+nomAsg) ) 
-            System.out.println(" aquesta assignatura no existeix "); 
-        
-        else {
-            cper.esborraAssignatura( nomUnitat+"-"+nomAsg);
-        }
+    /**
+     * 
+     * @return 
+     */
+    public ArrayList llistaAssignatures( ){
+        return cper.llistaAssignatures(nomUnitat);
     }
+
+    public boolean existeixAssignatura(String nomAsg) {
+        return cper.existeix(nomUnitat+"-"+nomAsg);
+    }
+
     
+    public void printAssig( String nomaAsg){
+        ArrayList<String> atributs = cper.llegirAssignatura(nomUnitat+"-"+nomaAsg);
+        String n = atributs.get(0);
+        int nt = Integer.parseInt(atributs.get(1));
+        int np = Integer.parseInt(atributs.get(2));
+        int nv = Integer.parseInt(atributs.get(3));
+        System.out.println("els valors actuals de "+n+" son \n hteoria="+nt+"\n hpractica="+np+"\n nivel="+nv);
+        Assignatura a = new Assignatura( atributs.get(0), nt, np, nv );
+    }
     
 }
