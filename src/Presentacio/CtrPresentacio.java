@@ -4,14 +4,10 @@
  */
 package Presentacio;
 import Domini.CtrDomini;
-<<<<<<< HEAD
-import java.io.IOException;
 import java.util.ArrayList;
-=======
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
->>>>>>> 4b5309204fea515490d9840677de4e3a824d55ee
 import java.util.Scanner;
 
 /**
@@ -31,7 +27,6 @@ public class CtrPresentacio {
         System.out.println("Nom de la unitat docent: ");
         unitatDocent = s.next();
         
-<<<<<<< HEAD
         cd = new CtrDomini( unitatDocent );
       
         int opcio = 0;
@@ -82,7 +77,7 @@ public class CtrPresentacio {
             ArrayList llista = cd.llistaAssignatures();
             for( int i = 0; i < llista.size(); ++i)
                 
-                System.out.println(llista.get(i) );
+            System.out.println(llista.get(i) );
             System.out.println("");
             System.out.println(" OPCIONS ");
             System.out.println("1-crear\n2-esborrar\n3-modificar\n4-tornar");
@@ -159,29 +154,4 @@ public class CtrPresentacio {
             cd.creaAssignatura( nomAsg, horest, horesp, nivell);
         }
     }
-    
-    
-=======
-        CtrDomini cd = new CtrDomini( unitatDocent );
-       
-        System.out.println(" MENU ");
-        System.out.println(" 1 - generar horari");
-        System.out.println(" 2 - cargar horari");
-        System.out.println(" 3 - modificar dades");
-        System.out.println(" 4 - logOut");
-        System.out.println(" 5 - Tancar");    
-        System.out.println("");
-        System.out.println(" Entra opcio");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int x = Integer.parseInt(br.readLine());
-        switch (x) {
-            case(1): cd.generar();
-            case(2): cd.cargar();
-            case(3): cd.midificar();
-            case(4): cd.logout();
-        }
-        
-        System.out.println(" FIN ");     
-    }
->>>>>>> 4b5309204fea515490d9840677de4e3a824d55ee
 }
