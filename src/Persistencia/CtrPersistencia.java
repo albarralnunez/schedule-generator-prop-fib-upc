@@ -37,7 +37,10 @@ public class CtrPersistencia {
     public void creaAula( String nom, ArrayList a){
         ca.creaArxiu("aula-"+ nom, a);
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> 4b5309204fea515490d9840677de4e3a824d55ee
     public boolean existeix( String nom ){
         return ( ca.existeix(nom) ); // diu si existeix una assignatura amb aquell nom
     }
@@ -54,8 +57,11 @@ public class CtrPersistencia {
     public ArrayList LlistaAulas(String nomUnitat) {
         return ca.llegir(nomUnitat + "-aula-*"); //TODO: SE HA DE HACER UNA LECTORA PARA LAS AULAS
     }
+<<<<<<< HEAD
     
     public ArrayList<String> llegirAssignatura( String nomAsg){
         return ca.llegir(nomAsg);
     }
+=======
+>>>>>>> 4b5309204fea515490d9840677de4e3a824d55ee
 }
