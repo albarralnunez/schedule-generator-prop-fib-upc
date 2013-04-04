@@ -38,7 +38,7 @@ public class CtrDomini {
             params.add(ht);
             params.add(hp);
             params.add(nivel);
-            cper.creaAssignatura( nomUnitat+"-"+nomAsg , params);
+            cper.creaAssignatura( nomUnitat+"-assignatura-"+nomAsg , params);
     }
    
     /**
@@ -47,7 +47,7 @@ public class CtrDomini {
      * @return 
      */
     public boolean esborraAssignatura( String nomAsg){         
-        String nom = nomUnitat+"-"+nomAsg;
+        String nom = nomUnitat+"-assignatura-"+nomAsg;
         return( cper.esborraAssignatura(nom) );
         
     }
@@ -56,15 +56,15 @@ public class CtrDomini {
      * @return 
      */
     public ArrayList llistaAssignatures( ){
-        return cper.llistaAssignatures(nomUnitat);
+        return cper.llistaAssignatures(nomUnitat+"-assignatura-");
     }
 
     public boolean existeixAssignatura(String nomAsg) {
-        return cper.existeixAssignatura(nomUnitat+"-"+nomAsg);
+        return cper.existeixAssignatura(nomUnitat+"-assignatura-"+nomAsg);
     }
 
     public void printAssig( String nomaAsg){
-        ArrayList<String> atributs = cper.llegirAssignatura(nomUnitat+"-"+nomaAsg);
+        ArrayList<String> atributs = cper.llegirAssignatura(nomUnitat+"-assignatura-"+nomaAsg);
         String n = atributs.get(0);
         int nt = Integer.parseInt(atributs.get(1));
         int np = Integer.parseInt(atributs.get(2));
@@ -73,6 +73,6 @@ public class CtrDomini {
         Assignatura a = new Assignatura( atributs.get(0), nt, np, nv );
     }
     public ArrayList<String> llegirAssignatura( String nomAsg){
-        return cper.llegirAssignatura(nomAsg);
+        return cper.llegirAssignatura("-assignatura-"+nomAsg);
     }
 }
