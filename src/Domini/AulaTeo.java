@@ -15,9 +15,9 @@ public class AulaTeo extends Aula{
     /** 
     * Create a AulaLab.
     */
-    public AulaTeo (String nombre, int capacidad, boolean proyecto) {
+    public AulaTeo (String nombre, int capacidad, boolean proyector) {
        super(nombre, capacidad);
-       this.proyector = proyecto;
+       this.proyector = proyector;
     }
     
     /**
