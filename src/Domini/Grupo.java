@@ -9,28 +9,28 @@ package Domini;
  * @author Joan Pol
  */
 public class Grupo {
-     int Numero; // id del grupo, donde id >= 0
-     int Capacidad; //Numero maximo de alumnos en el grupo, estrictamente positivo
+     private int numero; // id del grupo, donde id >= 0
+     private int capacidad; //Numero maximo de alumnos en el grupo, estrictamente positivo
      
-    public void Grupo(){
-        Numero = -1;
-        Capacidad = -1;
+    public Grupo(){
+        numero = -1;
+        capacidad = -1;
     }
-    public void Grupo (int numero,int capacidad){
-        this.Numero = numero;
-        this.Capacidad = capacidad;
+    public Grupo (int numero,int capacidad){
+        this.numero = numero;
+        this.capacidad = capacidad;
     }
     public int id() {
-        return Numero;
+        return numero;
    }
    public int capacidad() {
-        return Capacidad;
+        return capacidad;
    }
    public void modificar_id(int numero){
-       this.Numero = numero;
+       this.numero = numero;
    }
    public void modificar_capacitat(int capacidad){
-       Capacidad = capacidad;
+       capacidad = capacidad;
    }
     
 }
