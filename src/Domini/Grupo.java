@@ -20,16 +20,16 @@ public class Grupo {
         this.numero = numero;
         this.capacidad = capacidad;
     }
-    public int id() {
+    public int GetId() {
         return numero;
    }
-   public int capacidad() {
+   public int GetCapacidad() {
         return capacidad;
    }
-   public void modificar_id(int numero){
+   public void SetId(int numero){
        this.numero = numero;
    }
-   public void modificar_capacitat(int capacidad){
+   public void SetCapacitat(int capacidad){
        capacidad = capacidad;
    }
     
