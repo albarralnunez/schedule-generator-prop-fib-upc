@@ -8,14 +8,14 @@ package Domini;
  *
  * @author Joan Pol
  */
-public class Titulacion {
+public class UnidadDocente {
     String nombre;
     
-    public Titulacion(){
+    public UnidadDocente() {
         nombre = null;
     }
-    public Titulacion (String nom){
-        nombre = nom;
+    public UnidadDocente(String nombre){
+        this.nombre = nombre;
     }
     public String GetNombre() {
         return nombre;
