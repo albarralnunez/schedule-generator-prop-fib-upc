@@ -98,20 +98,19 @@ public class CtrDomini {
      * @param nomAula 
      */
     public void printAula( String nomAula){
-        ArrayList<String> atributs = cper.llegirAula(nomAula);
-        String n = atributs.get (1);
+        ArrayList<String> atributs = cper.llegirAula(nomUnitat+"-"+nomAula);
         int t = Integer.parseInt(atributs.get(0));
+        String n = atributs.get (1);
         int c = Integer.parseInt (atributs.get(2));
         int b = Integer.parseInt (atributs.get(3));
-        if (t == 1) System.out.println("l'aula es de teoria\n");
-        else System.out.println("l'aula es de laboratori\n");
-        System.out.println("els valors actuals de "+n+" son \n capacitat="+c+"\n");
-        if (t==1 && b==1) System.out.println("proyector = disponible\n");
-        if (t==1 && b==0) System.out.println("proyector = no disponible\n");
-        if (t==0 && b==1) System.out.println("material = disponible\n");
-        else System.out.println("material = no disponible\n");
-        //TODO: Los new ni puta idea pa k, pendiente const miqui.
-        
+        if (t == 1) System.out.println("\nl'aula es de teoria");
+        else System.out.println("\nl'aula es de laboratori");
+        System.out.println("els valors actuals de "+n+" son \n capacitat="+c);
+        if (t==1 && b==1) System.out.println(" proyector = disponible\n");
+        if (t==1 && b==0) System.out.println(" proyector = no disponible\n");
+        if (t==0 && b==1) System.out.println(" material = disponible\n");
+        if (t==0 && b==0) System.out.println(" material = no disponible\n");
+        //Aula a = new Aula(atributs.get(0),);    
     }
     
     public ArrayList llistaAules(){
@@ -125,4 +124,19 @@ public class CtrDomini {
     public ArrayList<String> llegirAula( String nomAula){
         return cper.llegirAula(nomUnitat+"-"+nomAula);
     }
+    
+  
+    public boolean existeixAula(String nomAula) {
+        return cper.existeixAula(nomUnitat+"-"+nomAula);
+    }
+
+        /**
+     * 
+     * @param nomAsg
+     * @return 
+     */
+    public boolean esborraAula( String nomAula){         
+        return(cper.esborraAula(nomUnitat+"-"+nomAula));
+    }
+
 }

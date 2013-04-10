@@ -79,10 +79,10 @@ public class CtrPersistencia {
      * @param nomUnitat
      * @return Retrona Una lista de todas las aules.
      */
-    public ArrayList<String> llegirAula(String nomUnitat) {
-        return ca.llegir("aula-"+nomUnitat);
+    public ArrayList<String> llegirAula(String nomAula) {
+        return ca.llegir("aula-"+nomAula);
     }
-    
+  
      /**
      * 
      * @param nomUnitat

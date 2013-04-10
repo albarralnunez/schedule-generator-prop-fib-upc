@@ -175,22 +175,21 @@ public class CtrPresentacio {
     private static void creaAula(){  
         
         System.out.println("nom de la aula a crear ");
-        String nomAula;
-        nomAula = s.next(); // nom de la aula 
-        if( cd.existeixAssignatura( nomAula) ) System.err.println("ja existeix");
+        String nomAula = s.next(); // nom de la aula 
+        if( cd.existeixAula( nomAula) ) System.err.println("ja existeix");
         else {
             System.out.println("es de teoria? (y/n)");
             String y = s.next();
             System.out.println("capacitat ");
             int c = s.nextInt();
-            if (y == "y") System.out.println("te projector? (y/n)");
+            if (y.equals("y")) System.out.println("te projector? (y/n)");
             else System.out.println("te material?(y/n)");
             String n = s.next();
             int teo, boo;
-            if (y == "y") teo = 1;
+            if (y.equals("y")) teo = 1;
             else teo = 0;
-            if (n == "y") boo = 1;
-            else boo = 0;
+            if (n.equals("n")) boo = 0;
+            else boo = 1;
             cd.creaAula(nomAula, c, teo, boo);
         }
     }
@@ -198,7 +197,7 @@ public class CtrPresentacio {
     private static void esborraAula(){         
         System.out.println("nom de l'aula a esborrar ");
         String nomAula = s.next(); // nom de la assignatura 
-        if( ! cd.esborraAssignatura(nomAula) ) 
+        if( ! cd.esborraAula(nomAula) ) 
             System.err.println(nomAula+" no existeix "); 
     }
     
@@ -207,9 +206,10 @@ public class CtrPresentacio {
         System.out.println("nom de la l'aula a modificar ");
         String nomAula;
         nomAula = s.next(); // nom de la assignatura 
-        if( ! cd.existeixAssignatura( nomAula) ) 
+        if( ! cd.existeixAula( nomAula) ) 
             System.err.println(nomAula+" no existeix");
         else {
+            cd.printAula(nomAula);
             System.out.println("es de teoria? (y/n)");
             String y = s.next();
             System.out.println("capacitat ");
