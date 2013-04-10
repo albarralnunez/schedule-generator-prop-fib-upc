@@ -27,7 +27,7 @@ public class CtrDomini {
 
    /*
     * Crea una assigatura (  un arxiu .txt amb tota la info)
-    * nom de l arxiu (unitat docent)-(nom assignatura)
+    * nom de l arxiu (unitat docent)-(assignatura)-(nom assignatura)
     * 
     * ara nomes posa el nom pero tenen que posarse i validar tots
     * els parametres
@@ -38,7 +38,7 @@ public class CtrDomini {
             params.add(ht);
             params.add(hp);
             params.add(nivel);
-            cper.creaAssignatura( nomUnitat+"-assignatura-"+nomAsg , params);
+            cper.creaAssignatura(nomUnitat+"-"+nomAsg , params);
     }
    
     /**
@@ -47,7 +47,7 @@ public class CtrDomini {
      * @return 
      */
     public boolean esborraAssignatura( String nomAsg){         
-        String nom = nomUnitat+"-assignatura-"+nomAsg;
+        String nom = nomUnitat+"-"+nomAsg;
         return( cper.esborraAssignatura(nom) );
         
     }
@@ -55,16 +55,16 @@ public class CtrDomini {
      * 
      * @return 
      */
-    public ArrayList llistaAssignatures( ){
-        return cper.llistaAssignatures(nomUnitat+"-assignatura-");
+    public ArrayList llistaAssignatures(){
+        return cper.llistaAssigantures(nomUnitat);
     }
 
     public boolean existeixAssignatura(String nomAsg) {
-        return cper.existeixAssignatura(nomUnitat+"-assignatura-"+nomAsg);
+        return cper.existeixAssignatura(nomUnitat+"-"+nomAsg);
     }
 
     public void printAssig( String nomaAsg){
-        ArrayList<String> atributs = cper.llegirAssignatura(nomUnitat+"-assignatura-"+nomaAsg);
+        ArrayList<String> atributs = cper.llegirAssignatura(nomUnitat+"-"+nomaAsg);
         String n = atributs.get(0);
         int nt = Integer.parseInt(atributs.get(1));
         int np = Integer.parseInt(atributs.get(2));
@@ -72,7 +72,57 @@ public class CtrDomini {
         System.out.println("els valors actuals de "+n+" son \n hteoria="+nt+"\n hpractica="+np+"\n nivel="+nv);
         Assignatura a = new Assignatura( atributs.get(0), nt, np, nv );
     }
+    
     public ArrayList<String> llegirAssignatura( String nomAsg){
-        return cper.llegirAssignatura("-assignatura-"+nomAsg);
+        return cper.llegirAssignatura(nomUnitat+"-"+nomAsg);
+    }
+    
+    /**
+     * Crea una Aula
+     * @param nomAula
+     * @param capacitat
+     * @param teoria, si el aula es de teoria el valor de teoria = 1, else = 0.
+     * @param boo, if (teoria == 1) boo = Si dispone de proyecotr else Si dispone de material.
+     */
+    public void creaAula(String nomAula,  int capacitat, int teoria, int boo){ 
+            ArrayList params = new ArrayList();
+            params.add(teoria);
+            params.add(nomAula);
+            params.add(capacitat);
+            params.add(boo);
+            cper.creaAula(nomUnitat+"-"+nomAula , params);
+    }
+   
+    /**
+     * Lee un aula.
+     * @param nomAula 
+     */
+    public void printAula( String nomAula){
+        ArrayList<String> atributs = cper.llegirAula(nomAula);
+        String n = atributs.get (1);
+        int t = Integer.parseInt(atributs.get(0));
+        int c = Integer.parseInt (atributs.get(2));
+        int b = Integer.parseInt (atributs.get(3));
+        if (t == 1) System.out.println("l'aula es de teoria\n");
+        else System.out.println("l'aula es de laboratori\n");
+        System.out.println("els valors actuals de "+n+" son \n capacitat="+c+"\n");
+        if (t==1 && b==1) System.out.println("proyector = disponible\n");
+        if (t==1 && b==0) System.out.println("proyector = no disponible\n");
+        if (t==0 && b==1) System.out.println("material = disponible\n");
+        else System.out.println("material = no disponible\n");
+        //TODO: Los new ni puta idea pa k, pendiente const miqui.
+        
+    }
+    
+    public ArrayList llistaAules(){
+        return cper.llistaAules(nomUnitat);
+    }
+    /**
+     * 
+     * @param nomAula
+     * @return 
+     */
+    public ArrayList<String> llegirAula( String nomAula){
+        return cper.llegirAula(nomUnitat+"-"+nomAula);
     }
 }

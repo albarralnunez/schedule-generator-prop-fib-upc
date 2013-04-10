@@ -22,10 +22,6 @@ public class CjtAulas {
         cjtAulas = new ArrayList<Aula>();
     }
     
-    public CjtAulas(ArrayList<Aula> al){
-        cjtAulas = new ArrayList<Aula>();
-        cjtAulas = al;
-    }
    
     public ArrayList<Aula> GetCjtAulas() {
         return cjtAulas;
