@@ -20,33 +20,42 @@ public class CtrPresentacio {
     
     public static void main(String[] args) throws IOException {
         
-        s = new Scanner( System.in ); // scanner d'entrada
+       boolean tancar = false;
         
-        System.out.println("Nom de la unitat docent: ");
-        unitatDocent = s.next();
+        while(!tancar){
+            s = new Scanner( System.in ); // scanner d'entrada
         
-        cd = new CtrDomini( unitatDocent );
+            System.out.println("Nom de la unitat docent: ");
+            unitatDocent = s.next(); //Agafa un string per teclat
+        
+            cd = new CtrDomini( unitatDocent );
       
-        int opcio = 0;
+            int opcio = 0;
+            boolean opcio4 = false;
         
-        while( opcio != 5 ) {
-            System.out.println(" MENU ");
-            System.out.println(" 1 - generar horari");
-            System.out.println(" 2 - cargar horari");
-            System.out.println(" 3 - modificar dades");
-            System.out.println(" 4 - logOut");
-            System.out.println(" 5 - Tancar");
-            System.out.println("");
-            System.out.println(" Entra opcio");
-            opcio = s.nextInt();
+            while( !tancar && !opcio4) {
+                System.out.println(" MENU ");
+                System.out.println(" 1 - generar horari");
+                System.out.println(" 2 - cargar horari");
+                System.out.println(" 3 - modificar dades");
+                System.out.println(" 4 - logOut");
+                System.out.println(" 5 - Tancar");
+                System.out.println();
+                System.out.println(" Entra opcio");
+                opcio = s.nextInt();
             
-            if(opcio == 1) generar();
-            else if(opcio == 2) carregar();
-            else if(opcio == 3) modificar(); // la unica implementada
-            else if(opcio == 4) logout();
+                if(opcio == 1) generar();
+                else if(opcio == 2) carregar();
+                else if(opcio == 3) modificar(); // la unica implementada
+                else if(opcio == 4) opcio4 = true;
+                else if(opcio == 5) tancar = true;
+            }
+           if(opcio4) System.out.println("-----------------------------------------------------------");
+            System.out.println();
         }
-        System.out.println(" FIN ");      
+        System.out.println(" FIN "); 
     }
+    
     
     private static void generar() {}
 
