@@ -223,14 +223,14 @@ public class CtrPresentacio {
             String y = s.next();
             System.out.println("capacitat ");
             int c = s.nextInt();
-            if (y == "y") System.out.println("te projector? (y/n)");
+            if (y.equals("y")) System.out.println("te projector? (y/n)");
             else System.out.println("te material?(y/n)");
             String n = s.next();
             int teo, boo;
-            if (y == "y") teo = 1;
+            if (y.equals("y")) teo = 1;
             else teo = 0;
-            if (n == "y") boo = 1;
-            else boo = 0;
+            if (n.equals("n")) boo = 0;
+            else boo = 1;
             cd.creaAula(nomAula, c, teo, boo);
         }
     }
