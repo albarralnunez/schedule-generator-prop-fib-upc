@@ -32,12 +32,15 @@ public class CtrDomini {
     * ara nomes posa el nom pero tenen que posarse i validar tots
     * els parametres
     */
-    public void creaAssignatura( String nomAsg, int ht, int hp, int nivel ){ 
+    public void creaAssignatura( String nomAsg, int ht, int hp, int nivel,int capTeo,int capLab,ArrayList a ){ 
             ArrayList params = new ArrayList();
             params.add(nomAsg);
             params.add(ht);
             params.add(hp);
             params.add(nivel);
+            params.add(capTeo);
+            params.add(capLab);
+            for(int i = 0; i < a.size(); ++i) params.add(a.get(i));
             cper.creaAssignatura(nomUnitat+"-"+nomAsg , params);
     }
    
@@ -70,7 +73,7 @@ public class CtrDomini {
         int np = Integer.parseInt(atributs.get(2));
         int nv = Integer.parseInt(atributs.get(3));
         System.out.println("els valors actuals de "+n+" son \n hteoria="+nt+"\n hpractica="+np+"\n nivel="+nv);
-        Assignatura a = new Assignatura( atributs.get(0), nt, np, nv );
+        //Assignatura a = new Assignatura( atributs.get(0), nt, np, nv );
     }
     
     public ArrayList<String> llegirAssignatura( String nomAsg){
