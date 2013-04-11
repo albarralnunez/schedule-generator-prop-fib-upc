@@ -5,9 +5,7 @@
 package Presentacio;
 import Domini.CtrDomini;
 import java.util.ArrayList;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /**
@@ -22,33 +20,42 @@ public class CtrPresentacio {
     
     public static void main(String[] args) throws IOException {
         
-        s = new Scanner( System.in ); // scanner d'entrada
+       boolean tancar = false;
         
-        System.out.println("Nom de la unitat docent: ");
-        unitatDocent = s.next();
+        while(!tancar){
+            s = new Scanner( System.in ); // scanner d'entrada
         
-        cd = new CtrDomini( unitatDocent );
+            System.out.println("Nom de la unitat docent: ");
+            unitatDocent = s.next(); //Agafa un string per teclat
+        
+            cd = new CtrDomini( unitatDocent );
       
-        int opcio = 0;
+            int opcio = 0;
+            boolean opcio4 = false;
         
-        while( opcio != 5 ) {
-            System.out.println(" MENU ");
-            System.out.println(" 1 - generar horari");
-            System.out.println(" 2 - cargar horari");
-            System.out.println(" 3 - modificar dades");
-            System.out.println(" 4 - logOut");
-            System.out.println(" 5 - Tancar");
-            System.out.println("");
-            System.out.println(" Entra opcio");
-            opcio = s.nextInt();
+            while( !tancar && !opcio4) {
+                System.out.println(" MENU ");
+                System.out.println(" 1 - generar horari");
+                System.out.println(" 2 - cargar horari");
+                System.out.println(" 3 - modificar dades");
+                System.out.println(" 4 - logOut");
+                System.out.println(" 5 - Tancar");
+                System.out.println();
+                System.out.println(" Entra opcio");
+                opcio = s.nextInt();
             
-            if(opcio == 1) generar();
-            else if(opcio == 2) carregar();
-            else if(opcio == 3) modificar(); // la unica implementada
-            else if(opcio == 4) logout();
+                if(opcio == 1) generar();
+                else if(opcio == 2) carregar();
+                else if(opcio == 3) modificar(); // la unica implementada
+                else if(opcio == 4) opcio4 = true;
+                else if(opcio == 5) tancar = true;
+            }
+           if(opcio4) System.out.println("-----------------------------------------------------------");
+            System.out.println();
         }
-        System.out.println(" FIN ");      
+        System.out.println(" FIN "); 
     }
+    
     
     private static void generar() {}
 
@@ -91,8 +98,26 @@ public class CtrPresentacio {
         
     }
     
+    
     private static void opcionsAules(){
-        
+        int opcio = 0;
+        while( opcio != 4 ) {
+            //llista les assignatures
+            System.out.println(" Unitat Docent:"+unitatDocent+" llista aules:");
+            ArrayList llista = cd.llistaAules();
+            for( int i = 0; i < llista.size(); ++i)
+
+            System.out.println(llista.get(i) );
+            System.out.println("");
+            System.out.println(" OPCIONS ");
+            System.out.println("1-crear\n2-esborrar\n3-modificar\n4-tornar");
+            opcio = s.nextInt();
+
+            System.out.println("");
+            if(opcio == 1) creaAula();
+            else if(opcio == 2) esborraAula();
+            else if(opcio == 3) modificaAula();
+        }
     }
 
     private static void logout() {
@@ -102,7 +127,7 @@ public class CtrPresentacio {
     private static void opcionsRestriccions(){
         
     }
-   /*
+   /**
     * Crea una assigatura (  un arxiu .txt amb tota la info)
     * nom de l arxiu (unitat docent)-(nom assignatura)
     * 
@@ -153,6 +178,60 @@ public class CtrPresentacio {
             System.out.println("nivell");
             int nivell = s.nextInt();
             cd.creaAssignatura( nomAsg, horest, horesp, nivell);
+        }
+    }
+    //TODO: AULAS!
+    private static void creaAula(){  
+        
+        System.out.println("nom de la aula a crear ");
+        String nomAula = s.next(); // nom de la aula 
+        if( cd.existeixAula( nomAula) ) System.err.println("ja existeix");
+        else {
+            System.out.println("es de teoria? (y/n)");
+            String y = s.next();
+            System.out.println("capacitat ");
+            int c = s.nextInt();
+            if (y.equals("y")) System.out.println("te projector? (y/n)");
+            else System.out.println("te material?(y/n)");
+            String n = s.next();
+            int teo, boo;
+            if (y.equals("y")) teo = 1;
+            else teo = 0;
+            if (n.equals("n")) boo = 0;
+            else boo = 1;
+            cd.creaAula(nomAula, c, teo, boo);
+        }
+    }
+    
+    private static void esborraAula(){         
+        System.out.println("nom de l'aula a esborrar ");
+        String nomAula = s.next(); // nom de la assignatura 
+        if( ! cd.esborraAula(nomAula) ) 
+            System.err.println(nomAula+" no existeix "); 
+    }
+    
+    private static void modificaAula() {
+        
+        System.out.println("nom de la l'aula a modificar ");
+        String nomAula;
+        nomAula = s.next(); // nom de la assignatura 
+        if( ! cd.existeixAula( nomAula) ) 
+            System.err.println(nomAula+" no existeix");
+        else {
+            cd.printAula(nomAula);
+            System.out.println("es de teoria? (y/n)");
+            String y = s.next();
+            System.out.println("capacitat ");
+            int c = s.nextInt();
+            if (y == "y") System.out.println("te projector? (y/n)");
+            else System.out.println("te material?(y/n)");
+            String n = s.next();
+            int teo, boo;
+            if (y == "y") teo = 1;
+            else teo = 0;
+            if (n == "y") boo = 1;
+            else boo = 0;
+            cd.creaAula(nomAula, c, teo, boo);
         }
     }
 }
