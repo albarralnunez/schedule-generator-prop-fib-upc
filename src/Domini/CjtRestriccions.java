@@ -21,7 +21,8 @@ public class CjtRestriccions {
      * Crea una instancia de la classe CjtRestriccions
      */
     CjtRestriccions(){
-        cjtRes = new ArrayList<>();
+        cjtRes = new ArrayList
+                ();
     }
     
     //Metodes
