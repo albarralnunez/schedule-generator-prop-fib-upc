@@ -2,13 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Domini;
+package domini;
 
 import java.util.ArrayList;
 
 /**
  *
- * @author alex
+ * @author alejandro.martinez.romero
  */
 public class CjtRestriccions {
     
@@ -16,8 +16,12 @@ public class CjtRestriccions {
     ArrayList<Restriccio> cjtRes;
     
     //Constructora
+    
+    /**
+     * Crea una instancia de la classe CjtRestriccions
+     */
     CjtRestriccions(){
-        cjtRes = new ArrayList<Restriccio>();
+        cjtRes = new ArrayList<>();
     }
     
     //Metodes
@@ -35,17 +39,27 @@ public class CjtRestriccions {
     * @param R Es la restriccio que volem eliminar
     */
     public void BorrarRes(Restriccio R){
-        cjtRes.remove(R);
+        try{
+            cjtRes.remove(R);
+        }
+        catch(NullPointerException ex){
+            ex.getMessage();
+        }
     }
     
     /**
     * Es comprova si totes les restriccions especificades per a l'habitació es compleixen.
     */
     public boolean ComprovarRes(){
-        for(Restriccio R: cjtRes){
-            R.CompleixRes();
-            if(!R.Compleix()) return false;
+        try{
+            for(Restriccio R: cjtRes){
+                if(!R.CompleixRes()) return false;
+            }
+            return true;
         }
-        return true;
+        catch(NullPointerException ex){
+            ex.getMessage();
+        }
+        return false;
     }
 }

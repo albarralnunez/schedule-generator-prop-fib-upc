@@ -2,18 +2,16 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Domini
-;
+package domini;
 
 /**
  *
- * @author alex
+ * @author alejandro.martinez.romero
  */
-public class Restriccio {
+public abstract class Restriccio {
     
         //Atributs
         int id;
-        boolean compleix;
         
         //Constructora
 	
@@ -42,15 +40,7 @@ public class Restriccio {
         }
         
         /**
-        * Retorna el boolea que indica si es compleix o no la restriccio.
-        */
-        public boolean Compleix(){
-            return compleix;
-        }
-        
-        /**
         * Funcio que cada restriccio especifica implementa per a saber si es compleix.
         */
-        public void CompleixRes(){
-        }
+        public abstract boolean CompleixRes();
 }

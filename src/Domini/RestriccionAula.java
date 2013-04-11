@@ -19,5 +19,7 @@ public class RestriccionAula extends Restriccio{
     public boolean TieneMaterial(AulaLab aula) {
        return aula.GetMaterial();
     }
+    
+    public  boolean CompleixRes();
 
 }
