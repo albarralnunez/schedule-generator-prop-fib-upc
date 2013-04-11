@@ -5,7 +5,6 @@
 package Presentacio;
 import Domini.CtrDomini;
 import java.util.ArrayList;
-import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -18,7 +17,7 @@ public class CtrPresentacio {
     static CtrDomini cd;
     static Scanner s;
     
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         
        boolean tancar = false;
         
@@ -149,7 +148,19 @@ public class CtrPresentacio {
             horesp = s.nextInt();
             System.out.println("nivell");
             int nivell = s.nextInt();
-            cd.creaAssignatura( nomAsg, horest, horesp, nivell);
+            System.out.println("Capacitat grups Teoria");
+            int capTeo = s.nextInt();
+            System.out.println("Capacitat grups Laboratori");
+            int capLab = s.nextInt();
+            System.out.println("Numero de grups de teoria");
+            int ngt = s.nextInt();
+            System.out.println("Numero de grups de laboratori");
+            int ngl = s.nextInt();
+            ArrayList<Integer> a = new ArrayList();
+            for(int i = 0; i < ngt; ++i){
+                for(int j = 0; j < ngl+1; ++j) a.add((i+1)*10+j);
+            }
+            cd.creaAssignatura( nomAsg, horest, horesp, nivell, capTeo,capLab, a);
         }
     }
     
@@ -177,7 +188,20 @@ public class CtrPresentacio {
             horesp = s.nextInt();
             System.out.println("nivell");
             int nivell = s.nextInt();
-            cd.creaAssignatura( nomAsg, horest, horesp, nivell);
+            System.out.println("Capacitat grups Teoria");
+            int capTeo = s.nextInt();
+            System.out.println("Capacitat grups Laboratori");
+            int capLab = s.nextInt();
+            System.out.println("Numero de grups de teoria");
+            int ngt = s.nextInt();
+            System.out.println("Numero de grups de laboratori");
+            int ngl = s.nextInt();
+            ArrayList<Integer> a = new ArrayList();
+            for(int i = 0; i < ngt; ++i){
+                for(int j = 0; j < ngl+1; ++j) a.add((i+1)*10+j);
+            }
+            cd.creaAssignatura( nomAsg, horest, horesp, nivell, capTeo,capLab, a);
+            
         }
     }
     //TODO: AULAS!
