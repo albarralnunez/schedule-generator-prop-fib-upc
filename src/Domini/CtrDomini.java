@@ -112,9 +112,6 @@ public class CtrDomini {
         if (t==0 && b==0) System.out.println(" material = no disponible\n");
         boolean bo;
         if (b == 1) bo = true; else bo = false;
-        Aula a = null;
-        if (t == 1)  a = new AulaLab(n,c,bo);
-        else a = new AulaTeo(n,c,bo);
     }
     
     /**
