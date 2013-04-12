@@ -13,16 +13,16 @@ public class AulaLab extends Aula{
     private boolean material;
     
     /** 
-    * Create a AulaLab.
+    * Crea un Aula de laboratori.
     */
-    public AulaLab (String nombre, int capacidad, boolean material) {
-        super(nombre, capacidad);
-        this.material = material;
+    public AulaLab (String nom, int cap, boolean mat) {
+        super(nom, cap);
+        this.material = mat;
     }
     
     /**
      *  
-     * @return Returns if the AulaLab has material
+     * @return Retorna si l'aula te material.
      */
     public boolean GetMaterial(){
         return material;

@@ -9,64 +9,64 @@ package Domini;
  * @author Daniel Albarral
  */
 public class Aula {
-    private String nombre;
-    private int capacidad;
+    private String nom;
+    private int capacitat;
 
     
     /** 
-    * Create a Aula.
+    * Crea un Aula.
     */
     public Aula() {
-        nombre = null;
-        capacidad = -1;
+        nom = null;
+        capacitat = -1;
     }//end constructor Studentwqdsae
     
     /** 
-    * Create a Aula.
+    * Crea un Aula inicialitzada.
     */
-    public Aula(String nombre, int capacidad) {
-        this.nombre = nombre;
-        this.capacidad = capacidad;
+    public Aula(String nom, int cap) {
+        this.nom = nom;
+        this.capacitat = cap;
     }
  
      /**
-     * @return Returns the name of Aula.
+     * @return Retorna el nom de l'aula
      */
-    public String GetNombre() {
-        return nombre;
+    public String GetNom() {
+        return nom;
     }
     
      /**
       * 
-      * @return Returns the capacity of Aula.
+      * @return Retorna la capacitat d'un Aula
       */
-    public int GetCapacidad(){
-        return capacidad;
+    public int GetCapacitat(){
+        return capacitat;
     }
     
      /**
       * 
-      * @param nombre 
+      * @param nom 
       */
-    public void SetNombre(String nombre) {
-        this.nombre = nombre;
+    public void SetNom(String nom) {
+        this.nom = nom;
     }
     
     /**
      * 
-     * @param capacidad 
+     * @param capacitat 
      */
-    public void SetCapacidad (int capacidad) {
-        this.capacidad = capacidad;
+    public void SetCapacitat (int capacitat) {
+        this.capacitat = capacitat;
     }
     
     
     /**
      * 
      * @param x
-     * @return Return if Aula has a greater capacity than x.
+     * @return Retorna si l'aula te una capacitat major d'x.
      */
-    public boolean CapacidadMayorDe(int x) {
-        return (capacidad > x);
+    public boolean CapacitatMajorDe(int x) {
+        return (capacitat > x);
     }            
 }

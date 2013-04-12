@@ -81,11 +81,11 @@ public class CtrDomini {
     }
     
     /**
-     * Crea una Aula
+     * Crea un Aula
      * @param nomAula
      * @param capacitat
-     * @param teoria, si el aula es de teoria el valor de teoria = 1, else = 0.
-     * @param boo, if (teoria == 1) boo = Si dispone de proyecotr else Si dispone de material.
+     * @param teoria, si l'aula es de teoria el valor de teoria = 1, else = 0.
+     * @param boo, if (teoria == 1) boo = Si te de projector else Si te de material.
      */
     public void creaAula(String nomAula,  int capacitat, int teoria, int boo){ 
             ArrayList params = new ArrayList();
@@ -95,9 +95,9 @@ public class CtrDomini {
             params.add(boo);
             cper.creaAula(nomUnitat+"-"+nomAula , params);
     }
-   
     /**
-     * Lee un aula.
+     * TODO:TEMPORAL!
+     * Escriu un Aula per terminal  
      * @param nomAula 
      */
     public void printAula( String nomAula){
@@ -109,15 +109,15 @@ public class CtrDomini {
         if (t == 1) System.out.println("\nl'aula es de teoria");
         else System.out.println("\nl'aula es de laboratori");
         System.out.println("els valors actuals de "+n+" son \n capacitat="+c);
-        if (t==1 && b==1) System.out.println(" proyector = disponible\n");
-        if (t==1 && b==0) System.out.println(" proyector = no disponible\n");
-        if (t==0 && b==1) System.out.println(" material = disponible\n");
-        if (t==0 && b==0) System.out.println(" material = no disponible\n");
+        if (t==1 && b==1) System.out.println(" te projector\n");
+        if (t==1 && b==0) System.out.println(" no te projector\n");
+        if (t==0 && b==1) System.out.println(" te material\n");
+        if (t==0 && b==0) System.out.println(" no te material\n");
     }
     
     /**
      * 
-     * @return 
+     * @return Retorna una llista de totes les aules dispobibles.
      */
     public ArrayList llistaAules(){
         return cper.llistaAules(nomUnitat);
@@ -126,7 +126,7 @@ public class CtrDomini {
     /**
      * 
      * @param nomAula
-     * @return 
+     * @return Llegeix l'aula amb nom nomAula.
      */
     public ArrayList<String> llegirAula( String nomAula){
         return cper.llegirAula(nomUnitat+"-"+nomAula);
@@ -143,8 +143,8 @@ public class CtrDomini {
 
     /**
      * 
-     * @param nomAsg
-     * @return 
+     * @param nomAula
+     * @return  Retorna si es pot esborrar l'aula amb nom nomAula.
      */
     public boolean esborraAula( String nomAula){         
         return(cper.esborraAula(nomUnitat+"-"+nomAula));

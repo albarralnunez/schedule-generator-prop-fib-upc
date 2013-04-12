@@ -204,7 +204,7 @@ public class CtrPresentacio {
             
         }
     }
-    //TODO: AULAS!
+
     private static void creaAula(){  
         
         System.out.println("nom de la aula a crear ");
@@ -229,7 +229,7 @@ public class CtrPresentacio {
     
     private static void esborraAula(){         
         System.out.println("nom de l'aula a esborrar ");
-        String nomAula = s.next(); // nom de la assignatura 
+        String nomAula = s.next(); 
         if( ! cd.esborraAula(nomAula) ) 
             System.err.println(nomAula+" no existeix "); 
     }
@@ -238,7 +238,7 @@ public class CtrPresentacio {
         
         System.out.println("nom de la l'aula a modificar ");
         String nomAula;
-        nomAula = s.next(); // nom de la assignatura 
+        nomAula = s.next();
         if( ! cd.existeixAula( nomAula) ) 
             System.err.println(nomAula+" no existeix");
         else {

@@ -10,29 +10,29 @@ package Domini;
  */
 public class AulaTeo extends Aula{
     
-    private boolean proyector;
+    private boolean projector;
     
     /** 
-    * Create a AulaLab.
+    * Crea un aula de laboratori.
     */
-    public AulaTeo (String nombre, int capacidad, boolean proyector) {
-       super(nombre, capacidad);
-       this.proyector = proyector;
+    public AulaTeo (String nom, int cap, boolean projector) {
+       super(nom, cap);
+       this.projector = projector;
     }
     
     /**
      *  
-     * @return Returns if the AulaLab has proyector.
+     * @return Retorna si l'aula te projector.
      */
-    public boolean GetProyector(){
-        return proyector;
+    public boolean GetProjector(){
+        return projector;
     }
     
     /**
      *  
-     * @param proyector.
+     * @param projector.
      */    
-    public void SetProyector(boolean proyector){
-        this.proyector = proyector;
+    public void SetProyector(boolean projector){
+        this.projector = projector;
     }
 }
