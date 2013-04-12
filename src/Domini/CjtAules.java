@@ -10,21 +10,24 @@ import java.util.ArrayList;
  *
  * @author Daniel
  */
-public class CjtAulas {
+public class CjtAules {
     
-    private ArrayList<Aula> cjtAulas;
+    private ArrayList<Aula> cjtAules;
     
    
     /**
-     * Creator of CjtAulas.
+     * Crea un conjunt d'Aules.
      */
-    public CjtAulas(){
-        cjtAulas = new ArrayList<Aula>();
+    public CjtAules(){
+        cjtAules = new ArrayList<Aula>();
     }
     
    
-    public ArrayList<Aula> GetCjtAulas() {
-        return cjtAulas;
+    /**
+     * Retorna un conjunt d'Aules
+     */
+    public ArrayList<Aula> GetCjtAules() {
+        return cjtAules;
     }
     
     
@@ -32,31 +35,28 @@ public class CjtAulas {
      * 
      * @param aula 
      */
-    public void AñadirAula(Aula aula){
-        cjtAulas.add(aula);
+    public void AfegirAula(Aula aula){
+        cjtAules.add(aula);
     }
     
     /**
      * 
-     * @param aula 
+     * @param aula
+     * @return Retorna si es posible esborrar l'aula amb nom aula.
      */
-    public void BorrarAula(Aula aula) {
-        if (!cjtAulas.remove(aula)) {
-            throw new Error ("No exsiste el aula");
-        }
+    public boolean EsborrarAula(Aula aula) {
+        return (cjtAules.remove(aula));
     }
-    
-    
     
     /**
      * 
      * @param x
-     * @return Return list of Aulas whit capacity greater than x.
+     * @return Retorna una llista amb les aules amb una capacitat major de x.
      */
-    public ArrayList CjtCapacidadMayorDe (int x){
+    public ArrayList CjtCapacitatMajorDe (int x){
         ArrayList listaRefactor = new ArrayList();
-        for (Aula A: cjtAulas) {
-            if (A.CapacidadMayorDe(x)) listaRefactor.add(A);       
+        for (Aula A: cjtAules) {
+            if (A.CapacitatMajorDe(x)) listaRefactor.add(A);       
         }
         return listaRefactor;
     }
