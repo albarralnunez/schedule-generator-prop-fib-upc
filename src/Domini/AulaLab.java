@@ -32,7 +32,7 @@ public class AulaLab extends Aula{
      *  
      * @param mar A material
      */    
-    public void SetMaterial(boolean mat){
+    public void SetMaterial(boolean material){
         this.material = material;
     }
 }

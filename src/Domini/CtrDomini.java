@@ -113,8 +113,6 @@ public class CtrDomini {
         if (t==1 && b==0) System.out.println(" proyector = no disponible\n");
         if (t==0 && b==1) System.out.println(" material = disponible\n");
         if (t==0 && b==0) System.out.println(" material = no disponible\n");
-        boolean bo;
-        if (b == 1) bo = true; else bo = false;
     }
     
     /**
