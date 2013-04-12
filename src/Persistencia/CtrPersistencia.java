@@ -12,10 +12,15 @@ import java.util.ArrayList;
  */
 public class CtrPersistencia {
     
+    CtrDisc cdisc;
     CtrArxius ca;
+    CtrObjectes co;
     
     public CtrPersistencia(){
-        ca = new CtrArxius();  
+        
+        cdisc = new CtrDisc();
+        ca = new CtrArxius(); 
+        co = new CtrObjectes(); 
     }
     
     public int nuemroArxius(){
@@ -44,7 +49,7 @@ public class CtrPersistencia {
     }
 
     public ArrayList<String> llegirAssignatura( String nomAsg){
-        return ca.llegir("assig-"+nomAsg);
+        return ca.llegirArxiu("assig-"+nomAsg);
     }
     
     /**
@@ -80,7 +85,7 @@ public class CtrPersistencia {
      * @return Retrona Una lista de todas las aules.
      */
     public ArrayList<String> llegirAula(String nomAula) {
-        return ca.llegir("aula-"+nomAula);
+        return ca.llegirArxiu("aula-"+nomAula);
     }
   
      /**
@@ -91,4 +96,6 @@ public class CtrPersistencia {
     public ArrayList llistaAules(String nomUnitat) {
         return ca.llistaDirectori("aula-"+nomUnitat); // te totes les assignatures de la unitat docent 
     }
+
+    
 }
