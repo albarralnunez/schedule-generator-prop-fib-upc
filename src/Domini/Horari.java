@@ -10,10 +10,10 @@ import java.util.ArrayList;
  *
  * @author Daniel
  */
-public class Horario {
+public class Horari {
     private  ArrayList Dias;
     
-    public Horario(int numDias){
+    public Horari(int numDias){
         Dias = new ArrayList(numDias);
         for(int i = 0; i < numDias; i++) {
             Dias.add(i, new ArrayList(10));
