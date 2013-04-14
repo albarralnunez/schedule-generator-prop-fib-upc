@@ -18,7 +18,7 @@ public class Assignatura {
     private int nivel; 
     private int capacitatTeo;
     private int capacitatLab;
-    private ArrayList<Integer> grupos;
+    private ArrayList<Grupo> grupos;
 
     
     public Assignatura() {
@@ -26,17 +26,17 @@ public class Assignatura {
         horesT = -1;
         horesP = -1;
         nivel = -1;
-        grupos = new ArrayList<Integer>();
+        grupos = new ArrayList<Grupo>();
     }
 
-    public Assignatura( String nm, int ht, int hp, int nv,int capTeo, int capLab,ArrayList<Integer> a) {
+    public Assignatura( String nm, int ht, int hp, int nv,int capTeo, int capLab,ArrayList<Grupo> grupos) {
         nom = nm;
         horesT = ht;
         horesP = hp;
         nivel = nv;
         capacitatTeo= capTeo;
         capacitatLab = capLab;
-        grupos = a;
+        this.grupos = grupos;
         
     }
     
@@ -89,16 +89,17 @@ public class Assignatura {
     public void setCapacitatLab(int capl) {
         capacitatLab = capl;
     }
-    public ArrayList<Integer> getGrupos() {
+    public ArrayList<Grupo> getGrupos() {
         return grupos;
     }
 
-    public void setGrupos(ArrayList<Integer> a) {
-        grupos.addAll(a);
-        Collections.sort(grupos);
+    public void setGrupos(ArrayList<Grupo> grupos) {
+        this.grupos.addAll(grupos);
+       // Collections.sort(this.grupos);
     }
-    public void setGrupo(int grupo) {
+    
+    public void setGrupo(Grupo grupo) {
         grupos.add(grupo);
-        Collections.sort(grupos);
+        //Collections.sort(this.grupos);
     }    
 }
