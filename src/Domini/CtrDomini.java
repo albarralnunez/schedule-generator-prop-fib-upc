@@ -93,7 +93,8 @@ public class CtrDomini {
             params.add(nomAula);
             params.add(capacitat);
             params.add(boo);
-            cper.creaAula(nomUnitat+"-"+nomAula , params);
+            if (teoria == 1) cper.creaAulaTeo(nomUnitat+"-"+nomAula , params);
+            else cper.creaAulaLab(nomUnitat+"-"+nomAula , params);
     }
     /**
      * TODO:TEMPORAL!
@@ -121,6 +122,22 @@ public class CtrDomini {
      */
     public ArrayList llistaAules(){
         return cper.llistaAules(nomUnitat);
+    }
+    
+     /**
+     * 
+     * @return Retorna una llista de totes les aules dispobibles.
+     */
+    public ArrayList llistaAulesTeo(){
+        return cper.llistaAulesTeo(nomUnitat);
+    }
+    
+    /**
+     * 
+     * @return Retorna una llista de totes les aules dispobibles.
+     */
+    public ArrayList llistaAulesLab(){
+        return cper.llistaAulesLab(nomUnitat);
     }
     
     /**
