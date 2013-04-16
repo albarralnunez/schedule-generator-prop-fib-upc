@@ -16,15 +16,23 @@ import java.util.logging.Logger;
 /**
  *
  * @author miquel.masriera
+ *
+ * TOTES ELS CLASSES QUE ES RELACIONIN AMB AQUESTA HAN DE SER SERIALITZABLES
  */
 public class CtrObjectes<Classe> extends CtrDisc implements Serializable {
 
+    /**
+     * creadora per defecte
+     */
     public CtrObjectes() {
     }
 
-    /*
-     * Clase1 c = new Clase1(34);
-     co.creaObjecte( nom , c);
+    /**
+     *
+     * @param nom nom de l'arxiu a crear, no sobreescriu
+     * @param elem instancia de la classe a guardar
+     * @return retorna cert si pot guardar el binar ide la classe i fals tant si
+     * hi ha problemes com si ja existeixen objectes amb aquell nom
      */
     public boolean creaObjecte(String nom, Classe elem) {
         ObjectOutputStream sortida = null;
@@ -44,6 +52,12 @@ public class CtrObjectes<Classe> extends CtrDisc implements Serializable {
         return false;
     }
 
+    /**
+     *
+     * @param nom nom de la classe a llegir
+     * @return retorna una instància de la classe que té per nom el que reb per
+     * paramete LA CLASSE QUE LA CRIDI TINDRÀ QUE FER EL CAST
+     */
     public Classe llegirObjecte(String nom) {
         Classe aux = null;
         try {
