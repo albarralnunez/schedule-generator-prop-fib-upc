@@ -56,7 +56,18 @@ public class CtrPresentacio {
     }
     
     
-    private static void generar() {}
+    private static void generar() {
+        System.out.println("Diulluns-Divendres");
+        System.out.println("de 8am a 9pm");
+        int opcio = 0;
+        while(opcio != 2){
+            System.out.println(" OPCIONS ");
+            System.out.println("1-Restringir\n2-tornar");
+            opcio = s.nextInt();
+            if( opcio == 1) restringirHorari();
+        } 
+    }
+
 
     private static  void carregar() {}
     
@@ -258,4 +269,17 @@ public class CtrPresentacio {
             cd.creaAula(nomAula, c, teo, boo);
         }
     }
+    
+    private static void restringirHorari() {
+        int opcio = 0;
+        while( opcio != 6 ) {
+            System.out.println(" dies a eliminar de l horari");
+            System.out.println("1-dilluns\n2-dimarts\n3-dimecres\n4-dijous\n5-divendres");
+            System.out.println("6 següent");
+            opcio = s.nextInt();
+            //if( cd.eliminarDia( opcio ) ) System.out.println("dia eliminat");
+            //else System.out.println("el dia n s'ha pogut eliminar");
+        }
+    }
+
 }
