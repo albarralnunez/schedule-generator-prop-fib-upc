@@ -119,8 +119,8 @@ public class CtrPersistencia {
      * @return Retorna una lliste de totes les aules de la unitat decent
      * nomUnitat
      */
-    public ArrayList llistaAules(String nomUnitat) {
-        ArrayList a = new ArrayList();
+    public ArrayList  llistaAules(String nomUnitat) {
+        ArrayList<String> a = new ArrayList();
         a = ca.llistaDirectori("aula-teo-" + nomUnitat);
         a.addAll(ca.llistaDirectori("aula-lab-" + nomUnitat));
         return a; // te totes les assignatures de la unitat docent 
@@ -142,7 +142,7 @@ public class CtrPersistencia {
      * @return Retorna una lista de toadas las aulas de la unidad docente
      * nomUnitat.
      */
-    public ArrayList llistaAulesLab(String nomUnitat) {
+    public ArrayList  llistaAulesLab(String nomUnitat) {
         return ca.llistaDirectori("aula-lab-" + nomUnitat); // te totes les assignatures de la unitat docent 
     }
 }

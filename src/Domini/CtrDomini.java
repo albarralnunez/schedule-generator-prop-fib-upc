@@ -167,11 +167,24 @@ public class CtrDomini {
         return(cper.esborraAula(nomUnitat+"-"+nomAula));
     }
 
+    public CjtAules inicialitzarCjtAules() {
+        CjtAules aulesTeo = new CjtAules();
+        ArrayList<String> llistAules = new ArrayList();
+        llistAules = llistaAulesTeo();
+        for(String nom : llistAules){
+           ArrayList<String> atributs = cper.llegirAula(nomUnitat+"-"+nom);
+           boolean b;
+           if (Integer.parseInt (atributs.get(3)) == 1) b = true;
+           else b = false;
+           AulaTeo a = new AulaTeo(nom,Integer.parseInt (atributs.get(2)),b);
+           aulesTeo.afegirAula(a);
+        }
+        return aulesTeo;
+    }
+    
     public Horari generarHorari() {
         Generador g = new Generador();
-        Horari h = new Horari();
-        CjtAules aulesTeo = new CjtAules();
-        //aulesTeo = 
+        CjtAules aulesTeo = inicialitzarCjtAules();
         CjtAules aulesLab = new CjtAules();
         //aulesLab = llistaAulesLab();
         CjtAssignatures assignatures =  new CjtAssignatures();

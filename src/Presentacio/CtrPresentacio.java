@@ -116,7 +116,6 @@ public class CtrPresentacio {
             System.out.println(" Unitat Docent:"+unitatDocent+" llista aules:");
             ArrayList llista = cd.llistaAules();
             for( int i = 0; i < llista.size(); ++i)
-
             System.out.println(llista.get(i) );
             System.out.println("");
             System.out.println(" OPCIONS ");

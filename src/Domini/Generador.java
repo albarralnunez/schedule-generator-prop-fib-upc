@@ -13,6 +13,8 @@ class Generador {
     Horari generar(CjtAules aulesT, CjtAules aulesL, CjtAssignatures ass) {
         Horari horari = new Horari();
  
+        
+        
         return horari;
     }
 }

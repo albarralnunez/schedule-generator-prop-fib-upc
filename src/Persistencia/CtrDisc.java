@@ -58,11 +58,11 @@ public class CtrDisc {
      * @return retorna un ArrayList amb tots els fitxers d aquell directori que
      * contenen la paraula que li passes per parametre
      */
-    public ArrayList llistaDirectori(String paraula) {
+    public ArrayList<String> llistaDirectori(String paraula) {
         File f = new File("./Data/");
         int numArxius = f.list().length;
         String llistaArxius[] = f.list(); // llista amb els noms de tots els arxius
-        ArrayList llista = new ArrayList();
+        ArrayList<String> llista = new ArrayList();
 
         for (int i = 0; i < numArxius; ++i) {
             if (llistaArxius[i].contains(paraula)) {
