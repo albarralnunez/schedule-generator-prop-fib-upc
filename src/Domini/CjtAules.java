@@ -26,7 +26,7 @@ public class CjtAules {
     /**
      * Retorna un conjunt d'Aules
      */
-    public ArrayList<Aula> GetCjtAules() {
+    public ArrayList<Aula> getCjtAules() {
         return cjtAules;
     }
     
@@ -35,7 +35,7 @@ public class CjtAules {
      * 
      * @param aula 
      */
-    public void AfegirAula(Aula aula){
+    public void afegirAula(Aula aula){
         cjtAules.add(aula);
     }
     
@@ -44,7 +44,7 @@ public class CjtAules {
      * @param aula
      * @return Retorna si es posible esborrar l'aula amb nom aula.
      */
-    public boolean EsborrarAula(Aula aula) {
+    public boolean esborrarAula(Aula aula) {
         return (cjtAules.remove(aula));
     }
     
@@ -53,10 +53,10 @@ public class CjtAules {
      * @param x
      * @return Retorna una llista amb les aules amb una capacitat major de x.
      */
-    public ArrayList CjtCapacitatMajorDe (int x){
+    public ArrayList cjtCapacitatMajorDe (int x){
         ArrayList listaRefactor = new ArrayList();
         for (Aula A: cjtAules) {
-            if (A.CapacitatMajorDe(x)) listaRefactor.add(A);       
+            if (A.capacitatMajorDe(x)) listaRefactor.add(A);       
         }
         return listaRefactor;
     }

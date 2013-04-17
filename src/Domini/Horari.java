@@ -10,17 +10,22 @@ import java.util.ArrayList;
  *
  * @author Daniel
  */
+
+//TODO: PROGRAMAR TODO
 public class Horari {
-    private  ArrayList Dias;
-    
-    public Horari(int numDias){
-        Dias = new ArrayList(numDias);
-        for(int i = 0; i < numDias; i++) {
-            Dias.add(i, new ArrayList(10));
-            for (int j = 0; j < 10; j++) {
-                
-            }
-        }
+
+     private class ElementR {
+        String aula;
+        String assignatura;
+        int grupo;
+        String dia;
+        int hora;
     }
+     
+    private ArrayList<ElementR> horari;
     
+    public Horari(){
+        this.horari = new ArrayList();
+    }
+
 }

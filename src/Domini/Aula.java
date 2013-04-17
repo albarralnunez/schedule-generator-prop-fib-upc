@@ -32,7 +32,7 @@ public class Aula {
      /**
      * @return Retorna el nom de l'aula
      */
-    public String GetNom() {
+    public String getNom() {
         return nom;
     }
     
@@ -40,7 +40,7 @@ public class Aula {
       * 
       * @return Retorna la capacitat d'un Aula
       */
-    public int GetCapacitat(){
+    public int getCapacitat(){
         return capacitat;
     }
     
@@ -48,7 +48,7 @@ public class Aula {
       * 
       * @param nom 
       */
-    public void SetNom(String nom) {
+    public void setNom(String nom) {
         this.nom = nom;
     }
     
@@ -56,7 +56,7 @@ public class Aula {
      * 
      * @param capacitat 
      */
-    public void SetCapacitat (int capacitat) {
+    public void setCapacitat (int capacitat) {
         this.capacitat = capacitat;
     }
     
@@ -66,7 +66,7 @@ public class Aula {
      * @param x
      * @return Retorna si l'aula te una capacitat major d'x.
      */
-    public boolean CapacitatMajorDe(int x) {
+    public boolean capacitatMajorDe(int x) {
         return (capacitat > x);
     }            
 }

@@ -24,7 +24,7 @@ public class AulaLab extends Aula{
      *  
      * @return Retorna si l'aula te material.
      */
-    public boolean GetMaterial(){
+    public boolean getMaterial(){
         return material;
     }
     
@@ -32,7 +32,7 @@ public class AulaLab extends Aula{
      *  
      * @param mar A material
      */    
-    public void SetMaterial(boolean material){
+    public void setMaterial(boolean material){
         this.material = material;
     }
 }

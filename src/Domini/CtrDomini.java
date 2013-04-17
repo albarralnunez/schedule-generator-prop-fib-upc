@@ -167,4 +167,15 @@ public class CtrDomini {
         return(cper.esborraAula(nomUnitat+"-"+nomAula));
     }
 
+    public Horari generarHorari() {
+        Generador g = new Generador();
+        Horari h = new Horari();
+        CjtAules aulesTeo = new CjtAules();
+        //aulesTeo = 
+        CjtAules aulesLab = new CjtAules();
+        //aulesLab = llistaAulesLab();
+        CjtAssignatures assignatures =  new CjtAssignatures();
+        //assignatures = llistaAssignatures();
+        return g.generar(aulesTeo,aulesLab,assignatures);
+    }
 }
