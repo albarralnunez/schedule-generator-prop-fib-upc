@@ -195,16 +195,13 @@ public class CtrDomini {
         return aulesLab;
     }
     
-    public CjtAssignatures inicialitzarCjtAssignatures() {
+    public CjtAssignatures inicialitzarCjtAssignatures() { //TODO Acabar esto cuando assignatura este escrito en disco
         CjtAssignatures assignatures = new CjtAssignatures();
         ArrayList<String> llistAssignatures = llistaAssignatures();
         for(String nom : llistAssignatures){
-           ArrayList<String> atributs = cper.llegirAula(nomUnitat+"-"+nom);
-           boolean b;
-           if (Integer.parseInt (atributs.get(3)) == 1) b = true;
-           else b = false;
-           Assignatura a = new Assignatura(nom, int ht, int hp, int nv,int capTeo, int capLab,ArrayList<Grupo> grupos)
-           assignatures.afegirAssignatura(a);
+            ArrayList<String> atributs = cper.llegirAssignatura(nomUnitat+"-"+nom);
+            //Assignatura a = new Assignatura(nom, int ht, int hp, int nv,int capTeo, int capLab,ArrayList<Grupo> grupos)
+            //assignatures.afegirAssignatura(a);
         }
         return assignatures;
     }
