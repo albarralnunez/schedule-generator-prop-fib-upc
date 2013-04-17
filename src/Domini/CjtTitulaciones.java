@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @author Joan Pol
  */
 public class CjtTitulaciones {
-    
+    /*
     private ArrayList<Titulacion> cjtTitulaciones;
     
     public CjtTitulaciones(){
@@ -46,5 +46,5 @@ public class CjtTitulaciones {
         }
         else throw new Error ("No exsiste la titulacion que se desea obtener");
         
-    }   
+    }   */
 }

@@ -66,7 +66,7 @@ public class CtrDomini {
         return cper.existeixAssignatura(nomUnitat+"-"+nomAsg);
     }
 
-    public void printAssig( String nomaAsg){
+    public void printAssig( String nomaAsg){ //TODO: Toda la informaicon!
         ArrayList<String> atributs = cper.llegirAssignatura(nomUnitat+"-"+nomaAsg);
         String n = atributs.get(0);
         int nt = Integer.parseInt(atributs.get(1));
@@ -167,10 +167,9 @@ public class CtrDomini {
         return(cper.esborraAula(nomUnitat+"-"+nomAula));
     }
 
-    public CjtAules inicialitzarCjtAules() {
+    public CjtAules inicialitzarCjtAulesTeo() {
         CjtAules aulesTeo = new CjtAules();
-        ArrayList<String> llistAules = new ArrayList();
-        llistAules = llistaAulesTeo();
+        ArrayList<String> llistAules = llistaAulesTeo(); 
         for(String nom : llistAules){
            ArrayList<String> atributs = cper.llegirAula(nomUnitat+"-"+nom);
            boolean b;
@@ -182,13 +181,39 @@ public class CtrDomini {
         return aulesTeo;
     }
     
+    public CjtAules inicialitzarCjtAulesLab() {
+        CjtAules aulesLab = new CjtAules();
+        ArrayList<String> llistAules = llistaAulesLab();
+        for(String nom : llistAules){
+           ArrayList<String> atributs = cper.llegirAula(nomUnitat+"-"+nom);
+           boolean b;
+           if (Integer.parseInt (atributs.get(3)) == 1) b = true;
+           else b = false;
+           AulaLab a = new AulaLab(nom,Integer.parseInt (atributs.get(2)),b);
+           aulesLab.afegirAula(a);
+        }
+        return aulesLab;
+    }
+    
+    public CjtAssignatures inicialitzarCjtAssignatures() {
+        CjtAssignatures assignatures = new CjtAssignatures();
+        ArrayList<String> llistAssignatures = llistaAssignatures();
+        for(String nom : llistAssignatures){
+           ArrayList<String> atributs = cper.llegirAula(nomUnitat+"-"+nom);
+           boolean b;
+           if (Integer.parseInt (atributs.get(3)) == 1) b = true;
+           else b = false;
+           Assignatura a = new Assignatura(nom, int ht, int hp, int nv,int capTeo, int capLab,ArrayList<Grupo> grupos)
+           assignatures.afegirAssignatura(a);
+        }
+        return assignatures;
+    }
+    
     public Horari generarHorari() {
         Generador g = new Generador();
-        CjtAules aulesTeo = inicialitzarCjtAules();
-        CjtAules aulesLab = new CjtAules();
-        //aulesLab = llistaAulesLab();
-        CjtAssignatures assignatures =  new CjtAssignatures();
-        //assignatures = llistaAssignatures();
+        CjtAules aulesTeo = inicialitzarCjtAulesTeo();
+        CjtAules aulesLab = inicialitzarCjtAulesLab();
+        CjtAssignatures assignatures = inicialitzarCjtAssignatures();
         return g.generar(aulesTeo,aulesLab,assignatures);
     }
 }
