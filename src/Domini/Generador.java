@@ -4,17 +4,72 @@
  */
 package Domini;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Daniel Albarral
  */
 class Generador {
+    
+    
+    private ArrayList<Clausula> inicialitzarClausules(CjtAules aulesT, CjtAules 
+            aulesL, CjtAssignatures ass, RestriccioTemps dis) {
+        ArrayList<Clausula> clausules = new ArrayList();
+        Clausula c = new Clausula();
+        for(Assignatura a : ass.getCjtAssignatures()){
+            c.setAssignatura(a.getNom());
+            for (Grup g : a.getGrups()) {
+                c.setGrup(g.getId());
+                String nomAul;
+                String dia;
+                Integer hora;
+                //Inicialitzacio clausules amb grups de laboratori
+                if(g instanceof GrupLab) {
+                    int i = 0;
+                    for (Integer h : a.getHoresP()) {
+                        c.setDuracio(h);
+                        clausules.add(c);
+                        //Inicialitzacio del domini
+                        for (Aula au : aulesL.getCjtAules()){
+                            nomAul = au.getNom();
+                            for (Pair d : dis.disponibilitat()){
+                                dia = (String)d.getL();
+                                hora = (Integer)d.getR();
+                                clausules.get(i).afegirElem(nomAul, dia, hora);
+                            }
+                        }
+                        ++i;
+                    }
+                }
+                else {
+                    int i = 0;
+                    for (Integer h : a.getHoresT()) {
+                        c.setDuracio(h);
+                        clausules.add(c);
+                        //Inicialitzacio del domini
+                        for (Aula au : aulesT.getCjtAules()){
+                            nomAul = au.getNom();
+                            for (Pair d : dis.disponibilitat()){
+                                dia = (String)d.getL();
+                                hora = (Integer)d.getR();
+                                clausules.get(i).afegirElem(nomAul, dia, hora);
+                            }
+                        }
+                        ++i;
+                    }
+                }
+            }
+        }
+        return clausules;
+    }
             
-    Horari generar(CjtAules aulesT, CjtAules aulesL, CjtAssignatures ass) {
+    public Horari generar(CjtAules aulesT, CjtAules aulesL, CjtAssignatures ass,
+            RestriccioTemps dis) {
         Horari horari = new Horari();
- 
-        
-        
+        ArrayList<Clausula> clausules = inicialitzarClausules(aulesT,aulesL,ass,dis);
+
         return horari;
     }
+    
 }

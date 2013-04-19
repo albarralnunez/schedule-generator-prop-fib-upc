@@ -12,16 +12,25 @@ import java.util.ArrayList;
  * @author albertomarin
  */
 public class Clausula {
+    //TODO: Los dias son Strings las horas  Integers
+    void setGrup(int id) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+    void setAssignatura(String nom) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    void setDuracio(Integer h) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
 
     private class Element {
-        Aula a;
-        /* TODO:
-         * Dia d;
-         * Hora h;
-         */
+        String a;
+        String d;
+        int h;
     }
-    
-    
+    private String assignatura;
+    private int grup;
     private ArrayList<Element> clausula;
 
     //Constructora
@@ -37,7 +46,7 @@ public class Clausula {
     * @param a, d, h son l'aula el día i l'hora.
     */
 
-    public void afegirElem(Aula a, Dia d, Hora h) {
+    public void afegirElem(String a, String d, Integer h) {
         Element e = new Element();
         e.a = a;
         e.d = d;
@@ -51,7 +60,7 @@ public class Clausula {
      * @param a, d, h son l'aula el dia i l'hora.
      */
 
-    public boolean borrarElem(Aula a, Dia d, Hora h) {
+    public boolean borrarElem(String a, String d, Integer h) {
         Element e = new Element();
         e.a = a;
         e.d = d;
@@ -65,7 +74,8 @@ public class Clausula {
      * @return true si hem trobat l'element o false en cas contrari.
      */
 
-    public boolean buscarElem(Aula a, Dia d, Hora h) {
+    
+    public boolean buscarElem(String a, String d, Integer h) {
         Element e = new Element();
         e.a = a;
         e.d = d;

@@ -12,15 +12,15 @@ import java.util.ArrayList;
  */
 class CjtAssignatures {
     
-   private ArrayList<Aula> cjtAules;
+   private ArrayList<Assignatura> cjtAssignatures;
     
    
     public CjtAssignatures(){ 
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    public ArrayList<Aula> getCjtAssignatures() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList<Assignatura> getCjtAssignatures() {
+        return this.cjtAssignatures;
     }
 
     public void afegirAssignatures(Aula aula){

@@ -206,11 +206,11 @@ public class CtrDomini {
         return assignatures;
     }
     
-    public Horari generarHorari() {
+    public Horari generarHorari(RestriccioTemps d) {
         Generador g = new Generador();
         CjtAules aulesTeo = inicialitzarCjtAulesTeo();
         CjtAules aulesLab = inicialitzarCjtAulesLab();
         CjtAssignatures assignatures = inicialitzarCjtAssignatures();
-        return g.generar(aulesTeo,aulesLab,assignatures);
+        return g.generar(aulesTeo,aulesLab,assignatures, d);
     }
 }
