@@ -53,10 +53,10 @@ public class CjtAules {
      * @param x
      * @return Retorna una llista amb les aules amb una capacitat major de x.
      */
-    public ArrayList cjtCapacitatMajorDe (int x){
-        ArrayList listaRefactor = new ArrayList();
+    public CjtAules cjtCapacitatMajorDe (int x){
+        CjtAules listaRefactor= new CjtAules();
         for (Aula A: cjtAules) {
-            if (A.capacitatMajorDe(x)) listaRefactor.add(A);       
+            if (A.capacitatMajorDe(x)) listaRefactor.getCjtAules().add(A);       
         }
         return listaRefactor;
     }
