@@ -29,7 +29,11 @@ class Generador {
                 if(g instanceof GrupLab) {
                     aulesPos = aulesL.cjtCapacitatMajorDe(g.getCapacidad());
                     int i = 0;
-                    for (Integer h : a.getHoresP()) {
+                    /////////////////////////////////////////////
+                    //for (Integer h : a.getHoresP()) {
+                    // EL FOR DE ABAJO ES PARA QUE COMPILE
+                    for( int h = 0; h < 1; ++h) {
+                    /////////////////////////////////////////////
                         c.setDuracio(h);
                         clausules.add(c);
                         //Inicialitzacio del domini
@@ -47,7 +51,11 @@ class Generador {
                 else {
                     aulesPos = aulesT.cjtCapacitatMajorDe(g.getCapacidad());
                     int i = 0;
-                    for (Integer h : a.getHoresT()) {
+                    /////////////////////////////////////////////
+                    for( int h = 0; h < 1; ++h) {
+                    // EL FOR DE ABAJO ES EL BUENO
+                    //for (Integer h : a.getHoresT()) {
+                    ////////////////////////////////////////////////////////////////
                         c.setDuracio(h);
                         clausules.add(c);
                         //Inicialitzacio del domini

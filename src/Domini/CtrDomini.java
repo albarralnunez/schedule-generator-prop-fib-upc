@@ -32,7 +32,7 @@ public class CtrDomini {
     * ara nomes posa el nom pero tenen que posarse i validar tots
     * els parametres
     */
-    public void creaAssignatura( String nomAsg, int ht, int hp, int nivel,int capTeo,int capLab,ArrayList a ){ 
+    public void creaAssignatura2( String nomAsg, int ht, int hp, int nivel,int capTeo,int capLab,ArrayList a ){ 
             ArrayList params = new ArrayList();
             params.add(nomAsg);
             params.add(ht);
@@ -41,6 +41,24 @@ public class CtrDomini {
             params.add(capTeo);
             params.add(capLab);
             for(int i = 0; i < a.size(); ++i) params.add(a.get(i));
+            cper.creaAssignatura(nomUnitat+"-"+nomAsg , params);
+    }
+    
+    public void creaAssignatura( String nomAsg, int nivell, int ht, ArrayList<Integer> intervalsT, int hp,
+            ArrayList<Integer> intervalsP , int capTeo, int capPra ,ArrayList grups ){ 
+        
+            ArrayList params = new ArrayList();
+            params.add(nomAsg); //nom
+            params.add(nivell); // nivell
+            params.add(ht); //numero d'hores de teoria
+            params.add( intervalsT.size() ); //numero d intervals de teoria
+            for(int i = 0; i < intervalsT.size(); ++i) params.add(intervalsT.get(i)); // intervals teoria
+            params.add(hp); //numero d'hores de practica
+            params.add( intervalsP.size() ); //numero d intervals de practica
+            for(int i = 0; i < intervalsP.size(); ++i) params.add(intervalsP.get(i)); // intervals Practica
+            params.add(capTeo); //capacitat dels grups de teoria
+            params.add(capPra); // capactat grups practica
+            for(int i = 0; i < grups.size(); ++i) params.add(grups.get(i));
             cper.creaAssignatura(nomUnitat+"-"+nomAsg , params);
     }
    

@@ -34,10 +34,10 @@ public class CtrPersistencia {
     /**
      *
      * @param nom
-     * @param a
+     * @param parametres
      */
-    public void creaAssignatura(String nom, ArrayList a) {
-        ca.creaArxiu("assig-" + nom, a);
+    public void creaAssignatura(String nom, ArrayList parametres) {
+        ca.creaArxiu("assig-" + nom, parametres);
     }
 
     public boolean existeixAssignatura(String nom) {
