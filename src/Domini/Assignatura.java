@@ -13,31 +13,29 @@ import java.util.Collections;
  */
 public class Assignatura {
     private String nom;
-    private ArrayList<Integer> horesT; // hores de teoria
-    private ArrayList<Integer> horesP; // hores de practica 
-    private int nivel; 
+    private int nivel;
+    private int horesT;
+    private int horesP;
+    private ArrayList<Integer> intervalsT; 
+    private ArrayList<Integer> intervalsP; 
     private int capacitatTeo;
     private int capacitatLab;
     private ArrayList<Grup> grups;
 
     
-    public Assignatura() {
-        nom = null;
-        horesT = null;
-        horesP = null;
-        nivel = -1;
-        grups = new ArrayList<Grup>();
-    }
+    public Assignatura() {}
 
-    public Assignatura( String nm, ArrayList ht, ArrayList hp, int nv,int capTeo, int capLab,ArrayList<Grup> grupos) {
+    public Assignatura( String nm, int niv, int ht, ArrayList<Integer> inteT, int hp, 
+            ArrayList<Integer> inteP, int nv,int capT, int capP ,ArrayList<Grup> grups) {
         nom = nm;
-        horesT = null;
-        horesP = null;
-        nivel = nv;
-        capacitatTeo= capTeo;
-        capacitatLab = capLab;
-        this.grups = grupos;
-        
+        nivel = niv;
+        horesT = ht;
+        intervalsT = inteT;
+        horesP = hp;
+        intervalsP = inteP;
+        capacitatTeo= capT;
+        capacitatLab = capP;
+        this.grups = grups;
     }
     
     /**
@@ -52,19 +50,19 @@ public class Assignatura {
         this.nom = nom;
     }
 
-    public ArrayList<Integer> getHoresT() {
+    public int getHoresT() {
         return horesT;
     }
 
-    public void setHoresT(ArrayList<Integer> horesT) {
+    public void setHoresT( int horesT) {
         this.horesT = horesT;
     }
 
-    public ArrayList<Integer> getHoresP() {
+    public int getHoresP() {
         return horesP;
     }
 
-    public void setHoresP(ArrayList<Integer> horesP) {
+    public void setHoresP( int horesP) {
         this.horesP = horesP;
     }
 
@@ -89,6 +87,24 @@ public class Assignatura {
     public void setCapacitatLab(int capl) {
         capacitatLab = capl;
     }
+    
+    public ArrayList<Integer> getIntervalsT() {
+        return intervalsT;
+    }
+
+    public void setIntervalsT( ArrayList<Integer> it) {
+        intervalsT = it;
+    }
+    
+    public ArrayList<Integer> getIntervalsP() {
+        return intervalsP;
+    }
+
+    public void setIntervalsP( ArrayList<Integer> ip) {
+        intervalsP = ip;
+    }
+    
+    
     public ArrayList<Grup> getGrups() {
         return grups;
     }

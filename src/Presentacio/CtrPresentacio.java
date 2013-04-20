@@ -69,7 +69,7 @@ public class CtrPresentacio {
     }
 
 
-    private static  void carregar() {}
+    private static  void carregar() {} // 3a entrega
     
     private static void modificar() {
         
@@ -92,9 +92,9 @@ public class CtrPresentacio {
             //llista les assignatures
             System.out.println(" Unitat Docent:"+unitatDocent+" llista d'assignatures:");
             ArrayList llista = cd.llistaAssignatures();
-            for( int i = 0; i < llista.size(); ++i)
-                
-            System.out.println(llista.get(i) );
+            for( int i = 0; i < llista.size(); ++i)    
+                System.out.println(llista.get(i) );
+            
             System.out.println("");
             System.out.println(" OPCIONS ");
             System.out.println("1-crear\n2-esborrar\n3-modificar\n4-tornar");
@@ -150,14 +150,16 @@ public class CtrPresentacio {
         nomAsg = s.next(); // nom de la assignatura 
         if( cd.existeixAssignatura( nomAsg) ) System.err.println("ja existeix");
         else {
+            System.out.println("nivell");
+            int nivell = s.nextInt();
             System.out.println("hores de teoria ");
             int horest;
             horest = s.nextInt();
+            ArrayList<Integer> intervalsT = definirIntervalsHores( horest);
             System.out.println("hores de practica");
             int horesp;
             horesp = s.nextInt();
-            System.out.println("nivell");
-            int nivell = s.nextInt();
+            ArrayList<Integer> intervalsP = definirIntervalsHores( horesp);
             System.out.println("Capacitat grups Teoria");
             int capTeo = s.nextInt();
             System.out.println("Capacitat grups Laboratori");
@@ -166,12 +168,42 @@ public class CtrPresentacio {
             int ngt = s.nextInt();
             System.out.println("Numero de grups de laboratori");
             int ngl = s.nextInt();
-            ArrayList<Integer> a = new ArrayList();
+            ArrayList<Integer> grups = new ArrayList();
             for(int i = 0; i < ngt; ++i){
-                for(int j = 0; j < ngl+1; ++j) a.add((i+1)*10+j);
+                for(int j = 0; j < ngl+1; ++j) grups.add((i+1)*10+j);
             }
-            cd.creaAssignatura( nomAsg, horest, horesp, nivell, capTeo,capLab, a);
+            cd.creaAssignatura( nomAsg, nivell , horest, intervalsT, horesp, intervalsP,
+                    capTeo ,capLab, grups); // crea l'arxiu txt amb la info
         }
+    }
+    
+    public static ArrayList<Integer> definirIntervalsHores( int numHores ){
+        ArrayList<Integer> intervals = new ArrayList<Integer>();
+        System.out.println("vos dividir les "+numHores+" en intervals ? (s/n)");
+        String resposta;
+        resposta = s.next();
+        if( resposta.equals("s")) {
+            System.out.println("HAS RESPONDIDO "+resposta);
+            System.out.println("quants intervals vols ?");
+            int numInt;
+            numInt = s.nextInt();
+            while( numInt > numHores ) {
+                System.err.println("impossible\n quants intervals vols ?");
+                numInt = s.nextInt();
+            }
+            int horesUsades = 0;
+            for( int i = 1; i <= numInt; ++i ){ // ASSUMIM QUE L USUARI HO FA BÉ
+                System.out.println("numero d'hores de l'interval "+i+ " ( usades "+horesUsades+" )");
+                int nh = s.nextInt();
+                horesUsades = horesUsades+nh;
+                intervals.add(nh); // es posa l'interval
+            }
+            if( horesUsades != numHores) System.err.println("numero d'hores incorrecte");
+        }
+        else {
+            intervals.add(numHores);
+        }
+        return intervals;
     }
     
     private static void esborraAssignatura(){         
@@ -210,7 +242,7 @@ public class CtrPresentacio {
             for(int i = 0; i < ngt; ++i){
                 for(int j = 0; j < ngl+1; ++j) a.add((i+1)*10+j);
             }
-            cd.creaAssignatura( nomAsg, horest, horesp, nivell, capTeo,capLab, a);
+            //cd.creaAssignatura( nomAsg, horest, horesp, nivell, capTeo,capLab, a);
             
         }
     }
