@@ -12,37 +12,31 @@ import java.util.ArrayList;
  * @author albertomarin
  */
 public class Clausula {
-    //TODO: Los dias son Strings las horas  Integers
-    void setGrup(int id) {
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
-    void setAssignatura(String nom) {
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
-
-    void setDuracio(Integer h) {
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
 
     private class Element {
-        String a;
-        String d;
-        int h;
+        String a; //Aula
+        String d; //Dia
+        int h; //Hora
     }
+    
     private String assignatura;
-    private int grup;
+    private Integer grup;
+    private Integer duracio;
     private ArrayList<Element> clausula;
 
     //Constructora
     public Clausula() {
         clausula = new ArrayList<Element>();
+        grup = null;
+        duracio = null;
+        assignatura = null;
     }
 
     //Métodos
 
 
     /**
-    * S'afegeix l'element e a la clausla.
+    * S'afegeix l'element e a la clausula.
     * @param a, d, h son l'aula el día i l'hora.
     */
 
@@ -85,5 +79,40 @@ public class Clausula {
         }
         return false;
     }
+
+
+    public void setGrup(Integer id) {
+        this.grup = id;
+    }
+
+    public void setAssignatura(String nom) {
+        this.assignatura = nom;
+    }
+
+    public void setDuracio(Integer h) {
+        this.duracio = h;
+    }
+
+
+    public String getAssignatura() {
+        return assignatura;
+    }
+
+    public Integer getDuracio() {
+        return duracio;
+    }
+
+    public Integer getGrup() {
+        return grup;
+    }
+
+
+
+
+
+
+
+
+
 
 }
