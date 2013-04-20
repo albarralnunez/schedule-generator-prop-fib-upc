@@ -16,23 +16,37 @@ class CjtAssignatures {
     
    
     public CjtAssignatures(){ 
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        cjtAssignatures = new ArrayList();
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public ArrayList<Assignatura> getCjtAssignatures() {
         return this.cjtAssignatures;
     }
 
-    public void afegirAssignatures(Aula aula){
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void afegirAssignatures(/*Aula aula*/ ArrayList<Assignatura> assigs){
+        int size = assigs.size();
+        for(int i = 0; i < size; ++i) cjtAssignatures.add(assigs.get(i));
+        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 
-    public boolean esborrarAssignatures(Aula aula) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean esborrarAssignatures( /*Aula aula*/ ArrayList<Assignatura> assigs) {
+        if(assigs.isEmpty()) return false;
+        else{
+            int size = assigs.size();
+            for(int i = 0; i < size; ++i) cjtAssignatures.remove(assigs.get(i));
+            return true;
+        }
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    void afegirAssignatura(AulaLab a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void afegirAssignatura( /*AulaLab a*/Assignatura a) {
+        cjtAssignatures.add(a);
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    public ArrayList getAssignatures(){
+        return cjtAssignatures;
+    }
+    
 }
