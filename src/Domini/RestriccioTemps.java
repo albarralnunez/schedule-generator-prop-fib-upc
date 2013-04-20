@@ -17,8 +17,6 @@ public class RestriccioTemps {
     private ArrayList<Integer> dimecres;
     private ArrayList<Integer> dijous;
     private ArrayList<Integer> divendres;
-    private ArrayList<Integer> dissabte;
-    private ArrayList<Integer> diumenge;
     
     
     /**
