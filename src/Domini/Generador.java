@@ -68,7 +68,7 @@ class Generador {
     }
             
     public Horari generar(CjtAules aulesT, CjtAules aulesL, CjtAssignatures ass,
-            RestriccioTemps dis) {
+        RestriccioTemps dis) {
         Horari horari = new Horari();
         ArrayList<Clausula> clau = inicialitzarClausules(aulesT,aulesL,ass,dis);
         return horari;
