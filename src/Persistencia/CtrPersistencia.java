@@ -106,12 +106,19 @@ public class CtrPersistencia {
      * @return Llegeix un Aula
      */
     public ArrayList<String> llegirAula(String nomAula) {
-        if (ca.existeix("aula-teo-" + nomAula)) {
-            return ca.llegirArxiu("aula-teo-" + nomAula);
-        } else {
-            return ca.llegirArxiu("aula-lab-" + nomAula);
-        }
+            return ca.llegirArxiu("aula-*-" + nomAula);
+
     }
+    
+    public ArrayList<String> llegirAulaTeo (String nomAula) {
+            return ca.llegirArxiu("aula-teo-" + nomAula);
+    }
+    
+    public ArrayList<String> llegirAulaLab(String nomAula) {
+            return ca.llegirArxiu("aula-lab-" + nomAula);
+
+    }
+    
 
     /**
      *
@@ -144,5 +151,9 @@ public class CtrPersistencia {
      */
     public ArrayList  llistaAulesLab(String nomUnitat) {
         return ca.llistaDirectori("aula-lab-" + nomUnitat); // te totes les assignatures de la unitat docent 
+    }
+
+    public ArrayList<String> llegirDisponibilitatHor(String n) {
+         return ca.llegirArxiu(n);
     }
 }

@@ -16,7 +16,7 @@ class CjtAssignatures {
     
    
     public CjtAssignatures(){ 
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        cjtAssignatures = new ArrayList();
     }
     
     public ArrayList<Assignatura> getCjtAssignatures() {
