@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package Domini;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,8 +15,8 @@ public class GrupTeo extends Grup {
     private boolean tarda;  // '' de tarda
     private boolean mixte;*/ //si es indiferent
     
-    public GrupTeo (int numero, int capacidad, boolean proyecto) {
-       super(numero, capacidad);
+    public GrupTeo (int numero, int capacidad, boolean proyecto,ArrayList l) {
+       super(numero, capacidad,l);
        this.proyector = proyecto;
     }
     

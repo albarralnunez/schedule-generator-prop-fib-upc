@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package Domini;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,16 +16,16 @@ public class GrupLab extends Grup {
      private boolean tarda;  // '' de tarda
      private boolean mixte;*/ //si es indiferent
 
-    public GrupLab(int numero, int capacidad, boolean material) {
-        super(numero, capacidad);
+   public GrupLab (int numero,int capacidad,boolean material,ArrayList l) {
+        super(numero,capacidad,l);
         this.material = material;
     }
-
-    public boolean GetMaterial() {
+    
+    public boolean GetMaterial(){
         return material;
     }
-
-    public void SetMaterial(boolean mat) {
+    
+    public void SetMaterial(boolean mat){
         this.material = material;
     }
 }

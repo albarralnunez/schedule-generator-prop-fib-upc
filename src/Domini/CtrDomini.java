@@ -99,6 +99,47 @@ public class CtrDomini {
     public ArrayList<String> llegirAssignatura( String nomAsg){
         return cper.llegirAssignatura(nomUnitat+"-"+nomAsg);
     }
+    /**
+     *  li passes el nom d'una assignatura i et retorna una instancia de la
+     * assignatura que esta guardada en un txt amb aquell nom 
+     * (ha d existir)
+     * @param nomAsg
+     * @return 
+     */
+    public Assignatura montaAssignatura( String nomAsg ){
+        Assignatura asg = new Assignatura();
+        ArrayList<String> atributs = cper.llegirAssignatura(nomUnitat+"-"+nomAsg);
+        String nom = atributs.get(0);
+        
+        int nvl = Integer.parseInt(atributs.get(1));
+        int numht = Integer.parseInt( atributs.get(2) );
+        int numint =  Integer.parseInt( atributs.get(3) );
+        ArrayList<Integer> intersT = new ArrayList<Integer>(numint); 
+        int contador = numint+4;
+        for( int i = 4; i < numint+4  ; ++i ){
+            int interval = Integer.parseInt(atributs.get(i));
+            intersT.add( interval );
+        }
+        int numhp = Integer.parseInt( atributs.get(contador) );
+        int contadorip =  Integer.parseInt( atributs.get( ++contador) );
+        contador = contador + contadorip;
+        ArrayList<Integer> intersP = new ArrayList<Integer>(contadorip); 
+        for( int i = contador-contadorip+1; i < contador; ++i){
+            int interval = Integer.parseInt(atributs.get(i));
+            intersP.add( interval );
+        }
+        int capt = Integer.parseInt( atributs.get( ++contador) );
+        int capp = Integer.parseInt( atributs.get( ++contador) );
+        
+        int numGrupos = atributs.size()-contador-1;
+        ArrayList<Integer> grupos = new ArrayList<Integer>( numGrupos );
+        for( int i = 0; i < numGrupos; ++i ){
+            int g = Integer.parseInt(atributs.get(++contador));
+            grupos.add( g );
+        }
+        
+        return asg;
+    }
     
     /**
      * Crea un Aula

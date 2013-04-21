@@ -100,6 +100,7 @@ public class CtrPresentacio {
             if(opcio == 1) creaAssignatura();
             else if(opcio == 2) esborraAssignatura();
             else if(opcio == 3) modificaAssignatura();
+            else if( opcio == 20 ) cd.montaAssignatura( "FIB" );
         }
         
     }
