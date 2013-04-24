@@ -103,10 +103,6 @@ public class CtrPresentacio {
             if(opcio == 1) creaAssignatura();
             else if(opcio == 2) esborraAssignatura();
             else if(opcio == 3) modificaAssignatura();
-<<<<<<< HEAD
-           
-=======
->>>>>>> 89ab4d578432ae05cf86b0c1fbc0109be8e7cc61
         }
         
     }
