@@ -4,6 +4,7 @@
  */
 package Presentacio;
 import Domini.CtrDomini;
+import Domini.Horari;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -57,15 +58,13 @@ public class CtrPresentacio {
     
     
     private static void generar() {
-        System.out.println("Diulluns-Divendres");
-        System.out.println("de 8am a 9pm");
-        int opcio = 0;
-        while(opcio != 2){
-            System.out.println(" OPCIONS ");
-            System.out.println("1-Restringir\n2-tornar");
-            opcio = s.nextInt();
-            if( opcio == 1) restringirHorari();
-        } 
+        //Horari h = new Horari();
+        //System.out.println("tria un arxiu de disponibilitat horaria\n");
+        //String a = s.next()
+       /*
+        * ALICIA NOS HA DICHO QUE SOLO TENGAMOS UNA CONFIGURACION POR UNDIAD DOCENTE        
+        */
+       cd.crearQuadricula(); 
     }
 
 
@@ -104,7 +103,10 @@ public class CtrPresentacio {
             if(opcio == 1) creaAssignatura();
             else if(opcio == 2) esborraAssignatura();
             else if(opcio == 3) modificaAssignatura();
+<<<<<<< HEAD
            
+=======
+>>>>>>> 89ab4d578432ae05cf86b0c1fbc0109be8e7cc61
         }
         
     }
@@ -178,7 +180,7 @@ public class CtrPresentacio {
         }
     }
     
-    public static ArrayList<Integer> definirIntervalsHores( int numHores ){
+    private static ArrayList<Integer> definirIntervalsHores( int numHores ){
         ArrayList<Integer> intervals = new ArrayList<Integer>();
         System.out.println("vos dividir les "+numHores+" en intervals ? (s/n)");
         String resposta;
@@ -301,17 +303,4 @@ public class CtrPresentacio {
             cd.creaAula(nomAula, c, teo, boo);
         }
     }
-    
-    private static void restringirHorari() {
-        int opcio = 0;
-        while( opcio != 6 ) {
-            System.out.println(" dies a eliminar de l horari");
-            System.out.println("1-dilluns\n2-dimarts\n3-dimecres\n4-dijous\n5-divendres");
-            System.out.println("6 següent");
-            opcio = s.nextInt();
-            //if( cd.eliminarDia( opcio ) ) System.out.println("dia eliminat");
-            //else System.out.println("el dia n s'ha pogut eliminar");
-        }
-    }
-
 }
