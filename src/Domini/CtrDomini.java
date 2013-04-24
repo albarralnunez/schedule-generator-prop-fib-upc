@@ -180,7 +180,6 @@ public class CtrDomini {
     }
 
     /**
-     * 
      * @param nomAula
      * @return  Retorna si es pot esborrar l'aula amb nom nomAula.
      */
@@ -190,6 +189,13 @@ public class CtrDomini {
     
     public Horari generarHorari(String a) {
         return cgen.generarHorari(a);
+    }
+    
+    public void crearQuadricula(){
+        // mirar si existeix la configuracio horaria
+        ArrayList diesHores =  cper.llegirConfiguracioHoraria("configuracioHoraria-"+nomUnitat);
+        
+        // ara el generador ha de inicialitzar la quadricula amb els valors
     }
 
 }

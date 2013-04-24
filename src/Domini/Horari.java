@@ -24,8 +24,8 @@ public class Horari {
      
     private ArrayList<ElementR> horari;
     
-    public Horari(){
-        this.horari = new ArrayList();
+    public Horari() {
+        
     }
 
 }
