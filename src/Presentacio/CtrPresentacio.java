@@ -58,10 +58,13 @@ public class CtrPresentacio {
     
     
     private static void generar() {
-        Horari h = new Horari();
-        System.out.println("tria un arxiu de disponibilitat horaria\n");
-        String a = s.next();
-        h = cd.generarHorari(a); 
+        //Horari h = new Horari();
+        //System.out.println("tria un arxiu de disponibilitat horaria\n");
+        //String a = s.next()
+       /*
+        * ALICIA NOS HA DICHO QUE SOLO TENGAMOS UNA CONFIGURACION POR UNDIAD DOCENTE        
+        */
+       cd.crearQuadricula(); 
     }
 
 
@@ -100,6 +103,10 @@ public class CtrPresentacio {
             if(opcio == 1) creaAssignatura();
             else if(opcio == 2) esborraAssignatura();
             else if(opcio == 3) modificaAssignatura();
+<<<<<<< HEAD
+           
+=======
+>>>>>>> 89ab4d578432ae05cf86b0c1fbc0109be8e7cc61
         }
         
     }
