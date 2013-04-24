@@ -15,7 +15,6 @@ public class RestriccioAssignatures {
        String aula;
        int grup;
        int dia;
-       int hora;
     }
     private ArrayList<restriccioAssig> restriccions;
     
@@ -29,7 +28,6 @@ public class RestriccioAssignatures {
         res.aula = aul;
         res.grup = grp;
         res.dia = d;
-        res.hora = h;
         restriccions.add(res);
    }
     public ArrayList getRestriccions(){
