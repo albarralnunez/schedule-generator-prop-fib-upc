@@ -17,12 +17,13 @@ public class RestriccioAssignatures {
        int dia;
        int hora;
     }
+    
     private ArrayList<restriccioAssig> restriccions;
     
     public RestriccioAssignatures(){
         restriccions = new ArrayList();
     }
-    public void SetrestriccioAssig(String assig,String aul, int grp, int d, int h ) {
+    public void setRestriccioAssig(String assig,String aul, int grp, int d, int h ) {
         restriccioAssig res;
         res = new restriccioAssig();
         res.assignatura = assig;

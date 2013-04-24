@@ -12,12 +12,29 @@ import java.util.ArrayList;
  */
 public class RestriccioTemps {
 
-        
     private ArrayList<Integer> dilluns;
     private ArrayList<Integer> dimarts;
     private ArrayList<Integer> dimecres;
     private ArrayList<Integer> dijous;
     private ArrayList<Integer> divendres;
+    private ArrayList<Integer> dissabte;
+    private ArrayList<Integer> diumenge;
+    public ArrayList<Integer> getDissabte() {
+        return dissabte;
+    }
+
+    public void setDissabte(ArrayList<Integer> dissabte) {
+        this.dissabte = dissabte;
+    }
+
+    public ArrayList<Integer> getDiumenge() {
+        return diumenge;
+    }
+
+    public void setDiumenge(ArrayList<Integer> diumenge) {
+        this.diumenge = diumenge;
+    }
+    
     
     public ArrayList<Integer> getDilluns() {
         return dilluns;
@@ -68,4 +85,5 @@ public class RestriccioTemps {
         ArrayList<Pair<String,Integer>> disponibilitat = new ArrayList();
         return disponibilitat; 
     }
+
 }
