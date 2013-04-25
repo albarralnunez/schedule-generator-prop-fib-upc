@@ -24,10 +24,9 @@ class Generador {
                 String nomAul;
                 String dia;
                 Integer hora;
-                CjtAules aulesPos = new CjtAules();
                 //Inicialitzacio clausules amb grups de laboratori
                 if(g instanceof GrupLab) {
-                    aulesPos = aulesL.cjtCapacitatMajorDe(g.GetCapacidad());
+                    CjtAules aulesPos = aulesL.cjtCapacitatMajorDe(g.GetCapacidad());
                     int i = 0;
                     for (Integer h : a.getIntervalsP()) {
                         c.setDuracio(h);
@@ -45,7 +44,7 @@ class Generador {
                     }
                 }
                 else {
-                    aulesPos = aulesT.cjtCapacitatMajorDe(g.GetCapacidad());
+                    CjtAules aulesPos = aulesT.cjtCapacitatMajorDe(g.GetCapacidad());
                     int i = 0;
                     for (Integer h : a.getIntervalsT()) {
                         c.setDuracio(h);

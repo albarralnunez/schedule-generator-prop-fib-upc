@@ -110,7 +110,6 @@ public class CtrGeneracio {
             int g = Integer.parseInt(atributs.get(++contador));
             grupos.add( g );
         }
-        asg.getGrups().get(1);
         return asg;
     }
     
