@@ -23,9 +23,8 @@ public class RestriccioAnterioritat extends Restriccio {
         super(1000); //PROVISIONAL: ID = 1000
         obj1 = antes;
         obj2 = despues;
-
     }
-
+    
 
     //obj1 y obj2 son asignaciones, de momento los tratamos como enteros que tienen una hora asignada en un dia si obj1 va antes que obj2 todo ok.
     //El @Override 
