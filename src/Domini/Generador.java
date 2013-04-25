@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author Daniel Albarral
  */
 class Generador {
-    
+    private Horari horari = new Horari();
     
     private ArrayList<Clausula> inicialitzarClausules(CjtAules aulesT, CjtAules 
             aulesL, CjtAssignatures ass, RestriccioTemps dis) {
@@ -19,14 +19,14 @@ class Generador {
         Clausula c = new Clausula();
         for(Assignatura a : ass.getCjtAssignatures()){
             c.setAssignatura(a.getNom());
-            for (Grup g : a.getGrups()) {
-                c.setGrup(g.GetId());
+            for (Integer g : a.getGrups()) {
+                c.setGrup(g);
                 String nomAul;
                 String dia;
                 Integer hora;
-                //Inicialitzacio clausules amb grups de laboratori
-                if(g instanceof GrupLab) {
-                    CjtAules aulesPos = aulesL.cjtCapacitatMajorDe(g.GetCapacidad());
+                //Inicialitzacio clausules amb grups de laboratori         
+                if(g%10 != 0) {
+                    CjtAules aulesPos = aulesL.cjtCapacitatMajorDe(g);
                     int i = 0;
                     for (Integer h : a.getIntervalsP()) {
                         c.setDuracio(h);
@@ -44,7 +44,7 @@ class Generador {
                     }
                 }
                 else {
-                    CjtAules aulesPos = aulesT.cjtCapacitatMajorDe(g.GetCapacidad());
+                    CjtAules aulesPos = aulesT.cjtCapacitatMajorDe(a.getCapacitatTeo());
                     int i = 0;
                     for (Integer h : a.getIntervalsT()) {
                         c.setDuracio(h);
@@ -68,7 +68,6 @@ class Generador {
             
     public Horari generar(CjtAules aulesT, CjtAules aulesL, CjtAssignatures ass,
         RestriccioTemps dis) {
-        Horari horari = new Horari();
         ArrayList<Clausula> clau = inicialitzarClausules(aulesT,aulesL,ass,dis);
         return horari;
     }

@@ -13,19 +13,10 @@ import java.util.ArrayList;
 
 //TODO: PROGRAMAR TODO
 public class Horari {
-
-     private class ElementR {
-        String aula;
-        String assignatura;
-        int grupo;
-        String dia;
-        int hora;
-    }
-     
-    private ArrayList<ElementR> horari;
+         
     
     public Horari() {
-        
+         
     }
 
 }
