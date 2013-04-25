@@ -16,7 +16,5 @@ public class Horari {
          
     
     public Horari() {
-         
     }
-
 }

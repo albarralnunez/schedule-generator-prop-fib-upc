@@ -47,5 +47,4 @@ class CjtAssignatures {
     public ArrayList getAssignatures(){
         return cjtAssignatures;
     }
-    
 }
