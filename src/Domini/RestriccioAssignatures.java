@@ -15,21 +15,20 @@ public class RestriccioAssignatures {
        String aula;
        int grup;
        int dia;
-       int hora;
     }
+    
     private ArrayList<restriccioAssig> restriccions;
     
     public RestriccioAssignatures(){
         restriccions = new ArrayList();
     }
-    public void SetrestriccioAssig(String assig,String aul, int grp, int d, int h ) {
+    public void setRestriccioAssig(String assig,String aul, int grp, int d, int h ) {
         restriccioAssig res;
         res = new restriccioAssig();
         res.assignatura = assig;
         res.aula = aul;
         res.grup = grp;
         res.dia = d;
-        res.hora = h;
         restriccions.add(res);
    }
     public ArrayList getRestriccions(){

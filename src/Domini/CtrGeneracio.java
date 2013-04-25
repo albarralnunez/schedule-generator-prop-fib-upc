@@ -19,6 +19,8 @@ public class CtrGeneracio {
     private CjtAssignatures cjtAs;
     private String nomUnitat;
     private CtrPersistencia cper;
+
+    private Espai quadricula;
     
     public CtrGeneracio( String nomU ){
         nomUnitat = nomU;
@@ -27,6 +29,8 @@ public class CtrGeneracio {
         cjtAulTeo = new CjtAules();
         cjtAs= new CjtAssignatures();
         cper = new CtrPersistencia();
+        
+        quadricula = new Espai(24, 7);
     }
     
     //TODO: Hay que depurar solo inicializar las seleccionads por user
@@ -127,6 +131,9 @@ public class CtrGeneracio {
             if (i == 2) resT.setDimecres(ar);
             if (i == 3) resT.setDijous(ar);
             if (i == 4) resT.setDivendres(ar);
+            if (i == 5) resT.setDissabte(ar);
+            if (i == 6) resT.setDiumenge(ar);
+            
         }
     }
     
