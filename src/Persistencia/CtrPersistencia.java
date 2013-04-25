@@ -158,11 +158,7 @@ public class CtrPersistencia {
     }
 
     
-    public ArrayList llegirConfiguracioHoraria(String nomConfig ) {
-        ArrayList dies = new ArrayList(7);
-        //NO ACABADA
-        dies = ca.llegirArxiu(nomConfig);
-  
-        return dies;
+    public ArrayList<String> llegirConfiguracioHoraria(String nomConfig ) {
+        return ca.llegirArxiu(nomConfig);
     }
 }

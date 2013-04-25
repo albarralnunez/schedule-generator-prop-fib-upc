@@ -146,11 +146,44 @@ public class CtrGeneracio {
         return g.generar(cjtAulTeo,cjtAulLab,cjtAs, resT);
     }
     
-    
-    
-    
-    
-    
-    
+    public void montaRestriccionsTemps( ArrayList<String> conf ){
+        ArrayList<Integer> dl = new ArrayList<Integer>();
+        ArrayList<Integer> dm = new ArrayList<Integer>();
+        ArrayList<Integer> dc = new ArrayList<Integer>();
+        ArrayList<Integer> dj = new ArrayList<Integer>();
+        ArrayList<Integer> dv = new ArrayList<Integer>();
+        ArrayList<Integer> ds = new ArrayList<Integer>();
+        ArrayList<Integer> dg = new ArrayList<Integer>();
+        String dia = null;
+        for( int fila = 0; fila < conf.size(); ++fila ){
+            
+            String linia = conf.get(fila);
+            
+            if( linia.contains("dilluns") || linia.contains("dimarts") || linia.contains("dimecres")
+            || linia.contains("dijous") || linia.contains("divendres") || linia.contains("dissabte") 
+            || linia.contains("diumenge") ) {
+                dia = linia;
+                System.out.println(dia);
+            } 
+            
+            else{
+                int hora = Integer.parseInt( linia );
+                if( dia.contains("dilluns") ) dl.add(hora);
+                else if( dia.contains("dimarts") ) dm.add(hora);
+                else if( dia.contains("dimecres") ) dc.add(hora);
+                else if( dia.contains("dijous") ) dj.add(hora);
+                else if( dia.contains("divendres") ) dv.add(hora);
+                else if( dia.contains("dissabte") ) ds.add(hora);
+                else if ( dia.contains("diumenge")) dg.add(hora);
+            }
+        }    
+       resT.setDilluns(dl);
+       resT.setDimarts(dm);
+       resT.setDimecres(dc);
+       resT.setDijous(dj);
+       resT.setDivendres(dv);
+       resT.setDissabte(ds);
+       resT.setDiumenge(dg);
+    }
     
 }
