@@ -25,7 +25,12 @@ public class Horari {
     private ArrayList<ElementR> horari;
     
     public Horari() {
-        
+        horari = new ArrayList();
+        ElementR el = new ElementR();
+        el.assignatura = null;
+        el.aula = null;
+        el.grupo = -1;
+        el.dia = null;
+        el.hora = -1;
     }
-
 }

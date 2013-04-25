@@ -9,20 +9,24 @@ import java.util.ArrayList;
  *
  * @author Joan Pol
  */
-public class RestriccioAssignatures {
+public class RestriccioAssignatures /*extends Restriccio*/ {
     protected class restriccioAssig {
        String assignatura;
        String aula;
        int grup;
-       int dia;
+       String dia;
+    }
+    protected class restriccioAnterioritat{
+        String Assignatura;
+        boolean abansTeoria;
     }
     
-    private ArrayList<restriccioAssig> restriccions;
+    private ArrayList restriccions;
     
     public RestriccioAssignatures(){
         restriccions = new ArrayList();
     }
-    public void setRestriccioAssig(String assig,String aul, int grp, int d, int h ) {
+    public void setRestriccioAssig(String assig,String aul, int grp, String d, int h ) {
         restriccioAssig res;
         res = new restriccioAssig();
         res.assignatura = assig;
@@ -31,9 +35,23 @@ public class RestriccioAssignatures {
         res.dia = d;
         restriccions.add(res);
    }
+    public void setRestricioAnterioritat(String assig,boolean b){
+        restriccioAnterioritat r = new restriccioAnterioritat();
+        r.Assignatura = assig;
+        r.abansTeoria = b;
+        restriccions.add(r);
+    }
     public ArrayList getRestriccions(){
        return restriccions;
-  }
+   }
     
+   /*public boolean solapamentNivell(Horari h,String dia,int hora,CjtAssignatures cjtassig, int nivell){
+     String assign = h.getAssignaturaElementX(dia, hora);
+     int size = cjtassig.getCjtAssignatures().size();
+     for(int i = 0; i < size; ++i){
+         Assignatura a = cjtassig.getCjtAssignatures().get(i);
+         if(a.getNom() == assign && a.getNivel() == nivell)
+     }
+   }*/
     
 }
