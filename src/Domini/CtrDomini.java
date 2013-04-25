@@ -192,11 +192,11 @@ public class CtrDomini {
 
     }
   
-    public void crearQuadricula(){
+    public void inicialitzarQuadricula(){
        
         ArrayList conf =  cper.llegirConfiguracioHoraria("configuracioHoraria-"+nomUnitat);
         cgen.montaRestriccionsTemps(conf);
-        // ara el generador ha de inicialitzar la quadricula amb els valors
+        
     }
 
 }

@@ -13,9 +13,9 @@ public class Quadricula {
     private CjtElements quadricula[][];
     
     public Quadricula(){
-        quadricula = new CjtElements[24][7];
-        for(int i=0; i < 24; ++i) {
-            for (int j=0; j < 7; ++j) {  
+        quadricula = new CjtElements[7][24];
+        for(int i=0; i < 7; ++i) {
+            for (int j=0; j < 24; ++j) {  
                 quadricula[i][j] = new CjtElements(); 
             }
         }
@@ -23,5 +23,6 @@ public class Quadricula {
     
     public void validar( int fila, int columna){
         quadricula[fila][columna].setValid(true);
+        
     }
 }

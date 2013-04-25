@@ -19,14 +19,18 @@ public class CtrGeneracio {
     private CjtAssignatures cjtAs;
     private String nomUnitat;
     private CtrPersistencia cper;
+    private Quadricula quad;
     
     public CtrGeneracio( String nomU ){
+        
         nomUnitat = nomU;
         resT = new RestriccioTemps();
+        quad = new Quadricula();
         cjtAulLab = new CjtAules();
         cjtAulTeo = new CjtAules();
         cjtAs= new CjtAssignatures();
         cper = new CtrPersistencia();
+        
         
     }
     
@@ -141,20 +145,40 @@ public class CtrGeneracio {
             || linia.contains("dijous") || linia.contains("divendres") || linia.contains("dissabte") 
             || linia.contains("diumenge") ) {
                 dia = linia;
-                System.out.println(dia);
             } 
-            
             else{
                 int hora = Integer.parseInt( linia );
-                if( dia.contains("dilluns") ) dl.add(hora);
-                else if( dia.contains("dimarts") ) dm.add(hora);
-                else if( dia.contains("dimecres") ) dc.add(hora);
-                else if( dia.contains("dijous") ) dj.add(hora);
-                else if( dia.contains("divendres") ) dv.add(hora);
-                else if( dia.contains("dissabte") ) ds.add(hora);
-                else if ( dia.contains("diumenge")) dg.add(hora);
+                if( dia.contains("dilluns") ){
+                    dl.add(hora);
+                    quad.validar(0, hora);
+                }
+                else if( dia.contains("dimarts") ) {
+                    dm.add(hora);
+                    quad.validar(1, hora);
+                }
+                else if( dia.contains("dimecres") ) {
+                    dc.add(hora);
+                    quad.validar(2, hora);
+                }
+                else if( dia.contains("dijous") ) {
+                    dj.add(hora);
+                    quad.validar(3, hora);
+                }
+                else if( dia.contains("divendres") ) {
+                    dv.add(hora);
+                    quad.validar(4, hora);
+                }
+                else if( dia.contains("dissabte") ) {
+                    ds.add(hora);
+                    quad.validar(5, hora);
+                }
+                else if ( dia.contains("diumenge")) {
+                    dg.add(hora);
+                    quad.validar(6, hora);
+                }
             }
-        }    
+        }
+        System.out.println("ya estan puestos");
        resT.setDilluns(dl);
        resT.setDimarts(dm);
        resT.setDimecres(dc);
