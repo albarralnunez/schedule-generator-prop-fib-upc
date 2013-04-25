@@ -14,7 +14,6 @@ import java.util.ArrayList;
 //TODO: PROGRAMAR TODO
 public class Horari {
          
-    
     public Horari() {
     }
 }
