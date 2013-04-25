@@ -19,8 +19,6 @@ public class CtrGeneracio {
     private CjtAssignatures cjtAs;
     private String nomUnitat;
     private CtrPersistencia cper;
-
-    private Espai quadricula;
     
     public CtrGeneracio( String nomU ){
         nomUnitat = nomU;
@@ -30,7 +28,6 @@ public class CtrGeneracio {
         cjtAs= new CjtAssignatures();
         cper = new CtrPersistencia();
         
-        quadricula = new Espai(24, 7);
     }
     
     //TODO: Hay que depurar solo inicializar las seleccionads por user
@@ -116,33 +113,14 @@ public class CtrGeneracio {
         }
         return asg;
     }
-    
-    private void inicialitazRestT(String a) {
-        //a = a.replace(".txt", "");
-        ArrayList<String> hd;
-        hd = cper.llegirDisponibilitatHor(a);
-        int z = 0;
-        for (int i =0; i < 5; ++i){
-            ArrayList<Integer> ar = new ArrayList();
-            for (int j = 0; j < 13; ++j, ++z)
-                 ar.add(Integer.parseInt(hd.get(z)));
-            if (i == 0) resT.setDilluns(ar);
-            if (i == 1) resT.setDimarts(ar);
-            if (i == 2) resT.setDimecres(ar);
-            if (i == 3) resT.setDijous(ar);
-            if (i == 4) resT.setDivendres(ar);
-            if (i == 5) resT.setDissabte(ar);
-            if (i == 6) resT.setDiumenge(ar);
-            
-        }
-    }
+
     
     public Horari generarHorari(String a) {
         Generador g = new Generador();
         inicialitzarCjtAulesTeo();
         inicialitzarCjtAulesLab();
         inicialitzarCjtAssignatures();
-        inicialitazRestT(a);
+        //inicialitazRestT(a);
         return g.generar(cjtAulTeo,cjtAulLab,cjtAs, resT);
     }
     

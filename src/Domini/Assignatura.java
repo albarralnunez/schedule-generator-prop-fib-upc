@@ -21,7 +21,9 @@ public class Assignatura {
     private int capacitatTeo;
     private int capacitatLab;
     private ArrayList<Integer> grups;
-
+//TODO: Falta si la assigantura necesita cosas apra teo y lab
+    private boolean material ;
+    private boolean projector;
     
     public Assignatura() {}
 
@@ -36,6 +38,8 @@ public class Assignatura {
         capacitatTeo= capT;
         capacitatLab = capP;
         this.grups = grups;
+        material = false;
+        projector = false;
     }
     
     /**

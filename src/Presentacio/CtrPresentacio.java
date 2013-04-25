@@ -58,13 +58,10 @@ public class CtrPresentacio {
     
     
     private static void generar() {
-        //Horari h = new Horari();
-        //System.out.println("tria un arxiu de disponibilitat horaria\n");
-        //String a = s.next()
-       /*
-        * ALICIA NOS HA DICHO QUE SOLO TENGAMOS UNA CONFIGURACION POR UNDIAD DOCENTE        
-        */
-       cd.crearQuadricula(); 
+        Horari h = new Horari();
+        System.out.println("tria un arxiu de disponibilitat horaria\n");
+        String a = s.next();
+        h = cd.generarHorari(a);
     }
 
 
