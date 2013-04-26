@@ -187,16 +187,16 @@ public class CtrDomini {
         return(cper.esborraAula(nomUnitat+"-"+nomAula));
     }
     
-    public Quadricula generarHorari() {
+    public void generarHorari() {
         ArrayList conf =  cper.llegirConfiguracioHoraria("configuracioHoraria-"+nomUnitat);
-        return cgen.generarHorari(conf);
+        cgen.generarHorari(conf);
     }
   
-    public void inicialitzarQuadricula(){
+   // public void inicialitzarQuadricula(){
        
-        ArrayList conf =  cper.llegirConfiguracioHoraria("configuracioHoraria-"+nomUnitat);
-        cgen.montaRestriccionsTemps(conf);
+    //    ArrayList conf =  cper.llegirConfiguracioHoraria("configuracioHoraria-"+nomUnitat);
+     //   cgen.montaRestriccionsTemps(conf);
         
-    }
+    //}
 
 }
