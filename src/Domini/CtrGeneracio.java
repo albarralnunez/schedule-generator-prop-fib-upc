@@ -119,7 +119,7 @@ public class CtrGeneracio {
     }
 
     
-    public Horari generarHorari(String a) {
+    public Quadricula generarHorari(String a) {
         Generador g = new Generador();
         inicialitzarCjtAulesTeo();
         inicialitzarCjtAulesLab();

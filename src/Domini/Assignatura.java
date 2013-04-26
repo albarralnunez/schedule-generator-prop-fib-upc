@@ -21,6 +21,7 @@ public class Assignatura {
     private int capacitatTeo;
     private int capacitatLab;
     private ArrayList<Integer> grups;
+
 //TODO: Falta si la assigantura necesita cosas apra teo y lab
     private boolean material ;
     private boolean projector;
@@ -40,6 +41,22 @@ public class Assignatura {
         this.grups = grups;
         material = false;
         projector = false;
+    }
+    
+      public boolean necesitaMaterial() {
+        return material;
+    }
+
+    public void setMaterial(boolean material) {
+        this.material = material;
+    }
+
+    public boolean necesitaProjector() {
+        return projector;
+    }
+
+    public void setProjector(boolean projector) {
+        this.projector = projector;
     }
     
     /**

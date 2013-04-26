@@ -13,8 +13,8 @@ public class Element {
     private String aula;
     private String assignatura;
     private int grupo;
-    private String dia;
-    private int hora;
+//    private String dia;
+//    private int hora;
         
     public String getAula() {
         return aula;
@@ -39,7 +39,7 @@ public class Element {
     public void setGrupo(int grupo) {
         this.grupo = grupo;
     }
-
+/*
     public String getDia() {
         return dia;
     }
@@ -55,5 +55,5 @@ public class Element {
     public void setHora(int hora) {
         this.hora = hora;
     }
-       
+  */     
 }

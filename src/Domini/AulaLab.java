@@ -19,6 +19,10 @@ public class AulaLab extends Aula{
         super(nom, cap);
         this.material = mat;
     }
+
+    AulaLab() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     /**
      *  

@@ -12,10 +12,10 @@ import java.util.ArrayList;
  */
 class Generador {
     
-    private Horari  h;
+    private Quadricula  q;
 
     public Generador() {
-        this.h = null;
+        this.q = null;
     }
     
     private ArrayList<Clausula> inicialitzarClausules(CjtAules aulesT, CjtAules 
@@ -119,11 +119,11 @@ class Generador {
         return clausules;
     }
             
-    public Horari generar(CjtAules aulesT, CjtAules aulesL, CjtAssignatures ass,
+    public Quadricula generar(CjtAules aulesT, CjtAules aulesL, CjtAssignatures ass,
         RestriccioTemps dis) {
-        h = new Horari();
+        q = new Quadricula();
         ArrayList<Clausula> clau = inicialitzarClausules(aulesT,aulesL,ass,dis);
-        return h;
+        return q;
     }
     
 }
