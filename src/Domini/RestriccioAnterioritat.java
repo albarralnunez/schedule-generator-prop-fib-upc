@@ -40,12 +40,4 @@ public class RestriccioAnterioritat extends Restriccio {
 
     }
 
-
-
-
-
-
-
-
-
 }
