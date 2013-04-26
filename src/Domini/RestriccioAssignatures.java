@@ -10,11 +10,10 @@ import java.util.ArrayList;
  * @author Joan Pol
  */
 public class RestriccioAssignatures /*extends Restriccio*/ {
-    protected class restriccioAssig {
+    protected class restriccioHoraria {
        String assignatura;
-       String aula;
-       int grup;
        String dia;
+       int hora;
     }
     boolean abansTeoria;
     
@@ -25,8 +24,8 @@ public class RestriccioAssignatures /*extends Restriccio*/ {
         restriccions = new ArrayList();
     }
     public void setRestriccioAssig(String assig,String aul, int grp, String d, int h ) {
-        restriccioAssig res;
-        res = new restriccioAssig();
+        restriccioHoraria res;
+        res = new restriccioHoraria();
         res.assignatura = assig;
         res.aula = aul;
         res.grup = grp;
