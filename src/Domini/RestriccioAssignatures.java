@@ -16,10 +16,8 @@ public class RestriccioAssignatures /*extends Restriccio*/ {
        int grup;
        String dia;
     }
-    protected class restriccioAnterioritat{
-        String Assignatura;
-        boolean abansTeoria;
-    }
+    boolean abansTeoria;
+    
     
     private ArrayList restriccions;
     
@@ -35,11 +33,8 @@ public class RestriccioAssignatures /*extends Restriccio*/ {
         res.dia = d;
         restriccions.add(res);
    }
-    public void setRestricioAnterioritat(String assig,boolean b){
-        restriccioAnterioritat r = new restriccioAnterioritat();
-        r.Assignatura = assig;
-        r.abansTeoria = b;
-        restriccions.add(r);
+    public void setRestricioAnterioritat(boolean b){
+        abansTeoria = b;
     }
     public ArrayList getRestriccions(){
        return restriccions;
