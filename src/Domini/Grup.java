@@ -40,7 +40,7 @@ public class Grup {
        this.numero = numero;
    }
    public void SetCapacitat(int capacidad){
-       capacidad = capacidad;
+       this.capacidad = capacidad;
    }
     
 }

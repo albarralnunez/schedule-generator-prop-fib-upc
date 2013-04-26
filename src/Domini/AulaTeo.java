@@ -20,8 +20,9 @@ public class AulaTeo extends Aula{
        this.projector = projector;
     }
 
-    AulaTeo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public AulaTeo() {
+        super();
+        this.projector = false; //La creadora por defecto pone projector a false;
     }
     
     /**
@@ -36,7 +37,7 @@ public class AulaTeo extends Aula{
      *  
      * @param projector.
      */    
-    public void setProyector(boolean projector){
+    public void setProjector(boolean projector){
         this.projector = projector;
     }
 }
