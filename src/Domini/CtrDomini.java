@@ -187,9 +187,9 @@ public class CtrDomini {
         return(cper.esborraAula(nomUnitat+"-"+nomAula));
     }
     
-    public Quadricula generarHorari(String a) {
-        return cgen.generarHorari(a);
-
+    public Quadricula generarHorari() {
+        ArrayList conf =  cper.llegirConfiguracioHoraria("configuracioHoraria-"+nomUnitat);
+        return cgen.generarHorari(conf);
     }
   
     public void inicialitzarQuadricula(){
