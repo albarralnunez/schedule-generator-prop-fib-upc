@@ -87,11 +87,11 @@ public class Assignatura {
         this.horesP = horesP;
     }
 
-    public int getNivel() {
+    public int getNivell() {
         return nivel;
     }
 
-    public void setNivel(int nivel) {
+    public void setNivell(int nivel) {
         this.nivel = nivel;
     }    
     public int getCapacitatTeo() {
@@ -130,12 +130,12 @@ public class Assignatura {
         return grups;
     }
 
-    public void setGrupos(ArrayList<Integer> grupos) {
+    public void setGrups(ArrayList<Integer> grupos) {
         this.grups.addAll(grupos);
        // Collections.sort(this.grupos);
     }
     
-    public void addGrupo(Integer grupo) {
+    public void addGrup(Integer grupo) {
         grups.add(grupo);
         //Collections.sort(this.grupos);
     }    
