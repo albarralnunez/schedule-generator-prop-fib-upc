@@ -22,11 +22,14 @@ public class Assignatura {
     private int capacitatLab;
     private ArrayList<Integer> grups;
 
+//TODO: Falta si la assigantura necesita cosas apra teo y lab
+    private boolean material ;
+    private boolean projector;
     
     public Assignatura() {}
 
     public Assignatura( String nm, int niv, int ht, ArrayList<Integer> inteT, int hp, 
-            ArrayList<Integer> inteP, int nv,int capT, int capP ,ArrayList<Integer> grups) {
+            ArrayList<Integer> inteP, int capT, int capP ,ArrayList<Integer> grups) {
         nom = nm;
         nivel = niv;
         horesT = ht;
@@ -36,6 +39,24 @@ public class Assignatura {
         capacitatTeo= capT;
         capacitatLab = capP;
         this.grups = grups;
+        material = false;
+        projector = false;
+    }
+    
+      public boolean necesitaMaterial() {
+        return material;
+    }
+
+    public void setMaterial(boolean material) {
+        this.material = material;
+    }
+
+    public boolean necesitaProjector() {
+        return projector;
+    }
+
+    public void setProjector(boolean projector) {
+        this.projector = projector;
     }
     
     /**

@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Clausula {
 
-    private class Element {
+    private class clausulaNom {
         String a; //Aula
         String d; //Dia
         int h; //Hora
@@ -22,11 +22,11 @@ public class Clausula {
     private String assignatura;
     private Integer grup;
     private Integer duracio;
-    private ArrayList<Element> clausula;
+    private ArrayList<clausulaNom> clausula;
 
     //Constructora
     public Clausula() {
-        clausula = new ArrayList<Element>();
+        clausula = new ArrayList<clausulaNom>();
         grup = null;
         duracio = null;
         assignatura = null;
@@ -41,7 +41,7 @@ public class Clausula {
     */
 
     public void afegirElem(String a, String d, Integer h) {
-        Element e = new Element();
+        clausulaNom e = new clausulaNom();
         e.a = a;
         e.d = d;
         e.h = h;
@@ -55,7 +55,7 @@ public class Clausula {
      */
 
     public boolean borrarElem(String a, String d, Integer h) {
-        Element e = new Element();
+        clausulaNom e = new clausulaNom();
         e.a = a;
         e.d = d;
         e.h = h;
@@ -70,11 +70,11 @@ public class Clausula {
 
     
     public boolean buscarElem(String a, String d, Integer h) {
-        Element e = new Element();
+        clausulaNom e = new clausulaNom();
         e.a = a;
         e.d = d;
         e.h = h;
-        for(Element e1: clausula){
+        for(clausulaNom e1: clausula){
                 if(e1 == e) return true;
         }
         return false;
@@ -105,14 +105,6 @@ public class Clausula {
     public Integer getGrup() {
         return grup;
     }
-
-
-
-
-
-
-
-
 
 
 }

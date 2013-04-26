@@ -19,6 +19,8 @@ public class RestriccioTemps {
     private ArrayList<Integer> divendres;
     private ArrayList<Integer> dissabte;
     private ArrayList<Integer> diumenge;
+    
+
     public ArrayList<Integer> getDissabte() {
         return dissabte;
     }
@@ -77,13 +79,5 @@ public class RestriccioTemps {
     }
 
     
-    /**
-     * 
-     * @return  Arraylist amb tots els dies i hores disponibles L->dia, R->hora
-     */
-    public ArrayList<Pair<String,Integer>> disponibilitat(){
-        ArrayList<Pair<String,Integer>> disponibilitat = new ArrayList();
-        return disponibilitat; 
-    }
 
 }

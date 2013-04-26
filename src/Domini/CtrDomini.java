@@ -187,16 +187,16 @@ public class CtrDomini {
         return(cper.esborraAula(nomUnitat+"-"+nomAula));
     }
     
-    public Horari generarHorari(String a) {
-        return cgen.generarHorari(a);
-
+    public Quadricula generarHorari() {
+        ArrayList conf =  cper.llegirConfiguracioHoraria("configuracioHoraria-"+nomUnitat);
+        return cgen.generarHorari(conf);
     }
   
-    public void crearQuadricula(){
-        // mirar si existeix la configuracio horaria
-        ArrayList diesHores =  cper.llegirConfiguracioHoraria("configuracioHoraria-"+nomUnitat);
+    public void inicialitzarQuadricula(){
+       
+        ArrayList conf =  cper.llegirConfiguracioHoraria("configuracioHoraria-"+nomUnitat);
+        cgen.montaRestriccionsTemps(conf);
         
-        // ara el generador ha de inicialitzar la quadricula amb els valors
     }
 
 }

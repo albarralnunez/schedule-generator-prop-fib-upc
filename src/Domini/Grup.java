@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class Grup {
      private int numero; // id del grupo, donde id >= 0
      private int capacidad; //Numero maximo de alumnos en el grupo, estrictamente positivo
+     
      private class combinaciones {
        Aula a;
        int dia;

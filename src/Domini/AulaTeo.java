@@ -19,6 +19,10 @@ public class AulaTeo extends Aula{
        super(nom, cap);
        this.projector = projector;
     }
+
+    AulaTeo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     /**
      *  

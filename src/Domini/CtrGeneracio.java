@@ -19,18 +19,19 @@ public class CtrGeneracio {
     private CjtAssignatures cjtAs;
     private String nomUnitat;
     private CtrPersistencia cper;
-
-    private Espai quadricula;
+    private Quadricula quad;
     
     public CtrGeneracio( String nomU ){
+        
         nomUnitat = nomU;
         resT = new RestriccioTemps();
+        quad = new Quadricula();
         cjtAulLab = new CjtAules();
         cjtAulTeo = new CjtAules();
         cjtAs= new CjtAssignatures();
         cper = new CtrPersistencia();
         
-        quadricula = new Espai(24, 7);
+        
     }
     
     //TODO: Hay que depurar solo inicializar las seleccionads por user
@@ -114,43 +115,78 @@ public class CtrGeneracio {
             int g = Integer.parseInt(atributs.get(++contador));
             grupos.add( g );
         }
+        asg = new Assignatura( nom, nvl, numht, intersT, numhp, intersP, capt, capp, grupos );
         return asg;
     }
+
     
-    private void inicialitazRestT(String a) {
-        //a = a.replace(".txt", "");
-        ArrayList<String> hd;
-        hd = cper.llegirDisponibilitatHor(a);
-        int z = 0;
-        for (int i =0; i < 5; ++i){
-            ArrayList<Integer> ar = new ArrayList();
-            for (int j = 0; j < 13; ++j, ++z)
-                 ar.add(Integer.parseInt(hd.get(z)));
-            if (i == 0) resT.setDilluns(ar);
-            if (i == 1) resT.setDimarts(ar);
-            if (i == 2) resT.setDimecres(ar);
-            if (i == 3) resT.setDijous(ar);
-            if (i == 4) resT.setDivendres(ar);
-            if (i == 5) resT.setDissabte(ar);
-            if (i == 6) resT.setDiumenge(ar);
-            
-        }
-    }
-    
-    public Horari generarHorari(String a) {
+    public Quadricula generarHorari(ArrayList a) {
         Generador g = new Generador();
         inicialitzarCjtAulesTeo();
         inicialitzarCjtAulesLab();
         inicialitzarCjtAssignatures();
-        inicialitazRestT(a);
+        montaRestriccionsTemps(a);
         return g.generar(cjtAulTeo,cjtAulLab,cjtAs, resT);
     }
     
-    
-    
-    
-    
-    
-    
+    public void montaRestriccionsTemps( ArrayList<String> conf ){
+        ArrayList<Integer> dl = new ArrayList<Integer>();
+        ArrayList<Integer> dm = new ArrayList<Integer>();
+        ArrayList<Integer> dc = new ArrayList<Integer>();
+        ArrayList<Integer> dj = new ArrayList<Integer>();
+        ArrayList<Integer> dv = new ArrayList<Integer>();
+        ArrayList<Integer> ds = new ArrayList<Integer>();
+        ArrayList<Integer> dg = new ArrayList<Integer>();
+        String dia = null;
+        for( int fila = 0; fila < conf.size(); ++fila ){
+            
+            String linia = conf.get(fila);
+            
+            if( linia.contains("dilluns") || linia.contains("dimarts") || linia.contains("dimecres")
+            || linia.contains("dijous") || linia.contains("divendres") || linia.contains("dissabte") 
+            || linia.contains("diumenge") ) {
+                dia = linia;
+            } 
+            else{
+                int hora = Integer.parseInt( linia );
+                if( dia.contains("dilluns") ){
+                    dl.add(hora);
+                    quad.validar(0, hora);
+                }
+                else if( dia.contains("dimarts") ) {
+                    dm.add(hora);
+                    quad.validar(1, hora);
+                }
+                else if( dia.contains("dimecres") ) {
+                    dc.add(hora);
+                    quad.validar(2, hora);
+                }
+                else if( dia.contains("dijous") ) {
+                    dj.add(hora);
+                    quad.validar(3, hora);
+                }
+                else if( dia.contains("divendres") ) {
+                    dv.add(hora);
+                    quad.validar(4, hora);
+                }
+                else if( dia.contains("dissabte") ) {
+                    ds.add(hora);
+                    quad.validar(5, hora);
+                }
+                else if ( dia.contains("diumenge")) {
+                    dg.add(hora);
+                    quad.validar(6, hora);
+                }
+            }
+        }
+        System.out.println("ya estan puestos");
+       resT.setDilluns(dl);
+       resT.setDimarts(dm);
+       resT.setDimecres(dc);
+       resT.setDijous(dj);
+       resT.setDivendres(dv);
+       resT.setDissabte(ds);
+       resT.setDiumenge(dg);
+    }
     
 }

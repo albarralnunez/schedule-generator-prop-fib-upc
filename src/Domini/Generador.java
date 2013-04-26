@@ -12,6 +12,11 @@ import java.util.ArrayList;
  */
 class Generador {
     
+    private Quadricula  q;
+
+    public Generador() {
+        this.q = null;
+    }
     
     private ArrayList<Clausula> inicialitzarClausules(CjtAules aulesT, CjtAules 
             aulesL, CjtAssignatures ass, RestriccioTemps dis) {
@@ -19,59 +24,106 @@ class Generador {
         Clausula c = new Clausula();
         for(Assignatura a : ass.getCjtAssignatures()){
             c.setAssignatura(a.getNom());
-            for (Grup g : a.getGrups()) {
-                c.setGrup(g.GetId());
+            for (Integer g : a.getGrups()) {
+                c.setGrup(g);
                 String nomAul;
                 String dia;
                 Integer hora;
+                //Inicialitzacio clausules amb grups de laboratori         
+                ArrayList<Integer> interval = new ArrayList<Integer>();
                 CjtAules aulesPos = new CjtAules();
-                //Inicialitzacio clausules amb grups de laboratori
-                if(g instanceof GrupLab) {
-                    aulesPos = aulesL.cjtCapacitatMajorDe(g.GetCapacidad());
-                    int i = 0;
-                    for (Integer h : a.getIntervalsP()) {
-                        c.setDuracio(h);
-                        clausules.add(c);
-                        //Inicialitzacio del domini
-                        for (Aula au : aulesPos.getCjtAules()){
-                            nomAul = au.getNom();
-                            for (Pair d : dis.disponibilitat()){
-                                dia = (String)d.getL();
-                                hora = (Integer)d.getR();
-                                clausules.get(i).afegirElem(nomAul, dia, hora);
+                if(g%10 != 0){  //GupsLab
+                    
+                     aulesPos = aulesL.cjtCapacitatMajorDe(a.getCapacitatLab());
+                     interval = a.getIntervalsP();
+                }
+                else{ //GrupsTeo
+                    aulesPos = aulesT.cjtCapacitatMajorDe(a.getCapacitatTeo());
+                    interval = a.getIntervalsT();
+                }
+                for (Integer h : interval) {
+                    c.setDuracio(h);
+                    //Inicialitzacio del domini
+                    for (Aula au : aulesPos.getCjtAules()){
+                        nomAul = au.getNom();
+                        
+                        boolean doo = false;       
+                        if (au.getClass().equals(AulaLab.class)) {
+                            AulaLab aal = (AulaLab)au;/*
+                            if (aal.getMaterial() && a.necesitaMaterial())
+                                doo = true;*/
+                        }
+                        if (au.getClass().equals(AulaTeo.class)) {
+                            AulaTeo aat = (AulaTeo)au;/*
+                            if (aat.getProjector()&& a.necesitaProjector())
+                                doo = true;*/
+                        }
+                        if (doo) {
+                            for (int j = 0; j < 7; ++j) {
+                                if (j == 0) {
+                                     dia = "dilluns";
+                                   for (Integer d : dis.getDilluns()){
+                                        hora = d;
+                                        c.afegirElem(nomAul, dia, hora);
+                                   }
+                                }
+                                if (j == 1) {
+                                    dia = "dimarts";
+                                   for (Integer d : dis.getDimarts()){                                     
+                                        hora = d;
+                                        c.afegirElem(nomAul, dia, hora);
+                                   }
+                                }
+                                if (j == 2) {
+                                    dia = "dimecres";
+                                   for (Integer d : dis.getDimecres()){
+                                        hora = d;
+                                        c.afegirElem(nomAul, dia, hora);
+                                   }
+                                }
+                                if (j == 3) {
+                                    dia = "dijous";
+                                    for (Integer d : dis.getDijous()){
+                                        hora = d;
+                                        c.afegirElem(nomAul, dia, hora);
+                                   }
+                                }
+                                if (j == 4) {
+                                    dia = "divendres";
+                                    for (Integer d : dis.getDivendres()){
+                                        hora = d;
+                                        c.afegirElem(nomAul, dia, hora);
+                                   }
+                                }
+                                if (j == 5) {
+                                    dia = "dissabte";
+                                    for (Integer d : dis.getDissabte()){
+                                        hora = d;
+                                        c.afegirElem(nomAul, dia, hora);
+                                   }
+                                }
+                                if (j == 6) {
+                                    dia = "diumenge";
+                                    for (Integer d : dis.getDiumenge()){     
+                                        hora = d;
+                                        c.afegirElem(nomAul, dia, hora);
+                                   }
+                                }  
                             }
                         }
-                        ++i;
                     }
-                }
-                else {
-                    aulesPos = aulesT.cjtCapacitatMajorDe(g.GetCapacidad());
-                    int i = 0;
-                    for (Integer h : a.getIntervalsT()) {
-                        c.setDuracio(h);
-                        clausules.add(c);
-                        //Inicialitzacio del domini
-                        for (Aula au : aulesPos.getCjtAules()){
-                            nomAul = au.getNom();
-                            for (Pair d : dis.disponibilitat()){
-                                dia = (String)d.getL();
-                                hora = (Integer)d.getR();
-                                clausules.get(i).afegirElem(nomAul, dia, hora);
-                            }
-                        }
-                        ++i;
-                    }
-                }
+                    clausules.add(c);
+                }  
             }
-        }
+        }          
         return clausules;
     }
             
-    public Horari generar(CjtAules aulesT, CjtAules aulesL, CjtAssignatures ass,
+    public Quadricula generar(CjtAules aulesT, CjtAules aulesL, CjtAssignatures ass,
         RestriccioTemps dis) {
-        Horari horari = new Horari();
+        q = new Quadricula();
         ArrayList<Clausula> clau = inicialitzarClausules(aulesT,aulesL,ass,dis);
-        return horari;
+        return q;
     }
     
 }
