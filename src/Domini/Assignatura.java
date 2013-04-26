@@ -29,7 +29,7 @@ public class Assignatura {
     public Assignatura() {}
 
     public Assignatura( String nm, int niv, int ht, ArrayList<Integer> inteT, int hp, 
-            ArrayList<Integer> inteP, int nv,int capT, int capP ,ArrayList<Integer> grups) {
+            ArrayList<Integer> inteP, int capT, int capP ,ArrayList<Integer> grups) {
         nom = nm;
         nivel = niv;
         horesT = ht;

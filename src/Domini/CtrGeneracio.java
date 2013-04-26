@@ -115,6 +115,7 @@ public class CtrGeneracio {
             int g = Integer.parseInt(atributs.get(++contador));
             grupos.add( g );
         }
+        asg = new Assignatura( nom, nvl, numht, intersT, numhp, intersP, capt, capp, grupos );
         return asg;
     }
 
