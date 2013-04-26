@@ -19,6 +19,12 @@ public class GrupTeo extends Grup {
        super(numero, capacidad,l);
        this.proyector = proyecto;
     }
+
+    //Constructora por defecto:
+    public GrupTeo() {
+	super();
+	this.proyector = false; //Por defecto no necesita proyector.
+    }
     
     public boolean GetProyector(){
         return proyector;

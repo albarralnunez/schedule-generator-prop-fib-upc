@@ -120,8 +120,8 @@ class Generador {
     }
             
     public Quadricula generar(CjtAules aulesT, CjtAules aulesL, CjtAssignatures ass,
-        RestriccioTemps dis) {
-        q = new Quadricula();
+        RestriccioTemps dis, Quadricula q) {
+        
         ArrayList<Clausula> clau = inicialitzarClausules(aulesT,aulesL,ass,dis);
         return q;
     }

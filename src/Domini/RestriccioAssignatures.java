@@ -35,6 +35,7 @@ public class RestriccioAssignatures /*extends Restriccio*/ {
     public void setRestricioAnterioritat(boolean b){
         abansTeoria = b;
     }
+    
     public ArrayList getRestriccions(){
        return restriccions;
    }
