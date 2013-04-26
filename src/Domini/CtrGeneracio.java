@@ -179,7 +179,6 @@ public class CtrGeneracio {
                 }
             }
         }
-        System.out.println("ya estan puestos");
        resT.setDilluns(dl);
        resT.setDimarts(dm);
        resT.setDimecres(dc);

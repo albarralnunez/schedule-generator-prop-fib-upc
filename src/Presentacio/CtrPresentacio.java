@@ -58,13 +58,7 @@ public class CtrPresentacio {
     
     
     private static void generar() {
-        /*
-        Quadricula q = new Quadricula();
         
-        System.out.println("tria un arxiu de disponibilitat horaria\n");
-        String a = s.next();
-        q = cd.generarHorari(a);
-        */
         cd.inicialitzarQuadricula();
         
 
