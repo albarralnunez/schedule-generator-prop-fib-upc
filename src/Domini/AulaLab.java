@@ -20,8 +20,9 @@ public class AulaLab extends Aula{
         this.material = mat;
     }
 
-    AulaLab() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public AulaLab() {
+        super();
+        this.material = false; //La creadora por defecto no da material al aula.
     }
     
     /**
