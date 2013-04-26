@@ -135,7 +135,7 @@ public class Assignatura {
        // Collections.sort(this.grupos);
     }
     
-    public void setGrupo(Integer grupo) {
+    public void addGrupo(Integer grupo) {
         grups.add(grupo);
         //Collections.sort(this.grupos);
     }    
