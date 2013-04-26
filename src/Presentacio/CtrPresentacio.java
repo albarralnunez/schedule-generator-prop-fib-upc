@@ -65,7 +65,8 @@ public class CtrPresentacio {
         String a = s.next();
         q = cd.generarHorari(a);
         */
-        cd.inicialitzarQuadricula();
+       // cd.inicialitzarQuadricula();
+        cd.generarHorari();
         
 
     }

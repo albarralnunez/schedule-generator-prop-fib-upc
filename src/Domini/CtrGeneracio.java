@@ -120,13 +120,13 @@ public class CtrGeneracio {
     }
 
     
-    public Quadricula generarHorari(ArrayList a) {
+    public void generarHorari(ArrayList a) {
         Generador g = new Generador();
         inicialitzarCjtAulesTeo();
         inicialitzarCjtAulesLab();
         inicialitzarCjtAssignatures();
         montaRestriccionsTemps(a);
-        return g.generar(cjtAulTeo,cjtAulLab,cjtAs, resT);
+        quad = g.generar(cjtAulTeo,cjtAulLab,cjtAs, resT,quad);
     }
     
     public void montaRestriccionsTemps( ArrayList<String> conf ){

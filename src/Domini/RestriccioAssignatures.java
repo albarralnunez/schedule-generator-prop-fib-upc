@@ -41,6 +41,7 @@ public class RestriccioAssignatures /*extends Restriccio*/ {
         r.abansTeoria = b;
         restriccions.add(r);
     }
+    
     public ArrayList getRestriccions(){
        return restriccions;
    }
