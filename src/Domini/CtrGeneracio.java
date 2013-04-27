@@ -4,7 +4,6 @@
  */
 package Domini;
 
-import Persistencia.CtrPersistencia;
 import java.util.ArrayList;
 
 /**
@@ -18,8 +17,8 @@ public class CtrGeneracio {
     private CjtAules cjtAulTeo;
     private CjtAssignatures cjtAs;
     private String nomUnitat;
-    //private CtrPersistencia cper;
     private Quadricula quad;
+    private Generador gen;
     
     
     /**
@@ -33,29 +32,26 @@ public class CtrGeneracio {
         cjtAulLab = new CjtAules();
         cjtAulTeo = new CjtAules();
         cjtAs= new CjtAssignatures();
+        gen = new Generador();
        // cper = new CtrPersistencia();
         
         
     }
-    
-    
-    
-    
+
     public void inicialitzarGenerador(ArrayList<String> confHoraria, ArrayList<Assignatura> assignatures, ArrayList<AulaLab> aulesL, 
        ArrayList<AulaTeo> aulesT ){
        montaRestriccionsTemps(confHoraria); // inicalitza rest de temps + quadricula
-       
        cjtAs.afegirAssignatures(assignatures);
-       
        for(int i = 0; i < aulesL.size(); ++i){
            cjtAulLab.afegirAula( aulesL.get(i) );
        }
        for(int i = 0; i < aulesT.size(); ++i){
            cjtAulTeo.afegirAula( aulesT.get(i) );
        }
-       
-       
-       String a = "BREAKPOINT";
+    }
+    
+    public boolean generar() {
+        return gen.generar(cjtAulTeo, cjtAulLab, cjtAs, resT, quad);
     }
     /**
      *

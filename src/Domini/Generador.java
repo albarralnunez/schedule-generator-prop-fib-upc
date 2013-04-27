@@ -21,11 +21,12 @@ class Generador {
     private ArrayList<Clausula> inicialitzarClausules(CjtAules aulesT, CjtAules 
             aulesL, CjtAssignatures ass, RestriccioTemps dis) {
         ArrayList<Clausula> clausules = new ArrayList();
-        Clausula c = new Clausula();
         ArrayList<Assignatura> as = ass.getCjtAssignatures();
         //for(Assignatura a : as){
         for (int i = 0; i < as.size(); ++i) {
-            Assignatura a = as.get(i);
+            Clausula c = new Clausula();
+            Assignatura a;
+            a = as.get(i);
             c.setAssignatura(a.getNom());
             ArrayList<Integer>gup = a.getGrups();
             //for (Integer g : gup) {
@@ -124,11 +125,10 @@ class Generador {
         return clausules;
     }
             
-    public Quadricula generar(CjtAules aulesT, CjtAules aulesL, CjtAssignatures ass,
+    public boolean generar(CjtAules aulesT, CjtAules aulesL, CjtAssignatures ass,
         RestriccioTemps dis, Quadricula q) {
-        
         ArrayList<Clausula> clau = inicialitzarClausules(aulesT,aulesL,ass,dis);
-        return q;
+        return true;
     }
     
 }
