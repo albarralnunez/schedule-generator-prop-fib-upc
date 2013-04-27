@@ -16,17 +16,15 @@ class CjtAssignatures {
     
    
     public CjtAssignatures(){ 
-        cjtAssignatures = new ArrayList();
+        cjtAssignatures = new ArrayList<Assignatura>();
     }
     
     public ArrayList<Assignatura> getCjtAssignatures() {
         return this.cjtAssignatures;
     }
 
-    public void afegirAssignatures(/*Aula aula*/ ArrayList<Assignatura> assigs){
-        int size = assigs.size();
-        for(int i = 0; i < size; ++i) cjtAssignatures.add(assigs.get(i));
-        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void afegirAssignatures(  ArrayList<Assignatura> assigs){
+       cjtAssignatures = assigs;
     }
     
 
