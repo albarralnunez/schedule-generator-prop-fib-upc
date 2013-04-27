@@ -187,16 +187,90 @@ public class CtrDomini {
         return(cper.esborraAula(nomUnitat+"-"+nomAula));
     }
     
-    public void generarHorari() {
-        ArrayList conf =  cper.llegirConfiguracioHoraria("configuracioHoraria-"+nomUnitat);
-        cgen.generarHorari(conf);
+    
+    /**
+     * fara que s'inicialitzin la quadricula, les aules i les assignatures
+     */
+    public void inicialitzaGenerador() {
+        
+        ArrayList<String> configuracioInicial =  cper.llegirConfiguracioHoraria("configuracioHoraria-"+nomUnitat);
+        
+        ArrayList<String> llistaAssignatures = cper.llistaAssigantures(nomUnitat);
+        int numAsg = llistaAssignatures.size();
+        ArrayList<Assignatura> assignatures = new ArrayList<Assignatura>(numAsg);
+        for( int i = 0; i < numAsg ; ++i){
+            String nomAsg = llistaAssignatures.get(i);
+            assignatures.add( montaAssignatura( nomAsg ) );
+        }
+        
+        
+        ArrayList<String> auesLab = cper.llistaAulesLab(nomUnitat);
+        ArrayList<AulaLab> aLab = new ArrayList<AulaLab>();
+        for(String nom : auesLab){
+           nom = nom.replace("aula-lab-", "");
+           nom = nom.replace(".txt", "");
+           ArrayList<String> atributs = cper.llegirAulaLab(nom);
+           boolean b = false;
+           if (Integer.parseInt (atributs.get(3)) == 1) b = true;
+           AulaLab a = new AulaLab(nom,Integer.parseInt (atributs.get(2)),b);
+           aLab.add(a);
+        }
+        
+        ArrayList llistAules = cper.llistaAulesTeo(nomUnitat);
+        ArrayList<AulaTeo> aTeo = new ArrayList<AulaTeo>();
+        for (int i = 0; i < llistAules.size(); ++i) {
+           Object nomO = llistAules.get(i);
+           String nom = nomO.toString();
+           nom = nom.replace("aula-teo-", "");
+           nom = nom.replace(".txt", "");
+           ArrayList<String> atributs = cper.llegirAulaTeo(nom);
+           boolean b;
+           if (Integer.parseInt (atributs.get(3)) == 1) b = true;
+           else b = false;
+           AulaTeo a = new AulaTeo(nom,Integer.parseInt (atributs.get(2)),b);
+           aTeo.add(a);
+        }
+        
+        cgen.inicialitzarGenerador(configuracioInicial, assignatures, aLab, aTeo);
+        
+        
     }
   
-   // public void inicialitzarQuadricula(){
-       
-    //    ArrayList conf =  cper.llegirConfiguracioHoraria("configuracioHoraria-"+nomUnitat);
-     //   cgen.montaRestriccionsTemps(conf);
+    
+    public Assignatura montaAssignatura( String nomAsg ){
+        Assignatura asg = new Assignatura();
+        nomAsg = nomAsg.replace("assig-", "");
+        nomAsg = nomAsg.replace(".txt", "");
+        ArrayList<String> atributs = cper.llegirAssignatura(nomAsg);
+        String nom = atributs.get(0);      
+        int nvl = Integer.parseInt(atributs.get(1));
+        int numht = Integer.parseInt( atributs.get(2) );
+        int numint =  Integer.parseInt( atributs.get(3) );
+        ArrayList<Integer> intersT = new ArrayList<Integer>(numint); 
+        int contador = numint+4;
+        for( int i = 4; i < numint+4  ; ++i ){
+            int interval = Integer.parseInt(atributs.get(i));
+            intersT.add( interval );
+        }
+        int numhp = Integer.parseInt( atributs.get(contador) );
+        int contadorip =  Integer.parseInt( atributs.get( ++contador) );
+        contador = contador + contadorip;
+        ArrayList<Integer> intersP = new ArrayList<Integer>(contadorip); 
+        for( int i = contador-contadorip+1; i < contador; ++i){
+            int interval = Integer.parseInt(atributs.get(i));
+            intersP.add( interval );
+        }
+        int capt = Integer.parseInt( atributs.get( ++contador) );
+        int capp = Integer.parseInt( atributs.get( ++contador) );
         
-    //}
+        int numGrupos = atributs.size()-contador-1;
+        ArrayList<Integer> grupos = new ArrayList<Integer>( numGrupos );
+        for( int i = 0; i < numGrupos; ++i ){
+            int g = Integer.parseInt(atributs.get(++contador));
+            grupos.add( g );
+        }
+        asg = new Assignatura( nom, nvl, numht, intersT, numhp, intersP, capt, capp, grupos );
+        return asg;
+    }
 
 }

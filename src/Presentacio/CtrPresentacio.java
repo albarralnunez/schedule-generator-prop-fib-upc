@@ -57,8 +57,9 @@ public class CtrPresentacio {
     
     
     private static void generar() {
-        cd.generarHorari();
-
+        //cd.generarHorari();
+        cd.inicialitzaGenerador(); // inicialitza quadricula, aules i assignatures
+        
     }
 
 
