@@ -202,8 +202,7 @@ public class CtrDomini {
             String nomAsg = llistaAssignatures.get(i);
             assignatures.add( montaAssignatura( nomAsg ) );
         }
-        
-        
+
         ArrayList<String> auesLab = cper.llistaAulesLab(nomUnitat);
         ArrayList<AulaLab> aLab = new ArrayList<AulaLab>();
         for(String nom : auesLab){
@@ -272,5 +271,12 @@ public class CtrDomini {
         asg = new Assignatura( nom, nvl, numht, intersT, numhp, intersP, capt, capp, grupos );
         return asg;
     }
+
+    public void generar() {
+        Quadricula  q = new Quadricula();
+        cgen.generar();  
+    }
+    
+    
 
 }
