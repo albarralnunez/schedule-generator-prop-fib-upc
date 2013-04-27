@@ -21,8 +21,12 @@ public class CtrGeneracio {
     private CtrPersistencia cper;
     private Quadricula quad;
     
+    
+    /**
+     *
+     * @param nomU
+     */
     public CtrGeneracio( String nomU ){
-        
         nomUnitat = nomU;
         resT = new RestriccioTemps();
         quad = new Quadricula();
@@ -120,6 +124,10 @@ public class CtrGeneracio {
     }
 
     
+    /**
+     *
+     * @param a
+     */
     public void generarHorari(ArrayList<String> a) {
         Generador g = new Generador();
         inicialitzarCjtAulesTeo();
@@ -129,6 +137,10 @@ public class CtrGeneracio {
         quad = g.generar(cjtAulTeo,cjtAulLab,cjtAs, resT,quad);
     }
     
+    /**
+     *
+     * @param conf
+     */
     public void montaRestriccionsTemps( ArrayList<String> conf ){
         ArrayList<Integer> dl = new ArrayList<Integer>();
         ArrayList<Integer> dm = new ArrayList<Integer>();

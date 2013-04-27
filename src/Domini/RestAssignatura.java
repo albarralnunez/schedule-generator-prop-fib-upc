@@ -14,21 +14,22 @@ public class RestAssignatura extends Restriccio {
        int grup;
        String dia;
        int hora;
-    
+
     public RestAssignatura(){
-        super(0);
+        super(3);
         assignatura = null;
         grup = -1;
         dia = null;
         hora = -1;
     }
     public RestAssignatura(String assignatura, int grup, String dia, int hora){
-        super(0);
+        super(3);
         this.assignatura = assignatura;
         this.grup = grup;
         this.dia = dia;
         this.hora = hora;
     }
+    
     public void setAssignatura(String assignatura){
         this.assignatura = assignatura;
     }
