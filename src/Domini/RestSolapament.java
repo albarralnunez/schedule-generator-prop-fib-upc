@@ -8,7 +8,7 @@ package Domini;
  *
  * @author Joan Pol
  */
-public class RestSolapament {
+public class RestSolapament extends Restriccio{
     String assignaturaPrincipal;
     int grupPrincipal;
     String assignaturaSolapament;
@@ -18,12 +18,14 @@ public class RestSolapament {
     * Crea una restriccion que indica que una assig+grupo no puede impartirse a la vez que otra temporalmente hablando
     */
     public RestSolapament(){
+        super(0);
         assignaturaPrincipal = null;
         grupPrincipal = -1;
         assignaturaSolapament = null;
         grupSolapament = -1;
     }
     public RestSolapament(String assignaturaP, int grupP, String assignaturaS, int grupS){
+        super(0);
         this.assignaturaPrincipal = assignaturaP;
         this.grupPrincipal = grupP;
         this.assignaturaSolapament = assignaturaS;
@@ -54,4 +56,19 @@ public class RestSolapament {
         return grupSolapament;
     }
     
+    @Override
+    public boolean CompleixRes(){return false;}
+    
+    
+    public boolean esPotCrear(CjtRestriccions cjtR) {
+        return true;
+    }
+    
+    public boolean CompleixRes(String assignaturaP, int grupP, String assignaturaS,int grupoS) {
+       /* boolean comp = false;
+        if()
+        */
+        return false;
+    }
+   // RestGrupoAula resdw = (RestGrupoAula) res;
 }

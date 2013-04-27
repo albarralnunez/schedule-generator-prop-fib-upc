@@ -4,8 +4,7 @@
  */
 
 package Domini;
-//import domini.Restriccio;
-import java.lang.String;
+
 
 /**
  *
@@ -26,10 +25,25 @@ public class RestriccioAnterioritat extends Restriccio {
     }
     
 
-    //obj1 y obj2 son asignaciones, de momento los tratamos como enteros que tienen una hora asignada en un dia si obj1 va antes que obj2 todo ok.
-    //El @Override 
-    //@Override
+    //obj1 y obj2 son asignaciones Strings, si encontramos en el horario obj2 antes que obj1 return false,
+    @Override
     public boolean CompleixRes() {
+        return false;
+    }
+
+
+    public boolean CompleixResAnterioritat(Quadricula q, String obj1, String obj2) {
+    }
+
+
+
+
+       // boolean find_obj1 = false;
+       // boolean find_obj2 = false;
+
+        //Recorrer
+
+
         Integer objeto1;
         Integer objeto2;
         objeto1 = Integer.parseInt(obj1);

@@ -15,29 +15,19 @@ public class RestAssignatura extends Restriccio {
        String dia;
        int hora;
 
-    public int getHora() {
-        return hora;
-    }
-
-    
     public RestAssignatura(){
-        super(1);
+        super(3);
         assignatura = null;
         grup = -1;
         dia = null;
         hora = -1;
     }
     public RestAssignatura(String assignatura, int grup, String dia, int hora){
-        super(1);
+        super(3);
         this.assignatura = assignatura;
         this.grup = grup;
         this.dia = dia;
         this.hora = hora;
-    }
-
-    @Override
-    public boolean CompleixRes() {
-        return true;
     }
     
     public void setAssignatura(String assignatura){
@@ -58,11 +48,10 @@ public class RestAssignatura extends Restriccio {
     public int getGrup(){
         return grup;
     }
-    
     public String getDia(){
         return dia;
     }
-    public int hora(){
+    public int getHora(){
         return hora;
     }
     public boolean everyday(){
@@ -73,5 +62,31 @@ public class RestAssignatura extends Restriccio {
         if(hora == -1) return true;
         else return false;
     }
+    @Override
+    public boolean CompleixRes(){return false;}
+    
+    
+    public boolean esPotCrear(CjtRestriccions cjtR) {
+        return true;
+    }
+    
+    public boolean compleixResHora(String assignatura, int grup, int hora) {
+        boolean comp = false;
+        if (this.assignatura.equals(assignatura) && this.grup == grup) {
+            if(this.hora == hora) comp = true;
+        }
+        return comp;
+    }
+    public boolean compleixResDia(String assignatura, int grup, String dia){
+        boolean comp = false;
+        if(this.assignatura == assignatura && this.grup == grup){
+            if(this.hora == hora) comp = true;
+        }
+        return comp;
+    }
+    public boolean CompleixResDiaHora(String assignatura, int grup, String dia,int hora){
+        if(compleixResHora(assignatura, grup, hora) && compleixResDia(assignatura, grup, dia)) return true;
+        else return false;
+   }
     
 }
