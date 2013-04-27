@@ -4,7 +4,6 @@
  */
 package Presentacio;
 import Domini.CtrDomini;
-import Domini.Horari;
 import java.util.ArrayList;
 import java.util.Scanner;
 
