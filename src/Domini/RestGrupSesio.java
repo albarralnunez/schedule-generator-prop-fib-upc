@@ -63,4 +63,15 @@ public class RestGrupSesio extends Restriccio{
         }
         return compleix;
     }
+
+    /**
+     *
+     * @param c Conjunt al que afeigir la noestra restriccio
+     * @return true si es ot afeigir al conjunt de restriccions del tipus o false si no es pot perque provoca alguna incoherencia
+     */
+
+    public boolean esPotAfegir(CjtRestGrupSesio c) {
+        return true;
+    }
+
 }
