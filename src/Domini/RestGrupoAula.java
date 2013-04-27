@@ -98,12 +98,12 @@ public class RestGrupoAula extends Restriccio {
             CjtRestriccions cjtResAssig) {
         boolean comp = true;
         for (Restriccio  res: cjtRga.getCjtRes()) {
-            RestGrupoAula resdw = (RestGrupoAula) res;
+            RestGrupoAula resdw = (RestGrupoAula) res; //Downcast
             if (resdw.getAssignatura().equals(this.assignatura) &&
                     resdw.getGrup() == this.grup) comp = false;
-        }
+        } //Si ya hay una restriccion del mismo grupo obligado a estar en una aula no podria añadirse !
         for (Restriccio resa : cjtResAul.getCjtRes()) {
-            RestriccioAula resAuldw = (RestriccioAula)resa;
+            RestriccioAula resAuldw = (RestriccioAula)resa; //Downcast
             if (this.aula.equals(resAuldw.getAula())) {
                 for (Restriccio resb : cjtResAssig.getCjtRes()) {
                     RestAssignatura resAssdw = (RestAssignatura)resb;
@@ -113,7 +113,7 @@ public class RestGrupoAula extends Restriccio {
                             if (resAssdw.getHora() == resAuldw.getHora())
                                 comp = false;
                         }
-                        else if (resAuldw.getHora() == -1) {
+                        else if (resAuldw.getHora() == -1) { //DANI ESTE -1 HABRIA QUE CAMBIARLO A "NULL" PK HE USADO Integer en vez de int!!
                             if (resAssdw.getDia().equals(resAuldw.getDia()))
                                 comp = false;
                         }
