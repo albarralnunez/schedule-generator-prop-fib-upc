@@ -31,12 +31,8 @@ public class RestriccioAnterioritat extends Restriccio {
         return false;
     }
 
-
-    public boolean CompleixResAnterioritat(Quadricula q, String obj1, String obj2) {
-    }
-
-
-
+   // public boolean CompleixResAnterioritat(Quadricula q, String obj1, String obj2) {
+   // }
 
        // boolean find_obj1 = false;
        // boolean find_obj2 = false;
@@ -46,11 +42,11 @@ public class RestriccioAnterioritat extends Restriccio {
 
         Integer objeto1;
         Integer objeto2;
-        objeto1 = Integer.parseInt(obj1);
-        objeto2 = Integer.parseInt(obj2);
-        if (objeto1 < objeto2) return true;
-        return false;
+  //      objeto1 = Integer.parseInt(obj1);
+   //     objeto2 = Integer.parseInt(obj2);
+    //    if (objeto1 < objeto2) return true;
+   //     return false;
 
     }
 
-}
+//}

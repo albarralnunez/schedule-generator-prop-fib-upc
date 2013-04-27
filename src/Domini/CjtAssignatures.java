@@ -42,7 +42,7 @@ class CjtAssignatures {
         cjtAssignatures.add(a);
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    public ArrayList getAssignatures(){
+    public ArrayList<Assignatura> getAssignatures(){
         return cjtAssignatures;
     }
 }

@@ -22,9 +22,15 @@ class Generador {
             aulesL, CjtAssignatures ass, RestriccioTemps dis) {
         ArrayList<Clausula> clausules = new ArrayList();
         Clausula c = new Clausula();
-        for(Assignatura a : ass.getCjtAssignatures()){
+        ArrayList<Assignatura> as = ass.getCjtAssignatures();
+        //for(Assignatura a : as){
+        for (int i = 0; i < as.size(); ++i) {
+            Assignatura a = as.get(i);
             c.setAssignatura(a.getNom());
-            for (Integer g : a.getGrups()) {
+            ArrayList<Integer>gup = a.getGrups();
+            //for (Integer g : gup) {
+            for (int k = 0; k < gup.size(); ++k) {
+            Integer g = gup.get(k);
                 c.setGrup(g);
                 String nomAul;
                 String dia;
@@ -33,7 +39,6 @@ class Generador {
                 ArrayList<Integer> interval = new ArrayList<Integer>();
                 CjtAules aulesPos = new CjtAules();
                 if(g%10 != 0){  //GupsLab
-                    
                      aulesPos = aulesL.cjtCapacitatMajorDe(a.getCapacitatLab());
                      interval = a.getIntervalsP();
                 }
@@ -47,7 +52,7 @@ class Generador {
                     for (Aula au : aulesPos.getCjtAules()){
                         nomAul = au.getNom();
                         
-                        boolean doo = false;       
+                        boolean doo = true;//false;       
                         if (au.getClass().equals(AulaLab.class)) {
                             AulaLab aal = (AulaLab)au;/*
                             if (aal.getMaterial() && a.necesitaMaterial())
@@ -110,9 +115,9 @@ class Generador {
                                    }
                                 }  
                             }
+                            clausules.add(c);
                         }
                     }
-                    clausules.add(c);
                 }  
             }
         }          

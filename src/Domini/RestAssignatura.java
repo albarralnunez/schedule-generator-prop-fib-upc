@@ -66,8 +66,24 @@ public class RestAssignatura extends Restriccio {
     public boolean CompleixRes(){return false;}
     
     
-    public boolean esPotCrear(CjtRestriccions cjtR) {
-        return true;
+     public boolean esPotAfegir(CjtRestriccions cjtResAssig,CjtRestriccions cjtResGS) {
+         ArrayList<Restriccio> llista = new ArrayList();
+         llista = cjtResAssig.getCjtRes();
+         int size = llista.size();
+         for(int i = 0; i < size; ++i){
+             Restriccio res = llista.get(i);
+             RestAssignatura resdw = (RestAssignatura) res;
+             if(resdw.getAssignatura() == this.assignatura && resdw.getGrup() == this.grup && resdw.getDia() == this.dia && resdw.getHora() == this.hora) return false;
+              //if(this.equals(resdw)) return false
+         }
+         llista = cjtResGS.getCjtRes();
+         size = llista.size();
+         for(int i = 0; i < size; ++i){
+             Restriccio res = llista.get(i);
+             RestGrupSesio resdw = (RestGrupSesio) res;
+             if(resdw.getAssignatura() == this.assignatura && resdw.getGrup() == this.grup && resdw.getHora() == this.hora) return false;
+         }
+         return true;
     }
     
     public boolean compleixResHora(String assignatura, int grup, int hora) {
@@ -84,6 +100,7 @@ public class RestAssignatura extends Restriccio {
         }
         return comp;
     }
+    
     public boolean CompleixResDiaHora(String assignatura, int grup, String dia,int hora){
         if(compleixResHora(assignatura, grup, hora) && compleixResDia(assignatura, grup, dia)) return true;
         else return false;
