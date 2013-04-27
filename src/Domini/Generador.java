@@ -11,11 +11,12 @@ import java.util.ArrayList;
  * @author Daniel Albarral
  */
 class Generador {
-    
-    private Quadricula  q;
+    private Quadricula horari;
+    private Quadricula design;  
 
     public Generador() {
-        this.q = null;
+        this.horari = null;
+        this.design = null;
     }
     
     private ArrayList<Clausula> inicialitzarClausules(CjtAules aulesT, CjtAules 
@@ -128,7 +129,20 @@ class Generador {
     public boolean generar(CjtAules aulesT, CjtAules aulesL, CjtAssignatures ass,
         RestriccioTemps dis, Quadricula q) {
         ArrayList<Clausula> clau = inicialitzarClausules(aulesT,aulesL,ass,dis);
+        Quadricula qu = backtracking(clau, q);
         return true;
+    }
+
+    private Quadricula backtracking(ArrayList<Clausula> clau,Quadricula qu) {
+        if (clau.isEmpty()) { // Tenim una solucio
+            return qu;
+        }
+        else {
+            Clausula c = clau.get(0);
+            clau.remove(0);
+            
+        }
+        return qu;
     }
     
 }
