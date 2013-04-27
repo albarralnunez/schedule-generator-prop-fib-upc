@@ -20,12 +20,20 @@ public class GrupLab extends Grup {
         super(numero,capacidad,l);
         this.material = material;
     }
+
+   //Creadora por defecto:
+
+   public GrupLab() {
+       super();
+       this.material = false; //Por defecto no tiene material
+   }
+
     
     public boolean GetMaterial(){
         return material;
     }
     
     public void SetMaterial(boolean mat){
-        this.material = material;
+        this.material = mat;
     }
 }
