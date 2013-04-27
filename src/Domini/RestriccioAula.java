@@ -8,25 +8,44 @@ package Domini;
  *
  * @author Daniel
  */
+
+//Forzar una aula a no poderse usar un dia/hora
+
 class RestriccioAula extends Restriccio{
 
-    public RestriccioAula() {
-        super (0);
-    }
     private String aula;
-    private int hora;
+    private Integer hora;
     private String dia;
-    
-    
-    public String getAula() {
-        return aula;
+
+    //Constructora por defecto:
+    public RestriccioAula() {
+        super (1003); //ID PROVISIONAL
     }
 
-    public RestriccioAula(String aula, int hora, String dia) {
-        super(9);
+    /**
+     * @pre: Si hora es null => Tot el dia.
+     *
+     * @param aula Es l'aula que no podra ser usada.
+     * @param hora l'hora en que l'aula que no podra ser usada.
+     * @param dia el dia en que l'aula no podra ser usada.
+     */
+    public RestriccioAula(String aula, Integer hora, String dia) {
+        super(1003);
         this.aula = aula;
         this.hora = hora;
         this.dia = dia;
+    }
+
+    public RestriccioAula(String aula, String dia) { //UNA AULA NO PODRA ESTAR UNA DIA ENTERO.
+        super(1003);
+        this.aula = aula;
+        this.hora = null;
+        this.dia = dia;
+    }
+
+    //Getters y Setters
+    public String getAula() {
+        return aula;
     }
 
     public void setAula(String aula) {
@@ -50,10 +69,26 @@ class RestriccioAula extends Restriccio{
     }
 
     @Override
-    public boolean CompleixRes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean CompleixRes() {return false;}
+
+    public boolean CompleixRes(String aula, Integer hora, String dia) {
+        boolean compleix = true;
+        if (this.aula.equals(aula)) { //Si hablan de la aula que esta restringida
+            if (this.hora != null) { //Si este aula no puede usarse un dia a una hora concreta...
+                if (this.dia.equals(dia)) {
+                    if (this.hora == hora) compleix = false;
+                }
+            } else { //Si este aula no puede usarse un dia entero...
+                if (this.dia.equals(dia)) compleix = false;
+            }
+        }
+        return compleix;
     }
 
-    
+    public boolean esPotAfegir() {
+        return true;
+    }
+
+
 
 }
