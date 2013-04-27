@@ -9,11 +9,22 @@ package Domini;
  * @author Daniel
  */
 class RestriccioAula {
+
+    public RestriccioAula() {
+    }
     private String aula;
     private int hora;
     private String dia;
+    
+    
     public String getAula() {
         return aula;
+    }
+
+    public RestriccioAula(String aula, int hora, String dia) {
+        this.aula = aula;
+        this.hora = hora;
+        this.dia = dia;
     }
 
     public void setAula(String aula) {

@@ -54,18 +54,22 @@ public class RestGrupoAula extends Restriccio {
     public boolean CompleixRes(){return false;}
     
     
-    public boolean esPotAfegir(CjtRestriccions cjtRga,CjtRestriccions cjtRaul,
+    public boolean esPotAfegir(CjtRestriccions cjtRga,CjtRestriccions cjtResAul,
             CjtRestriccions cjtResAssig) {
         boolean comp = true;
         for (Restriccio  res: cjtRga.getCjtRes()) {
             RestGrupoAula resdw = (RestGrupoAula) res;
             if (resdw.getAssignatura().equals(this.assignatura) &&
-                    resdw.getGrup())
-                
+                    resdw.getGrup() == this.grup) comp = false;
         }
+        
+        for (Restriccio res : cjtResAul.getCjtRes()) {
+       //     RestriccioAula resdw = (RestriccioAula) res;
+        }
+        
             
         
-        return true;
+        return comp;
     }
     
     public boolean CompleixRes(String assignatura, int grup, String aula) {
