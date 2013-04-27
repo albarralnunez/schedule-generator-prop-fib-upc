@@ -9,6 +9,8 @@ package Domini;
  *
  * @author albertomarin
  */
+
+//PONER UN ASSIG+GRUPO A UNA HORA
 public class RestGrupSesio extends Restriccio{
 
     //Atributos
@@ -66,12 +68,21 @@ public class RestGrupSesio extends Restriccio{
 
     /**
      *
-     * @param c Conjunt al que afeigir la noestra restriccio
-     * @return true si es ot afeigir al conjunt de restriccions del tipus o false si no es pot perque provoca alguna incoherencia
+     * @param cjtRestGrupSesio Conjunt al que afeigir la noestra restriccio y en el que es poden produir incoherencies.
+     * @return true si es ot afeigir al conjunt de restriccions del tipus o false si no es pot perque provoca alguna incoherencia.
      */
 
-    public boolean esPotAfegir(CjtRestGrupSesio c) {
-        return true;
+    public boolean esPotAfegir(CjtRestriccions cjtRestGrupSesio) {
+        boolean espot = true;
+        for (Restriccio res: cjtRestGrupSesio.getCjtRes()) {
+            RestGrupSesio res_grup_sesio = (RestGrupSesio) res;
+            if ((res_grup_sesio.getAssignatura().equals(this.assignatura)) && (res_grup_sesio.getGrup().equals(this.grup))) {
+                //Si ya hay una restriccion que obliga a hacer la misma ASSIG+GRUPO en una hora, esta restriccion no podra añadirse al
+                //CjtRestGrupSesio porque crearía conflicto con el resto.
+                espot = false;
+            }
+        }
+        return espot;
     }
 
 }
