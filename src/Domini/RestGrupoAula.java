@@ -34,11 +34,11 @@ public class RestGrupoAula extends Restriccio {
         this.assignatura = assignatura;
     }
 
-    public Integer getGrupo() {
+    public Integer getGrup() {
         return grup;
     }
 
-    public void setGrupo(Integer grupo) {
+    public void setGrup(Integer grupo) {
         this.grup = grupo;
     }
 
@@ -54,7 +54,17 @@ public class RestGrupoAula extends Restriccio {
     public boolean CompleixRes(){return false;}
     
     
-    public boolean esPotCrear(CjtRestriccions cjtR) {
+    public boolean esPotAfegir(CjtRestriccions cjtRga,CjtRestriccions cjtRaul,
+            CjtRestriccions cjtResAssig) {
+        boolean comp = true;
+        for (Restriccio  res: cjtRga.getCjtRes()) {
+            RestGrupoAula resdw = (RestGrupoAula) res;
+            if (resdw.getAssignatura().equals(this.assignatura) &&
+                    resdw.getGrup())
+                
+        }
+            
+        
         return true;
     }
     
