@@ -120,7 +120,7 @@ public class CtrGeneracio {
     }
 
     
-    public void generarHorari(ArrayList a) {
+    public void generarHorari(ArrayList<String> a) {
         Generador g = new Generador();
         inicialitzarCjtAulesTeo();
         inicialitzarCjtAulesLab();
