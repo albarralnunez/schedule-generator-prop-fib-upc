@@ -8,9 +8,10 @@ package Domini;
  *
  * @author Daniel
  */
-class RestriccioAula {
+class RestriccioAula extends Restriccio{
 
     public RestriccioAula() {
+        super (0);
     }
     private String aula;
     private int hora;
@@ -22,6 +23,7 @@ class RestriccioAula {
     }
 
     public RestriccioAula(String aula, int hora, String dia) {
+        super(9);
         this.aula = aula;
         this.hora = hora;
         this.dia = dia;
@@ -46,5 +48,12 @@ class RestriccioAula {
     public void setDia(String dia) {
         this.dia = dia;
     }
+
+    @Override
+    public boolean CompleixRes() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
+
 }

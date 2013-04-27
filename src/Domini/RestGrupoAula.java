@@ -15,37 +15,70 @@ public class RestGrupoAula extends Restriccio {
     private Integer grup;
     private String aula;
 
+    /**
+     *
+     */
     public RestGrupoAula() {
-        super(0);
+        super(1);
     }
     
+    /**
+     *
+     * @param assignatura
+     * @param grupo
+     * @param aula
+     */
     public RestGrupoAula(String assignatura, Integer grupo, String aula) {
-        super (0);
+        super (1);
         this.assignatura = assignatura;
         this.grup = grupo;
         this.aula = aula;
     }
     
+    /**
+     *
+     * @return
+     */
     public String getAssignatura() {
         return assignatura;
     }
 
+    /**
+     *
+     * @param assignatura
+     */
     public void setAssignatura(String assignatura) {
         this.assignatura = assignatura;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getGrup() {
         return grup;
     }
 
+    /**
+     *
+     * @param grupo
+     */
     public void setGrup(Integer grupo) {
         this.grup = grupo;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAula() {
         return aula;
     }
 
+    /**
+     *
+     * @param aula
+     */
     public void setAula(String aula) {
         this.aula = aula;
     }
@@ -54,6 +87,13 @@ public class RestGrupoAula extends Restriccio {
     public boolean CompleixRes(){return false;}
     
     
+    /**
+     *
+     * @param cjtRga
+     * @param cjtResAul
+     * @param cjtResAssig
+     * @return
+     */
     public boolean esPotAfegir(CjtRestriccions cjtRga,CjtRestriccions cjtResAul,
             CjtRestriccions cjtResAssig) {
         boolean comp = true;
@@ -62,17 +102,42 @@ public class RestGrupoAula extends Restriccio {
             if (resdw.getAssignatura().equals(this.assignatura) &&
                     resdw.getGrup() == this.grup) comp = false;
         }
-        
-        for (Restriccio res : cjtResAul.getCjtRes()) {
-       //     RestriccioAula resdw = (RestriccioAula) res;
+        for (Restriccio resa : cjtResAul.getCjtRes()) {
+            RestriccioAula resAuldw = (RestriccioAula)resa;
+            if (this.aula.equals(resAuldw.getAula())) {
+                for (Restriccio resb : cjtResAssig.getCjtRes()) {
+                    RestAssignatura resAssdw = (RestAssignatura)resb;
+                    if (this.assignatura.equals(resAssdw.getAssignatura()) &&
+                            this.grup == resAssdw.getGrup()){
+                        if (resAuldw.getDia() == null) {
+                            if (resAssdw.getHora() == resAuldw.getHora())
+                                comp = false;
+                        }
+                        else if (resAuldw.getHora() == -1) {
+                            if (resAssdw.getDia().equals(resAuldw.getDia()))
+                                comp = false;
+                        }
+                        else {
+                            if (resAssdw.getHora() == resAuldw.getHora() && 
+                                    resAssdw.getDia().equals(resAuldw.getDia())) {
+                                comp = false;
+                            }
+                        }
+                    }
+                }
+            }
         }
-        
-            
-        
         return comp;
     }
     
-    public boolean CompleixRes(String assignatura, int grup, String aula) {
+    /**
+     *
+     * @param assignatura
+     * @param grup
+     * @param aula
+     * @return
+     */
+     public boolean compleixRes(String assignatura, int grup, String aula) {
         boolean comp = true;
         if (this.assignatura.equals(assignatura)  && this.grup == grup) {
             if (!this.aula.equals(aula)) comp = false;

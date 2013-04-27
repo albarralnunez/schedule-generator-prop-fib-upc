@@ -9,24 +9,37 @@ import java.util.ArrayList;
  *
  * @author Joan Pol
  */
-public class RestAssignatura /*extends Restriccio*/ {
+public class RestAssignatura extends Restriccio {
        String assignatura;
        int grup;
        String dia;
        int hora;
+
+    public int getHora() {
+        return hora;
+    }
+
     
     public RestAssignatura(){
+        super(1);
         assignatura = null;
         grup = -1;
         dia = null;
         hora = -1;
     }
     public RestAssignatura(String assignatura, int grup, String dia, int hora){
+        super(1);
         this.assignatura = assignatura;
         this.grup = grup;
         this.dia = dia;
         this.hora = hora;
     }
+
+    @Override
+    public boolean CompleixRes() {
+        return true;
+    }
+    
     public void setAssignatura(String assignatura){
         this.assignatura = assignatura;
     }
@@ -45,6 +58,7 @@ public class RestAssignatura /*extends Restriccio*/ {
     public int getGrup(){
         return grup;
     }
+    
     public String getDia(){
         return dia;
     }
