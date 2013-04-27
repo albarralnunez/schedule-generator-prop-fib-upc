@@ -4,6 +4,8 @@
  */
 package Domini;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Joan Pol
@@ -60,15 +62,25 @@ public class RestSolapament extends Restriccio{
     public boolean CompleixRes(){return false;}
     
     
-    public boolean esPotCrear(CjtRestriccions cjtR) {
+    public boolean esPotAfegir(CjtRestriccions cjtR) {
+        ArrayList<Restriccio> llista = new ArrayList();
+        llista = cjtR.getCjtRes();
+        int size = llista.size();
+        for(int i = 0; i < size; ++i){
+            Restriccio res = llista.get(i);
+            RestSolapament resdw = (RestSolapament) res;
+            if(this.equals(resdw)) return false;
+            //if(this.assignaturaPrincipal == resdw.getAssignaturaPrincipal() && this.assignaturaSolapament == resdw.getAssignaturaSolapamiento() && this.grupPrincipal == resdw.getGrupPrincipal() && this.grupSolapament == resdw.getGrupSolapament()) return false;
+        }
         return true;
     }
     
     public boolean CompleixRes(String assignaturaP, int grupP, String assignaturaS,int grupoS) {
-       /* boolean comp = false;
-        if()
-        */
-        return false;
+       if(this.assignaturaPrincipal == assignaturaP && this.grupPrincipal == grupP){
+           if(this.assignaturaSolapament == assignaturaS && this.grupSolapament != grupoS) return false;
+         else if(this.assignaturaSolapament != assignaturaS) return false;
+       }
+       return true;
     }
-   // RestGrupoAula resdw = (RestGrupoAula) res;
+   
 }
