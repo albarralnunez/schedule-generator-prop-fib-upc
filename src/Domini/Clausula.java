@@ -31,13 +31,20 @@ public class Clausula {
         assignatura = null;
     }
 
-    //Métodos
 
 
     /**
     * S'afegeix l'element e a la clausula.
     * @param a, d, h son l'aula el día i l'hora.
     */
+
+    //Métodos
+
+
+    public void setClausula(ArrayList<ClausulaNom> clausula) {
+        this.clausula = clausula;
+    }
+
 
     public void afegirElem(ClausulaNom c) {
         clausula.add(c);

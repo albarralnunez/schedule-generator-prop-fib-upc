@@ -23,17 +23,12 @@ class Generador {
             aulesL, CjtAssignatures ass, RestriccioTemps dis) {
         ArrayList<Clausula> clausules = new ArrayList();
         ArrayList<Assignatura> as = ass.getCjtAssignatures();
-        //for(Assignatura a : as){
         for (int i = 0; i < as.size(); ++i) {
-            Clausula c = new Clausula();
             Assignatura a;
             a = as.get(i);
-            c.setAssignatura(a.getNom());
             ArrayList<Integer>gup = a.getGrups();
-            //for (Integer g : gup) {
             for (int k = 0; k < gup.size(); ++k) {
             Integer g = gup.get(k);
-                c.setGrup(g);
                 String nomAul;
                 String dia;
                 Integer hora;
@@ -49,12 +44,9 @@ class Generador {
                     interval = a.getIntervalsT();
                 }
                 for (Integer h : interval) {
-                    c.setDuracio(h);
+                    ArrayList<ClausulaNom> cnaux = new ArrayList<ClausulaNom>();
                     //Inicialitzacio del domini
                     for (Aula au : aulesPos.getCjtAules()){
-                        //nomAul = au.getNom();
-                        ClausulaNom cn = new ClausulaNom();
-                        cn.setAula(au.getNom());
                         boolean doo = true;//false;       
                         if (au.getClass().equals(AulaLab.class)) {
                             AulaLab aal = (AulaLab)au;/*
@@ -68,56 +60,75 @@ class Generador {
                         }
                         if (doo) {
                             for (int j = 0; j < 7; ++j) {
-                                if (j == 0) {
-                                   cn.setDia("dilluns");
+                                if (j == 0) {                                   
                                    for (Integer d : dis.getDilluns()){
+                                        ClausulaNom cn = new ClausulaNom();
+                                        cn.setAula(au.getNom());
+                                        cn.setDia("dilluns");
                                         cn.setHora(d);
-                                        c.afegirElem(cn);
+                                        cnaux.add(cn);
                                    }
                                 }
                                 if (j == 1) {
-                                   cn.setDia("dimarts");
-                                   for (Integer d : dis.getDimarts()){                                     
+                                   for (Integer d : dis.getDimarts()){
+                                        ClausulaNom cn = new ClausulaNom();
+                                        cn.setAula(au.getNom());
+                                        cn.setDia("dimarts");
                                         cn.setHora(d);
-                                        c.afegirElem(cn);
+                                        cnaux.add(cn);
                                    }
                                 }
                                 if (j == 2) {
-                                    cn.setDia("dimecres");
                                    for (Integer d : dis.getDimecres()){
+                                        ClausulaNom cn = new ClausulaNom();
+                                        cn.setAula(au.getNom());
+                                        cn.setDia("dimecres");
                                         cn.setHora(d);
-                                        c.afegirElem(cn);
+                                        cnaux.add(cn);
                                    }
                                 }
                                 if (j == 3) {
-                                    cn.setDia("dijous");
                                     for (Integer d : dis.getDijous()){
+                                        ClausulaNom cn = new ClausulaNom();
+                                        cn.setAula(au.getNom());
+                                        cn.setDia("dijous");
                                         cn.setHora(d);
-                                        c.afegirElem(cn);
+                                        cnaux.add(cn);
                                    }
                                 }
                                 if (j == 4) {
-                                    cn.setDia("divendres");
                                     for (Integer d : dis.getDivendres()){
+                                        ClausulaNom cn = new ClausulaNom();
+                                        cn.setAula(au.getNom());
+                                        cn.setDia("divendres");
                                         cn.setHora(d);
-                                        c.afegirElem(cn);
+                                        cnaux.add(cn);
                                    }
                                 }
                                 if (j == 5) {
-                                    cn.setDia("disabte");
                                     for (Integer d : dis.getDissabte()){
+                                        ClausulaNom cn = new ClausulaNom();
+                                        cn.setAula(au.getNom());
+                                        cn.setDia("dissabte");
                                         cn.setHora(d);
-                                        c.afegirElem(cn);
+                                        cnaux.add(cn);
                                    }
                                 }
                                 if (j == 6) {
-                                    cn.setDia("diumenge");
                                     for (Integer d : dis.getDiumenge()){     
+                                        ClausulaNom cn = new ClausulaNom();
+                                        cn.setAula(au.getNom());
+                                        cn.setDia("diumenge");
                                         cn.setHora(d);
-                                        c.afegirElem(cn);
+                                        cnaux.add(cn);
                                    }
                                 }  
                             }
+                            Clausula c = new Clausula();
+                            c.setAssignatura(a.getNom());
+                            c.setGrup(g);
+                            c.setDuracio(h);
+                            c.setClausula(cnaux);
                             clausules.add(c);
                         }
                     }
@@ -143,14 +154,14 @@ class Generador {
     public boolean generar(CjtAules aulesT, CjtAules aulesL, CjtAssignatures ass,
         RestriccioTemps dis, Quadricula q) {
         ArrayList<Clausula> clau = inicialitzarClausules(aulesT,aulesL,ass,dis);
-        Quadricula qu = backtracking(clau, q);
-        
-        return true;
+        boolean b = backtracking(clau, q);
+        Quadricula qu = q;
+        return b;
     }
 
-    private Quadricula backtracking(ArrayList<Clausula> clau,Quadricula qu) {
+    private boolean backtracking(ArrayList<Clausula> clau,Quadricula qu) {
         if (clau.isEmpty()) { // Tenim una solucio
-            return qu;
+            return true;
         }
         else {
             Clausula c = clau.get(0);
@@ -169,8 +180,7 @@ class Generador {
                     if (!assignacioValida(qu, e,di, hor)) ++esVal;    
                 }
                 if (esVal == 0) {
-                    qu = backtracking(clau, qu);
-                    return qu;
+                    return backtracking(clau, qu);
                 }
                 else {
                     for (int i = 0; i < duracio; ++i) {
@@ -180,7 +190,7 @@ class Generador {
                     }
                 } 
             }
-            return qu;   
+            return false;   
         }
     }
     
