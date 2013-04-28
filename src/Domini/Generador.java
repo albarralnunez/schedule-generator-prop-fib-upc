@@ -134,11 +134,10 @@ class Generador {
         if( ! elems.isValid()) return false; // en principio no deberia pasar ya de por si
         
         // que en aquella hora nomes hi hagi un grup per aula
-        if ( ! elems.aulaRepetida( e ) ) return false;
-        
+        if ( ! elems.aulaRepetida( e ) ) return false;        
          // si es vol posar un grup de lab on hi ha un de teoria o al reves 
         if( elems.solapamentTeoriaPractica( e ) ) return false;
-        
+
         return true;
     }
             
@@ -146,6 +145,7 @@ class Generador {
         RestriccioTemps dis, Quadricula q) {
         ArrayList<Clausula> clau = inicialitzarClausules(aulesT,aulesL,ass,dis);
         Quadricula qu = backtracking(clau, q);
+        
         return true;
     }
 
@@ -161,11 +161,28 @@ class Generador {
                 e.setAssignatura(c.getAssignatura());
                 e.setAula(cn.getAula());
                 e.setGrupo(c.getGrup());
-                qu.afegirElement(cn.getDia(), cn.getHora(), e);
+                int duracio = c.getDuracio();
+                int esVal = 0;
+                for (int i = 0; i < duracio; ++i) {
+                    int hor = cn.getHora()+i;
+                    String di = cn.getDia();
+                    qu.afegirElement(di, hor, e);
+                    if (!assignacioValida(qu, e,di, hor)) ++esVal;    
+                }
+                if (esVal == 0) {
+                    qu = backtracking(clau, qu);
+                    return qu;
+                }
+                else {
+                    for (int i = 0; i < duracio; ++i) {
+                        int hor = cn.getHora()+i;
+                        String di = cn.getDia();
+                        qu.borrarElement(di, hor, e);
+                    }
+                } 
             }
-            
+            return qu;   
         }
-        return qu;
     }
     
 }
