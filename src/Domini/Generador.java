@@ -138,7 +138,6 @@ class Generador {
     }
 
     public boolean assignacioValida(Quadricula q, Element e, String dia, int hora) {
-
         CjtElements elems = q.getElementsPosicio(dia, hora);//elements d aquella posicio
 
         if (!elems.isValid()) {
@@ -183,7 +182,7 @@ class Generador {
                     int hor = cn.getHora() + i;
                     String di = cn.getDia();
                     qu.afegirElement(di, hor, e);
-                    if (!assignacioValida(qu, e, di, hor)) {
+                    if (! assignacioValida(qu, e, di, hor)) {
                         ++esVal;
                     }
                 }
