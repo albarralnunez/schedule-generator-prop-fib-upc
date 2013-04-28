@@ -28,6 +28,18 @@ public class Quadricula {
         quadricula[i][hora].afegirElement(e);
     }
     
+    public CjtElements getElementsPosicio(String dia, int hora){
+        int i;
+        if (dia.equals("dilluns")) i = 0;
+        else if (dia.equals("dimarts")) i = 1;
+        else if (dia.equals("dimecres")) i = 2;
+        else if (dia.equals("dijous")) i = 3;
+        else if (dia.equals("divendres")) i = 4;
+        else if (dia.equals("dissabte")) i = 5;
+        else i = 6;
+        return quadricula[i][hora];
+    }
+    
     public Quadricula(){
         quadricula = new CjtElements[7][24];
         for(int i=0; i < 7; ++i) {
