@@ -146,7 +146,18 @@ class Generador {
                 e.setAssignatura(c.getAssignatura());
                 e.setAula(cn.getAula());
                 e.setGrupo(c.getGrup());
-                qu.afegirElement(cn.getDia(), cn.getHora(), e);
+                int duracio = c.getDuracio();
+                int esVal = 0;
+                for (int i = 0; i < duracio; ++i) {
+                    int hor = cn.getHora()+i;
+                    String di = cn.getDia();
+                    qu.afegirElement(di, hor, e);
+                    if (!assignacioValida(qu, e,di, hor)) ++esVal;    
+                }
+                if (esVal > 0) {
+                    qu = backtracking(clau, qu)
+                }
+                
             }
             
         }
