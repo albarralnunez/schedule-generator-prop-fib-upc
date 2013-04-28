@@ -148,6 +148,7 @@ class Generador {
         if ( ! elems.aulaRepetida( e ) ) return false;        
          // si es vol posar un grup de lab on hi ha un de teoria o al reves 
         if( elems.solapamentTeoriaPractica( e ) ) return false;
+
         return true;
     }
             
