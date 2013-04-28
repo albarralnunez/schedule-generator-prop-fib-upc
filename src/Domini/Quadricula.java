@@ -11,6 +11,22 @@ package Domini;
 public class Quadricula {
     
     private CjtElements quadricula[][];
+
+    public CjtElements[][] getQuadricula() {
+        return quadricula;
+    }
+    
+    public void afegirElement(String dia, int hora, Element e) {
+        int i;
+        if (dia.equals("dilluns")) i = 0;
+        else if (dia.equals("dimarts")) i = 1;
+        else if (dia.equals("dimecres")) i = 2;
+        else if (dia.equals("dijous")) i = 3;
+        else if (dia.equals("divendres")) i = 4;
+        else if (dia.equals("dissabte")) i = 5;
+        else i = 6;
+        quadricula[i][hora].afegirElement(e);
+    }
     
     public Quadricula(){
         quadricula = new CjtElements[7][24];
@@ -25,4 +41,6 @@ public class Quadricula {
         quadricula[fila][columna].setValid(true);
         
     }
+    
+    
 }

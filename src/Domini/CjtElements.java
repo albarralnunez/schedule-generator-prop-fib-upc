@@ -22,6 +22,9 @@ public class CjtElements {
         assignacions = null;
     }
 
+    public void afegirElement (Element e) {
+        assignacions.add(e);
+    }
     public boolean isValid() {
         return valid;
     }

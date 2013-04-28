@@ -13,20 +13,19 @@ import java.util.ArrayList;
  */
 public class Clausula {
 
-    private class clausulaNom {
-        String a; //Aula
-        String d; //Dia
-        int h; //Hora
-    }
     
     private String assignatura;
     private Integer grup;
     private Integer duracio;
-    private ArrayList<clausulaNom> clausula;
+    private ArrayList<ClausulaNom> clausula;
+
+    public ArrayList<ClausulaNom> getClausula() {
+        return clausula;
+    }
 
     //Constructora
     public Clausula() {
-        clausula = new ArrayList<clausulaNom>();
+        clausula = new ArrayList<ClausulaNom>();
         grup = null;
         duracio = null;
         assignatura = null;
@@ -40,12 +39,8 @@ public class Clausula {
     * @param a, d, h son l'aula el día i l'hora.
     */
 
-    public void afegirElem(String a, String d, Integer h) {
-        clausulaNom e = new clausulaNom();
-        e.a = a;
-        e.d = d;
-        e.h = h;
-        clausula.add(e);
+    public void afegirElem(ClausulaNom c) {
+        clausula.add(c);
     }
 
 
@@ -54,12 +49,8 @@ public class Clausula {
      * @param a, d, h son l'aula el dia i l'hora.
      */
 
-    public boolean borrarElem(String a, String d, Integer h) {
-        clausulaNom e = new clausulaNom();
-        e.a = a;
-        e.d = d;
-        e.h = h;
-        return clausula.remove(e);
+    public boolean borrarElem(ClausulaNom c) {
+        return clausula.remove(c);
     }
 
     /**
@@ -67,9 +58,8 @@ public class Clausula {
      * @param a, d, h son l'aula, el dia i l'hora que formen l'element a buscar
      * @return true si hem trobat l'element o false en cas contrari.
      */
-
-    
-    public boolean buscarElem(String a, String d, Integer h) {
+/*    
+    public boolean buscarElem(ClausulaNom c) {
         clausulaNom e = new clausulaNom();
         e.a = a;
         e.d = d;
@@ -79,7 +69,7 @@ public class Clausula {
         }
         return false;
     }
-
+*/
 
     public void setGrup(Integer id) {
         this.grup = id;

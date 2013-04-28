@@ -52,8 +52,9 @@ class Generador {
                     c.setDuracio(h);
                     //Inicialitzacio del domini
                     for (Aula au : aulesPos.getCjtAules()){
-                        nomAul = au.getNom();
-                        
+                        //nomAul = au.getNom();
+                        ClausulaNom cn = new ClausulaNom();
+                        cn.setAula(au.getNom());
                         boolean doo = true;//false;       
                         if (au.getClass().equals(AulaLab.class)) {
                             AulaLab aal = (AulaLab)au;/*
@@ -68,52 +69,52 @@ class Generador {
                         if (doo) {
                             for (int j = 0; j < 7; ++j) {
                                 if (j == 0) {
-                                     dia = "dilluns";
+                                   cn.setDia("dilluns");
                                    for (Integer d : dis.getDilluns()){
-                                        hora = d;
-                                        c.afegirElem(nomAul, dia, hora);
+                                        cn.setHora(d);
+                                        c.afegirElem(cn);
                                    }
                                 }
                                 if (j == 1) {
-                                    dia = "dimarts";
+                                   cn.setDia("dimarts");
                                    for (Integer d : dis.getDimarts()){                                     
-                                        hora = d;
-                                        c.afegirElem(nomAul, dia, hora);
+                                        cn.setHora(d);
+                                        c.afegirElem(cn);
                                    }
                                 }
                                 if (j == 2) {
-                                    dia = "dimecres";
+                                    cn.setDia("dimecres");
                                    for (Integer d : dis.getDimecres()){
-                                        hora = d;
-                                        c.afegirElem(nomAul, dia, hora);
+                                        cn.setHora(d);
+                                        c.afegirElem(cn);
                                    }
                                 }
                                 if (j == 3) {
-                                    dia = "dijous";
+                                    cn.setDia("dijous");
                                     for (Integer d : dis.getDijous()){
-                                        hora = d;
-                                        c.afegirElem(nomAul, dia, hora);
+                                        cn.setHora(d);
+                                        c.afegirElem(cn);
                                    }
                                 }
                                 if (j == 4) {
-                                    dia = "divendres";
+                                    cn.setDia("divendres");
                                     for (Integer d : dis.getDivendres()){
-                                        hora = d;
-                                        c.afegirElem(nomAul, dia, hora);
+                                        cn.setHora(d);
+                                        c.afegirElem(cn);
                                    }
                                 }
                                 if (j == 5) {
-                                    dia = "dissabte";
+                                    cn.setDia("disabte");
                                     for (Integer d : dis.getDissabte()){
-                                        hora = d;
-                                        c.afegirElem(nomAul, dia, hora);
+                                        cn.setHora(d);
+                                        c.afegirElem(cn);
                                    }
                                 }
                                 if (j == 6) {
-                                    dia = "diumenge";
+                                    cn.setDia("diumenge");
                                     for (Integer d : dis.getDiumenge()){     
-                                        hora = d;
-                                        c.afegirElem(nomAul, dia, hora);
+                                        cn.setHora(d);
+                                        c.afegirElem(cn);
                                    }
                                 }  
                             }
@@ -140,6 +141,13 @@ class Generador {
         else {
             Clausula c = clau.get(0);
             clau.remove(0);
+            for(ClausulaNom cn : c.getClausula()){
+                Element e = new Element();
+                e.setAssignatura(c.getAssignatura());
+                e.setAula(cn.getAula());
+                e.setGrupo(c.getGrup());
+                qu.afegirElement(cn.getDia(), cn.getHora(), e);
+            }
             
         }
         return qu;
