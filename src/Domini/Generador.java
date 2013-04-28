@@ -126,6 +126,10 @@ class Generador {
         }          
         return clausules;
     }
+    
+    public boolean assignacioValida( Quadricula q, Element E, int dia, int hora ){
+        return true;
+    }
             
     public boolean generar(CjtAules aulesT, CjtAules aulesL, CjtAssignatures ass,
         RestriccioTemps dis, Quadricula q) {
