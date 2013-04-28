@@ -44,6 +44,10 @@ class Generador {
                     interval = a.getIntervalsT();
                 }
                 for (Integer h : interval) {
+                    Clausula c = new Clausula(); 
+                    c.setAssignatura(a.getNom()); 
+                    c.setDuracio(h);
+                    c.setGrup(g);
                     ArrayList<ClausulaNom> cnaux = new ArrayList<ClausulaNom>();
                     //Inicialitzacio del domini
                     for (Aula au : aulesPos.getCjtAules()){
@@ -123,15 +127,11 @@ class Generador {
                                         cnaux.add(cn);
                                    }
                                 }  
-                            }
-                            Clausula c = new Clausula();
-                            c.setAssignatura(a.getNom());
-                            c.setGrup(g);
-                            c.setDuracio(h);
+                            }                          
                             c.setClausula(cnaux);
-                            clausules.add(c);
                         }
                     }
+                    clausules.add(c);
                 }  
             }
         }          
@@ -174,6 +174,8 @@ class Generador {
                 e.setGrupo(c.getGrup());
                 int duracio = c.getDuracio();
                 int esVal = 0;
+                boolean omfg = false; //para si asignamos y sale del horario
+               // if (duracio+cn.getHora() > 23) omfg = true;
                 for (int i = 0; i < duracio; ++i) {
                     int hor = cn.getHora()+i;
                     String di = cn.getDia();
