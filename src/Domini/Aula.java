@@ -67,6 +67,6 @@ public class Aula {
      * @return Retorna si l'aula te una capacitat major d'x.
      */
     public boolean capacitatMajorDe(int x) {
-        return (capacitat > x);
+        return (capacitat >= x);
     }            
 }
