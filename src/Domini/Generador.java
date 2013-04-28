@@ -127,7 +127,7 @@ class Generador {
         return clausules;
     }
     
-    public boolean assignacioValida( Quadricula q, Element e, int dia, int hora ){
+    public boolean assignacioValida( Quadricula q, Element e, String dia, int hora ){
         // que en aquella hora nomes hi hagi un grup per aula
         String nomAula = e.getAula();
         return true;
@@ -137,6 +137,7 @@ class Generador {
         RestriccioTemps dis, Quadricula q) {
         ArrayList<Clausula> clau = inicialitzarClausules(aulesT,aulesL,ass,dis);
         Quadricula qu = backtracking(clau, q);
+        
         return true;
     }
 
@@ -160,14 +161,20 @@ class Generador {
                     qu.afegirElement(di, hor, e);
                     if (!assignacioValida(qu, e,di, hor)) ++esVal;    
                 }
-                if (esVal > 0) {
-                    qu = backtracking(clau, qu)
+                if (esVal == 0) {
+                    qu = backtracking(clau, qu);
+                    return qu;
                 }
-                
+                else {
+                    for (int i = 0; i < duracio; ++i) {
+                        int hor = cn.getHora()+i;
+                        String di = cn.getDia();
+                        qu.borrarElement(di, hor, e);
+                    }
+                } 
             }
-            
+            return qu;   
         }
-        return qu;
     }
     
 }

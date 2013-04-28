@@ -19,7 +19,7 @@ public class CjtElements {
     
     public CjtElements(){
         valid = false;
-        assignacions = null;
+        assignacions = new ArrayList<Element>();
     }
 
     public void afegirElement (Element e) {
@@ -35,6 +35,10 @@ public class CjtElements {
 
     public ArrayList<Element> getAssignacions() {
         return assignacions;
+    }
+
+    void borrarElement(Element e) {
+        assignacions.remove(e);
     }
 
     
