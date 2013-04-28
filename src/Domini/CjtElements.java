@@ -86,6 +86,17 @@ public class CjtElements {
         assignacions.remove(e);
     }
 
+    boolean solapamentNivell(Element e, CjtAssignatures cjAss) {
+        String asg = e.getAssignatura();
+        for (Element ass : assignacions) {
+            if (cjAss.getAssignatura(asg).getNivell() == 
+                    cjAss.getAssignatura(ass.getAssignatura()).getNivell()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     
     
     

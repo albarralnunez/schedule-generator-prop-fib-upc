@@ -13,16 +13,19 @@ import java.util.ArrayList;
 class Generador {
 
     private Quadricula horari;
-    private Quadricula design;
+    private CjtAssignatures cjtAss;
 
     public Generador() {
         this.horari = null;
-        this.design = null;
+        this.cjtAss = new CjtAssignatures();
+        
     }
 
-    private ArrayList<Clausula> inicialitzarClausules(CjtAules aulesT, CjtAules aulesL, CjtAssignatures ass, RestriccioTemps dis) {
+    private ArrayList<Clausula> inicialitzarClausules(CjtAules aulesT, 
+            CjtAules aulesL, CjtAssignatures ass, RestriccioTemps dis) {
         ArrayList<Clausula> clausules = new ArrayList();
         ArrayList<Assignatura> as = ass.getCjtAssignatures();
+        cjtAss = ass;
         for (int i = 0; i < as.size(); ++i) {
             Assignatura a;
             a = as.get(i);
@@ -147,11 +150,15 @@ class Generador {
         if (!elems.aulaRepetida(e)) {
             return false;
         }
-        // si es vol posar un grup de lab on hi ha un de teoria o al reves 
+        //si es vol posar un grup de lab on hi ha un de teoria o al reves 
         if (elems.solapamentTeoriaPractica(e)) {
             return false;
         }
-
+/*
+        if (elems.solapamentNivell(e,cjtAss)){
+            return false;
+        }
+*/
         return true;
     }
 
@@ -176,9 +183,9 @@ class Generador {
                 e.setGrupo(c.getGrup());
                 int duracio = c.getDuracio();
                 int esVal = 0;
-                boolean omfg = false; //para si asignamos y sale del horario
-                if (duracio+cn.getHora() > 23) omfg = true;
-                for (int i = 0; i < duracio && !omfg; ++i) {
+                boolean omfg = true; //para si asignamos y sale del horario
+                if (duracio+cn.getHora() > 23) omfg = false;
+                for (int i = 0; i < duracio && omfg; ++i) {
                     int hor = cn.getHora()+i;
                     String di = cn.getDia();
                     qu.afegirElement(di, hor, e);
@@ -188,7 +195,8 @@ class Generador {
                 }
                 if (esVal == 0) {
                     return backtracking(clau, qu);
-                } else {
+                } 
+                else {
                     for (int i = 0; i < duracio; ++i) {
                         int hor = cn.getHora() + i;
                         String di = cn.getDia();

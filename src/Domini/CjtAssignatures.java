@@ -25,6 +25,14 @@ class CjtAssignatures {
     public void afegirAssignatures(ArrayList<Assignatura> assigs) {
         cjtAssignatures = assigs;
     }
+    
+    public Assignatura getAssignatura (String assig) {
+        Assignatura a = new Assignatura();
+        for (Assignatura as : cjtAssignatures) {
+            if (assig.equals(as.getNom())) return a;
+        }
+        return a;        
+    }
 
     public boolean esborrarAssignatures( /*Aula aula*/ArrayList<Assignatura> assigs) {
         if (assigs.isEmpty()) {
@@ -44,7 +52,4 @@ class CjtAssignatures {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public ArrayList<Assignatura> getAssignatures() {
-        return cjtAssignatures;
-    }
 }
