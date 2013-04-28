@@ -201,6 +201,7 @@ public class CtrDomini {
         for( int i = 0; i < numAsg ; ++i){
             String nomAsg = llistaAssignatures.get(i);
             assignatures.add( montaAssignatura( nomAsg ) );
+            String prova = "";
         }
 
         ArrayList<String> auesLab = cper.llistaAulesLab(nomUnitat);
@@ -255,8 +256,9 @@ public class CtrDomini {
         int contadorip =  Integer.parseInt( atributs.get( ++contador) );
         contador = contador + contadorip;
         ArrayList<Integer> intersP = new ArrayList<Integer>(contadorip); 
-        for( int i = contador-contadorip+1; i < contador; ++i){
-            int interval = Integer.parseInt(atributs.get(i));
+        //for( int i = contador-contadorip+1; i < contador; ++i){
+        for( int i = contador-contadorip; i < contador; ++i){
+            int interval = Integer.parseInt(atributs.get(i+1));
             intersP.add( interval );
         }
         int capt = Integer.parseInt( atributs.get( ++contador) );

@@ -41,6 +41,7 @@ public class CtrGeneracio {
     public void inicialitzarGenerador(ArrayList<String> confHoraria, ArrayList<Assignatura> assignatures, ArrayList<AulaLab> aulesL, 
        ArrayList<AulaTeo> aulesT ){
        montaRestriccionsTemps(confHoraria); // inicalitza rest de temps + quadricula
+       
        cjtAs.afegirAssignatures(assignatures);
        for(int i = 0; i < aulesL.size(); ++i){
            cjtAulLab.afegirAula( aulesL.get(i) );
