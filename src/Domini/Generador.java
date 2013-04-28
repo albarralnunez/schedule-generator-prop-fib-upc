@@ -126,6 +126,12 @@ class Generador {
         }          
         return clausules;
     }
+    
+    public boolean assignacioValida( Quadricula q, Element e, int dia, int hora ){
+        // que en aquella hora nomes hi hagi un grup per aula
+        String nomAula = e.getAula();
+        return true;
+    }
             
     public boolean generar(CjtAules aulesT, CjtAules aulesL, CjtAssignatures ass,
         RestriccioTemps dis, Quadricula q) {
