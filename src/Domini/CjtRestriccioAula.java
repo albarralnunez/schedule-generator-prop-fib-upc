@@ -24,15 +24,19 @@ public class CjtRestriccioAula extends CjtRestriccions{
     }
 
 
-    /**@pre: La restricció a afeigir ha estat verificada per la clase RestGrupSesio
-     * @post: Queda afeigida la restriccio a l'arraylist restriccions_grup_sesio
+    /**@pre: La restricció a afeigir ha estat verificada per la clase RestriccioAula
+     * @post: Queda afeigida la restriccio a l'arraylist restriccions_aula
      *
-     * @param r Es la restriccio de RestGrupSesio
+     * @param r Es la restriccio de RestriccioAUla
      */
     public void afegir_rest(RestriccioAula r) {
         restriccions_aula.add(r);
     }
-
+    /**@pre: La restricció a borrar ha estat verificada per la clase RestriccioAula
+     * @post: Queda borrada la restriccio a l'arraylist restriccions_aula
+     *
+     * @param r Es la restriccio de RestriccioAUla
+     */
     public boolean borrarElem(RestriccioAula r) {
         return restriccions_aula.remove(r);
     }
