@@ -18,6 +18,10 @@ public class CtrGeneracio {
     private ArrayList<Assignatura> cjtAs;
     private CjtRestriccions cjtRes;
     private CjtRestGrupoAula cjtResGA;
+    private CjtRestAssignatura cjtRestAss;
+    private CjtRestGrupSesio cjtRestGS;
+    private CjtRestSolapament cjtRestS;
+    private CjtRestriccioAula cjtRestAul;
     private String nomUnitat;
     private Quadricula quad;
     private Generador gen;
@@ -37,6 +41,11 @@ public class CtrGeneracio {
         cjtAs= new ArrayList<Assignatura>();
         cjtRes = new CjtRestriccions();
         cjtResGA = new CjtRestGrupoAula();
+        cjtRestAss = new CjtRestAssignatura();
+        cjtRestGS = new CjtRestGrupSesio();
+        cjtRestS = new CjtRestSolapament();
+        cjtRestAul = new CjtRestriccioAula();
+        
         gen = new Generador();
        // cper = new CtrPersistencia();
         
@@ -74,13 +83,15 @@ public class CtrGeneracio {
     public void setCjtAs(ArrayList<Assignatura> cjtAs) {
         this.cjtAs = cjtAs;
     }
-    public ArrayList<Assignatura> getCjtResGA() {
-        return cjtAs;
+
+    public CjtRestGrupoAula getCjtResGA() {
+        return cjtResGA;
     }
 
-    public void setCjtResGA(ArrayList<Assignatura> cjtResGA) {
-        this.cjtAs = cjtResGA;
+    public void setCjtResGA(CjtRestGrupoAula cjtResGA) {
+        this.cjtResGA = cjtResGA;
     }
+   
     public void setResResGA(RestGrupoAula r){
         cjtResGA.afegir_rest(r);
     }
@@ -109,6 +120,39 @@ public class CtrGeneracio {
         this.gen = gen;
     }
 
+    public CjtRestAssignatura getCjtRestAss() {
+        return cjtRestAss;
+    }
+
+    public CjtRestGrupSesio getCjtRestGS() {
+        return cjtRestGS;
+    }
+
+    public CjtRestSolapament getCjtRestS() {
+        return cjtRestS;
+    }
+
+    public CjtRestriccioAula getCjtRestAul() {
+        return cjtRestAul;
+    }
+
+    public void setCjtRestAss(CjtRestAssignatura cjtRestAss) {
+        this.cjtRestAss = cjtRestAss;
+    }
+
+    public void setCjtRestGS(CjtRestGrupSesio cjtRestGS) {
+        this.cjtRestGS = cjtRestGS;
+    }
+
+    public void setCjtRestS(CjtRestSolapament cjtRestS) {
+        this.cjtRestS = cjtRestS;
+    }
+
+    public void setCjtRestAul(CjtRestriccioAula cjtRestAul) {
+        this.cjtRestAul = cjtRestAul;
+    }
+    
+    
     public void inicialitzarGenerador(ArrayList<String> confHoraria, ArrayList<Assignatura> assignatures, ArrayList<AulaLab> aulesL, 
        ArrayList<AulaTeo> aulesT ){
        montaRestriccionsTemps(confHoraria); // inicalitza rest de temps + quadricula

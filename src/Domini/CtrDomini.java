@@ -287,7 +287,7 @@ public class CtrDomini {
             int v = i.intValue();
             r.setGrup(v);
             r.setAula((String) params.get(2));
-            cgen.setResResGA(r);
+            if(r.esPotAfegir(cgen.getCjtResGA(), cgen.getCjtRestAul(), cgen.getCjtRestAss()))cgen.setResResGA(r);
         }
         else if(tipus == 2){
             

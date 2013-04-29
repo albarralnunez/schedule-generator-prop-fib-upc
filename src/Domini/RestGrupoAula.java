@@ -66,8 +66,8 @@ public class RestGrupoAula extends Restriccio {
      * @param cjtResAssig
      * @return
      */
-    public boolean esPotAfegir(CjtRestriccions cjtRga,CjtRestriccions cjtResAul,
-            CjtRestriccions cjtResAssig) {
+    public boolean esPotAfegir(CjtRestGrupoAula cjtRga,CjtRestriccioAula cjtResAul,
+            CjtRestAssignatura cjtResAssig) {
         boolean comp = true;
         for (Restriccio  res: cjtRga.getCjtRes()) {
             RestGrupoAula resdw = (RestGrupoAula) res; //Downcast
