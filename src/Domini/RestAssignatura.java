@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @author Joan Pol
  */
 public class RestAssignatura extends Restriccio {
-       String assignatura;
+       Assignatura assignatura;
        int grup;
        String dia;
        int hora;
@@ -22,15 +22,14 @@ public class RestAssignatura extends Restriccio {
         dia = null;
         hora = -1;
     }
-    public RestAssignatura(String assignatura, int grup, String dia, int hora){
+    public RestAssignatura(Assignatura assignatura, int grup, String dia, int hora){
         super(3);
         this.assignatura = assignatura;
         this.grup = grup;
         this.dia = dia;
         this.hora = hora;
     }
-    
-    public void setAssignatura(String assignatura){
+    public void setAssignatura(Assignatura assignatura){
         this.assignatura = assignatura;
     }
     public void setGrup(int grup){
@@ -42,7 +41,7 @@ public class RestAssignatura extends Restriccio {
     public void setHora(int hora){
         this.hora = hora;
     }
-    public String getAssignatura(){
+    public Assignatura getAssignatura(){
         return assignatura;
     }
     public int getGrup(){
@@ -86,14 +85,14 @@ public class RestAssignatura extends Restriccio {
          return true;
     }
     
-    public boolean compleixResHora(String assignatura, int grup, int hora) {
+    public boolean compleixResHora(Assignatura assignatura, int grup, int hora) {
         boolean comp = true;
         if (this.assignatura.equals(assignatura) && this.grup == grup) {
             if(this.hora != hora) comp = false;
         }
         return comp;
     }
-    public boolean compleixResDia(String assignatura, int grup, String dia){
+    public boolean compleixResDia(Assignatura assignatura, int grup, String dia){
         boolean comp = false;
         if(this.assignatura == assignatura && this.grup == grup){
             if(this.hora == hora) comp = true;
@@ -101,7 +100,7 @@ public class RestAssignatura extends Restriccio {
         return comp;
     }
     
-    public boolean CompleixResDiaHora(String assignatura, int grup, String dia,int hora){
+    public boolean CompleixResDiaHora(Assignatura assignatura, int grup, String dia,int hora){
         if(compleixResHora(assignatura, grup, hora) && compleixResDia(assignatura, grup, dia)) return true;
         else return false;
    }
