@@ -155,26 +155,25 @@ class Generador {
 
     public boolean assignacioValida(Quadricula q, Element e, String dia, int hora) {
         CjtElements elems = q.getElementsPosicio(dia, hora);//elements d aquella posicio
-
-        if (!elems.isValid()) {
-            return false; // en principio no deberia pasar ya de por si
-        }
+        // en principio no deberia pasar ya de por si
+        if (!elems.isValid()) return false; 
         // que en aquella hora nomes hi hagi un grup per aula
-        if (!elems.aulaRepetida(e)) {
-            return false;
-        }
+        if (!elems.aulaRepetida(e)) return false;
         //si es vol posar un grup de lab on hi ha un de teoria o al reves 
-        if (elems.solapamentTeoriaPractica(e)) {
-            return false;
-        }
-/*
-        if (elems.solapamentNivell(e,cjtAss)){
-            return false;
-        }
-*/
+        if (elems.solapamentTeoriaPractica(e)) return false;
+        //si es vols posar dos assignaturas del mateix nivell
+        if (elems.solapamentNivell(e)) return false;
         return true;
     }
-
+    
+    
+    private boolean compleixResDomini(Clausula c, ClausulaNom cn) {
+        if (!cjtRgraula.ComprovarRes(c, cn)) return false;
+        if (!cjtRass.ComprovarRes(c,cn)) return false;
+        if (!cjtRula.ComprovarRes(c,cn)) return false;
+        return true;
+    }
+    
     public boolean generar(ArrayList<AulaTeo> aulesT, ArrayList<AulaLab> aulesL,
             ArrayList<Assignatura> ass,RestriccioTemps dis, Quadricula q) {
         ArrayList<Clausula> clau = inicialitzarClausules(aulesT, aulesL, ass, dis);
@@ -223,12 +222,5 @@ class Generador {
             }
             return false;
         }
-    }
-
-    private boolean compleixResDomini(Clausula c, ClausulaNom cn) {
-        if (!cjtRgraula.ComprovarRes(c, cn)) return false;
-        if (!cjtRass.ComprovarRes(c,cn)) return false;
-        if (!cjtRula.ComprovarRes(c,cn)) return false;
-        return true;
     }
 }

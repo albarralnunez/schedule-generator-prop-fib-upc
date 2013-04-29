@@ -57,7 +57,7 @@ public class CjtRestriccioAula extends CjtRestriccions{
     }
 
     boolean ComprovarRes(Clausula c, ClausulaNom cn) {
-                boolean b = true;
+        boolean b = true;
         for (RestriccioAula rga : this.restriccionsAula) {
             if (!b) break;
             b = rga.compleixRes(c, cn);
