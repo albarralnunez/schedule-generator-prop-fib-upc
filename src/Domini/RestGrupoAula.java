@@ -12,9 +12,9 @@ public class RestGrupoAula extends Restriccio {
 
 
 
-    private Assignatura assignatura;
+    private String assignatura;
     private Integer grup;
-    private Aula aula;
+    private String aula;
 
     /**
      *
@@ -23,11 +23,11 @@ public class RestGrupoAula extends Restriccio {
         super(1);
     }
     
-       public Assignatura getAssignatura() {
+       public String getAssignatura() {
         return assignatura;
     }
 
-    public void setAssignatura(Assignatura assignatura) {
+    public void setAssignatura(String assignatura) {
         this.assignatura = assignatura;
     }
 
@@ -39,11 +39,11 @@ public class RestGrupoAula extends Restriccio {
         this.grup = grup;
     }
 
-    public Aula getAula() {
+    public String getAula() {
         return aula;
     }
 
-    public void setAula(Aula aula) {
+    public void setAula(String aula) {
         this.aula = aula;
     }
 

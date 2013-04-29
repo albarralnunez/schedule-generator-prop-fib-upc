@@ -16,6 +16,8 @@ public class CtrGeneracio {
     private ArrayList<AulaLab> cjtAulLab;
     private ArrayList<AulaTeo> cjtAulTeo;
     private ArrayList<Assignatura> cjtAs;
+    private CjtRestriccions cjtRes;
+    private CjtRestGrupoAula cjtResGA;
     private String nomUnitat;
     private Quadricula quad;
     private Generador gen;
@@ -33,6 +35,8 @@ public class CtrGeneracio {
         cjtAulLab = new ArrayList<AulaLab>();
         cjtAulTeo = new ArrayList<AulaTeo>();
         cjtAs= new ArrayList<Assignatura>();
+        cjtRes = new CjtRestriccions();
+        cjtResGA = new CjtRestGrupoAula();
         gen = new Generador();
        // cper = new CtrPersistencia();
         
@@ -69,6 +73,16 @@ public class CtrGeneracio {
 
     public void setCjtAs(ArrayList<Assignatura> cjtAs) {
         this.cjtAs = cjtAs;
+    }
+    public ArrayList<Assignatura> getCjtResGA() {
+        return cjtAs;
+    }
+
+    public void setCjtResGA(ArrayList<Assignatura> cjtResGA) {
+        this.cjtAs = cjtResGA;
+    }
+    public void setResResGA(RestGrupoAula r){
+        cjtResGA.afegir_rest(r);
     }
 
     public String getNomUnitat() {

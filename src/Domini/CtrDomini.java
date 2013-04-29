@@ -278,5 +278,30 @@ public class CtrDomini {
       //  Quadricula  q = new Quadricula();
         cgen.generar();  
     }
-
+    public void afegirRestriccio(int tipus, ArrayList params, String unitatDocent){
+        if(tipus == 1) {
+            RestGrupoAula r = new RestGrupoAula();
+            r.setAssignatura((String) params.get(0));
+            Integer i = (Integer) params.get(1);
+            int v = i.intValue();
+            r.setGrup(v);
+            r.setAula((String) params.get(2));
+            cgen.setResResGA(r);
+        }
+        else if(tipus == 2){
+            
+        }
+        else if(tipus == 3){
+            
+        }
+        else if(tipus == 4){
+            
+        }
+        else if(tipus == 5){
+            
+        }
+        else {
+            
+        }
+    }
 }

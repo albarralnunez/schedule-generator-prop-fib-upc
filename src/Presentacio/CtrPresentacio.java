@@ -58,15 +58,38 @@ public class CtrPresentacio {
         int opcio = 0;
         while( opcio != 7 ) {
             System.out.println(" OPCIONS ");
-            System.out.println(" 1 - Restringir un grupo a una aula");
-            System.out.println(" 2 - Restringir un grupo a una hora");
-            System.out.println(" 3 - Restringir una hora en la que no se pueda impartir una asignatura+grupo");
-            System.out.println(" 4 - Restringir un dia para que no se puede impartir una assig+grupo");
-            System.out.println(" 5 - Una assig+grupo no puede impartirse a la vez que otra temporalmente hablando");
+            System.out.println(" 1 - Restringir un grup a una aula");
+            System.out.println(" 2 - Restringir un grup a una hora");
+            System.out.println(" 3 - Restringir una hora en la que no es pugui impartir una asignatura+grup");
+            System.out.println(" 4 - Restringir un dia per a que no es pugu impartir una assig+grup");
+            System.out.println(" 5 - Una assig+grup no es pot impartir a la vegada que una altre temporalmente parlant");
             System.out.println(" 6 - Forzar una aula a no poderse usar un dia/hora");
             System.out.println(" 7 - Tornar");
             opcio = s.nextInt();
             
+            if(opcio == 1){
+                boolean repetir = true;
+                String assignatura;
+                int grup;
+                String aula;
+                String rep;
+                ArrayList params = new ArrayList();
+                while(repetir){
+                    System.out.println("Introduir nom assignatura del grup");
+                    assignatura = s.next();
+                    System.out.println("Introduir numero del grup");
+                    grup = s.nextInt();
+                    System.out.println("Introduir nom aula");
+                    aula = s.next();
+                    params.add(assignatura);
+                    params.add(grup);
+                    params.add(aula);
+                    cd.afegirRestriccio(1,params,unitatDocent);
+                    System.out.println("Vols afegir-ne una altre?<y,n>");
+                    rep = s.next();
+                    if(rep.equals("n")) repetir = false;
+               }
+            }
         }
         
         
