@@ -275,8 +275,9 @@ public class CtrDomini {
     }
 
     public void generar() {
-      //  Quadricula  q = new Quadricula();
-        cgen.generar();  
+        cgen.generar();
+        Representador rep = new Representador();
+        rep.imprimir_horario(cgen.getQuad());
     }
 
 }

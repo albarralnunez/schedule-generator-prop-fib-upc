@@ -86,7 +86,7 @@ class Generador {
                                         cn.setAula(au);
                                         cn.setDia("dilluns");
                                         cn.setHora(d);
-                                        cnaux.add(cn);
+                                        if (compleixResDomini(c,cn)) cnaux.add(cn);
                                     }
                                 }
                                 if (j == 1) {
@@ -95,7 +95,7 @@ class Generador {
                                         cn.setAula(au);
                                         cn.setDia("dimarts");
                                         cn.setHora(d);
-                                        cnaux.add(cn);
+                                        if (compleixResDomini(c,cn)) cnaux.add(cn);
                                     }
                                 }
                                 if (j == 2) {
@@ -104,7 +104,7 @@ class Generador {
                                         cn.setAula(au);
                                         cn.setDia("dimecres");
                                         cn.setHora(d);
-                                        cnaux.add(cn);
+                                        if (compleixResDomini(c,cn)) cnaux.add(cn);
                                     }
                                 }
                                 if (j == 3) {
@@ -113,7 +113,7 @@ class Generador {
                                         cn.setAula(au);
                                         cn.setDia("dijous");
                                         cn.setHora(d);
-                                        cnaux.add(cn);
+                                        if (compleixResDomini(c,cn)) cnaux.add(cn);
                                     }
                                 }
                                 if (j == 4) {
@@ -122,7 +122,7 @@ class Generador {
                                         cn.setAula(au);
                                         cn.setDia("divendres");
                                         cn.setHora(d);
-                                        cnaux.add(cn);
+                                        if (compleixResDomini(c,cn)) cnaux.add(cn);
                                     }
                                 }
                                 if (j == 5) {
@@ -131,7 +131,7 @@ class Generador {
                                         cn.setAula(au);
                                         cn.setDia("dissabte");
                                         cn.setHora(d);
-                                        cnaux.add(cn);
+                                        if (compleixResDomini(c,cn)) cnaux.add(cn);   
                                     }
                                 }
                                 if (j == 6) {
@@ -140,13 +140,13 @@ class Generador {
                                         cn.setAula(au);
                                         cn.setDia("diumenge");
                                         cn.setHora(d);
-                                        cnaux.add(cn);
+                                        if (compleixResDomini(c,cn)) cnaux.add(cn);
                                     }
                                 }
                             }
                             c.setClausula(cnaux);
                         }
-                    }
+                    }                 
                     clausules.add(c);
                 }
             }
@@ -224,5 +224,9 @@ class Generador {
             }
             return false;
         }
+    }
+
+    private boolean compleixResDomini(Clausula c, ClausulaNom cn) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
