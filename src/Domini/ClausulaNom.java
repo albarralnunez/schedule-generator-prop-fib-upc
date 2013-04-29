@@ -11,24 +11,24 @@ package Domini;
 public class ClausulaNom {
 
 
-    private String aula; //Aula
+    private Aula aula; //Aula
     private String dia; //Dia
     private int hora; //Hora
     
     public ClausulaNom() {
     }
 
-    public ClausulaNom(String a, String d, int h) {
+    public ClausulaNom(Aula a, String d, int h) {
         this.aula = a;
         this.dia = d;
         this.hora = h;
     }
 
-    public String getAula() {
+    public Aula getAula() {
         return aula;
     }
 
-    public void setAula(String aula) {
+    public void setAula(Aula aula) {
         this.aula = aula;
     }
 

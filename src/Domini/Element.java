@@ -10,25 +10,25 @@ package Domini;
  */
 public class Element {
 
-    private String aula;
-    private String assignatura;
+    private Aula aula;
+    private Assignatura assignatura;
     private int grupo;
 //    private String dia;
 //    private int hora;
         
-    public String getAula() {
+    public Aula getAula() {
         return aula;
     }
 
-    public void setAula(String aula) {
+    public void setAula(Aula aula) {
         this.aula = aula;
     }
 
-    public String getAssignatura() {
+    public Assignatura getAssignatura() {
         return assignatura;
     }
 
-    public void setAssignatura(String assignatura) {
+    public void setAssignatura(Assignatura assignatura) {
         this.assignatura = assignatura;
     }
 

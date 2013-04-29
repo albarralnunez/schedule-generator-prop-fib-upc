@@ -13,9 +13,9 @@ import java.util.ArrayList;
 public class CtrGeneracio {
     
     private RestriccioTemps resT;
-    private CjtAules cjtAulLab;
-    private CjtAules cjtAulTeo;
-    private CjtAssignatures cjtAs;
+    private ArrayList<AulaLab> cjtAulLab;
+    private ArrayList<AulaTeo> cjtAulTeo;
+    private ArrayList<Assignatura> cjtAs;
     private String nomUnitat;
     private Quadricula quad;
     private Generador gen;
@@ -29,9 +29,9 @@ public class CtrGeneracio {
         nomUnitat = nomU;
         resT = new RestriccioTemps();
         quad = new Quadricula();
-        cjtAulLab = new CjtAules();
-        cjtAulTeo = new CjtAules();
-        cjtAs= new CjtAssignatures();
+        cjtAulLab = new ArrayList<AulaLab>();
+        cjtAulTeo = new ArrayList<AulaTeo>();
+        cjtAs= new ArrayList<Assignatura>();
         gen = new Generador();
        // cper = new CtrPersistencia();
         
@@ -42,13 +42,9 @@ public class CtrGeneracio {
        ArrayList<AulaTeo> aulesT ){
        montaRestriccionsTemps(confHoraria); // inicalitza rest de temps + quadricula
        
-       cjtAs.afegirAssignatures(assignatures);
-       for(int i = 0; i < aulesL.size(); ++i){
-           cjtAulLab.afegirAula( aulesL.get(i) );
-       }
-       for(int i = 0; i < aulesT.size(); ++i){
-           cjtAulTeo.afegirAula( aulesT.get(i) );
-       }
+       this.cjtAs = assignatures;
+       this.cjtAulLab = aulesL;
+       this.cjtAulTeo = aulesT;
     }
     
     public boolean generar() {

@@ -26,6 +26,27 @@ public class Assignatura {
     private boolean material;
     private boolean projector;
 
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Assignatura other = (Assignatura) obj;
+        if ((this.nom == null) ? (other.nom != null) : !this.nom.equals(other.nom)) {
+            return false;
+        }
+        return true;
+    }
+
     public Assignatura() {
     }
 

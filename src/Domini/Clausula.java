@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Clausula {
 
     
-    private String assignatura;
+    private Assignatura assignatura;
     private Integer grup;
     private Integer duracio;
     private ArrayList<ClausulaNom> clausula;
@@ -82,7 +82,7 @@ public class Clausula {
         this.grup = id;
     }
 
-    public void setAssignatura(String nom) {
+    public void setAssignatura(Assignatura nom) {
         this.assignatura = nom;
     }
 
@@ -91,7 +91,7 @@ public class Clausula {
     }
 
 
-    public String getAssignatura() {
+    public Assignatura getAssignatura() {
         return assignatura;
     }
 

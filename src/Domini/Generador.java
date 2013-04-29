@@ -13,46 +13,58 @@ import java.util.ArrayList;
 class Generador {
 
     private Quadricula horari;
-    private CjtAssignatures cjtAss;
 
     public Generador() {
-        this.horari = null;
-        this.cjtAss = new CjtAssignatures();
-        
+        this.horari = null;        
     }
 
-    private ArrayList<Clausula> inicialitzarClausules(CjtAules aulesT, 
-            CjtAules aulesL, CjtAssignatures ass, RestriccioTemps dis) {
+
+    public ArrayList<Aula> cjtCapacitatMajorDeL (int x,ArrayList<AulaLab> a){
+         ArrayList<Aula> listaRefactor= new  ArrayList<Aula>();
+        for (AulaLab au: a) {
+            if (au.capacitatMajorDe(x)) listaRefactor.add(au);
+        }
+        return listaRefactor;
+    }
+    
+        public ArrayList<Aula> cjtCapacitatMajorDeT (int x,ArrayList<AulaTeo> a){
+         ArrayList<Aula> listaRefactor= new  ArrayList<Aula>();
+        for (AulaTeo au: a) {
+            if (au.capacitatMajorDe(x)) listaRefactor.add(au);
+        }
+        return listaRefactor;
+    }   
+            
+    private ArrayList<Clausula> inicialitzarClausules(ArrayList<AulaTeo> aulesT, 
+            ArrayList<AulaLab> aulesL, ArrayList<Assignatura> ass, RestriccioTemps dis) {
         ArrayList<Clausula> clausules = new ArrayList();
-        ArrayList<Assignatura> as = ass.getCjtAssignatures();
-        cjtAss = ass;
-        for (int i = 0; i < as.size(); ++i) {
+        for (int i = 0; i < ass.size(); ++i) {
             Assignatura a;
-            a = as.get(i);
+            a = ass.get(i);
             ArrayList<Integer> gup = a.getGrups();
             for (int k = 0; k < gup.size(); ++k) {
                 Integer g = gup.get(k);
                 String nomAul;
                 String dia;
                 Integer hora;
-                //Inicialitzacio clausules amb grups de laboratori         
                 ArrayList<Integer> interval = new ArrayList<Integer>();
-                CjtAules aulesPos = new CjtAules();
+                ArrayList<Aula> aulesPos = new ArrayList<Aula>();
+                //Inicialitzacio clausules amb grups de laboratori         
                 if (g % 10 != 0) {  //GupsLab
-                    aulesPos = aulesL.cjtCapacitatMajorDe(a.getCapacitatLab());
-                    interval = a.getIntervalsP();
+                     aulesPos = cjtCapacitatMajorDeL(a.getCapacitatLab(),aulesL);
+                     interval = a.getIntervalsP();
                 } else { //GrupsTeo
-                    aulesPos = aulesT.cjtCapacitatMajorDe(a.getCapacitatTeo());
+                    aulesPos = cjtCapacitatMajorDeT(a.getCapacitatTeo(),aulesT);
                     interval = a.getIntervalsT();
                 }
                 for (Integer h : interval) {
                     Clausula c = new Clausula();
-                    c.setAssignatura(a.getNom());
+                    c.setAssignatura(a);
                     c.setDuracio(h);
                     c.setGrup(g);
                     ArrayList<ClausulaNom> cnaux = new ArrayList<ClausulaNom>();
                     //Inicialitzacio del domini
-                    for (Aula au : aulesPos.getCjtAules()) {
+                    for (Aula au : aulesPos) {
                         boolean doo = true;//false;       
                         if (au.getClass().equals(AulaLab.class)) {
                             AulaLab aal = (AulaLab) au;/*
@@ -69,7 +81,7 @@ class Generador {
                                 if (j == 0) {
                                     for (Integer d : dis.getDilluns()) {
                                         ClausulaNom cn = new ClausulaNom();
-                                        cn.setAula(au.getNom());
+                                        cn.setAula(au);
                                         cn.setDia("dilluns");
                                         cn.setHora(d);
                                         cnaux.add(cn);
@@ -78,7 +90,7 @@ class Generador {
                                 if (j == 1) {
                                     for (Integer d : dis.getDimarts()) {
                                         ClausulaNom cn = new ClausulaNom();
-                                        cn.setAula(au.getNom());
+                                        cn.setAula(au);
                                         cn.setDia("dimarts");
                                         cn.setHora(d);
                                         cnaux.add(cn);
@@ -87,7 +99,7 @@ class Generador {
                                 if (j == 2) {
                                     for (Integer d : dis.getDimecres()) {
                                         ClausulaNom cn = new ClausulaNom();
-                                        cn.setAula(au.getNom());
+                                        cn.setAula(au);
                                         cn.setDia("dimecres");
                                         cn.setHora(d);
                                         cnaux.add(cn);
@@ -96,7 +108,7 @@ class Generador {
                                 if (j == 3) {
                                     for (Integer d : dis.getDijous()) {
                                         ClausulaNom cn = new ClausulaNom();
-                                        cn.setAula(au.getNom());
+                                        cn.setAula(au);
                                         cn.setDia("dijous");
                                         cn.setHora(d);
                                         cnaux.add(cn);
@@ -105,7 +117,7 @@ class Generador {
                                 if (j == 4) {
                                     for (Integer d : dis.getDivendres()) {
                                         ClausulaNom cn = new ClausulaNom();
-                                        cn.setAula(au.getNom());
+                                        cn.setAula(au);
                                         cn.setDia("divendres");
                                         cn.setHora(d);
                                         cnaux.add(cn);
@@ -114,7 +126,7 @@ class Generador {
                                 if (j == 5) {
                                     for (Integer d : dis.getDissabte()) {
                                         ClausulaNom cn = new ClausulaNom();
-                                        cn.setAula(au.getNom());
+                                        cn.setAula(au);
                                         cn.setDia("dissabte");
                                         cn.setHora(d);
                                         cnaux.add(cn);
@@ -123,7 +135,7 @@ class Generador {
                                 if (j == 6) {
                                     for (Integer d : dis.getDiumenge()) {
                                         ClausulaNom cn = new ClausulaNom();
-                                        cn.setAula(au.getNom());
+                                        cn.setAula(au);
                                         cn.setDia("diumenge");
                                         cn.setHora(d);
                                         cnaux.add(cn);
@@ -162,8 +174,8 @@ class Generador {
         return true;
     }
 
-    public boolean generar(CjtAules aulesT, CjtAules aulesL, CjtAssignatures ass,
-            RestriccioTemps dis, Quadricula q) {
+    public boolean generar(ArrayList<AulaTeo> aulesT, ArrayList<AulaLab> aulesL,
+            ArrayList<Assignatura> ass,RestriccioTemps dis, Quadricula q) {
         ArrayList<Clausula> clau = inicialitzarClausules(aulesT, aulesL, ass, dis);
         boolean b = backtracking(clau, q);
         Quadricula qu = q;

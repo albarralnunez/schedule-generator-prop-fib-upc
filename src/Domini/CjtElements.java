@@ -57,11 +57,11 @@ public class CjtElements {
     }
 
     public boolean solapamentTeoriaPractica(Element e) {
-        String asg = e.getAssignatura();
+        //String asg = e.getAssignatura();
         boolean grupTeoria = false;
         if( (e.getGrupo()%10) == 0) grupTeoria = true;
         for( int i = 0; i < assignacions.size(); ++i){
-            if( assignacions.get(i).getAssignatura().equals(asg) ){ // si es la misma assignatura
+            if( assignacions.get(i).getAssignatura().equals(e.getAssignatura()) ){ // si es la misma assignatura
                 if( assignacions.get(i).getGrupo() != e.getGrupo() ){ // y no es el mismo elemento
                     int grup = assignacions.get(i).getGrupo();
                     if( grupTeoria) {
@@ -86,11 +86,10 @@ public class CjtElements {
         assignacions.remove(e);
     }
 
-    boolean solapamentNivell(Element e, CjtAssignatures cjAss) {
-        String asg = e.getAssignatura();
+    boolean solapamentNivell(Element e) {
         for (Element ass : assignacions) {
-            if (cjAss.getAssignatura(asg).getNivell() == 
-                    cjAss.getAssignatura(ass.getAssignatura()).getNivell()) {
+            if (e.getAssignatura().getNivell() == 
+                    ass.getAssignatura().getNivell()) {
                 return true;
             }
         }
