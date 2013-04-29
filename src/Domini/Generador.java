@@ -13,9 +13,11 @@ import java.util.ArrayList;
 class Generador {
 
     private Quadricula horari;
+    private CjtRestGrupoAula cjtRaula;
 
     public Generador() {
-        this.horari = null;        
+        this.horari = new Quadricula();
+        //this.cjtRaula = ra;
     }
 
 
