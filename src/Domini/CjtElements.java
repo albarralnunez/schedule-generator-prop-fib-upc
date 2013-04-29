@@ -90,7 +90,8 @@ public class CjtElements {
         for (Element ass : assignacions) {
             if (e.getAssignatura().getNivell() == 
                     ass.getAssignatura().getNivell()) {
-                return true;
+                if (!(e.getAssignatura().equals(ass.getAssignatura())
+                        && e.getGrupo() == ass.getGrupo())) return true;
             }
         }
         return false;
