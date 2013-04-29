@@ -76,10 +76,10 @@ public class RestGrupoAula extends Restriccio {
         } //Si ya hay una restriccion del mismo grupo obligado a estar en una aula no podria añadirse !
         for (Restriccio resa : cjtResAul.getCjtRes()) {
             RestriccioAula resAuldw = (RestriccioAula)resa; //Downcast
-            if (this.aula.equals(resAuldw.getAula())) {
+            if (this.aula.equals(resAuldw.getAula().getNom())) {
                 for (Restriccio resb : cjtResAssig.getCjtRes()) {
                     RestAssignatura resAssdw = (RestAssignatura)resb;
-                    if (this.assignatura.equals(resAssdw.getAssignatura()) &&
+                    if (this.assignatura.equals(resAssdw.getAssignatura().getNom()) &&
                             this.grup == resAssdw.getGrup()){
                         if (resAuldw.getDia() == null) {
                             if (resAssdw.getHora() == resAuldw.getHora())
@@ -102,6 +102,22 @@ public class RestGrupoAula extends Restriccio {
         return comp;
     }
     
+    
+    /**
+     *
+     * @param assignatura
+     * @param grup
+     * @param aula
+     * @return
+     */
+     public boolean compleixRes(Clausula c, ClausulaNom cn) {
+        if (c.getAssignatura().getNom().equals(this.assignatura) &&
+                c.getGrup() == this.grup) {
+            return this.aula.equals(cn.getAula().getNom());
+        }
+        return true;
+    }
+     
     /**
      *
      * @param assignatura
@@ -115,7 +131,7 @@ public class RestGrupoAula extends Restriccio {
             if (b) break;
             if (elcjt.getAssignatura().equals(this.assignatura) &&
                     elcjt.getGrupo() == this.grup){
-                b = (elcjt.getAula().equals(this.aula));
+                b = (elcjt.getAula().getNom().equals(this.aula));
             }
             else b = true;
         }

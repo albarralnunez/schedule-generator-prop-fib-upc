@@ -12,18 +12,18 @@ import java.util.ArrayList;
  */
 public class CjtRestriccioAula extends CjtRestriccions{
 
-    private ArrayList<RestriccioAula> restriccions_aula;
+    private ArrayList<RestriccioAula> restriccionsAula;
 
     //Constructora por defecto:
     public CjtRestriccioAula() {}
 
     //Getters y Setters:
     public ArrayList<RestriccioAula> getRestriccions_aula() {
-        return this.restriccions_aula;
+        return this.restriccionsAula;
     }
 
     public void setRestriccions_aula(ArrayList<RestriccioAula> restriccions_aula) {
-        this.restriccions_aula = restriccions_aula;
+        this.restriccionsAula = restriccions_aula;
     }
 
 
@@ -33,7 +33,7 @@ public class CjtRestriccioAula extends CjtRestriccions{
      * @param r Es la restriccio de RestriccioAUla
      */
     public void afegir_rest(RestriccioAula r) {
-        restriccions_aula.add(r);
+        restriccionsAula.add(r);
     }
     /**@pre: La restricció a borrar ha estat verificada per la clase RestriccioAula
      * @post: Queda borrada la restriccio a l'arraylist restriccions_aula
@@ -41,7 +41,7 @@ public class CjtRestriccioAula extends CjtRestriccions{
      * @param r Es la restriccio de RestriccioAula
      */
     public boolean borrarElem(RestriccioAula r) {
-        return restriccions_aula.remove(r);
+        return restriccionsAula.remove(r);
     }
 
     /**
@@ -50,10 +50,19 @@ public class CjtRestriccioAula extends CjtRestriccions{
      * @return true si hem trobat l'element o false en cas contrari.
      */
     public boolean buscarElem(RestriccioAula r) {
-        for(RestriccioAula r1: this.restriccions_aula){
+        for(RestriccioAula r1: this.restriccionsAula){
                 if(r1 == r) return true;
         }
         return false;
+    }
+
+    boolean ComprovarRes(Clausula c, ClausulaNom cn) {
+                boolean b = true;
+        for (RestriccioAula rga : this.restriccionsAula) {
+            if (!b) break;
+            b = rga.compleixRes(c, cn);
+        }
+        return b; 
     }
 
 

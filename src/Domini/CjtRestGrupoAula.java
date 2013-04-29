@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class CjtRestGrupoAula extends CjtRestriccions{
 
-    private ArrayList<RestGrupoAula> rest_grupo_aula;
+    private ArrayList<RestGrupoAula> restGrupoAula;
     
     //Constructora por defecto:
     public CjtRestGrupoAula() {}
@@ -20,11 +20,11 @@ public class CjtRestGrupoAula extends CjtRestriccions{
     //Getters y Setters
 
     public ArrayList<RestGrupoAula> getRest_grupo_aula() {
-        return rest_grupo_aula;
+        return restGrupoAula;
     }
 
     public void setRest_grupo_aula(ArrayList<RestGrupoAula> rest_grupo_aula) {
-        this.rest_grupo_aula = rest_grupo_aula;
+        this.restGrupoAula = rest_grupo_aula;
     }
 
 
@@ -36,7 +36,7 @@ public class CjtRestGrupoAula extends CjtRestriccions{
      * @param r Es la restriccio de RestGrupoAula
      */
     public void afegir_rest(RestGrupoAula r) {
-        rest_grupo_aula.add(r);
+        restGrupoAula.add(r);
     }
 
     /**@pre: La restricció a borrar ha estat verificada per la clase RestGrupoAula
@@ -45,7 +45,7 @@ public class CjtRestGrupoAula extends CjtRestriccions{
      * @param r Es la restriccio de RestGrupoAula
      */
     public boolean borrarElem(RestGrupoAula r) {
-        return rest_grupo_aula.remove(r);
+        return restGrupoAula.remove(r);
     }
 
     /**
@@ -54,10 +54,19 @@ public class CjtRestGrupoAula extends CjtRestriccions{
      * @return true si hem trobat l'element o false en cas contrari.
      */
     public boolean buscarElem(RestGrupoAula r) {
-        for(RestGrupoAula r1: this.rest_grupo_aula){
+        for(RestGrupoAula r1: this.restGrupoAula){
                 if(r1 == r) return true;
         }
         return false;
+    }
+
+    boolean ComprovarRes(Clausula c, ClausulaNom cn) {
+        boolean b = true;
+        for (RestGrupoAula rga : this.restGrupoAula) {
+            if (!b) break;
+            b = rga.compleixRes(c, cn);
+        }
+        return b;
     }
 
 

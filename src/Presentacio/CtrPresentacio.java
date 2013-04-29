@@ -236,6 +236,11 @@ public class CtrPresentacio {
     
     
     private static void generar() {
+
+        System.out.println("tria un arxiu de disponibilitat horaria\n");
+        String a = s.next();
+
+       // cd.inicialitzarQuadricula();
        int opcio = 0;
         while( opcio != 3 ) {
             System.out.println(" OPCIONS ");
@@ -247,8 +252,7 @@ public class CtrPresentacio {
             if(opcio == 1) definirRes();
             else if(opcio == 2) generarHorari();
         }
-        
-    }
+}
 
 
     private static  void carregar() {} // 3a entrega

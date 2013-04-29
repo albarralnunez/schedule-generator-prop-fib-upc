@@ -72,7 +72,7 @@ class RestriccioAula extends Restriccio{
     @Override
     public boolean CompleixRes() {return false;}
 
-    public boolean CompleixRes(Aula aula, Integer hora, String dia) {
+    public boolean CompleixResAux(Aula aula, Integer hora, String dia) {
         boolean compleix = true;
         if (this.aula.equals(aula)) { //Si hablan de la aula que esta restringida
             if (this.hora != null) { //Si este aula no puede usarse un dia a una hora concreta...
@@ -115,5 +115,12 @@ class RestriccioAula extends Restriccio{
             }
         }
         return es_pot;
+    }
+
+    boolean compleixRes(Clausula c, ClausulaNom cn) {
+        Aula a = cn.getAula();
+        int h = cn.getHora();
+        String d = cn.getDia();
+        return CompleixResAux(a, h, d);
     }
 }

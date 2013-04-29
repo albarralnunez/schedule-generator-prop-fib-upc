@@ -13,13 +13,12 @@ import java.util.ArrayList;
 class Generador {
 
     private Quadricula horari;
-    private CjtRestGrupoAula cjtRaula;
-
+    private CjtRestGrupoAula cjtRgraula;
+    private CjtRestAssignatura cjtRass;
+    private CjtRestriccioAula cjtRula;
+            
     public Generador() {
-        this.horari = new Quadricula();
-        //this.cjtRaula = ra;
     }
-
 
     public ArrayList<Aula> cjtCapacitatMajorDeL (int x,ArrayList<AulaLab> a){
          ArrayList<Aula> listaRefactor= new  ArrayList<Aula>();
@@ -227,6 +226,9 @@ class Generador {
     }
 
     private boolean compleixResDomini(Clausula c, ClausulaNom cn) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (!cjtRgraula.ComprovarRes(c, cn)) return false;
+        if (!cjtRass.ComprovarRes(c,cn)) return false;
+        if (!cjtRula.ComprovarRes(c,cn)) return false;
+        return true;
     }
 }
