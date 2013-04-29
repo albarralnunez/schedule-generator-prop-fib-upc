@@ -84,6 +84,14 @@ public class RestSolapament extends Restriccio{
         else if (i == 5) return "dissabte";
         else return "diumenge";
     }
+    /**
+     *El Metode CompleixRes ens adverteix ,amb un bool, de si es compliria la restriccio si afegissim el element "e" en el dia "dia" a la hora "hora" de la quadricula q
+     * @param q Quadricula a la qual li volem afegir-li el element
+     * @param e Element que volem afegir 
+     * @param dia Dia en el que volem afegir el element
+     * @param hora Hora en la que volem afegir el element
+     * @return Boolea que indica si es seguiria complint la restriccio un cop afegit el element
+     */
     public boolean CompleixRes(Quadricula q, Element e, String dia,int hora) {
        boolean ass1 = false;
        boolean ass2 = false;
@@ -135,6 +143,11 @@ public class RestSolapament extends Restriccio{
         }
         return true;
    }
+    /**
+     * CompleixRes(Quadricula q) comprova per a cada dia i hora de la quadricula q si es compleix la restriccio
+     * @param q Quadricula que volem comprovar
+     * @return Boolean que ens informa si compleix la restriccio per tot dia-hora de la quadricula
+     */
    public boolean CompleixRes(Quadricula q){
        boolean ass1;
        boolean ass2;
