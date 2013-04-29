@@ -102,13 +102,13 @@ class RestriccioAula extends Restriccio{
         ArrayList<RestGrupoAula> r;
         r = cjtRestGrupoAula.getRest_grupo_aula();
         for (RestGrupoAula r1: r) { //Para cada restriccion Grupo-Aula
-            if (r1.getAula() == this.aula) { //Si a un assig+grupo le fuerzan ir a una aula
+            if (r1.getAula().equals(this.aula.getNom())) { //Si a un assig+grupo le fuerzan ir a una aula
                 Integer grupo = r1.getGrup(); //Grupo forzado.
-                Assignatura ass = r1.getAssignatura(); //Assignatura forzada.
+                String ass = r1.getAssignatura(); //Assignatura forzada.
                 ArrayList<RestGrupSesio> rgs;
                 rgs = cjtRestGrupSesio.getRestriccions_grup_sesio();
                 for (RestGrupSesio r2 : rgs) { //Para cada restriccion que diga que un assig+grupo que debia ir a un dia/hora.
-                    if (r2.getGrup() == grupo && r2.getAssignatura() == ass) { //Si se trata del assig+grupo que debia ir a nuestra aula de la restriccion.
+                    if (r2.getGrup() == grupo && r2.getAssignatura().getNom().equals(ass)) { //Si se trata del assig+grupo que debia ir a nuestra aula de la restriccion.
                         if (r2.getHora() == this.hora) es_pot = false;
                     }
                 }
