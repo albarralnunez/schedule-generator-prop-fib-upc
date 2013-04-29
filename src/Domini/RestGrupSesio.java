@@ -69,7 +69,7 @@ public class RestGrupSesio extends Restriccio{
     /**
      *
      * @param cjtRestGrupSesio Conjunt al que afeigir la noestra restriccio y en el que es poden produir incoherencies.
-     * @return true si es ot afeigir al conjunt de restriccions del tipus o false si no es pot perque provoca alguna incoherencia.
+     * @return true si es pot afeigir al conjunt de restriccions del tipus o false si no es pot perque provoca alguna incoherencia.
      */
 
     public boolean esPotAfegir(CjtRestriccions cjtRestGrupSesio) {

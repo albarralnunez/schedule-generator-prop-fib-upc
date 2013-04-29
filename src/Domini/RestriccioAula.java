@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package Domini;
+import java.util.ArrayList;
 
 /**
  *
@@ -76,7 +77,7 @@ class RestriccioAula extends Restriccio{
         if (this.aula.equals(aula)) { //Si hablan de la aula que esta restringida
             if (this.hora != null) { //Si este aula no puede usarse un dia a una hora concreta...
                 if (this.dia.equals(dia)) {
-                    if (this.hora == hora) compleix = false;
+                    if (this.hora == hora) compleix = false; //Si se va a usar la hora que esta prohibida.
                 }
             } else { //Si este aula no puede usarse un dia entero...
                 if (this.dia.equals(dia)) compleix = false;
@@ -85,10 +86,34 @@ class RestriccioAula extends Restriccio{
         return compleix;
     }
 
-    public boolean esPotAfegir() {
-        return true;
+    /**
+     *
+     * @param cjtRestriccioAula Conjunt al que afeigir la noestra restriccio y en el que es poden produir incoherencies.
+     * @param CjtRestGrupoAula Conjunto que puede producir incoherencias con nuestra restriccion.
+     * @param CjtRestGrupoSesion Conjunto que puede producir incoherencias con nuestra restriccion.
+     * @return true si es pot afeigir al conjunt de restriccions del tipus o false si no es pot perque provoca alguna incoherencia.
+     */
+
+    public boolean esPotAfegir(CjtRestriccioAula cjtRestAula, CjtRestGrupoAula cjtRestGrupoAula, CjtRestGrupSesio cjtRestGrupSesio) {
+        boolean es_pot = true; //Solo sera false cuando se produzca alguna incoherencia!
+        //Si un grupo esta obligado a estar en una aula que es la que esta prohibida usarse un dia/hora... Y ese grupo debe hacer clase
+        //En esa aula en las horas en que esta prohibida ==> SE PRODUCE INCOHERENCIA!
+        
+        ArrayList<RestGrupoAula> r;
+        r = cjtRestGrupoAula.getRest_grupo_aula();
+        for (RestGrupoAula r1: r) { //Para cada restriccion Grupo-Aula
+            if (r1.getAula() == this.aula) { //Si a un assig+grupo le fuerzan ir a una aula
+                Integer grupo = r1.getGrup(); //Grupo forzado.
+                Assignatura ass = r1.getAssignatura(); //Assignatura forzada.
+                ArrayList<RestGrupSesio> rgs;
+                rgs = cjtRestGrupSesio.getRestriccions_grup_sesio();
+                for (RestGrupSesio r2 : rgs) { //Para cada restriccion que diga que un assig+grupo que debia ir a un dia/hora.
+                    if (r2.getGrup() == grupo && r2.getAssignatura() == ass) { //Si se trata del assig+grupo que debia ir a nuestra aula de la restriccion.
+                        if (r2.getHora() == this.hora) es_pot = false;
+                    }
+                }
+            }
+        }
+        return es_pot;
     }
-
-
-
 }
