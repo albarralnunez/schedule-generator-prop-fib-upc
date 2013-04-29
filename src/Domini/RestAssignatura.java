@@ -72,7 +72,9 @@ public class RestAssignatura extends Restriccio {
          for(int i = 0; i < size; ++i){
              Restriccio res = llista.get(i);
              RestAssignatura resdw = (RestAssignatura) res;
-             if(resdw.getAssignatura().equals(this.assignatura) && resdw.getGrup() == this.grup && resdw.getDia().equals(this.dia) && resdw.getHora() == this.hora) return false;
+             if(resdw.getAssignatura().equals(this.assignatura) && resdw.getGrup
+                     () == this.grup && resdw.getDia().equals(this.dia) && 
+                     resdw.getHora() == this.hora) return false;
               //if(this.equals(resdw)) return false
          }
          llista = cjtResGS.getCjtRes();
@@ -80,7 +82,8 @@ public class RestAssignatura extends Restriccio {
          for(int i = 0; i < size; ++i){
              Restriccio res = llista.get(i);
              RestGrupSesio resdw = (RestGrupSesio) res;
-             if(resdw.getAssignatura().equals(this.assignatura) && resdw.getGrup() == this.grup && resdw.getHora() == this.hora) return false;
+             if(resdw.getAssignatura().equals(this.assignatura) && resdw.getGrup
+                     () == this.grup && resdw.getHora() == this.hora) return false;
          }
          return true;
     }
