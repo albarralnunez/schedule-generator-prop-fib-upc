@@ -108,5 +108,15 @@ public class RestAssignatura extends Restriccio {
         if(compleixResHora(assignatura, grup, hora) && compleixResDia(assignatura, grup, dia)) return true;
         else return false;
    }
+
+    boolean compleixRes(Clausula c, ClausulaNom cn) {
+        String d = cn.getDia();
+        Integer h = cn.getHora();
+        int g = c.getGrup();
+        if (!CompleixResDiaHora(c.getAssignatura(), g, d, h)) return false;
+        if (!compleixResDia(c.getAssignatura(), g, d)) return false;
+        if (!compleixResHora(c.getAssignatura(), g, h)) return false;
+        return true;
+    }
     
 }

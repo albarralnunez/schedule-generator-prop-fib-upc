@@ -57,5 +57,14 @@ public class CjtRestAssignatura extends CjtRestriccions{
         }
         return false;
     }
+
+    boolean ComprovarRes(Clausula c, ClausulaNom cn) {
+         boolean b = true;
+        for (RestAssignatura rga : this.restsAssignatura) {
+            if (!b) break;
+            b = rga.compleixRes(c, cn);
+        }
+        return b;
+    }
     
 }

@@ -14,15 +14,10 @@ class Generador {
 
     private Quadricula horari;
     private CjtRestGrupoAula cjtRaula;
-
+    private CjtRestAssignatura cjtRass;
+            
     public Generador() {
     }
-
-    public Generador(CjtRestGrupoAula rga) {
-        this.horari = new Quadricula();
-        this.cjtRaula = rga;
-    }
-
 
     public ArrayList<Aula> cjtCapacitatMajorDeL (int x,ArrayList<AulaLab> a){
          ArrayList<Aula> listaRefactor= new  ArrayList<Aula>();
@@ -231,6 +226,7 @@ class Generador {
 
     private boolean compleixResDomini(Clausula c, ClausulaNom cn) {
         boolean b = cjtRaula.ComprovarRes(c, cn);
+        b = cjtRass.ComprovarRes(c,cn);
         return b;
     }
 }
