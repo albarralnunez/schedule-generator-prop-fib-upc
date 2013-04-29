@@ -15,7 +15,9 @@ public class CjtRestGrupoAula extends CjtRestriccions{
     private ArrayList<RestGrupoAula> restGrupoAula;
     
     //Constructora por defecto:
-    public CjtRestGrupoAula() {}
+    public CjtRestGrupoAula() {
+        restGrupoAula = new ArrayList<RestGrupoAula>();
+    }
     
     //Getters y Setters
 

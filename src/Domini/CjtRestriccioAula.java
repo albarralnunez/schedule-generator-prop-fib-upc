@@ -12,13 +12,15 @@ import java.util.ArrayList;
  */
 public class CjtRestriccioAula extends CjtRestriccions{
 
-    private ArrayList<RestriccioAula> restriccionsAula;
+    private  ArrayList<RestriccioAula> restriccionsAula;
 
     //Constructora por defecto:
-    public CjtRestriccioAula() {}
+    public CjtRestriccioAula() {
+        restriccionsAula = new ArrayList<RestriccioAula>();
+    }
 
     //Getters y Setters:
-    public ArrayList<RestriccioAula> getRestriccions_aula() {
+    public ArrayList<RestriccioAula> getRestriccionsAula() {
         return this.restriccionsAula;
     }
 

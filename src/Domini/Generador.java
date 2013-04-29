@@ -18,6 +18,9 @@ class Generador {
     private CjtRestriccioAula cjtRula;
             
     public Generador() {
+        cjtRgraula = new CjtRestGrupoAula();
+        cjtRass = new CjtRestAssignatura();
+        cjtRula = new CjtRestriccioAula();
     }
 
     public ArrayList<Aula> cjtCapacitatMajorDeL (int x,ArrayList<AulaLab> a){
