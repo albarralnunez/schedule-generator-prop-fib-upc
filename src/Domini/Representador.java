@@ -56,13 +56,13 @@ public class Representador {
      */
         for(int i=0; i < 7; ++i) {
             String dia;
-            if (i == 0) dia = "DILLUNS";
-            else if (i == 1) dia = "DIMARTS";
-            else if (i == 2) dia = "DIMECRES";
-            else if (i == 3) dia = "DIJOUS";
-            else if (i == 4) dia = "DIVENDRES";
-            else if (i == 5) dia = "DISSABTE";
-            else dia = "DIUMENGE";
+            if (i == 0) dia = "dilluns";
+            else if (i == 1) dia = "dimarts";
+            else if (i == 2) dia = "dimecres";
+            else if (i == 3) dia = "dijous";
+            else if (i == 4) dia = "divendres";
+            else if (i == 5) dia = "dissabte";
+            else dia = "diumenge";
 
             System.out.println("DIA: "+ dia); //DIA: DILLUNS
             for (int j=0; j < 24; ++j) {
