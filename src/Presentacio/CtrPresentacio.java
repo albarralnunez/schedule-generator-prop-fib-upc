@@ -61,7 +61,6 @@ public class CtrPresentacio {
         cd.inicialitzaGenerador(); // inicialitza quadricula, aules i assignatures
         
         cd.generar();
-        
     }
 
 

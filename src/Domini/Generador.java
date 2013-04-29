@@ -179,9 +179,7 @@ class Generador {
     public boolean generar(ArrayList<AulaTeo> aulesT, ArrayList<AulaLab> aulesL,
             ArrayList<Assignatura> ass,RestriccioTemps dis, Quadricula q) {
         ArrayList<Clausula> clau = inicialitzarClausules(aulesT, aulesL, ass, dis);
-        boolean b = backtracking(clau, q);
-        Quadricula qu = q;
-        return b;
+        return backtracking(clau, q);
     }
 
     private boolean backtracking(ArrayList<Clausula> clau, Quadricula qu) {

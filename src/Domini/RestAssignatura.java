@@ -61,6 +61,7 @@ public class RestAssignatura extends Restriccio {
         if(hora == -1) return true;
         else return false;
     }
+    
     @Override
     public boolean CompleixRes(){return false;}
     
