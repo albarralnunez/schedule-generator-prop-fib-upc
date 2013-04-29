@@ -54,13 +54,34 @@ public class CtrPresentacio {
         }
         System.out.println(" FIN "); 
     }
-    
-    
-    private static void generar() {
+    private static void definirRes(){
+        
+    }
+    private static void generarHorari(){
+        
         //cd.generarHorari();
         cd.inicialitzaGenerador(); // inicialitza quadricula, aules i assignatures
         
         cd.generar();
+        
+    }
+    
+    
+    
+    
+    
+    private static void generar() {
+       int opcio = 0;
+        while( opcio != 3 ) {
+            System.out.println(" OPCIONS ");
+            System.out.println(" 1 - definir restriccions");
+            System.out.println(" 2 - generar horari");
+            System.out.println(" 3 - tornar");
+            opcio = s.nextInt();
+            
+            if(opcio == 1) definirRes();
+            else if(opcio == 2) generarHorari();
+        }
         
     }
 
