@@ -14,7 +14,10 @@ public class CjtRestriccioAula extends CjtRestriccions{
 
     private ArrayList<RestriccioAula> restriccions_aula;
 
+    //Constructora por defecto:
+    public CjtRestriccioAula() {}
 
+    //Getters y Setters:
     public ArrayList<RestriccioAula> getRestriccions_aula() {
         return this.restriccions_aula;
     }
@@ -35,7 +38,7 @@ public class CjtRestriccioAula extends CjtRestriccions{
     /**@pre: La restricció a borrar ha estat verificada per la clase RestriccioAula
      * @post: Queda borrada la restriccio a l'arraylist restriccions_aula
      *
-     * @param r Es la restriccio de RestriccioAUla
+     * @param r Es la restriccio de RestriccioAula
      */
     public boolean borrarElem(RestriccioAula r) {
         return restriccions_aula.remove(r);
