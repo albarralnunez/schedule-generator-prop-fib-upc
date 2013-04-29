@@ -231,9 +231,6 @@ class Generador {
 
     private boolean compleixResDomini(Clausula c, ClausulaNom cn) {
         boolean b = cjtRaula.ComprovarRes(c, cn);
-        
-        
-        
-        return true;
+        return b;
     }
 }
