@@ -23,6 +23,10 @@ public class CjtRestriccions {
     CjtRestriccions(){
         cjtRes = new ArrayList();
     }
+
+    public ArrayList<Restriccio> getCjtRes() {
+        return cjtRes;
+    }
     
     //Metodes
     

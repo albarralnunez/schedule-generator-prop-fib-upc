@@ -8,14 +8,14 @@ package Domini;
  *
  * @author Daniel
  */
-public class AulaLab extends Aula{
-    
+public class AulaLab extends Aula {
+
     private boolean material;
-    
-    /** 
-    * Crea un Aula de laboratori.
-    */
-    public AulaLab (String nom, int cap, boolean mat) {
+
+    /**
+     * Crea un Aula de laboratori.
+     */
+    public AulaLab(String nom, int cap, boolean mat) {
         super(nom, cap);
         this.material = mat;
     }
@@ -24,21 +24,20 @@ public class AulaLab extends Aula{
         super();
         this.material = false; //La creadora por defecto no da material al aula.
     }
-    
+
     /**
-     *  
+     *
      * @return Retorna si l'aula te material.
      */
-    public boolean getMaterial(){
+    public boolean getMaterial() {
         return material;
     }
-    
+
     /**
-     *  
+     *
      * @param mar A material
-     */    
-    public void setMaterial(boolean material){
+     */
+    public void setMaterial(boolean material) {
         this.material = material;
     }
 }
-

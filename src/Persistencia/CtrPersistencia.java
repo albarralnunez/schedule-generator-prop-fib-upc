@@ -80,6 +80,9 @@ public class CtrPersistencia {
         ca.creaArxiu("aula-lab-" + nom, a);
     }
 
+    public void creaHorari(String aula,ArrayList a){
+        ca.creaArxiu("Horari-FIB-"+aula, a);
+    }    
     /**
      * Comprueba si existe el Aula nomAula
      *
