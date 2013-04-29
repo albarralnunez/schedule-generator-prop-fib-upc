@@ -14,6 +14,10 @@ public class CjtRestGrupSesio extends CjtRestriccions{
 
     private ArrayList<RestGrupSesio> restriccions_grup_sesio;
 
+    //Constructora por defecto:
+    public CjtRestGrupSesio() {}
+
+    //Getters y Setters:
     public ArrayList<RestGrupSesio> getRestriccions_grup_sesio() {
         return restriccions_grup_sesio;
     }
@@ -30,7 +34,11 @@ public class CjtRestGrupSesio extends CjtRestriccions{
     public void afegir_rest(RestGrupSesio r) {
         restriccions_grup_sesio.add(r);
     }
-
+    /**@pre: La restricció a borrar ha estat verificada per la clase RestGrupSesio
+     * @post: Queda borrada la restriccio a l'arraylist restriccions_grup_sesio
+     *
+     * @param r Es la restriccio de RestGrupSesio
+     */
     public boolean borrarElem(RestGrupSesio r) {
         return restriccions_grup_sesio.remove(r);
     }
