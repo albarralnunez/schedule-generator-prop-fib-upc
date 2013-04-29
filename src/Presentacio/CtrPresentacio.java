@@ -70,7 +70,7 @@ public class CtrPresentacio {
             if(opcio == 1){
                 boolean repetir = true;
                 String assignatura;
-                int grup;
+                Integer grup;
                 String aula;
                 String rep;
                 ArrayList params = new ArrayList();
@@ -89,6 +89,136 @@ public class CtrPresentacio {
                     rep = s.next();
                     if(rep.equals("n")) repetir = false;
                }
+            }
+            if(opcio ==2 ){
+                boolean repetir = true;
+                String assignatura;
+                Integer grup;
+                Integer hora;
+                String rep;
+                ArrayList params = new ArrayList();
+                while(repetir){
+                    System.out.println("Introduir nom assignatura del grup");
+                    assignatura = s.next();
+                    System.out.println("Introduir numero del grup");
+                    grup = s.nextInt();
+                    System.out.println("Introduir hora <0-23>");
+                    hora = s.nextInt();
+                    params.add(assignatura);
+                    params.add(grup);
+                    params.add(hora);
+                    cd.afegirRestriccio(2,params,unitatDocent);
+                    System.out.println("Vols afegir-ne una altre?<y,n>");
+                    rep = s.next();
+                    if(rep.equals("n")) repetir = false;
+               }
+                
+            }
+            if(opcio ==  3 ){
+                boolean repetir = true;
+                String assignatura;
+                Integer grup;
+                Integer hora;
+                String rep;
+                ArrayList params = new ArrayList();
+                while(repetir){
+                    System.out.println("Introduir nom assignatura del grup");
+                    assignatura = s.next();
+                    System.out.println("Introduir numero del grup");
+                    grup = s.nextInt();
+                    System.out.println("Introduir hora <0-23>");
+                    hora = s.nextInt();
+                    params.add(assignatura);
+                    params.add(grup);
+                    params.add(hora);
+                    cd.afegirRestriccio(3,params,unitatDocent);
+                    System.out.println("Vols afegir-ne una altre?<y,n>");
+                    rep = s.next();
+                    if(rep.equals("n")) repetir = false;
+               }
+                
+            }
+            if(opcio == 4 ){
+                boolean repetir = true;
+                String assignatura;
+                Integer grup;
+                String dia;
+                String rep;
+                ArrayList params = new ArrayList();
+                while(repetir){
+                    System.out.println("Introduir nom assignatura del grup");
+                    assignatura = s.next();
+                    System.out.println("Introduir numero del grup");
+                    grup = s.nextInt();
+                    System.out.println("Introduir dia");
+                    dia = s.next();
+                    params.add(assignatura);
+                    params.add(grup);
+                    params.add(dia);
+                    cd.afegirRestriccio(4,params,unitatDocent);
+                    System.out.println("Vols afegir-ne una altre?<y,n>");
+                    rep = s.next();
+                    if(rep.equals("n")) repetir = false;
+               }
+                
+            }
+            if(opcio == 5 ){
+                boolean repetir = true;
+                String assignaturaP;
+                Integer grupP;
+                String assignaturaS;
+                Integer grupS;
+                String rep;
+                String nivell;
+                ArrayList params = new ArrayList();
+                while(repetir){
+                    System.out.println("Solapament a nivell de assignatura o de grup ?<a,g>");
+                    nivell = s.next();
+                    System.out.println("Introduir nom assignatura");
+                    assignaturaP = s.next();
+                    if(nivell.equals("g")){
+                        System.out.println("Introduir numero de grup de la assignatura anterior");
+                        grupP = s.nextInt();
+                    }
+                    System.out.println("Introduir nom de l'altre assignatura");
+                    assignaturaS = s.next();
+                    if(nivell.equals("g")){
+                        System.out.println("Introduir numero de grup de la assignatura anterior");
+                        grupS= s.nextInt();
+                    }
+                    params.add(assignaturaP);
+                    params.add(assignaturaS);
+                    //if(nivell.equals("g")) {params.add(grupP); params.add(grupS);}
+                    cd.afegirRestriccio(5,params,unitatDocent);
+                    System.out.println("Vols afegir-ne una altre?<y,n>");
+                    rep = s.next();
+                    //if(rep.equals("n")) repetir = false;*/
+               }
+                
+            }
+            if(opcio == 6 ){
+                boolean repetir = true;
+                String assignatura;
+                Integer grup;
+                Integer hora;
+                String rep;
+                ArrayList params = new ArrayList();
+                while(repetir){
+                    System.out.println("Introduir nom assignatura del grup");
+                    assignatura = s.next();
+                    System.out.println("Introduir numero del grup");
+                    grup = s.nextInt();
+                    System.out.println("Introduir hora <0-23>");
+                    hora = s.nextInt();
+                    params.add(assignatura);
+                    params.add(grup);
+                    params.add(hora);
+                    cd.afegirRestriccio(6,params,unitatDocent);
+                    System.out.println("Vols afegir-ne una altre?<y,n>");
+                    rep = s.next();
+                    if(rep.equals("n")) repetir = false;
+               }
+                
             }
         }
         
