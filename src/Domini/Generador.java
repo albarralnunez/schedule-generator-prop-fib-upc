@@ -13,8 +13,9 @@ import java.util.ArrayList;
 class Generador {
 
     private Quadricula horari;
-    private CjtRestGrupoAula cjtRaula;
+    private CjtRestGrupoAula cjtRgraula;
     private CjtRestAssignatura cjtRass;
+    private CjtRestriccioAula cjtRula;
             
     public Generador() {
     }
@@ -225,8 +226,9 @@ class Generador {
     }
 
     private boolean compleixResDomini(Clausula c, ClausulaNom cn) {
-        boolean b = cjtRaula.ComprovarRes(c, cn);
-        b = cjtRass.ComprovarRes(c,cn);
-        return b;
+        if (!cjtRgraula.ComprovarRes(c, cn)) return false;
+        if (!cjtRass.ComprovarRes(c,cn)) return false;
+        if (!cjtRula.ComprovarRes(c,cn)) return false;
+        return true;
     }
 }
