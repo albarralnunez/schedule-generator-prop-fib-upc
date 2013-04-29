@@ -13,7 +13,7 @@ package Domini;
 
 class RestriccioAula extends Restriccio{
 
-    private String aula;
+    private Aula aula;
     private Integer hora;
     private String dia;
 
@@ -29,14 +29,14 @@ class RestriccioAula extends Restriccio{
      * @param hora l'hora en que l'aula que no podra ser usada.
      * @param dia el dia en que l'aula no podra ser usada.
      */
-    public RestriccioAula(String aula, Integer hora, String dia) {
+    public RestriccioAula(Aula aula, Integer hora, String dia) {
         super(1003);
         this.aula = aula;
         this.hora = hora;
         this.dia = dia;
     }
 
-    public RestriccioAula(String aula, String dia) { //UNA AULA NO PODRA ESTAR UNA DIA ENTERO.
+    public RestriccioAula(Aula aula, String dia) { //UNA AULA NO PODRA ESTAR UNA DIA ENTERO.
         super(1003);
         this.aula = aula;
         this.hora = null;
@@ -44,11 +44,11 @@ class RestriccioAula extends Restriccio{
     }
 
     //Getters y Setters
-    public String getAula() {
+    public Aula getAula() {
         return aula;
     }
 
-    public void setAula(String aula) {
+    public void setAula(Aula aula) {
         this.aula = aula;
     }
 
@@ -71,7 +71,7 @@ class RestriccioAula extends Restriccio{
     @Override
     public boolean CompleixRes() {return false;}
 
-    public boolean CompleixRes(String aula, Integer hora, String dia) {
+    public boolean CompleixRes(Aula aula, Integer hora, String dia) {
         boolean compleix = true;
         if (this.aula.equals(aula)) { //Si hablan de la aula que esta restringida
             if (this.hora != null) { //Si este aula no puede usarse un dia a una hora concreta...
