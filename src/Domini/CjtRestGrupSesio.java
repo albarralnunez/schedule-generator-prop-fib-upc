@@ -14,6 +14,10 @@ public class CjtRestGrupSesio extends CjtRestriccions{
 
     private ArrayList<RestGrupSesio> restriccions_grup_sesio;
 
+    //Constructora por defecto:
+    public CjtRestGrupSesio() {}
+
+    //Getters y Setters:
     public ArrayList<RestGrupSesio> getRestriccions_grup_sesio() {
         return restriccions_grup_sesio;
     }
