@@ -90,7 +90,7 @@ public class CtrPresentacio {
                     if(rep.equals("n")) repetir = false;
                }
             }
-            if(opcio ==2 ){
+            if(opcio == 2){
                 boolean repetir = true;
                 String assignatura;
                 Integer grup;
@@ -169,11 +169,11 @@ public class CtrPresentacio {
                 String assignaturaS;
                 Integer grupS = null;
                 String rep;
-                String nivell = null;
+                String nivell = "n"; //valor aleatori que ha de ser diferent de "a" i de "g"
                 ArrayList params = new ArrayList();
                 while(repetir){
                     System.out.println("Solapament a nivell de assignatura o de grup ?<a,g>");
-                    for(;(!nivell.equals("a")) || (!nivell.equals("g"));) {nivell = s.next();}
+                    while((!nivell.equals("a")) && (!nivell.equals("g"))) {nivell = s.next();}
                     System.out.println("Introduir nom assignatura");
                     assignaturaP = s.next();
                     if(nivell.equals("g")){
