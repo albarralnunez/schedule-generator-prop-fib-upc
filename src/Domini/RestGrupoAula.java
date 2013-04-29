@@ -11,9 +11,10 @@ package Domini;
 public class RestGrupoAula extends Restriccio {
 
 
-    private String assignatura;
+
+    private Assignatura assignatura;
     private Integer grup;
-    private String aula;
+    private Aula aula;
 
     /**
      *
@@ -22,67 +23,38 @@ public class RestGrupoAula extends Restriccio {
         super(1);
     }
     
-    /**
-     *
-     * @param assignatura
-     * @param grupo
-     * @param aula
-     */
-    public RestGrupoAula(String assignatura, Integer grupo, String aula) {
-        super (1);
-        this.assignatura = assignatura;
-        this.grup = grupo;
-        this.aula = aula;
-    }
-    
-    /**
-     *
-     * @return
-     */
-    public String getAssignatura() {
+       public Assignatura getAssignatura() {
         return assignatura;
     }
 
-    /**
-     *
-     * @param assignatura
-     */
-    public void setAssignatura(String assignatura) {
+    public void setAssignatura(Assignatura assignatura) {
         this.assignatura = assignatura;
     }
 
-    /**
-     *
-     * @return
-     */
     public Integer getGrup() {
         return grup;
     }
 
-    /**
-     *
-     * @param grupo
-     */
-    public void setGrup(Integer grupo) {
-        this.grup = grupo;
+    public void setGrup(Integer grup) {
+        this.grup = grup;
     }
 
-    /**
-     *
-     * @return
-     */
-    public String getAula() {
+    public Aula getAula() {
         return aula;
     }
 
-    /**
-     *
-     * @param aula
-     */
-    public void setAula(String aula) {
+    public void setAula(Aula aula) {
         this.aula = aula;
     }
-    
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public boolean CompleixRes(){return false;}
     
@@ -137,12 +109,17 @@ public class RestGrupoAula extends Restriccio {
      * @param aula
      * @return
      */
-     public boolean compleixRes(String assignatura, int grup, String aula) {
-        boolean comp = true;
-        if (this.assignatura.equals(assignatura)  && this.grup == grup) {
-            if (!this.aula.equals(aula)) comp = false;
+     public boolean compleixRes(CjtElements el) {
+         boolean b = false;
+        for (Element elcjt : el.getAssignacions()) {
+            if (b) break;
+            if (elcjt.getAssignatura().equals(this.assignatura) &&
+                    elcjt.getGrupo() == this.grup){
+                b = (elcjt.getAula().equals(this.aula));
+            }
+            else b = true;
         }
-        return comp;
+        return b;
     }
     
     

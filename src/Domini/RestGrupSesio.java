@@ -14,28 +14,28 @@ package Domini;
 public class RestGrupSesio extends Restriccio{
 
     //Atributos
-    private String assignatura;
+    private Assignatura assignatura;
     private Integer grup;
     private Integer hora; //Hora d'inici.
 
     //Constructora por defecto
     public RestGrupSesio() {
-        super(1002); //ID PRIVISIONAL 1002
+        super(2); //ID PRIVISIONAL 1002
     }
 
-    public RestGrupSesio(String assignatura, Integer grup, Integer hora) {
-        super(1002);
+    public RestGrupSesio(Assignatura assignatura, Integer grup, Integer hora) {
+        super(2);
         this.assignatura = assignatura;
         this.grup = grup;
         this.hora = hora;
     }
 
     //Getters y Setters
-    public String getAssignatura() {
+    public Assignatura getAssignatura() {
         return assignatura;
     }
 
-    public void setAssignatura(String assignatura) {
+    public void setAssignatura(Assignatura assignatura) {
         this.assignatura = assignatura;
     }
 

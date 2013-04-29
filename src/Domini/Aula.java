@@ -17,8 +17,6 @@ public class Aula {
      * Crea un Aula.
      */
     public Aula() {
-        nom = null;
-        capacitat = -1;
     }//end constructor Studentwqdsae
 
     /**

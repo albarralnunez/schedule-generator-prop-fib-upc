@@ -19,7 +19,7 @@ public class RestriccioAnterioritat extends Restriccio {
 
     //Aqui se crea la restriccion y se indican que asignacion debe ir antes (obj1) y cual despues (obj2)
     public RestriccioAnterioritat(String antes, String despues){
-        super(1000); //PROVISIONAL: ID = 1000
+        super(6); //PROVISIONAL: ID = 1000
         obj1 = antes;
         obj2 = despues;
     }

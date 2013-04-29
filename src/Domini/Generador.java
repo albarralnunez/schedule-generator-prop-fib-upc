@@ -201,12 +201,18 @@ class Generador {
                     int hor = cn.getHora()+i;
                     String di = cn.getDia();
                     qu.afegirElement(di, hor, e);
-                    if (! assignacioValida(qu, e, di, hor)) {
-                        ++esVal;
-                    }
+                    if (! assignacioValida(qu, e, di, hor)) ++esVal;
                 }
                 if (esVal == 0) {
-                    return backtracking(clau, qu);
+                    boolean b = backtracking(clau, qu);
+                    if (b) return true;
+                    else {
+                        for (int i = 0; i < duracio; ++i) {
+                            int hor = cn.getHora() + i;
+                            String di = cn.getDia();
+                            qu.borrarElement(di, hor, e);
+                        }
+                    }
                 } 
                 else {
                     for (int i = 0; i < duracio; ++i) {
