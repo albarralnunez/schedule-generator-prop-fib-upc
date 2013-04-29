@@ -55,6 +55,20 @@ public class CtrPresentacio {
         System.out.println(" FIN "); 
     }
     private static void definirRes(){
+        int opcio = 0;
+        while( opcio != 7 ) {
+            System.out.println(" OPCIONS ");
+            System.out.println(" 1 - Restringir un grupo a una aula");
+            System.out.println(" 2 - Restringir un grupo a una hora");
+            System.out.println(" 3 - Restringir una hora en la que no se pueda impartir una asignatura+grupo");
+            System.out.println(" 4 - Restringir un dia para que no se puede impartir una assig+grupo");
+            System.out.println(" 5 - Una assig+grupo no puede impartirse a la vez que otra temporalmente hablando");
+            System.out.println(" 6 - Forzar una aula a no poderse usar un dia/hora");
+            System.out.println(" 7 - Tornar");
+            opcio = s.nextInt();
+            
+        }
+        
         
     }
     private static void generarHorari(){
