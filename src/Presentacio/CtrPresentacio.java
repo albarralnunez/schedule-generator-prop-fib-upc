@@ -109,7 +109,6 @@ public class CtrPresentacio {
 
         System.out.println("tria un arxiu de disponibilitat horaria\n");
         String a = s.next();
-
        // cd.inicialitzarQuadricula();
        int opcio = 0;
         while( opcio != 3 ) {
@@ -117,8 +116,7 @@ public class CtrPresentacio {
             System.out.println(" 1 - definir restriccions");
             System.out.println(" 2 - generar horari");
             System.out.println(" 3 - tornar");
-            opcio = s.nextInt();
-            
+            opcio = s.nextInt();     
             if(opcio == 1) definirRes();
             else if(opcio == 2) generarHorari();
         }
