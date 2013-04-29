@@ -165,15 +165,15 @@ public class CtrPresentacio {
             if(opcio == 5 ){
                 boolean repetir = true;
                 String assignaturaP;
-                Integer grupP;
+                Integer grupP =null;
                 String assignaturaS;
-                Integer grupS;
+                Integer grupS = null;
                 String rep;
-                String nivell;
+                String nivell = null;
                 ArrayList params = new ArrayList();
                 while(repetir){
                     System.out.println("Solapament a nivell de assignatura o de grup ?<a,g>");
-                    nivell = s.next();
+                    for(;(!nivell.equals("a")) || (!nivell.equals("g"));) {nivell = s.next();}
                     System.out.println("Introduir nom assignatura");
                     assignaturaP = s.next();
                     if(nivell.equals("g")){
@@ -188,7 +188,7 @@ public class CtrPresentacio {
                     }
                     params.add(assignaturaP);
                     params.add(assignaturaS);
-                    //if(nivell.equals("g")) {params.add(grupP); params.add(grupS);}
+                    if(nivell.equals("g")) {params.add(grupP); params.add(grupS);}
                     cd.afegirRestriccio(5,params,unitatDocent);
                     System.out.println("Vols afegir-ne una altre?<y,n>");
                     rep = s.next();
@@ -237,8 +237,8 @@ public class CtrPresentacio {
     
     private static void generar() {
 
-        System.out.println("tria un arxiu de disponibilitat horaria\n");
-        String a = s.next();
+        //System.out.println("tria un arxiu de disponibilitat horaria\n");
+        //String a = s.next();
 
        // cd.inicialitzarQuadricula();
        int opcio = 0;
