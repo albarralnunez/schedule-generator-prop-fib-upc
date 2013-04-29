@@ -275,8 +275,9 @@ public class CtrDomini {
     }
 
     public void generar() {
-      //  Quadricula  q = new Quadricula();
-        cgen.generar();  
+        cgen.generar();
+        Representador rep = new Representador();
+        rep.imprimir_horario(cgen.getQuad());
     }
     public void afegirRestriccio(int tipus, ArrayList params, String unitatDocent){
         if(tipus == 1) {

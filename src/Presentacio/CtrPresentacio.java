@@ -98,7 +98,6 @@ public class CtrPresentacio {
         
         //cd.generarHorari();
         cd.inicialitzaGenerador(); // inicialitza quadricula, aules i assignatures
-        
         cd.generar();
     }
     
