@@ -278,7 +278,5 @@ public class CtrDomini {
       //  Quadricula  q = new Quadricula();
         cgen.generar();  
     }
-    
-    
 
 }

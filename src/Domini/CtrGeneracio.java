@@ -26,6 +26,7 @@ public class CtrGeneracio {
      * @param nomU
      */
     public CtrGeneracio( String nomU ){
+        
         nomUnitat = nomU;
         resT = new RestriccioTemps();
         quad = new Quadricula();
@@ -36,6 +37,62 @@ public class CtrGeneracio {
        // cper = new CtrPersistencia();
         
         
+    }
+
+    public RestriccioTemps getResT() {
+        return resT;
+    }
+
+    public void setResT(RestriccioTemps resT) {
+        this.resT = resT;
+    }
+
+    public ArrayList<AulaLab> getCjtAulLab() {
+        return cjtAulLab;
+    }
+
+    public void setCjtAulLab(ArrayList<AulaLab> cjtAulLab) {
+        this.cjtAulLab = cjtAulLab;
+    }
+
+    public ArrayList<AulaTeo> getCjtAulTeo() {
+        return cjtAulTeo;
+    }
+
+    public void setCjtAulTeo(ArrayList<AulaTeo> cjtAulTeo) {
+        this.cjtAulTeo = cjtAulTeo;
+    }
+
+    public ArrayList<Assignatura> getCjtAs() {
+        return cjtAs;
+    }
+
+    public void setCjtAs(ArrayList<Assignatura> cjtAs) {
+        this.cjtAs = cjtAs;
+    }
+
+    public String getNomUnitat() {
+        return nomUnitat;
+    }
+
+    public void setNomUnitat(String nomUnitat) {
+        this.nomUnitat = nomUnitat;
+    }
+
+    public Quadricula getQuad() {
+        return quad;
+    }
+
+    public void setQuad(Quadricula quad) {
+        this.quad = quad;
+    }
+
+    public Generador getGen() {
+        return gen;
+    }
+
+    public void setGen(Generador gen) {
+        this.gen = gen;
     }
 
     public void inicialitzarGenerador(ArrayList<String> confHoraria, ArrayList<Assignatura> assignatures, ArrayList<AulaLab> aulesL, 
