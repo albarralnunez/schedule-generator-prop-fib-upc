@@ -273,35 +273,129 @@ public class CtrDomini {
         asg = new Assignatura( nom, nvl, numht, intersT, numhp, intersP, capt, capp, grupos );
         return asg;
     }
+    /*public Aula montaAula(String nomAula){
+        Aula a = new Aula();
+        if(grup%10 == 0){
+           ArrayList<String> atributs = cper.llegirAulaTeo(unitatDocent+"-"+nomAula);
+           boolean b;
+           if (Integer.parseInt (atributs.get(3)) == 1) b = true;
+           else b = false;
+            a = new AulaTeo(nomAula,Integer.parseInt (atributs.get(2)),b);
+        }
+        else{
+           ArrayList<String> atributs = cper.llegirAulaLab(unitatDocent+"-"+nomAula);
+           boolean b = false;
+           if (Integer.parseInt (atributs.get(3)) == 1) b = true;
+            a = new AulaLab(nomAula,Integer.parseInt (atributs.get(2)),b);
+        }
+        return a;
+    }*/
 
     public void generar() {
         cgen.generar();
         Representador rep = new Representador();
         rep.imprimir_horario(cgen.getQuad());
     }
-    public void afegirRestriccio(int tipus, ArrayList params, String unitatDocent){
+    public void afegirRestriccio(int tipus, ArrayList params) {
         if(tipus == 1) {
             RestGrupoAula r = new RestGrupoAula();
             r.setAssignatura((String) params.get(0));
-            Integer i = (Integer) params.get(1);
-            int v = i.intValue();
-            r.setGrup(v);
+            r.setGrup((Integer) params.get(1));
             r.setAula((String) params.get(2));
             if(r.esPotAfegir(cgen.getCjtResGA(), cgen.getCjtRestAul(), cgen.getCjtRestAss()))cgen.setResResGA(r);
         }
         else if(tipus == 2){
             
+            //EN MIKIS LA VOL FER
+            
         }
         else if(tipus == 3){
-            
+            ArrayList<Assignatura> l = cgen.getCjtAs();
+            int size = l.size();
+            boolean trobat = false;
+            Assignatura a = new Assignatura();
+            String assig = (String)params.get(0);
+            for(int i = 0;i < size && !trobat;++i){
+                if(l.get(i).getNom().equals(assig)) {trobat =true; a = l.get(i); ;}
+            }
+            if(trobat){
+                int grup = (Integer) params.get(1);
+                int hora = (Integer) params.get(2);
+                RestAssignatura r = new RestAssignatura();
+                r.setAssignatura(a);
+                r.setGrup(grup);
+                r.setHora(hora);
+                if(r.esPotAfegir(cgen.getCjtRestAss(),cgen.getCjtRestGS())) cgen.setResRestAss(r);
+           }
         }
         else if(tipus == 4){
-            
+            ArrayList<Assignatura> l = cgen.getCjtAs();
+            int size = l.size();
+            boolean trobat = false;
+            Assignatura a = new Assignatura();
+            String assig = (String)params.get(0);
+            for(int i = 0;i < size && !trobat;++i){
+                if(l.get(i).getNom().equals(assig)) {trobat =true; a = l.get(i); ;}
+            }
+            if(trobat){
+                int grup = (Integer) params.get(1);
+                String dia = (String) params.get(2);
+                RestAssignatura r = new RestAssignatura();
+                r.setAssignatura(a);
+                r.setGrup(grup);
+                r.setDia(dia);
+                if(r.esPotAfegir(cgen.getCjtRestAss(),cgen.getCjtRestGS())) cgen.setResRestAss(r);
+           }
         }
         else if(tipus == 5){
-            
+            int sizeParams = params.size();
+            boolean trobat1 = false;
+            boolean trobat2 = false;
+            Assignatura aP = new Assignatura();
+            Assignatura aS = new Assignatura();
+            String assP = (String) params.get(0);
+            String assS = (String) params.get(1);
+            ArrayList<Assignatura> l = cgen.getCjtAs();
+            int sizeAss = l.size();
+            for(int i = 0;i < sizeAss && (!trobat1 || !trobat2);++i){
+                if(l.get(i).getNom().equals(assP)) {trobat1 =true; aP = l.get(i); ;}
+                else if(l.get(i).getNom().equals(assS)) {trobat2 =true; aS = l.get(i); ;}
+            }
+            if(trobat1 && trobat2){
+                RestSolapament r = new RestSolapament();
+                r.setAssignaturaPrincipal(aP);
+                r.setAssignaturaSolapament(aS);
+                if(sizeParams > 2){
+                    int grupP = (Integer) params.get(3);
+                    int grupS = (Integer) params.get(4);
+                    r.setGrupPrincipal(grupP);
+                    r.setGrupSolapament(grupS);
+                }
+                if(r.esPotAfegir(cgen.getCjtRestS())) cgen.setResRestS(r);
+            }
         }
         else {
+            String nomAula =nomUnitat+"-"+((String)params.get(0));
+            ArrayList<AulaLab> llistalab = cgen.getCjtAulLab();
+            ArrayList<AulaTeo> llistaTeo = cgen.getCjtAulTeo();
+            int sizelab = llistalab.size();
+            int sizeteo = llistaTeo.size();
+            boolean trobat = false;
+            Aula a = new Aula();
+            for(int i = 0; i < sizelab && !trobat; ++i){
+                if(llistalab.get(i).getNom().equals(nomAula)) {a = llistalab.get(i); trobat = true;}
+            }
+            for(int i = 0; i < sizeteo && !trobat; ++i){
+                if(llistaTeo.get(i).getNom().equals(nomAula)) {a = llistaTeo.get(i); trobat = true;}
+            }
+            if(trobat){
+                RestriccioAula r = new RestriccioAula();
+                r.setAula(a);
+                r.setHora((Integer)params.get(1));
+                r.setDia((String)params.get(2));
+                if(r.esPotAfegir(cgen.getCjtRestAul(),cgen.getCjtResGA(),cgen.getCjtRestGS())) cgen.setResRestAul(r);
+                cgen.getCjtRestAul();
+            }
             
         }
     }

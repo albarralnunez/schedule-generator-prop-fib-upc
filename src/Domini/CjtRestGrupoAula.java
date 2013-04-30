@@ -38,6 +38,7 @@ public class CjtRestGrupoAula extends CjtRestriccions{
      * @param r Es la restriccio de RestGrupoAula
      */
     public void afegir_rest(RestGrupoAula r) {
+        
         restGrupoAula.add(r);
     }
 

@@ -71,7 +71,7 @@ public class RestSolapament extends Restriccio{
     public boolean CompleixRes(){return false;}
     
     
-    public boolean esPotAfegir(CjtRestriccions cjtR) {
+    public boolean esPotAfegir(CjtRestSolapament cjtR) {
         ArrayList<Restriccio> llista = new ArrayList();
         llista = cjtR.getCjtRes();
         int size = llista.size();

@@ -20,7 +20,7 @@ class RestriccioAula extends Restriccio{
 
     //Constructora por defecto:
     public RestriccioAula() {
-        super (1003); //ID PROVISIONAL
+        super (5); //ID PROVISIONAL
     }
 
     /**
@@ -31,7 +31,7 @@ class RestriccioAula extends Restriccio{
      * @param dia el dia en que l'aula no podra ser usada.
      */
     public RestriccioAula(Aula aula, Integer hora, String dia) {
-        super(1003);
+        super(5);
         this.aula = aula;
         this.hora = hora;
         this.dia = dia;

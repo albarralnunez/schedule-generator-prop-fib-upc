@@ -15,7 +15,9 @@ public class CjtRestSolapament extends CjtRestriccions{
     private ArrayList<RestSolapament> restriccions_solapament;
 
     //Constructora por defecto:
-    public CjtRestSolapament() {}
+    public CjtRestSolapament() {
+        restriccions_solapament = new ArrayList();
+    }
 
     //Getters y Setters
     public ArrayList<RestSolapament> getRestriccions_solapament() {

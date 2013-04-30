@@ -66,7 +66,7 @@ public class RestAssignatura extends Restriccio {
     public boolean CompleixRes(){return false;}
     
     
-     public boolean esPotAfegir(CjtRestriccions cjtResAssig,CjtRestriccions cjtResGS) {
+     public boolean esPotAfegir(CjtRestAssignatura cjtResAssig,CjtRestGrupSesio cjtResGS) {
          ArrayList<Restriccio> llista = new ArrayList();
          llista = cjtResAssig.getCjtRes();
          int size = llista.size();
