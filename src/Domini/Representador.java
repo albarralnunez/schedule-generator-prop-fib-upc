@@ -63,16 +63,14 @@ public class Representador {
             else if (i == 4) dia = "divendres";
             else if (i == 5) dia = "dissabte";
             else dia = "diumenge";
-
             System.out.println("DIA: "+ dia); //DIA: DILLUNS
             for (int j=0; j < 24; ++j) {
-                System.out.println(" "+j+": ");
-
                 //Para cada conjunto de elementos de una posicion...
-
                 CjtElements cjt_elem = new CjtElements();
                 cjt_elem = q.getElementsPosicio(dia, j);
-                if (cjt_elem.isValid()) { //Si el conjunto de elementos es valido
+                if (cjt_elem.isValid()) {
+                    System.out.println(" "+j+": ");
+                    //Si el conjunto de elementos es valido
                     ArrayList<Element> assignacions;
                     assignacions = cjt_elem.getAssignacions();
                     for (Element e1 : assignacions) {

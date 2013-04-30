@@ -226,9 +226,6 @@ public class CtrPresentacio {
         
     }
     private static void generarHorari(){
-        
-        //cd.generarHorari();
-       // cd.inicialitzaGenerador(); // inicialitza quadricula, aules i assignatures
         cd.generar();
     }
     

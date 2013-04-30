@@ -292,10 +292,15 @@ public class CtrDomini {
     }*/
 
     public void generar() {
-        cgen.generar();
-        Representador rep = new Representador();
-        rep.imprimir_horario(cgen.getQuad());
+        if (cgen.generar()) {
+            Representador rep = new Representador();
+            rep.imprimir_horario(cgen.getQuad());
+        }
+        else {
+            System.out.print("no s ha pogut generar cap hoari valid");
+        }
     }
+    
     public void afegirRestriccio(int tipus, ArrayList params) {
         if(tipus == 1) {
             RestGrupoAula r = new RestGrupoAula();
