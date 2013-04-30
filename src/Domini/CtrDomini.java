@@ -366,8 +366,8 @@ public class CtrDomini {
                 r.setAssignaturaPrincipal(aP);
                 r.setAssignaturaSolapament(aS);
                 if(sizeParams > 2){
-                    int grupP = (Integer) params.get(3);
-                    int grupS = (Integer) params.get(4);
+                    int grupP = (Integer) params.get(2);
+                    int grupS = (Integer) params.get(3);
                     r.setGrupPrincipal(grupP);
                     r.setGrupSolapament(grupS);
                 }
