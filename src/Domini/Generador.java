@@ -16,20 +16,33 @@ class Generador {
     private CjtRestGrupoAula cjtRgraula;
     private CjtRestAssignatura cjtRass;
     private CjtRestriccioAula cjtRula;
-
+    private CjtRestGrupSesio cjtRestGS;
+    private CjtRestSolapament cjtRestS;
+    
+    
     public Generador(CjtRestGrupoAula cjtRgraula, CjtRestAssignatura cjtRass,
             CjtRestriccioAula cjtRula) {
         this.cjtRgraula = cjtRgraula;
         this.cjtRass = cjtRass;
         this.cjtRula = cjtRula;
     }
-            
+   
     public Generador() {
         cjtRgraula = new CjtRestGrupoAula();
         cjtRass = new CjtRestAssignatura();
         cjtRula = new CjtRestriccioAula();
+        cjtRestGS = new CjtRestGrupSesio();
+        cjtRestS = new CjtRestSolapament();
     }
-
+    public void inicialitzarCjtRestriccions(CjtRestGrupoAula cjtResGA,CjtRestAssignatura cjtRestAss,CjtRestGrupSesio cjtRestGS,CjtRestSolapament cjtRestS,CjtRestriccioAula cjtRestAul){
+     cjtRgraula = cjtResGA;
+     cjtRass = cjtRestAss;
+     cjtRula = cjtRestAul;
+     this.cjtRestGS = cjtRestGS;
+     this.cjtRestS = cjtRestS;
+    }
+    
+    
     public ArrayList<Aula> cjtCapacitatMajorDeL (int x,ArrayList<AulaLab> a){
          ArrayList<Aula> listaRefactor= new  ArrayList<Aula>();
         for (AulaLab au: a) {
@@ -187,7 +200,8 @@ class Generador {
     }
     
     public boolean generar(ArrayList<AulaTeo> aulesT, ArrayList<AulaLab> aulesL,
-            ArrayList<Assignatura> ass,RestriccioTemps dis, Quadricula q) {
+            ArrayList<Assignatura> ass,RestriccioTemps dis, Quadricula q,CjtRestGrupoAula cjtResGA,CjtRestAssignatura cjtRestAss,CjtRestGrupSesio cjtRestGS,CjtRestSolapament cjtRestS,CjtRestriccioAula cjtRestAul ) {
+        inicialitzarCjtRestriccions(cjtResGA, cjtRestAss, cjtRestGS, cjtRestS,cjtRestAul);
         ArrayList<Clausula> clau = inicialitzarClausules(aulesT, aulesL, ass, dis);
         return backtracking(clau, q);
     }
