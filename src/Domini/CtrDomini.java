@@ -297,7 +297,7 @@ public class CtrDomini {
             rep.imprimir_horario(cgen.getQuad());
         }
         else {
-            System.out.print("no s ha pogut generar cap hoari valid");
+            System.out.print("\n    no s ha pogut generar cap hoari valid\n\n");
         }
     }
     

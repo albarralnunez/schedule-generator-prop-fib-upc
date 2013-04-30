@@ -68,7 +68,7 @@ public class Representador {
                 //Para cada conjunto de elementos de una posicion...
                 CjtElements cjt_elem = new CjtElements();
                 cjt_elem = q.getElementsPosicio(dia, j);
-                if (cjt_elem.isValid()) {
+                if (cjt_elem.isValid() && !cjt_elem.getAssignacions().isEmpty()) {
                     System.out.println(" "+j+": ");
                     //Si el conjunto de elementos es valido
                     ArrayList<Element> assignacions;

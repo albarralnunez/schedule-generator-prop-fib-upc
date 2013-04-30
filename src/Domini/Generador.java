@@ -69,16 +69,16 @@ class Generador {
                     ArrayList<ClausulaNom> cnaux = new ArrayList<ClausulaNom>();
                     //Inicialitzacio del domini
                     for (Aula au : aulesPos) {
-                        boolean doo = true;//false;       
+                        boolean doo = true;       
                         if (au.getClass().equals(AulaLab.class)) {
-                            AulaLab aal = (AulaLab) au;/*
-                             if (aal.getMaterial() && a.necesitaMaterial())
-                             doo = true;*/
+                            AulaLab aal = (AulaLab) au;
+                             if (!aal.getMaterial() && a.necesitaMaterial())
+                             doo = false;
                         }
                         if (au.getClass().equals(AulaTeo.class)) {
-                            AulaTeo aat = (AulaTeo) au;/*
-                             if (aat.getProjector()&& a.necesitaProjector())
-                             doo = true;*/
+                            AulaTeo aat = (AulaTeo) au;
+                             if (!aat.getProjector()&& a.necesitaProjector())
+                             doo = false;
                         }
                         if (doo) {
                             for (int j = 0; j < 7; ++j) {
