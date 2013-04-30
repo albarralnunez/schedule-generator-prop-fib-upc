@@ -102,7 +102,7 @@ public class CtrPresentacio {
                     String assignatura = s.next();
                     System.out.println("Introduir numero del grup");
                     int grup = s.nextInt();
-                    System.out.println("Introduir dia ");
+                    System.out.println("Introduir dia <nom en minuscula>");
                     String dia = s.next();
                     System.out.println("Introduir hora <0-23>");
                     int hora = s.nextInt();

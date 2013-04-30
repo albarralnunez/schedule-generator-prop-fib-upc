@@ -57,4 +57,15 @@ public class CjtRestGrupSesio extends CjtRestriccions{
         return false;
     }
 
+    boolean afegeixRestriccio(RestGrupSesio rgs) {
+        for( int i = 0; i < restriccions_grup_sesio.size(); ++i){
+            RestGrupSesio actual = restriccions_grup_sesio.get(i);
+            if( actual.getAssignatura().equals( rgs.getAssignatura() ) ){
+                if( actual.getGrup() == rgs.getGrup()) return false;
+            }
+        }
+        this.afegir_rest(rgs);
+        return true;
+    }
+
 }

@@ -235,6 +235,10 @@ public class CtrGeneracio {
     }
 
     boolean AfegirRestriccioGrupSessio(String nomA, int grup, String dia, int hora) {
+         
+        // si el dia/horan o es vlaid retorna false
+        if( ! quad.getElementsPosicio(dia, hora).isValid() ) return false;
+        
         return gen.AfegirRestriccioGrupSessio( nomA, grup, dia, hora);
     }
 }
