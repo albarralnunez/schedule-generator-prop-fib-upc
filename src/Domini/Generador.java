@@ -192,10 +192,9 @@ class Generador {
     
     
     private boolean compleixResDomini(Clausula c, ClausulaNom cn) {
-        if (!cjtRgraula.ComprovarRes(c, cn))
-            return false;
-        //if (!cjtRass.ComprovarRes(c,cn)) return false;
-        //if (!cjtRula.ComprovarRes(c,cn)) return false;
+        if (!cjtRgraula.ComprovarRes(c, cn)) return false;
+        if (!cjtRass.ComprovarRes(c,cn)) return false;
+        if (!cjtRula.ComprovarRes(c,cn)) return false;
         return true;
     }
     
