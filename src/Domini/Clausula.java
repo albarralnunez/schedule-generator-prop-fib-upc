@@ -103,5 +103,9 @@ public class Clausula {
         return grup;
     }
 
+    void addClausula(ArrayList<ClausulaNom> cnaux) {
+        this.clausula.addAll(cnaux);
+    }
+
 
 }

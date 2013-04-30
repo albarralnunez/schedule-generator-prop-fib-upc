@@ -113,7 +113,8 @@ public class RestGrupoAula extends Restriccio {
      public boolean compleixRes(Clausula c, ClausulaNom cn) {
         if (c.getAssignatura().getNom().equals(this.assignatura) &&
                 c.getGrup() == this.grup) {
-            return this.aula.equals(cn.getAula().getNom());
+            boolean b = this.aula.equals(cn.getAula().getNom());
+            return (b ? true : false);
         }
         return true;
     }

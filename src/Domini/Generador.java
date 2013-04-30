@@ -16,6 +16,13 @@ class Generador {
     private CjtRestGrupoAula cjtRgraula;
     private CjtRestAssignatura cjtRass;
     private CjtRestriccioAula cjtRula;
+
+    public Generador(CjtRestGrupoAula cjtRgraula, CjtRestAssignatura cjtRass,
+            CjtRestriccioAula cjtRula) {
+        this.cjtRgraula = cjtRgraula;
+        this.cjtRass = cjtRass;
+        this.cjtRula = cjtRula;
+    }
             
     public Generador() {
         cjtRgraula = new CjtRestGrupoAula();
@@ -61,14 +68,15 @@ class Generador {
                     aulesPos = cjtCapacitatMajorDeT(a.getCapacitatTeo(),aulesT);
                     interval = a.getIntervalsT();
                 }
+                Clausula c = new Clausula();
                 for (Integer h : interval) {
-                    Clausula c = new Clausula();
+                    
                     c.setAssignatura(a);
                     c.setDuracio(h);
                     c.setGrup(g);
-                    ArrayList<ClausulaNom> cnaux = new ArrayList<ClausulaNom>();
                     //Inicialitzacio del domini
                     for (Aula au : aulesPos) {
+                        ArrayList<ClausulaNom> cnaux = new ArrayList<ClausulaNom>();
                         boolean doo = true;       
                         if (au.getClass().equals(AulaLab.class)) {
                             AulaLab aal = (AulaLab) au;
@@ -146,7 +154,7 @@ class Generador {
                                     }
                                 }
                             }
-                            c.setClausula(cnaux);
+                            c.addClausula(cnaux);
                         }
                     }                 
                     clausules.add(c);
@@ -171,9 +179,10 @@ class Generador {
     
     
     private boolean compleixResDomini(Clausula c, ClausulaNom cn) {
-        if (!cjtRgraula.ComprovarRes(c, cn)) return false;
-        if (!cjtRass.ComprovarRes(c,cn)) return false;
-        if (!cjtRula.ComprovarRes(c,cn)) return false;
+        if (!cjtRgraula.ComprovarRes(c, cn))
+            return false;
+        //if (!cjtRass.ComprovarRes(c,cn)) return false;
+        //if (!cjtRula.ComprovarRes(c,cn)) return false;
         return true;
     }
     

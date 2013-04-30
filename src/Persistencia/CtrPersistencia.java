@@ -109,7 +109,7 @@ public class CtrPersistencia {
      * @return Llegeix un Aula
      */
     public ArrayList<String> llegirAula(String nomAula) {
-            return ca.llegirArxiu("aula-*-" + nomAula);
+            return ca.llegirArxiu( nomAula);
 
     }
     

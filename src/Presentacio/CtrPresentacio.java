@@ -218,12 +218,9 @@ public class CtrPresentacio {
                     System.out.println("Vols afegir-ne una altre?<y,n>");
                     rep = s.next();
                     if(rep.equals("n")) repetir = false;
-               }
-                
+               }       
             }
-        }
-        
-        
+        }  
     }
     private static void generarHorari(){
         cd.generar();

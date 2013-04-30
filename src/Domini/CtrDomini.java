@@ -207,9 +207,9 @@ public class CtrDomini {
         ArrayList<String> auesLab = cper.llistaAulesLab(nomUnitat);
         ArrayList<AulaLab> aLab = new ArrayList<AulaLab>();
         for(String nom : auesLab){
-           nom = nom.replace("aula-lab-", "");
+           nom = nom.replace("aula-lab-" +nomUnitat+"-", "");
            nom = nom.replace(".txt", "");
-           ArrayList<String> atributs = cper.llegirAulaLab(nom);
+           ArrayList<String> atributs = llegirAulaLab(nom);
            boolean b = false;
            if (Integer.parseInt (atributs.get(3)) == 1) b = true;
            AulaLab a = new AulaLab(nom,Integer.parseInt (atributs.get(2)),b);
@@ -221,9 +221,9 @@ public class CtrDomini {
         for (int i = 0; i < llistAules.size(); ++i) {
            Object nomO = llistAules.get(i);
            String nom = nomO.toString();
-           nom = nom.replace("aula-teo-", "");
+           nom = nom.replace("aula-teo-"+nomUnitat+"-", "");
            nom = nom.replace(".txt", "");
-           ArrayList<String> atributs = cper.llegirAulaTeo(nom);
+           ArrayList<String> atributs = llegirAulaTeo(nom);
            boolean b;
            if (Integer.parseInt (atributs.get(3)) == 1) b = true;
            else b = false;
@@ -239,9 +239,9 @@ public class CtrDomini {
     
     public Assignatura montaAssignatura( String nomAsg ){
         Assignatura asg = new Assignatura();
-        nomAsg = nomAsg.replace("assig-", "");
+        nomAsg = nomAsg.replace("assig-"+nomUnitat+"-", "");
         nomAsg = nomAsg.replace(".txt", "");
-        ArrayList<String> atributs = cper.llegirAssignatura(nomAsg);
+        ArrayList<String> atributs = llegirAssignatura(nomAsg);
         String nom = atributs.get(0);      
         int nvl = Integer.parseInt(atributs.get(1));
         int numht = Integer.parseInt( atributs.get(2) );
@@ -307,7 +307,8 @@ public class CtrDomini {
             r.setAssignatura((String) params.get(0));
             r.setGrup((Integer) params.get(1));
             r.setAula((String) params.get(2));
-            if(r.esPotAfegir(cgen.getCjtResGA(), cgen.getCjtRestAul(), cgen.getCjtRestAss()))cgen.setResResGA(r);
+            if(r.esPotAfegir(cgen.getCjtResGA(), cgen.getCjtRestAul(), cgen.getCjtRestAss()))
+                cgen.setResResGA(r);
         }
         else if(tipus == 2){
             
@@ -403,5 +404,13 @@ public class CtrDomini {
             }
             
         }
+    }
+
+    private ArrayList<String> llegirAulaLab(String nom) {
+        return cper.llegirAula("aula-lab-"+nomUnitat+"-"+nom);
+    }
+
+    private ArrayList<String> llegirAulaTeo(String nom) {
+        return cper.llegirAula("aula-teo-"+nomUnitat+"-"+nom);
     }
 }

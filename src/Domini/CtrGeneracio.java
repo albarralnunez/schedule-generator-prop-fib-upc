@@ -32,7 +32,6 @@ public class CtrGeneracio {
      * @param nomU
      */
     public CtrGeneracio( String nomU ){
-        
         nomUnitat = nomU;
         resT = new RestriccioTemps();
         quad = new Quadricula();
@@ -45,8 +44,7 @@ public class CtrGeneracio {
         cjtRestGS = new CjtRestGrupSesio();
         cjtRestS = new CjtRestSolapament();
         cjtRestAul = new CjtRestriccioAula();
-        
-        gen = new Generador();
+        gen = new Generador(cjtResGA, cjtRestAss, cjtRestAul);
        // cper = new CtrPersistencia();
         
         
@@ -165,7 +163,6 @@ public class CtrGeneracio {
     public void inicialitzarGenerador(ArrayList<String> confHoraria, ArrayList<Assignatura> assignatures, ArrayList<AulaLab> aulesL, 
        ArrayList<AulaTeo> aulesT ){
        montaRestriccionsTemps(confHoraria); // inicalitza rest de temps + quadricula
-       
        this.cjtAs = assignatures;
        this.cjtAulLab = aulesL;
        this.cjtAulTeo = aulesT;
@@ -236,7 +233,4 @@ public class CtrGeneracio {
        resT.setDissabte(ds);
        resT.setDiumenge(dg);
     }
-    
-
-    
 }
