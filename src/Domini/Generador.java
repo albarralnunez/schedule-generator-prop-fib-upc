@@ -250,7 +250,16 @@ class Generador {
     }
 
     public boolean AfegirRestriccioGrupSessio(String nomA, int grup, String dia, int hora) {
-        RestGrupSesio r;
-        return true;
+       int d;
+        if ( dia.equals("dilluns") ) d = 0;
+        else if ( dia.equals("dimarts") ) d = 1;
+        else if ( dia.equals("dimecres") ) d = 2;
+        else if ( dia.equals("dijous") ) d = 3;
+        else if ( dia.equals("divendres") ) d = 4;
+        else if ( dia.equals("dissabte") ) d = 5;
+        else d = 6;
+        
+        RestGrupSesio rgs = new RestGrupSesio(nomA, grup, d, hora);
+        return cjtRestGS.afegeixRestriccio( rgs );
     }
 }

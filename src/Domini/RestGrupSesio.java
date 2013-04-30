@@ -68,7 +68,10 @@ public class RestGrupSesio extends Restriccio{
     @Override
     public boolean CompleixRes() {return false;}
 
-    public boolean CompleixRes(String assignatura, Integer grup, Integer hora) {
+    /*
+     * NOMÉS S HA DE MIRAR AMB LA 1A HORA
+     */
+    public boolean CompleixRes(String assignatura, Integer grup, int dia, Integer hora) {
         boolean compleix = true; //Miramos si habla de la restriccion que afecta a nuestro grupo
         if ( this.assignatura.equals(assignatura) && this.grup.equals(grup)) {
             if (this.horaInici != hora) compleix = false;
