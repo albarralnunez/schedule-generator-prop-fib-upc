@@ -219,7 +219,7 @@ class Generador {
                 int duracio = c.getDuracio();
                 int esVal = 0;
                 boolean omfg = true; //para si asignamos y sale del horario
-                if (duracio+cn.getHora() > 23) omfg = false;
+                if (duracio+cn.getHora() > 23)omfg = false;
                 for (int i = 0; i < duracio && omfg; ++i) {
                     int hor = cn.getHora()+i;
                     String di = cn.getDia();
