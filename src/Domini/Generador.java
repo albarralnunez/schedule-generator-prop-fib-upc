@@ -249,4 +249,9 @@ class Generador {
             return false;
         }
     }
+
+    public boolean AfegirRestriccioGrupSessio(String nomA, int grup, String dia, int hora) {
+        RestGrupSesio r;
+        return true;
+    }
 }

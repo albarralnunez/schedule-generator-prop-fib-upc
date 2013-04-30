@@ -233,4 +233,8 @@ public class CtrGeneracio {
        resT.setDissabte(ds);
        resT.setDiumenge(dg);
     }
+
+    boolean AfegirRestriccioGrupSessio(String nomA, int grup, String dia, int hora) {
+        return gen.AfegirRestriccioGrupSessio( nomA, grup, dia, hora);
+    }
 }
