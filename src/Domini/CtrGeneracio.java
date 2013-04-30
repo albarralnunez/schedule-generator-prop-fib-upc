@@ -44,7 +44,7 @@ public class CtrGeneracio {
         cjtRestGS = new CjtRestGrupSesio();
         cjtRestS = new CjtRestSolapament();
         cjtRestAul = new CjtRestriccioAula();
-        gen = new Generador(cjtResGA, cjtRestAss, cjtRestAul);
+        gen = new Generador(cjtResGA, cjtRestAss, cjtRestAul,cjtRestGS,cjtRestS);
        // cper = new CtrPersistencia();
         
         

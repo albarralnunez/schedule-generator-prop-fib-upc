@@ -53,11 +53,10 @@ public class CjtRestAssignatura extends CjtRestriccions{
      */
     public boolean buscarElem(RestAssignatura r) {
         for(RestAssignatura r1: this.restsAssignatura){
-                if(r1 == r) return true;
+                if(r1.equals(r)) return true;
         }
         return false;
     }
-
     boolean ComprovarRes(Clausula c, ClausulaNom cn) {
          boolean b = true;
         for (RestAssignatura rga : this.restsAssignatura) {

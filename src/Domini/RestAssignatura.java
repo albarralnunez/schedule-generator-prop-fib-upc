@@ -92,7 +92,7 @@ public class RestAssignatura extends Restriccio {
     public boolean compleixResHora(Assignatura assignatura, int grup, int hora) {
         boolean comp = true;
         if (this.assignatura.equals(assignatura) && this.grup == grup) {
-            if(this.hora != hora) comp = false;
+            if(this.hora == hora) comp = false;
         }
         return comp;
     }

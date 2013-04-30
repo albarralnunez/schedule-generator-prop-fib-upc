@@ -21,10 +21,12 @@ class Generador {
     
     
     public Generador(CjtRestGrupoAula cjtRgraula, CjtRestAssignatura cjtRass,
-            CjtRestriccioAula cjtRula) {
+            CjtRestriccioAula cjtRula,CjtRestGrupSesio cjtRestGS,CjtRestSolapament cjtRestS) {
         this.cjtRgraula = cjtRgraula;
         this.cjtRass = cjtRass;
         this.cjtRula = cjtRula;
+        this.cjtRestGS = cjtRestGS;
+        this.cjtRestS = cjtRestS;
     }
    
     public Generador() {
@@ -176,7 +178,7 @@ class Generador {
         }
         return clausules;
     }
-
+    
     public boolean assignacioValida(Quadricula q, Element e, String dia, int hora) {
         CjtElements elems = q.getElementsPosicio(dia, hora);//elements d aquella posicio
         // en principio no deberia pasar ya de por si
