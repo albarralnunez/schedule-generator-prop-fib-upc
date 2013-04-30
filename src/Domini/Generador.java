@@ -178,7 +178,7 @@ class Generador {
         }
         return clausules;
     }
-    
+
     public boolean assignacioValida(Quadricula q, Element e, String dia, int hora) {
         CjtElements elems = q.getElementsPosicio(dia, hora);//elements d aquella posicio
         // en principio no deberia pasar ya de por si
