@@ -381,7 +381,7 @@ public class CtrDomini {
             }
         }
         else {
-            String nomAula =nomUnitat+"-"+((String)params.get(0));
+            String nomAula =/*nomUnitat+"-"+*/((String)params.get(0));
             ArrayList<AulaLab> llistalab = cgen.getCjtAulLab();
             ArrayList<AulaTeo> llistaTeo = cgen.getCjtAulTeo();
             int sizelab = llistalab.size();
@@ -400,7 +400,6 @@ public class CtrDomini {
                 r.setHora((Integer)params.get(1));
                 r.setDia((String)params.get(2));
                 if(r.esPotAfegir(cgen.getCjtRestAul(),cgen.getCjtResGA(),cgen.getCjtRestGS())) cgen.setResRestAul(r);
-                cgen.getCjtRestAul();
             }
             
         }
