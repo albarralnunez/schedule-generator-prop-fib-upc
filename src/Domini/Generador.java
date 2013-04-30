@@ -194,10 +194,9 @@ class Generador {
     
     
     private boolean compleixResDomini(Clausula c, ClausulaNom cn) {
-        if (!cjtRgraula.ComprovarRes(c, cn))
-            return false;
-        //if (!cjtRass.ComprovarRes(c,cn)) return false;
-        //if (!cjtRula.ComprovarRes(c,cn)) return false;
+        if (!cjtRgraula.ComprovarRes(c, cn)) return false;
+        if (!cjtRass.ComprovarRes(c,cn)) return false;
+        if (!cjtRula.ComprovarRes(c,cn)) return false;
         return true;
     }
     
@@ -222,7 +221,7 @@ class Generador {
                 int duracio = c.getDuracio();
                 int esVal = 0;
                 boolean omfg = true; //para si asignamos y sale del horario
-                if (duracio+cn.getHora() > 23) omfg = false;
+                if (duracio+cn.getHora() > 23)omfg = false;
                 for (int i = 0; i < duracio && omfg; ++i) {
                     int hor = cn.getHora()+i;
                     String di = cn.getDia();
@@ -250,5 +249,19 @@ class Generador {
             }
             return false;
         }
+    }
+
+    public boolean AfegirRestriccioGrupSessio(String nomA, int grup, String dia, int hora) {
+       int d;
+        if ( dia.equals("dilluns") ) d = 0;
+        else if ( dia.equals("dimarts") ) d = 1;
+        else if ( dia.equals("dimecres") ) d = 2;
+        else if ( dia.equals("dijous") ) d = 3;
+        else if ( dia.equals("divendres") ) d = 4;
+        else if ( dia.equals("dissabte") ) d = 5;
+        else d = 6;
+        
+        RestGrupSesio rgs = new RestGrupSesio(nomA, grup, d, hora);
+        return cjtRestGS.afegeixRestriccio( rgs );
     }
 }

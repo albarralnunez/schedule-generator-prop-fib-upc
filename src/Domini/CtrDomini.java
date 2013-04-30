@@ -404,6 +404,10 @@ public class CtrDomini {
             
         }
     }
+    
+    public boolean AfegirRestriccioGrupSessio( String nomA, int grup, String dia, int hora ){
+        return cgen.AfegirRestriccioGrupSessio( nomA, grup, dia, hora);
+    }
 
     private ArrayList<String> llegirAulaLab(String nom) {
         return cper.llegirAula("aula-lab-"+nomUnitat+"-"+nom);
