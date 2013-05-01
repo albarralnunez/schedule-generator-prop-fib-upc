@@ -66,7 +66,7 @@ public class RestAssignatura extends Restriccio {
     public boolean CompleixRes(){return false;}
     
     
-     public boolean esPotAfegir(CjtRestAssignatura cjtResAssig,CjtRestGrupSesio cjtResGS) {
+     public boolean esPotAfegir(CjtRestAssignatura cjtResAssig,CjtRestGrupSessio cjtResGS) {
          ArrayList<Restriccio> llista = new ArrayList();
          llista = cjtResAssig.getCjtRes();
          int size = llista.size();
@@ -82,7 +82,7 @@ public class RestAssignatura extends Restriccio {
          size = llista.size();
          for(int i = 0; i < size; ++i){
              Restriccio res = llista.get(i);
-             RestGrupSesio resdw = (RestGrupSesio) res;
+             RestGrupSessio resdw = (RestGrupSessio) res;
              if(resdw.getAssignatura().equals(this.assignatura) && resdw.getGrup
                      () == this.grup && resdw.getHora() == this.hora) return false;
          }

@@ -94,7 +94,7 @@ class RestriccioAula extends Restriccio{
      * @return true si es pot afeigir al conjunt de restriccions del tipus o false si no es pot perque provoca alguna incoherencia.
      */
 
-    public boolean esPotAfegir(CjtRestriccioAula cjtRestAula, CjtRestGrupoAula cjtRestGrupoAula, CjtRestGrupSesio cjtRestGrupSesio) {
+    public boolean esPotAfegir(CjtRestriccioAula cjtRestAula, CjtRestGrupoAula cjtRestGrupoAula, CjtRestGrupSessio cjtRestGrupSesio) {
         boolean es_pot = true; //Solo sera false cuando se produzca alguna incoherencia!
         //Si un grupo esta obligado a estar en una aula que es la que esta prohibida usarse un dia/hora... Y ese grupo debe hacer clase
         //En esa aula en las horas en que esta prohibida ==> SE PRODUCE INCOHERENCIA!
@@ -105,9 +105,9 @@ class RestriccioAula extends Restriccio{
             if (r1.getAula().equals(this.aula.getNom())) { //Si a un assig+grupo le fuerzan ir a una aula
                 Integer grupo = r1.getGrup(); //Grupo forzado.
                 String ass = r1.getAssignatura(); //Assignatura forzada.
-                ArrayList<RestGrupSesio> rgs;
+                ArrayList<RestGrupSessio> rgs;
                 rgs = cjtRestGrupSesio.getRestriccions_grup_sesio();
-                for (RestGrupSesio r2 : rgs) { //Para cada restriccion que diga que un assig+grupo que debia ir a un dia/hora.
+                for (RestGrupSessio r2 : rgs) { //Para cada restriccion que diga que un assig+grupo que debia ir a un dia/hora.
                     if (r2.getGrup() == grupo && r2.getAssignatura().equals(ass)) { //Si se trata del assig+grupo que debia ir a nuestra aula de la restriccion.
                         if (r2.getHora() == this.hora) es_pot = false;
                     }

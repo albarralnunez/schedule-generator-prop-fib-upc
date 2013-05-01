@@ -19,7 +19,7 @@ public class CtrGeneracio {
     private CjtRestriccions cjtRes;
     private CjtRestGrupoAula cjtResGA;
     private CjtRestAssignatura cjtRestAss;
-    private CjtRestGrupSesio cjtRestGS;
+    private CjtRestGrupSessio cjtRestGS;
     private CjtRestSolapament cjtRestS;
     private CjtRestriccioAula cjtRestAul;
     private String nomUnitat;
@@ -41,7 +41,7 @@ public class CtrGeneracio {
         cjtRes = new CjtRestriccions();
         cjtResGA = new CjtRestGrupoAula();
         cjtRestAss = new CjtRestAssignatura();
-        cjtRestGS = new CjtRestGrupSesio();
+        cjtRestGS = new CjtRestGrupSessio();
         cjtRestS = new CjtRestSolapament();
         cjtRestAul = new CjtRestriccioAula();
         gen = new Generador(cjtResGA, cjtRestAss, cjtRestAul,cjtRestGS,cjtRestS);
@@ -131,7 +131,7 @@ public class CtrGeneracio {
         return cjtRestAss;
     }
 
-    public CjtRestGrupSesio getCjtRestGS() {
+    public CjtRestGrupSessio getCjtRestGS() {
         return cjtRestGS;
     }
 
@@ -147,7 +147,7 @@ public class CtrGeneracio {
         this.cjtRestAss = cjtRestAss;
     }
 
-    public void setCjtRestGS(CjtRestGrupSesio cjtRestGS) {
+    public void setCjtRestGS(CjtRestGrupSessio cjtRestGS) {
         this.cjtRestGS = cjtRestGS;
     }
 

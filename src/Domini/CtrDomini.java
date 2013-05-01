@@ -427,10 +427,10 @@ public class CtrDomini {
             }
         }
         else if(tipus == 2){
-            CjtRestGrupSesio cjt = cgen.getCjtRestGS();
+            CjtRestGrupSessio cjt = cgen.getCjtRestGS();
             int size = cjt.size();
             for(int i = 0; i < size; ++i){
-                RestGrupSesio r = cjt.get(i);
+                RestGrupSessio r = cjt.get(i);
                 l.add(r.getAssignatura()+"-"+r.getGrup()+"-"+r.getDia()+"-"+r.getHora());
             }
         }
@@ -491,7 +491,7 @@ public class CtrDomini {
                     r.setAula((String)params.get(3));
                     break;
             case 2:  
-                    RestGrupSesio rGS; 
+                    RestGrupSessio rGS; 
                     rGS = cgen.getCjtRestGS().get((Integer)params.get(0));
                     rGS.setAssignatura((String)params.get(1));
                     rGS.setGrup((Integer)params.get(2));

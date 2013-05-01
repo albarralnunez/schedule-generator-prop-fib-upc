@@ -15,12 +15,12 @@ class Generador {
     private CjtRestGrupoAula cjtRgraula;
     private CjtRestAssignatura cjtRass;
     private CjtRestriccioAula cjtRula;
-    private CjtRestGrupSesio cjtRestGS;
+    private CjtRestGrupSessio cjtRestGS;
     private CjtRestSolapament cjtRestS;
     
     
     public Generador(CjtRestGrupoAula cjtRgraula, CjtRestAssignatura cjtRass,
-            CjtRestriccioAula cjtRula,CjtRestGrupSesio cjtRestGS,
+            CjtRestriccioAula cjtRula,CjtRestGrupSessio cjtRestGS,
             CjtRestSolapament cjtRestS) {
         this.cjtRgraula = cjtRgraula;
         this.cjtRass = cjtRass;
@@ -33,11 +33,11 @@ class Generador {
         cjtRgraula = new CjtRestGrupoAula();
         cjtRass = new CjtRestAssignatura();
         cjtRula = new CjtRestriccioAula();
-        cjtRestGS = new CjtRestGrupSesio();
+        cjtRestGS = new CjtRestGrupSessio();
         cjtRestS = new CjtRestSolapament();
     }
     public void inicialitzarCjtRestriccions(CjtRestGrupoAula cjtResGA,
-            CjtRestAssignatura cjtRestAss,CjtRestGrupSesio cjtRestGS,
+            CjtRestAssignatura cjtRestAss,CjtRestGrupSessio cjtRestGS,
             CjtRestSolapament cjtRestS,CjtRestriccioAula cjtRestAul){
      cjtRgraula = cjtResGA;
      cjtRass = cjtRestAss;
@@ -180,10 +180,6 @@ class Generador {
 
     public boolean assignacioValida(Quadricula q, Element e, String dia, int hora) {
         CjtElements elems = q.getElementsPosicio(dia, hora);//elements d aquella posicio
-        //2 clases de la mateixa assignatura mateix grup mateixa hora
-      // if (elems.solapamentAssGrupHora(e)) return false;
-        // en principio no deberia pasar ya de por si
-    //    if (!elems.isValid()) return false; 
         // que en aquella hora nomes hi hagi un grup per aula
         if (!elems.aulaRepetida(e)) return false;
         //si es vol posar un grup de lab on hi ha un de teoria o al reves 
@@ -205,7 +201,7 @@ class Generador {
     
     public boolean generar(ArrayList<AulaTeo> aulesT, ArrayList<AulaLab> aulesL,
             ArrayList<Assignatura> ass,RestriccioTemps dis, Quadricula q,
-            CjtRestGrupoAula cjtResGA,CjtRestAssignatura cjtRestAss,CjtRestGrupSesio cjtRestGS,
+            CjtRestGrupoAula cjtResGA,CjtRestAssignatura cjtRestAss,CjtRestGrupSessio cjtRestGS,
             CjtRestSolapament cjtRestS,CjtRestriccioAula cjtRestAul ) {
         inicialitzarCjtRestriccions(cjtResGA, cjtRestAss, cjtRestGS, cjtRestS,cjtRestAul);
         ArrayList<Clausula> clau = inicialitzarClausules(aulesT, aulesL, ass, dis, q);
@@ -263,7 +259,7 @@ class Generador {
         else if ( dia.equals("divendres") ) d = 4;
         else if ( dia.equals("dissabte") ) d = 5;
         else d = 6;
-        RestGrupSesio rgs = new RestGrupSesio(nomA, grup, d, hora);
+        RestGrupSessio rgs = new RestGrupSessio(nomA, grup, d, hora);
         return cjtRestGS.afegeixRestriccio( rgs );
     }
 

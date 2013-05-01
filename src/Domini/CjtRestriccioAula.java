@@ -73,6 +73,7 @@ public class CjtRestriccioAula extends CjtRestriccions{
         }
         return b; 
     }
+    
     boolean conteRestriccio(RestriccioAula r){
         return restriccionsAula.contains(r);
     }
