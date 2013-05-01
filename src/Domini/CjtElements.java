@@ -11,101 +11,107 @@ import java.util.ArrayList;
  * @author miquel
  */
 public class CjtElements {
+
     /**
      * valid diu si aquell conjunt es valid
      */
     private boolean valid;
     private ArrayList<Element> assignacions;
-    
+
     /**
-     * 
+     *
      */
-    public CjtElements(){
+    public CjtElements() {
         valid = false;
         assignacions = new ArrayList<Element>();
     }
 
     /**
-     * 
-     * @param e 
+     *
+     * @param e
      */
-    public void afegirElement (Element e) {
+    public void afegirElement(Element e) {
         assignacions.add(e);
     }
-    
+
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public boolean isValid() {
         return valid;
     }
 
     /**
-     * 
-     * @param valid 
+     *
+     * @param valid
      */
     public void setValid(boolean valid) {
         this.valid = valid;
     }
+
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public ArrayList<Element> getAssignacions() {
         return assignacions;
     }
+
     /**
-     * 
+     *
      * @param pos
-     * @return 
+     * @return
      */
     public Element getElementPosicio(int pos) {
         return assignacions.get(pos);
     }
+
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public int numeroElements() {
         return assignacions.size();
     }
+
     /**
-     * 
+     *
      * @param e
-     * @return 
+     * @return
      */
     public boolean aulaRepetida(Element e) {
-        for( int i = 0; i < assignacions.size(); ++i){
-            if( assignacions.get(i).getAula().equals( e.getAula() ) ){ // si es la misma aula
-                if( ! assignacions.get(i).equals(  e )  ) { // y no es el mismo elemtno
+        for (int i = 0; i < assignacions.size(); ++i) {
+            if (assignacions.get(i).getAula().equals(e.getAula())) { // si es la misma aula
+                if (!assignacions.get(i).equals(e)) { // y no es el mismo elemtno
                     return false;
                 }
             }
         }
         return true;
     }
+
     /**
-     * 
+     *
      * @param e
-     * @return 
+     * @return
      */
     public boolean solapamentTeoriaPractica(Element e) {
-        //String asg = e.getAssignatura();
         boolean grupTeoria = false;
-        if( (e.getGrupo()%10) == 0) grupTeoria = true;
-        for( int i = 0; i < assignacions.size(); ++i){
-            if( assignacions.get(i).getAssignatura().equals(e.getAssignatura()) ){ // si es la misma assignatura
-                if( assignacions.get(i).getGrupo() != e.getGrupo() ){ // y no es el mismo elemento
+        if ((e.getGrupo() % 10) == 0) {
+            grupTeoria = true;
+        }
+        for (int i = 0; i < assignacions.size(); ++i) {
+            if (assignacions.get(i).getAssignatura().equals(e.getAssignatura())) { // si es la mateixa assignatura
+                if (assignacions.get(i).getGrupo() != e.getGrupo()) { // i no el mateix element
                     int grup = assignacions.get(i).getGrupo();
-                    if( grupTeoria) {
-                       if( grup%10 != 0 ) {
-                           return true;
-                       } //si ya habia teoria de esa asignatura SOLAPAMIENTO  
-                    } 
-                    else { // es grup de lab
-                        if( grup%10 == 0) {
-                            
+                    if (grupTeoria) {
+                        if (grup % 10 != 0) {
+                            return true;
+                        }
+                    } else {
+                        if (grup % 10 == 0) {
+
                             return true;
                         }
                     }
@@ -114,41 +120,38 @@ public class CjtElements {
         }
         return false;
     }
+
     /**
-     * 
-     * @param e 
+     *
+     * @param e
      */
     void borrarElement(Element e) {
         assignacions.remove(e);
     }
+
     /**
-     * 
+     *
      * @param e
-     * @return 
+     * @return
      */
     boolean solapamentNivell(Element e) {
-           for( int i = 0; i < assignacions.size(); ++i){
-            if( assignacions.get(i).getAssignatura().getNivell() ==
-                    e.getAssignatura().getNivell()){ // si es el mismo nivel
-                if( ! assignacions.get(i).equals(  e )  ) { // y no es el mismo elemtno
+        for (int i = 0; i < assignacions.size(); ++i) {
+            if (assignacions.get(i).getAssignatura().getNivell()
+                    == e.getAssignatura().getNivell()) { // mateix nivell
+                if (!assignacions.get(i).equals(e)) { // i no mateix element
                     return false;
                 }
             }
         }
         return true;
     }
+
     /**
-     * 
+     *
      * @param e
-     * @return 
+     * @return
      */
     boolean solapamentAssGrupHora(Element e) {
         return true;
     }
-
-    
-    
-    
-    
-    
 }
