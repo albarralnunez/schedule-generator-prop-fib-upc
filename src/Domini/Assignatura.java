@@ -44,12 +44,15 @@ public class Assignatura {
         }
         return true;
     }
+
     /**
-     * 
+     *
      */
-    public Assignatura() {}
+    public Assignatura() {
+    }
+
     /**
-     * 
+     *
      * @param nm
      * @param niv
      * @param ht
@@ -58,7 +61,7 @@ public class Assignatura {
      * @param inteP
      * @param capT
      * @param capP
-     * @param grups 
+     * @param grups
      */
     public Assignatura(String nm, int niv, int ht, ArrayList<Integer> inteT, int hp,
             ArrayList<Integer> inteP, int capT, int capP, ArrayList<Integer> grups) {
@@ -74,32 +77,34 @@ public class Assignatura {
         material = false;
         projector = false;
     }
+
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public boolean necesitaMaterial() {
         return material;
     }
+
     /**
-     * 
-     * @param material 
+     *
+     * @param material
      */
     public void setMaterial(boolean material) {
         this.material = material;
     }
-    
+
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public boolean necesitaProjector() {
         return projector;
     }
-    
+
     /**
-     * 
-     * @param projector 
+     *
+     * @param projector
      */
     public void setProjector(boolean projector) {
         this.projector = projector;
@@ -112,126 +117,147 @@ public class Assignatura {
     public String getNom() {
         return nom;
     }
+
     /**
-     * 
-     * @param nom 
+     *
+     * @param nom
      */
     public void setNom(String nom) {
         this.nom = nom;
     }
+
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public int getHoresT() {
         return horesT;
     }
+
     /**
-     * 
-     * @param horesT 
+     *
+     * @param horesT
      */
     public void setHoresT(int horesT) {
         this.horesT = horesT;
     }
+
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public int getHoresP() {
         return horesP;
     }
+
     /**
-     * 
-     * @param horesP 
+     *
+     * @param horesP
      */
     public void setHoresP(int horesP) {
         this.horesP = horesP;
     }
+
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public int getNivell() {
         return nivel;
     }
+
     /**
-     * 
-     * @param nivel 
+     *
+     * @param nivel
      */
     public void setNivell(int nivel) {
         this.nivel = nivel;
     }
+
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public int getCapacitatTeo() {
         return capacitatTeo;
     }
+
     /**
-     * 
-     * @param capt 
+     *
+     * @param capt
      */
     public void setCapacitatTeo(int capt) {
         capacitatTeo = capt;
     }
+
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public int getCapacitatLab() {
         return capacitatLab;
     }
+
     /**
-     * 
-     * @param capl 
+     *
+     * @param capl
      */
     public void setCapacitatLab(int capl) {
         capacitatLab = capl;
     }
-/**
- * 
- * @return 
- */
+
+    /**
+     *
+     * @return
+     */
     public ArrayList<Integer> getIntervalsT() {
         return intervalsT;
     }
+
     /**
-     * 
-     * @param it 
+     *
+     * @param it
      */
     public void setIntervalsT(ArrayList<Integer> it) {
         intervalsT = it;
     }
+
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public ArrayList<Integer> getIntervalsP() {
         return intervalsP;
     }
+
     /**
-     * 
-     * @param ip 
+     *
+     * @param ip
      */
     public void setIntervalsP(ArrayList<Integer> ip) {
         intervalsP = ip;
     }
+
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public ArrayList<Integer> getGrups() {
         return grups;
     }
+
     /**
-     * 
-     * @param grupos 
+     *
+     * @param grupos
      */
     public void setGrups(ArrayList<Integer> grupos) {
         this.grups.addAll(grupos);
     }
 
+    /**
+     * 
+     * @param grupo 
+     */
     public void addGrup(Integer grupo) {
         grups.add(grupo);
     }

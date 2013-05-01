@@ -17,35 +17,64 @@ public class CjtElements {
     private boolean valid;
     private ArrayList<Element> assignacions;
     
-    
+    /**
+     * 
+     */
     public CjtElements(){
         valid = false;
         assignacions = new ArrayList<Element>();
     }
 
+    /**
+     * 
+     * @param e 
+     */
     public void afegirElement (Element e) {
         assignacions.add(e);
     }
+    
+    /**
+     * 
+     * @return 
+     */
     public boolean isValid() {
         return valid;
     }
 
+    /**
+     * 
+     * @param valid 
+     */
     public void setValid(boolean valid) {
         this.valid = valid;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public ArrayList<Element> getAssignacions() {
         return assignacions;
     }
-    
+    /**
+     * 
+     * @param pos
+     * @return 
+     */
     public Element getElementPosicio(int pos) {
         return assignacions.get(pos);
     }
-
+    /**
+     * 
+     * @return 
+     */
     public int numeroElements() {
         return assignacions.size();
     }
-
+    /**
+     * 
+     * @param e
+     * @return 
+     */
     public boolean aulaRepetida(Element e) {
         for( int i = 0; i < assignacions.size(); ++i){
             if( assignacions.get(i).getAula().equals( e.getAula() ) ){ // si es la misma aula
@@ -56,7 +85,11 @@ public class CjtElements {
         }
         return true;
     }
-
+    /**
+     * 
+     * @param e
+     * @return 
+     */
     public boolean solapamentTeoriaPractica(Element e) {
         //String asg = e.getAssignatura();
         boolean grupTeoria = false;
@@ -81,11 +114,18 @@ public class CjtElements {
         }
         return false;
     }
-
+    /**
+     * 
+     * @param e 
+     */
     void borrarElement(Element e) {
         assignacions.remove(e);
     }
-
+    /**
+     * 
+     * @param e
+     * @return 
+     */
     boolean solapamentNivell(Element e) {
            for( int i = 0; i < assignacions.size(); ++i){
             if( assignacions.get(i).getAssignatura().getNivell() ==
@@ -97,7 +137,11 @@ public class CjtElements {
         }
         return true;
     }
-
+    /**
+     * 
+     * @param e
+     * @return 
+     */
     boolean solapamentAssGrupHora(Element e) {
         return true;
     }

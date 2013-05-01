@@ -20,6 +20,9 @@ public class AulaLab extends Aula {
         this.material = mat;
     }
 
+    /**
+     *
+     */
     public AulaLab() {
         super();
         this.material = false; //La creadora por defecto no da material al aula.
