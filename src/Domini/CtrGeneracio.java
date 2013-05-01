@@ -239,8 +239,29 @@ public class CtrGeneracio {
     boolean AfegirRestriccioGrupSessio(String nomA, int grup, String dia, int hora) {
          
         // si el dia/horan o es vlaid retorna false
-        if( ! quad.getElementsPosicio(dia, hora).isValid() ) return false;
-        
-        return gen.AfegirRestriccioGrupSessio( nomA, grup, dia, hora);
+        boolean b = true;
+        for(int i = 0; i < this.cjtAs.size() ; ++i){
+            Assignatura a = cjtAs.get(i);
+            if( a.getNom().contains( nomA )){
+                if( grup%10 == 0) {
+                    for(  int j = 0; j < a.getHoresT() && b; ++j ){
+                        b = quad.getElementsPosicio(dia, hora).isValid() ;
+                        if(b){
+                            b = gen.AfegirRestriccioGrupSessio( nomA, grup, dia, hora+j );
+                            int z = 3;
+                        }
+                    }
+                }
+                else{
+                    for(  int j = 0; j < a.getHoresP() && b; ++j ){
+                       b = quad.getElementsPosicio(dia, hora).isValid() ;
+                        if(b){
+                            b = gen.AfegirRestriccioGrupSessio( nomA, grup, dia, hora+j );
+                        }
+                    }
+                }
+            }
+        }
+       return b;
     }
 }

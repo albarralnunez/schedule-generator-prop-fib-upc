@@ -67,13 +67,31 @@ public class CjtRestGrupSesio extends CjtRestriccions{
 
     boolean afegeixRestriccio(RestGrupSesio rgs) {
         for( int i = 0; i < restriccions_grup_sesio.size(); ++i){
-            RestGrupSesio actual = restriccions_grup_sesio.get(i);
-            if( actual.getAssignatura().equals( rgs.getAssignatura() ) ){
-                if( actual.getGrup() == rgs.getGrup()) return false;
+            if (restriccions_grup_sesio.get(i) == rgs ){
+                System.out.println("igual");
+                return false;
             }
+            
         }
-        this.afegir_rest(rgs);
+        afegir_rest(rgs);
         return true;
+    }
+
+    boolean ComprovarRes(Clausula c, ClausulaNom cn) {
+        for( RestGrupSesio gs : restriccions_grup_sesio){
+            String dia = cn.getDia();
+            int i;
+            if (dia.equals("dilluns")) i = 0;
+            else if (dia.equals("dimarts")) i = 1;
+            else if (dia.equals("dimecres")) i = 2;
+            else if (dia.equals("dijous")) i = 3;
+            else if (dia.equals("divendres")) i = 4;
+            else if (dia.equals("dissabte")) i = 5;
+            else i = 6;
+            
+            if ( gs.CompleixRes( c.getAssignatura().getNom(), c.getGrup(), i, cn.getHora() )) return true;
+        }
+        return false;
     }
 
 }
