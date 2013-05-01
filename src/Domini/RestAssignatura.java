@@ -113,9 +113,15 @@ public class RestAssignatura extends Restriccio {
         String d = cn.getDia();
         Integer h = cn.getHora();
         int g = c.getGrup();
-        if (!CompleixResDiaHora(c.getAssignatura(), g, d, h)) return false;
-        if (!compleixResDia(c.getAssignatura(), g, d)) return false;
-        if (!compleixResHora(c.getAssignatura(), g, h)) return false;
+        if(h !=-1 && dia != null){
+            if (!CompleixResDiaHora(c.getAssignatura(), g, d, h)) return false;
+        }
+        else if(dia!=null){
+            if (!compleixResDia(c.getAssignatura(), g, d)) return false;
+        }
+        else if(h != -1){
+            if (!compleixResHora(c.getAssignatura(), g, h)) return false;
+        }
         return true;
     }
     

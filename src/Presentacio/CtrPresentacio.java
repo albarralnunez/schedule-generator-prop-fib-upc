@@ -73,8 +73,9 @@ public class CtrPresentacio {
                 Integer grup;
                 String aula;
                 String rep;
-                ArrayList params = new ArrayList();
+                ArrayList params;
                 while(repetir){
+                    params = new ArrayList();
                     System.out.println("Introduir nom assignatura del grup");
                     assignatura = s.next();
                     System.out.println("Introduir numero del grup");
@@ -96,8 +97,9 @@ public class CtrPresentacio {
                 //Integer grup;
                 //Integer hora;
                 String rep;
-                ArrayList params = new ArrayList();
+                ArrayList params;
                 while(repetir){
+                    params = new ArrayList();
                     System.out.println("Introduir nom assignatura del grup");
                     String assignatura = s.next();
                     System.out.println("Introduir numero del grup");
@@ -126,8 +128,9 @@ public class CtrPresentacio {
                 Integer grup;
                 Integer hora;
                 String rep;
-                ArrayList params = new ArrayList();
+                ArrayList params;
                 while(repetir){
+                    params = new ArrayList();
                     System.out.println("Introduir nom assignatura del grup");
                     assignatura = s.next();
                     System.out.println("Introduir numero del grup");
@@ -150,8 +153,9 @@ public class CtrPresentacio {
                 Integer grup;
                 String dia;
                 String rep;
-                ArrayList params = new ArrayList();
+                ArrayList params;
                 while(repetir){
+                    params = new ArrayList();
                     System.out.println("Introduir nom assignatura del grup");
                     assignatura = s.next();
                     System.out.println("Introduir numero del grup");
@@ -176,8 +180,9 @@ public class CtrPresentacio {
                 Integer grupS = null;
                 String rep;
                 String nivell = "n"; //valor aleatori que ha de ser diferent de "a" i de "g"
-                ArrayList params = new ArrayList();
+                ArrayList params;
                 while(repetir){
+                    params = new ArrayList();
                     System.out.println("Solapament a nivell de assignatura o de grup ?<a,g>");
                     while((!nivell.equals("a")) && (!nivell.equals("g"))) {nivell = s.next();}
                     System.out.println("Introduir nom assignatura");
@@ -208,8 +213,9 @@ public class CtrPresentacio {
                 Integer hora;
                 String dia;
                 String rep;
-                ArrayList params = new ArrayList();
+                ArrayList params;
                 while(repetir){
+                    params = new ArrayList();
                     System.out.println("Introduir Aula");
                     Aula = s.next();
                     System.out.println("Introduir hora <0-23>");
@@ -395,10 +401,11 @@ public class CtrPresentacio {
                     String a;
                     int g;
                     int h;
+                    int num = 0;
                     System.out.println("");
                     System.out.println(" Unitat Docent:"+unitatDocent+" Llista restriccions tipus "+3+" :");
                     for(i = 0; i < llista.size(); ++i) { 
-                        if(i%2 == 0) {int num = i+1; System.out.println(num+"-  "+llista.get(i) );}
+                        if(i%2 == 0) {++num; System.out.println(num+"-  "+llista.get(i) );}
                         else {
                             posicio.add(Integer.parseInt(llista.get(i)));
                         }
@@ -434,10 +441,11 @@ public class CtrPresentacio {
                     String a;
                     int g;
                     String d;
+                    int num = 0;
                     System.out.println("");
                     System.out.println(" Unitat Docent:"+unitatDocent+" Llista restriccions tipus "+4+" :");
                     for(i = 0; i < llista.size(); ++i) { 
-                        if(i%2 == 0) {int num = i+1; System.out.println(num+"-  "+llista.get(i) );}
+                        if(i%2 == 0) {++num; System.out.println(num+"-  "+llista.get(i) );}
                         else {
                             posicio.add(Integer.parseInt(llista.get(i)));
                         }
@@ -549,10 +557,11 @@ public class CtrPresentacio {
                 ArrayList<Integer> posicio = new ArrayList();
                 max = llista.size();
                 rest = -1;
+                num = 0;
                 System.out.println("");
                 System.out.println(" Unitat Docent:"+unitatDocent+" Llista restriccions tipus "+4+" :");
                 for(i = 0; i < llista.size(); ++i) { 
-                    if(i%2 == 0) {num = i+1; System.out.println(num+"-  "+llista.get(i) );}
+                    if(i%2 == 0) {++num; System.out.println(num+"-  "+llista.get(i) );}
                     else {
                         posicio.add(Integer.parseInt(llista.get(i)));
                     }
