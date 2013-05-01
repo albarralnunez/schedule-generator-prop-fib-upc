@@ -22,7 +22,6 @@ public class Assignatura {
     private int capacitatTeo;
     private int capacitatLab;
     private ArrayList<Integer> grups;
-//TODO: Falta si la assigantura necesita cosas apra teo y lab
     private boolean material;
     private boolean projector;
 
@@ -81,10 +80,6 @@ public class Assignatura {
         this.projector = projector;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getNom() {
         return nom;
     }
@@ -155,11 +150,9 @@ public class Assignatura {
 
     public void setGrups(ArrayList<Integer> grupos) {
         this.grups.addAll(grupos);
-        // Collections.sort(this.grupos);
     }
 
     public void addGrup(Integer grupo) {
         grups.add(grupo);
-        //Collections.sort(this.grupos);
     }
 }
