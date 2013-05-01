@@ -10,46 +10,46 @@ import java.util.ArrayList;
  *
  * @author albertomarin
  */
-public class CjtRestGrupSesio extends CjtRestriccions{
+public class CjtRestGrupSessio extends CjtRestriccions{
 
-    private ArrayList<RestGrupSesio> restriccions_grup_sesio;
+    private ArrayList<RestGrupSessio> restriccions_grup_sesio;
 
     //Constructora por defecto:
-    public CjtRestGrupSesio() {
+    public CjtRestGrupSessio() {
         restriccions_grup_sesio = new ArrayList();
     }
 
     //Getters y Setters:
-    public ArrayList<RestGrupSesio> getRestriccions_grup_sesio() {
+    public ArrayList<RestGrupSessio> getRestriccions_grup_sesio() {
         return restriccions_grup_sesio;
     }
 
-    public void setRestriccions_grup_sesio(ArrayList<RestGrupSesio> restriccions_grup_sesio) {
+    public void setRestriccions_grup_sesio(ArrayList<RestGrupSessio> restriccions_grup_sesio) {
         this.restriccions_grup_sesio = restriccions_grup_sesio;
     }
     public int size(){
          return restriccions_grup_sesio.size();
     }
-    public RestGrupSesio get(int i){
+    public RestGrupSessio get(int i){
       return  restriccions_grup_sesio.get(i);
     }
     public void remove(int index){
         restriccions_grup_sesio.remove(index);
     }
-    /**@pre: La restricció a afeigir ha estat verificada per la clase RestGrupSesio
+    /**@pre: La restricció a afeigir ha estat verificada per la clase RestGrupSessio
      * @post: Queda afeigida la restriccio a l'arraylist restriccions_grup_sesio
      *
-     * @param r Es la restriccio de RestGrupSesio
+     * @param r Es la restriccio de RestGrupSessio
      */
-    public void afegir_rest(RestGrupSesio r) {
+    public void afegir_rest(RestGrupSessio r) {
         restriccions_grup_sesio.add(r);
     }
-    /**@pre: La restricció a borrar ha estat verificada per la clase RestGrupSesio
+    /**@pre: La restricció a borrar ha estat verificada per la clase RestGrupSessio
      * @post: Queda borrada la restriccio a l'arraylist restriccions_grup_sesio
      *
-     * @param r Es la restriccio de RestGrupSesio
+     * @param r Es la restriccio de RestGrupSessio
      */
-    public boolean borrarElem(RestGrupSesio r) {
+    public boolean borrarElem(RestGrupSessio r) {
         return restriccions_grup_sesio.remove(r);
     }
     
@@ -58,14 +58,14 @@ public class CjtRestGrupSesio extends CjtRestriccions{
      * @param r
      * @return true si hem trobat l'element o false en cas contrari.
      */
-    public boolean buscarElem(RestGrupSesio r) {
-        for(RestGrupSesio r1: this.restriccions_grup_sesio){
+    public boolean buscarElem(RestGrupSessio r) {
+        for(RestGrupSessio r1: this.restriccions_grup_sesio){
                 if(r1 == r) return true;
         }
         return false;
     }
 
-    boolean afegeixRestriccio(RestGrupSesio rgs) {
+    boolean afegeixRestriccio(RestGrupSessio rgs) {
         for( int i = 0; i < restriccions_grup_sesio.size(); ++i){
             if (restriccions_grup_sesio.get(i) == rgs ){
                 System.out.println("igual");
@@ -79,7 +79,7 @@ public class CjtRestGrupSesio extends CjtRestriccions{
 
     boolean ComprovarRes(Clausula c, ClausulaNom cn) {
         boolean b = true;
-        for( RestGrupSesio gs : restriccions_grup_sesio){
+        for( RestGrupSessio gs : restriccions_grup_sesio){
             String dia = cn.getDia();
             int i;
             if (dia.equals("dilluns")) i = 0;

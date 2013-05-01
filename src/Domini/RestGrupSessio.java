@@ -11,7 +11,7 @@ package Domini;
  */
 
 //PONER UN ASSIG+GRUPO A UNA HORA
-public class RestGrupSesio extends Restriccio{
+public class RestGrupSessio extends Restriccio{
 
     //Atributos
     private String assignatura;
@@ -20,11 +20,11 @@ public class RestGrupSesio extends Restriccio{
     private Integer horaInici; //Hora d'inici.
 
     //Constructora por defecto
-    public RestGrupSesio() {
+    public RestGrupSessio() {
         super(2); //ID PRIVISIONAL 1002
     }
 
-    public RestGrupSesio( String assignatura, Integer grup, Integer dia, Integer hora) {
+    public RestGrupSessio( String assignatura, Integer grup, Integer dia, Integer hora) {
         super(2);
         this.assignatura = assignatura;
         this.grup = grup;
@@ -89,7 +89,7 @@ public class RestGrupSesio extends Restriccio{
     public boolean esPotAfegir(CjtRestriccions cjtRestGrupSesio) {
         boolean espot = true;
         for (Restriccio res: cjtRestGrupSesio.getCjtRes()) {
-            RestGrupSesio res_grup_sesio = (RestGrupSesio) res;
+            RestGrupSessio res_grup_sesio = (RestGrupSessio) res;
             if ((res_grup_sesio.getAssignatura().equals(this.assignatura)) && (res_grup_sesio.getGrup().equals(this.grup))) {
                 //Si ya hay una restriccion que obliga a hacer la misma ASSIG+GRUPO en una hora, esta restriccion no podra añadirse al
                 //CjtRestGrupSesio porque crearía conflicto con el resto.
