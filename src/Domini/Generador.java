@@ -83,9 +83,8 @@ class Generador {
                     aulesPos = cjtCapacitatMajorDeT(a.getCapacitatTeo(),aulesT);
                     interval = a.getIntervalsT();
                 }
-                Clausula c = new Clausula();
                 for (Integer h : interval) {
-                    
+                    Clausula c = new Clausula();
                     c.setAssignatura(a);
                     c.setDuracio(h);
                     c.setGrup(g);
@@ -181,14 +180,16 @@ class Generador {
 
     public boolean assignacioValida(Quadricula q, Element e, String dia, int hora) {
         CjtElements elems = q.getElementsPosicio(dia, hora);//elements d aquella posicio
+        //2 clases de la mateixa assignatura mateix grup mateixa hora
+      // if (elems.solapamentAssGrupHora(e)) return false;
         // en principio no deberia pasar ya de por si
-        if (!elems.isValid()) return false; 
+    //    if (!elems.isValid()) return false; 
         // que en aquella hora nomes hi hagi un grup per aula
         if (!elems.aulaRepetida(e)) return false;
         //si es vol posar un grup de lab on hi ha un de teoria o al reves 
         if (elems.solapamentTeoriaPractica(e)) return false;
         //si es vols posar dos assignaturas del mateix nivell
-        if (elems.solapamentNivell(e)) return false;
+        if (!elems.solapamentNivell(e)) return false;
         return true;
     }
 
@@ -271,13 +272,12 @@ class Generador {
         int du = c.getDuracio();
         int h = cn.getHora();
         String di = cn.getDia();
-        boolean b = true;
         if (c.getDuracio()+cn.getHora() <= 23) {
-            for (int i=0; i < du && b; ++i) {
-                if (!q.getElementsPosicio(di, h+du).isValid()) b = false;
+            for (int i=0; i < du; ++i) {
+                if (!q.getElementsPosicio(di, h+i).isValid()) return false;
             }
         }
-        return b;
+        return true;
     }
 
     private boolean foraLimits(Clausula c, ClausulaNom cn) {

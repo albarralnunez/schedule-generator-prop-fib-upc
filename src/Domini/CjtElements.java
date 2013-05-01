@@ -67,7 +67,6 @@ public class CjtElements {
                     int grup = assignacions.get(i).getGrupo();
                     if( grupTeoria) {
                        if( grup%10 != 0 ) {
-                           
                            return true;
                        } //si ya habia teoria de esa asignatura SOLAPAMIENTO  
                     } 
@@ -88,14 +87,19 @@ public class CjtElements {
     }
 
     boolean solapamentNivell(Element e) {
-        for (Element ass : assignacions) {
-            if (e.getAssignatura().getNivell() == 
-                    ass.getAssignatura().getNivell()) {
-                if (!(e.getAssignatura().equals(ass.getAssignatura())
-                        && e.getGrupo() == ass.getGrupo())) return true;
+           for( int i = 0; i < assignacions.size(); ++i){
+            if( assignacions.get(i).getAssignatura().getNivell() ==
+                    e.getAssignatura().getNivell()){ // si es el mismo nivel
+                if( ! assignacions.get(i).equals(  e )  ) { // y no es el mismo elemtno
+                    return false;
+                }
             }
         }
-        return false;
+        return true;
+    }
+
+    boolean solapamentAssGrupHora(Element e) {
+        return true;
     }
 
     
