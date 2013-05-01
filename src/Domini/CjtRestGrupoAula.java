@@ -35,6 +35,9 @@ public class CjtRestGrupoAula extends CjtRestriccions{
     public RestGrupoAula get(int i){
       return  restGrupoAula.get(i);
     }
+    public void remove(int index){
+        restGrupoAula.remove(index);
+    }
 
     /**@pre: La restricció a afeigir ha estat verificada per la clase RestGrupoAula
      * @post: Queda afeigida la restriccio a l'arraylist rest_grupo_aula

@@ -33,6 +33,9 @@ public class CjtRestAssignatura extends CjtRestriccions{
     public RestAssignatura get(int i){
       return  restsAssignatura.get(i);
     }
+    public void remove(int index){
+        restsAssignatura.remove(index);
+    }
 
     /**@pre: La restricció a afeigir ha estat verificada per la clase RestriccioAula
      * @post: Queda afeigida la restriccio a l'arraylist restriccions_aula

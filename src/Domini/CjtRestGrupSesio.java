@@ -33,7 +33,9 @@ public class CjtRestGrupSesio extends CjtRestriccions{
     public RestGrupSesio get(int i){
       return  restriccions_grup_sesio.get(i);
     }
-
+    public void remove(int index){
+        restriccions_grup_sesio.remove(index);
+    }
     /**@pre: La restricció a afeigir ha estat verificada per la clase RestGrupSesio
      * @post: Queda afeigida la restriccio a l'arraylist restriccions_grup_sesio
      *

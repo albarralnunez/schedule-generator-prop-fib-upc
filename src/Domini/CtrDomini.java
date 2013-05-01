@@ -464,7 +464,7 @@ public class CtrDomini {
             for(int i = 0; i < size; ++i){
                 RestSolapament r = cjt.get(i);
                 if(r.getGrupPrincipal() == -1 && r.getGrupSolapament() == -1){
-                    l.add(r.getAssignaturaPrincipal()+"-"+r.getAssignaturaSolapament());
+                    l.add(r.getAssignaturaPrincipal().getNom()+"-"+r.getAssignaturaSolapament().getNom());
                 }
                 else{
                     l.add(r.getAssignaturaPrincipal().getNom()+"-"+r.getGrupPrincipal()+"-"+r.getAssignaturaSolapament().getNom()+"-"+r.getGrupSolapament());
@@ -567,5 +567,28 @@ public class CtrDomini {
                     }
                     break;
         }
+    }
+    public void esborraRest(int tipus,int numRest){
+        switch (tipus){
+            case 1:
+                    cgen.getCjtResGA().remove(numRest);
+                    break;
+            case 2:
+                    cgen.getCjtRestGS().remove(numRest);
+                    break;
+            case 3:
+                    cgen.getCjtRestAss().remove(numRest);
+                    break;
+            case 4:
+                    cgen.getCjtRestAss().remove(numRest);
+                    break;
+            case 5: 
+                    cgen.getCjtRestS().remove(numRest);
+                    break;
+            case 6:
+                    cgen.getCjtRestAul().remove(numRest);
+                    break;
+       }
+        
     }
 }

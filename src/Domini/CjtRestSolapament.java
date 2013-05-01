@@ -33,7 +33,9 @@ public class CjtRestSolapament extends CjtRestriccions{
     public RestSolapament get(int i){
       return  restriccions_solapament.get(i);
     }
-
+    public void remove(int index){
+        restriccions_solapament.remove(index);
+    }
     /**@pre: La restricció a afeigir ha estat verificada per la clase RestSolapament
      * @post: Queda afeigida la restriccio a l'arraylist restriccions_solapament
      *
