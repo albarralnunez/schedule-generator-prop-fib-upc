@@ -78,6 +78,7 @@ public class CjtRestGrupSesio extends CjtRestriccions{
     }
 
     boolean ComprovarRes(Clausula c, ClausulaNom cn) {
+        boolean b = true;
         for( RestGrupSesio gs : restriccions_grup_sesio){
             String dia = cn.getDia();
             int i;
@@ -90,8 +91,9 @@ public class CjtRestGrupSesio extends CjtRestriccions{
             else i = 6;
             
             if ( gs.CompleixRes( c.getAssignatura().getNom(), c.getGrup(), i, cn.getHora() )) return true;
+            else b = false;
         }
-        return false;
+        return b;
     }
 
 }

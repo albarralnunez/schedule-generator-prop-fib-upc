@@ -130,7 +130,7 @@ public class RestGrupoAula extends Restriccio {
          boolean b = false;
         for (Element elcjt : el.getAssignacions()) {
             if (b) break;
-            if (elcjt.getAssignatura().equals(this.assignatura) &&
+            if (elcjt.getAssignatura().getNom().equals(this.assignatura) &&
                     elcjt.getGrupo() == this.grup){
                 b = (elcjt.getAula().getNom().equals(this.aula));
             }
