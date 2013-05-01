@@ -181,9 +181,9 @@ class Generador {
     public boolean assignacioValida(Quadricula q, Element e, String dia, int hora) {
         CjtElements elems = q.getElementsPosicio(dia, hora);//elements d aquella posicio
         // que en aquella hora nomes hi hagi un grup per aula
-        if ( elems.aulaRepetida(e)) return false;
+       if (!elems.aulaRepetida(e)) return false;
         //si es vol posar un grup de lab on hi ha un de teoria o al reves 
-        if (elems.solapamentTeoriaPractica(e)) return false;
+       if (elems.solapamentTeoriaPractica(e)) return false;
         //si es vols posar dos assignaturas del mateix nivell
         //if (!elems.solapamentNivell(e)) return false; PENDIENTE!
         return true;

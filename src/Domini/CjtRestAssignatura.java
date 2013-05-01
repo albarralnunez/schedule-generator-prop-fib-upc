@@ -65,12 +65,6 @@ public class CjtRestAssignatura extends CjtRestriccions{
         }
         return false;
     }
-    /**
-     * 
-     * @param c
-     * @param cn
-     * @return 
-     */
     boolean ComprovarRes(Clausula c, ClausulaNom cn) {
          boolean b = true;
         for (RestAssignatura rga : this.restsAssignatura) {

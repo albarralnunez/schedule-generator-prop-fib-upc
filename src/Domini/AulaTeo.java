@@ -13,19 +13,13 @@ public class AulaTeo extends Aula {
     private boolean projector;
 
     /**
-     *
-     * @param nom nom de l'aula
-     * @param cap capacitat
-     * @param projector si te projector o no
+     * Crea un aula de laboratori.
      */
     public AulaTeo(String nom, int cap, boolean projector) {
         super(nom, cap);
         this.projector = projector;
     }
 
-    /**
-     *
-     */
     public AulaTeo() {
         super();
         this.projector = false; //La creadora por defecto pone projector a false;
