@@ -17,6 +17,7 @@ public class CjtElements {
     private boolean valid;
     private ArrayList<Element> assignacions;
     
+    
     public CjtElements(){
         valid = false;
         assignacions = new ArrayList<Element>();

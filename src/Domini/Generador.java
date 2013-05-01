@@ -12,7 +12,6 @@ import java.util.ArrayList;
  */
 class Generador {
 
-    private Quadricula horari;
     private CjtRestGrupoAula cjtRgraula;
     private CjtRestAssignatura cjtRass;
     private CjtRestriccioAula cjtRula;
@@ -21,7 +20,8 @@ class Generador {
     
     
     public Generador(CjtRestGrupoAula cjtRgraula, CjtRestAssignatura cjtRass,
-            CjtRestriccioAula cjtRula,CjtRestGrupSesio cjtRestGS,CjtRestSolapament cjtRestS) {
+            CjtRestriccioAula cjtRula,CjtRestGrupSesio cjtRestGS,
+            CjtRestSolapament cjtRestS) {
         this.cjtRgraula = cjtRgraula;
         this.cjtRass = cjtRass;
         this.cjtRula = cjtRula;
@@ -36,7 +36,9 @@ class Generador {
         cjtRestGS = new CjtRestGrupSesio();
         cjtRestS = new CjtRestSolapament();
     }
-    public void inicialitzarCjtRestriccions(CjtRestGrupoAula cjtResGA,CjtRestAssignatura cjtRestAss,CjtRestGrupSesio cjtRestGS,CjtRestSolapament cjtRestS,CjtRestriccioAula cjtRestAul){
+    public void inicialitzarCjtRestriccions(CjtRestGrupoAula cjtResGA,
+            CjtRestAssignatura cjtRestAss,CjtRestGrupSesio cjtRestGS,
+            CjtRestSolapament cjtRestS,CjtRestriccioAula cjtRestAul){
      cjtRgraula = cjtResGA;
      cjtRass = cjtRestAss;
      cjtRula = cjtRestAul;
@@ -62,7 +64,8 @@ class Generador {
     }   
             
     private ArrayList<Clausula> inicialitzarClausules(ArrayList<AulaTeo> aulesT, 
-            ArrayList<AulaLab> aulesL, ArrayList<Assignatura> ass, RestriccioTemps dis) {
+            ArrayList<AulaLab> aulesL, ArrayList<Assignatura> ass, RestriccioTemps dis
+            ,Quadricula q) {
         ArrayList<Clausula> clausules = new ArrayList();
         for (int i = 0; i < ass.size(); ++i) {
             Assignatura a;
@@ -70,9 +73,6 @@ class Generador {
             ArrayList<Integer> gup = a.getGrups();
             for (int k = 0; k < gup.size(); ++k) {
                 Integer g = gup.get(k);
-                String nomAul;
-                String dia;
-                Integer hora;
                 ArrayList<Integer> interval = new ArrayList<Integer>();
                 ArrayList<Aula> aulesPos = new ArrayList<Aula>();
                 //Inicialitzacio clausules amb grups de laboratori         
@@ -111,7 +111,7 @@ class Generador {
                                         cn.setAula(au);
                                         cn.setDia("dilluns");
                                         cn.setHora(d);
-                                        if (compleixResDomini(c,cn)) cnaux.add(cn);
+                                        if (compleixResDomini(c,cn,q)) cnaux.add(cn);
                                     }
                                 }
                                 if (j == 1) {
@@ -120,7 +120,7 @@ class Generador {
                                         cn.setAula(au);
                                         cn.setDia("dimarts");
                                         cn.setHora(d);
-                                        if (compleixResDomini(c,cn)) cnaux.add(cn);
+                                        if (compleixResDomini(c,cn,q)) cnaux.add(cn);
                                     }
                                 }
                                 if (j == 2) {
@@ -129,7 +129,7 @@ class Generador {
                                         cn.setAula(au);
                                         cn.setDia("dimecres");
                                         cn.setHora(d);
-                                        if (compleixResDomini(c,cn)) cnaux.add(cn);
+                                        if (compleixResDomini(c,cn,q)) cnaux.add(cn);
                                     }
                                 }
                                 if (j == 3) {
@@ -138,7 +138,7 @@ class Generador {
                                         cn.setAula(au);
                                         cn.setDia("dijous");
                                         cn.setHora(d);
-                                        if (compleixResDomini(c,cn)) cnaux.add(cn);
+                                        if (compleixResDomini(c,cn,q)) cnaux.add(cn);
                                     }
                                 }
                                 if (j == 4) {
@@ -147,7 +147,7 @@ class Generador {
                                         cn.setAula(au);
                                         cn.setDia("divendres");
                                         cn.setHora(d);
-                                        if (compleixResDomini(c,cn)) cnaux.add(cn);
+                                        if (compleixResDomini(c,cn,q)) cnaux.add(cn);
                                     }
                                 }
                                 if (j == 5) {
@@ -156,7 +156,7 @@ class Generador {
                                         cn.setAula(au);
                                         cn.setDia("dissabte");
                                         cn.setHora(d);
-                                        if (compleixResDomini(c,cn)) cnaux.add(cn);   
+                                        if (compleixResDomini(c,cn,q)) cnaux.add(cn);   
                                     }
                                 }
                                 if (j == 6) {
@@ -165,7 +165,7 @@ class Generador {
                                         cn.setAula(au);
                                         cn.setDia("diumenge");
                                         cn.setHora(d);
-                                        if (compleixResDomini(c,cn)) cnaux.add(cn);
+                                        if (compleixResDomini(c,cn,q)) cnaux.add(cn);
                                     }
                                 }
                             }
@@ -191,19 +191,22 @@ class Generador {
         if (elems.solapamentNivell(e)) return false;
         return true;
     }
-    
-    
-    private boolean compleixResDomini(Clausula c, ClausulaNom cn) {
+
+    private boolean compleixResDomini(Clausula c, ClausulaNom cn, Quadricula q) {
         if (!cjtRgraula.ComprovarRes(c, cn)) return false;
         if (!cjtRass.ComprovarRes(c,cn)) return false;
         if (!cjtRula.ComprovarRes(c,cn)) return false;
+        if (!suficientHoresSegui(c,cn,q)) return false;
+        if (foraLimits (c,cn)) return false;
         return true;
     }
     
     public boolean generar(ArrayList<AulaTeo> aulesT, ArrayList<AulaLab> aulesL,
-            ArrayList<Assignatura> ass,RestriccioTemps dis, Quadricula q,CjtRestGrupoAula cjtResGA,CjtRestAssignatura cjtRestAss,CjtRestGrupSesio cjtRestGS,CjtRestSolapament cjtRestS,CjtRestriccioAula cjtRestAul ) {
+            ArrayList<Assignatura> ass,RestriccioTemps dis, Quadricula q,
+            CjtRestGrupoAula cjtResGA,CjtRestAssignatura cjtRestAss,CjtRestGrupSesio cjtRestGS,
+            CjtRestSolapament cjtRestS,CjtRestriccioAula cjtRestAul ) {
         inicialitzarCjtRestriccions(cjtResGA, cjtRestAss, cjtRestGS, cjtRestS,cjtRestAul);
-        ArrayList<Clausula> clau = inicialitzarClausules(aulesT, aulesL, ass, dis);
+        ArrayList<Clausula> clau = inicialitzarClausules(aulesT, aulesL, ass, dis, q);
         return backtracking(clau, q);
     }
 
@@ -219,10 +222,8 @@ class Generador {
                 e.setAula(cn.getAula());
                 e.setGrupo(c.getGrup());
                 int duracio = c.getDuracio();
-                int esVal = 0;
-                boolean omfg = true; //para si asignamos y sale del horario
-                if (duracio+cn.getHora() > 23)omfg = false;
-                for (int i = 0; i < duracio && omfg; ++i) {
+                int esVal = 0;        
+                for (int i = 0; i < duracio; ++i) {
                     int hor = cn.getHora()+i;
                     String di = cn.getDia();
                     qu.afegirElement(di, hor, e);
@@ -231,13 +232,13 @@ class Generador {
                 if (esVal == 0) {
                     boolean b = backtracking(clau, qu);
                     if (b) return true;
-                    else {
+                    else return false;/*else {
                         for (int i = 0; i < duracio; ++i) {
                             int hor = cn.getHora() + i;
                             String di = cn.getDia();
                             qu.borrarElement(di, hor, e);
                         }
-                    }
+                      }*/
                 } 
                 else {
                     for (int i = 0; i < duracio; ++i) {
@@ -260,8 +261,24 @@ class Generador {
         else if ( dia.equals("divendres") ) d = 4;
         else if ( dia.equals("dissabte") ) d = 5;
         else d = 6;
-        
         RestGrupSesio rgs = new RestGrupSesio(nomA, grup, d, hora);
         return cjtRestGS.afegeixRestriccio( rgs );
+    }
+
+    private boolean suficientHoresSegui(Clausula c, ClausulaNom cn, Quadricula q) {
+        int du = c.getDuracio();
+        int h = cn.getHora();
+        String di = cn.getDia();
+        boolean b = true;
+        if (c.getDuracio()+cn.getHora() <= 23) {
+            for (int i=0; i < du && b; ++i) {
+                if (!q.getElementsPosicio(di, h+du).isValid()) b = false;
+            }
+        }
+        return b;
+    }
+
+    private boolean foraLimits(Clausula c, ClausulaNom cn) {
+        return (c.getDuracio()+cn.getHora() > 23);
     }
 }

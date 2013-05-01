@@ -169,8 +169,10 @@ public class CtrGeneracio {
     }
     
     public boolean generar() {
-        return gen.generar(cjtAulTeo, cjtAulLab, cjtAs, resT, quad, cjtResGA, cjtRestAss, cjtRestGS, cjtRestS, cjtRestAul);
+        return gen.generar(cjtAulTeo, cjtAulLab, cjtAs, resT, quad, cjtResGA, 
+                cjtRestAss, cjtRestGS, cjtRestS, cjtRestAul);
     }
+    
     /**
      *
      * @param conf
