@@ -11,10 +11,10 @@ import java.util.ArrayList;
  * @author Joan Pol
  */
 public class RestSolapament extends Restriccio{
-    Assignatura assignaturaPrincipal;
-    int grupPrincipal;
-    Assignatura assignaturaSolapament;
-    int grupSolapament;
+    private Assignatura assignaturaPrincipal;
+    private int grupPrincipal;
+    private Assignatura assignaturaSolapament;
+    private int grupSolapament;
     
     /** 
     * Crea una restriccion que indica que una assig+grupo no puede impartirse a la vez que otra temporalmente hablando

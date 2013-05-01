@@ -10,10 +10,10 @@ import java.util.ArrayList;
  * @author Joan Pol
  */
 public class RestAssignatura extends Restriccio {
-       Assignatura assignatura;
-       int grup;
-       String dia;
-       int hora;
+       private Assignatura assignatura;
+       private int grup;
+       private String dia;
+       private int hora;
 
     public RestAssignatura(){
         super(3);
