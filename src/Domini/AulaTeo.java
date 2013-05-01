@@ -13,7 +13,7 @@ public class AulaTeo extends Aula {
     private boolean projector;
 
     /**
-     * 
+     *
      * @param nom nom de l'aula
      * @param cap capacitat
      * @param projector si te projector o no
@@ -24,7 +24,7 @@ public class AulaTeo extends Aula {
     }
 
     /**
-     * 
+     *
      */
     public AulaTeo() {
         super();

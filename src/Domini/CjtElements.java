@@ -11,52 +11,84 @@ import java.util.ArrayList;
  * @author miquel
  */
 public class CjtElements {
-    /**
-     * valid diu si aquell conjunt es valid
-     */
+
     private boolean valid;
     private ArrayList<Element> assignacions;
     
-    
+    /**
+     * creadora per defecte 
+     */
     public CjtElements(){
         valid = false;
         assignacions = new ArrayList<Element>();
     }
-
+    /**
+     * 
+     * @param e element a afegir
+     */
     public void afegirElement (Element e) {
         assignacions.add(e);
     }
+    /**
+     * 
+     * @return si aquell conjunt es valid per fer assignacions
+     */
     public boolean isValid() {
         return valid;
     }
-
+    /**
+     * 
+     * @param valid boolea per validar el conjunt
+     */
     public void setValid(boolean valid) {
         this.valid = valid;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public ArrayList<Element> getAssignacions() {
         return assignacions;
     }
-    
+    /**
+     * 
+     * @param pos
+     * @return 
+     */
     public Element getElementPosicio(int pos) {
         return assignacions.get(pos);
     }
-
+    /**
+     * 
+     * @return el nombre d'elements d'aquell conjunt
+     */
     public int numeroElements() {
         return assignacions.size();
     }
-
+    /**
+     * 
+     * comprova si l'aula de l'alement que es passa per parametre
+     * no la ocupi ja un altre element del conjunt
+     * 
+     * @param e element
+     * @return cert si no es viola la restriccio de aules reetides, fals en el cas
+     * que si
+     */
     public boolean aulaRepetida(Element e) {
         for( int i = 0; i < assignacions.size(); ++i){
-            if( assignacions.get(i).getAula().equals( e.getAula() ) ){ // si es la misma aula
-                if( ! assignacions.get(i).equals(  e )  ) { // y no es el mismo elemtno
-                    return false;
+            if( assignacions.get(i).getAula().equals( e.getAula() ) ){ // es la mateixa aula
+                if( ! assignacions.get(i).equals(  e )  ) { // i no es el maateix element
+                    return true;
                 }
             }
         }
-        return true;
+        return false;
     }
-
+    /**
+     * 
+     * @param e
+     * @return 
+     */
     public boolean solapamentTeoriaPractica(Element e) {
         //String asg = e.getAssignatura();
         boolean grupTeoria = false;
@@ -81,11 +113,18 @@ public class CjtElements {
         }
         return false;
     }
-
+    /**
+     * 
+     * @param e 
+     */
     void borrarElement(Element e) {
         assignacions.remove(e);
     }
-
+    /**
+     * 
+     * @param e
+     * @return 
+     */
     boolean solapamentNivell(Element e) {
            for( int i = 0; i < assignacions.size(); ++i){
             if( assignacions.get(i).getAssignatura().getNivell() ==
@@ -97,7 +136,11 @@ public class CjtElements {
         }
         return true;
     }
-
+    /**
+     * 
+     * @param e
+     * @return 
+     */
     boolean solapamentAssGrupHora(Element e) {
         return true;
     }
