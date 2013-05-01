@@ -5,7 +5,6 @@
 package Domini;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  *
@@ -22,7 +21,6 @@ public class Assignatura {
     private int capacitatTeo;
     private int capacitatLab;
     private ArrayList<Integer> grups;
-//TODO: Falta si la assigantura necesita cosas apra teo y lab
     private boolean material;
     private boolean projector;
 
@@ -46,10 +44,22 @@ public class Assignatura {
         }
         return true;
     }
-
-    public Assignatura() {
-    }
-
+    /**
+     * 
+     */
+    public Assignatura() {}
+    /**
+     * 
+     * @param nm
+     * @param niv
+     * @param ht
+     * @param inteT
+     * @param hp
+     * @param inteP
+     * @param capT
+     * @param capP
+     * @param grups 
+     */
     public Assignatura(String nm, int niv, int ht, ArrayList<Integer> inteT, int hp,
             ArrayList<Integer> inteP, int capT, int capP, ArrayList<Integer> grups) {
         nom = nm;
@@ -64,19 +74,33 @@ public class Assignatura {
         material = false;
         projector = false;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public boolean necesitaMaterial() {
         return material;
     }
-
+    /**
+     * 
+     * @param material 
+     */
     public void setMaterial(boolean material) {
         this.material = material;
     }
-
+    
+    /**
+     * 
+     * @return 
+     */
     public boolean necesitaProjector() {
         return projector;
     }
-
+    
+    /**
+     * 
+     * @param projector 
+     */
     public void setProjector(boolean projector) {
         this.projector = projector;
     }
@@ -88,78 +112,127 @@ public class Assignatura {
     public String getNom() {
         return nom;
     }
-
+    /**
+     * 
+     * @param nom 
+     */
     public void setNom(String nom) {
         this.nom = nom;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public int getHoresT() {
         return horesT;
     }
-
+    /**
+     * 
+     * @param horesT 
+     */
     public void setHoresT(int horesT) {
         this.horesT = horesT;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public int getHoresP() {
         return horesP;
     }
-
+    /**
+     * 
+     * @param horesP 
+     */
     public void setHoresP(int horesP) {
         this.horesP = horesP;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public int getNivell() {
         return nivel;
     }
-
+    /**
+     * 
+     * @param nivel 
+     */
     public void setNivell(int nivel) {
         this.nivel = nivel;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public int getCapacitatTeo() {
         return capacitatTeo;
     }
-
+    /**
+     * 
+     * @param capt 
+     */
     public void setCapacitatTeo(int capt) {
         capacitatTeo = capt;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public int getCapacitatLab() {
         return capacitatLab;
     }
-
+    /**
+     * 
+     * @param capl 
+     */
     public void setCapacitatLab(int capl) {
         capacitatLab = capl;
     }
-
+/**
+ * 
+ * @return 
+ */
     public ArrayList<Integer> getIntervalsT() {
         return intervalsT;
     }
-
+    /**
+     * 
+     * @param it 
+     */
     public void setIntervalsT(ArrayList<Integer> it) {
         intervalsT = it;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public ArrayList<Integer> getIntervalsP() {
         return intervalsP;
     }
-
+    /**
+     * 
+     * @param ip 
+     */
     public void setIntervalsP(ArrayList<Integer> ip) {
         intervalsP = ip;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public ArrayList<Integer> getGrups() {
         return grups;
     }
-
+    /**
+     * 
+     * @param grupos 
+     */
     public void setGrups(ArrayList<Integer> grupos) {
         this.grups.addAll(grupos);
-        // Collections.sort(this.grupos);
     }
 
     public void addGrup(Integer grupo) {
         grups.add(grupo);
-        //Collections.sort(this.grupos);
     }
 }
