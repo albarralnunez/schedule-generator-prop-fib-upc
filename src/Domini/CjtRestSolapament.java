@@ -27,7 +27,12 @@ public class CjtRestSolapament extends CjtRestriccions{
     public void setRestriccions_solapament(ArrayList<RestSolapament> restriccions_solapament) {
         this.restriccions_solapament = restriccions_solapament;
     }
-
+    public int size(){
+         return restriccions_solapament.size();
+    }
+    public RestSolapament get(int i){
+      return  restriccions_solapament.get(i);
+    }
 
     /**@pre: La restricció a afeigir ha estat verificada per la clase RestSolapament
      * @post: Queda afeigida la restriccio a l'arraylist restriccions_solapament

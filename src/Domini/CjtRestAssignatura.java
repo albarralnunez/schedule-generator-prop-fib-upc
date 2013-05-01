@@ -27,7 +27,12 @@ public class CjtRestAssignatura extends CjtRestriccions{
     public void setRestsAssignatura(ArrayList<RestAssignatura> restsAssignatura) {
         this.restsAssignatura = restsAssignatura;
     }
-
+    public int size(){
+         return restsAssignatura.size();
+    }
+    public RestAssignatura get(int i){
+      return  restsAssignatura.get(i);
+    }
 
     /**@pre: La restricció a afeigir ha estat verificada per la clase RestriccioAula
      * @post: Queda afeigida la restriccio a l'arraylist restriccions_aula

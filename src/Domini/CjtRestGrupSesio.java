@@ -27,6 +27,12 @@ public class CjtRestGrupSesio extends CjtRestriccions{
     public void setRestriccions_grup_sesio(ArrayList<RestGrupSesio> restriccions_grup_sesio) {
         this.restriccions_grup_sesio = restriccions_grup_sesio;
     }
+    public int size(){
+         return restriccions_grup_sesio.size();
+    }
+    public RestGrupSesio get(int i){
+      return  restriccions_grup_sesio.get(i);
+    }
 
     /**@pre: La restricció a afeigir ha estat verificada per la clase RestGrupSesio
      * @post: Queda afeigida la restriccio a l'arraylist restriccions_grup_sesio

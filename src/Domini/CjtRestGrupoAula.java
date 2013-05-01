@@ -29,8 +29,12 @@ public class CjtRestGrupoAula extends CjtRestriccions{
         this.restGrupoAula = rest_grupo_aula;
     }
 
-
-
+    public int size(){
+         return restGrupoAula.size();
+    }
+    public RestGrupoAula get(int i){
+      return  restGrupoAula.get(i);
+    }
 
     /**@pre: La restricció a afeigir ha estat verificada per la clase RestGrupoAula
      * @post: Queda afeigida la restriccio a l'arraylist rest_grupo_aula
