@@ -97,16 +97,16 @@ public class RestAssignatura extends Restriccio {
         return comp;
     }
     public boolean compleixResDia(Assignatura assignatura, int grup, String dia){
-        boolean comp = false;
+        boolean comp = true;
         if(this.assignatura == assignatura && this.grup == grup){
-            if(this.hora == hora) comp = true;
+            if(this.dia == dia) comp = false;
         }
         return comp;
     }
     
     public boolean CompleixResDiaHora(Assignatura assignatura, int grup, String dia,int hora){
-        if(compleixResHora(assignatura, grup, hora) && compleixResDia(assignatura, grup, dia)) return true;
-        else return false;
+        if(compleixResHora(assignatura, grup, hora) && compleixResDia(assignatura, grup, dia)) return false;
+        else return true;
    }
 
     boolean compleixRes(Clausula c, ClausulaNom cn) {
