@@ -189,14 +189,12 @@ class Generador {
         //si es vol posar un grup de lab on hi ha un de teoria o al reves 
         if (elems.solapamentTeoriaPractica(e)) return false;
         //si es vols posar dos assignaturas del mateix nivell
-        if (!elems.solapamentNivell(e)) return false;
+        //if (!elems.solapamentNivell(e)) return false; PENDIENTE!
         return true;
     }
 
     private boolean compleixResDomini(Clausula c, ClausulaNom cn, Quadricula q) {
-        
-        if( !this.cjtRestGS.ComprovarRes(c, cn)) return false;
-                
+        if( !this.cjtRestGS.ComprovarRes(c, cn)) return false;   
         if (!cjtRgraula.ComprovarRes(c, cn)) return false;
         if (!cjtRass.ComprovarRes(c,cn)) return false;
         if (!cjtRula.ComprovarRes(c,cn)) return false;
