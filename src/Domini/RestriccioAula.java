@@ -117,7 +117,7 @@ class RestriccioAula extends Restriccio{
         return es_pot;
     }
 
-    boolean compleixRes(Clausula c, ClausulaNom cn) {
+   public boolean compleixRes(Clausula c, ClausulaNom cn) {
         Aula a = cn.getAula();
         int h = cn.getHora();
         String d = cn.getDia();

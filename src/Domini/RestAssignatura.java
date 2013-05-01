@@ -109,7 +109,7 @@ public class RestAssignatura extends Restriccio {
         else return true;
    }
 
-    boolean compleixRes(Clausula c, ClausulaNom cn) {
+    public boolean compleixRes(Clausula c, ClausulaNom cn) {
         String d = cn.getDia();
         Integer h = cn.getHora();
         int g = c.getGrup();
