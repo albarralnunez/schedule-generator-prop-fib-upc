@@ -178,6 +178,9 @@ public class CtrGeneracio {
      * @param conf
      */
     public void montaRestriccionsTemps( ArrayList<String> conf ){
+        
+        quad = new Quadricula();
+        
         ArrayList<Integer> dl = new ArrayList<Integer>();
         ArrayList<Integer> dm = new ArrayList<Integer>();
         ArrayList<Integer> dc = new ArrayList<Integer>();
