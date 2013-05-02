@@ -89,8 +89,6 @@ public class CtrDomini {
      */
     public ArrayList<String> mostraParametresAssignatura( String nomaAsg){ //TODO: Toda la informaicon!
         return cper.llegirAssignatura(nomUnitat+"-"+nomaAsg);
-        
-        //Assignatura a = new Assignatura( atributs.get(0), nt, np, nv );
     }
     /**
      * 
@@ -279,16 +277,46 @@ public class CtrDomini {
     /**
      * 
      */
-    public void generar() {
-        if (cgen.generar()) {
-            Representador rep = new Representador();
-            rep.imprimir_horario(cgen.getQuad());
-        }
-        else {
-            System.out.print("\n    no s ha pogut generar cap hoari valid\n\n");
-        }
+    public boolean generar( ) {
+        return cgen.generar();
     }
     
+    
+    public void imprimeixHorari() {
+        
+        Quadricula q = cgen.getQuad();
+        
+        for(int i=0; i < 7; ++i) {
+            String dia;
+            if (i == 0) dia = "dilluns";
+            else if (i == 1) dia = "dimarts";
+            else if (i == 2) dia = "dimecres";
+            else if (i == 3) dia = "dijous";
+            else if (i == 4) dia = "divendres";
+            else if (i == 5) dia = "dissabte";
+            else dia = "diumenge";
+            System.out.println("DIA: "+ dia); //DIA: DILLUNS
+            for (int j=0; j < 24; ++j) {
+                CjtElements cjt_elem = new CjtElements();
+                cjt_elem = q.getElementsPosicio(dia, j);
+                if (cjt_elem.isValid() && !cjt_elem.getAssignacions().isEmpty()) {
+                    System.out.println(" "+j+": ");
+                    //Si el conjunto de elementos es valido
+                    ArrayList<Element> assignacions;
+                    assignacions = cjt_elem.getAssignacions();
+                    for (Element e1 : assignacions) {
+                        Aula a = new Aula();
+                        Assignatura ass = new Assignatura();
+                        int grupo;
+                        a = e1.getAula();
+                        ass = e1.getAssignatura();
+                        grupo = e1.getGrupo();
+                        System.out.println("     "+ass.getNom()+", "+grupo+", "+a.getNom());
+                    }
+                }
+            }
+        }
+    }
     /**
      * 
      * @param tipus

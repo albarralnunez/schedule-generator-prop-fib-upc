@@ -234,7 +234,10 @@ public class CtrPresentacio {
         }  
     }
     private static void generarHorari(){
-        cd.generar();
+        if ( cd.generar() ){
+            cd.imprimeixHorari();
+        }    
+        else System.out.println("\n NO S'HA POGUT GENERAR CAP HORARI");
     }
     
     
