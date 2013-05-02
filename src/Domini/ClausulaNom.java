@@ -11,9 +11,9 @@ package Domini;
 public class ClausulaNom {
 
 
-    private Aula aula; //Aula
-    private String dia; //Dia
-    private int hora; //Hora
+    private Aula aula; 
+    private String dia; 
+    private int hora; 
     
     public ClausulaNom() {
     }

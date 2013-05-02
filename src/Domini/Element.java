@@ -12,9 +12,7 @@ public class Element {
 
     private Aula aula;
     private Assignatura assignatura;
-    private int grupo;
-//    private String dia;
-//    private int hora;
+    private int grup;
         
     public Aula getAula() {
         return aula;
@@ -33,27 +31,11 @@ public class Element {
     }
 
     public int getGrupo() {
-        return grupo;
+        return grup;
     }
 
-    public void setGrupo(int grupo) {
-        this.grupo = grupo;
+    public void setGrupo(int grup) {
+        this.grup = grup;
     }
-/*
-    public String getDia() {
-        return dia;
-    }
-
-    public void setDia(String dia) {
-        this.dia = dia;
-    }
-
-    public int getHora() {
-        return hora;
-    }
-
-    public void setHora(int hora) {
-        this.hora = hora;
-    }
-  */     
+ 
 }

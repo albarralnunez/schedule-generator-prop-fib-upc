@@ -76,7 +76,6 @@ public class RestAssignatura extends Restriccio {
              if(resdw.getAssignatura().equals(this.assignatura) && resdw.getGrup
                      () == this.grup && resdw.getDia().equals(this.dia) && 
                      resdw.getHora() == this.hora) return false;
-              //if(this.equals(resdw)) return false
          }
          llista = cjtResGS.getCjtRes();
          size = llista.size();
