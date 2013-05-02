@@ -21,11 +21,11 @@ public class CjtRestGrupoAula extends CjtRestriccions{
     
     //Getters y Setters
 
-    public ArrayList<RestGrupoAula> getRest_grupo_aula() {
+    public ArrayList<RestGrupoAula> getRestGrupoAula() {
         return restGrupoAula;
     }
 
-    public void setRest_grupo_aula(ArrayList<RestGrupoAula> rest_grupo_aula) {
+    public void setRestGrupoAula(ArrayList<RestGrupoAula> rest_grupo_aula) {
         this.restGrupoAula = rest_grupo_aula;
     }
 
@@ -44,7 +44,7 @@ public class CjtRestGrupoAula extends CjtRestriccions{
      *
      * @param r Es la restriccio de RestGrupoAula
      */
-    public void afegir_rest(RestGrupoAula r) {
+    public void afegirRest(RestGrupoAula r) {
         
         restGrupoAula.add(r);
     }

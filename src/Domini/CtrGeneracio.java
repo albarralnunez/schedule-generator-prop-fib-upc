@@ -91,7 +91,7 @@ public class CtrGeneracio {
     }
    
     public void setResResGA(RestGrupoAula r){
-        cjtResGA.afegir_rest(r);
+        cjtResGA.afegirRest(r);
     }
     public void setResRestAul(RestriccioAula r){
         cjtRestAul.afegir_rest(r);
@@ -100,7 +100,7 @@ public class CtrGeneracio {
         cjtRestAss.setRest(r);
     }
     public void setResRestS(RestSolapament r){
-        cjtRestS.afegir_rest(r);
+        cjtRestS.afegirRest(r);
     }
 
     public String getNomUnitat() {

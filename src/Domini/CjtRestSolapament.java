@@ -12,46 +12,46 @@ import java.util.ArrayList;
  */
 public class CjtRestSolapament extends CjtRestriccions{
 
-    private ArrayList<RestSolapament> restriccions_solapament;
+    private ArrayList<RestSolapament> restriccionsSolapament;
 
     //Constructora por defecto:
     public CjtRestSolapament() {
-        restriccions_solapament = new ArrayList();
+        restriccionsSolapament = new ArrayList();
     }
 
     //Getters y Setters
-    public ArrayList<RestSolapament> getRestriccions_solapament() {
-        return restriccions_solapament;
+    public ArrayList<RestSolapament> getRestriccionsSolapament() {
+        return restriccionsSolapament;
     }
 
-    public void setRestriccions_solapament(ArrayList<RestSolapament> restriccions_solapament) {
-        this.restriccions_solapament = restriccions_solapament;
+    public void setRestriccionsSolapament(ArrayList<RestSolapament> restriccions_solapament) {
+        this.restriccionsSolapament = restriccions_solapament;
     }
     public int size(){
-         return restriccions_solapament.size();
+         return restriccionsSolapament.size();
     }
     public RestSolapament get(int i){
-      return  restriccions_solapament.get(i);
+      return  restriccionsSolapament.get(i);
     }
     public void remove(int index){
-        restriccions_solapament.remove(index);
+        restriccionsSolapament.remove(index);
     }
     /**@pre: La restricció a afeigir ha estat verificada per la clase RestSolapament
-     * @post: Queda afeigida la restriccio a l'arraylist restriccions_solapament
+     * @post: Queda afeigida la restriccio a l'arraylist restriccionsSolapament
      *
      * @param r Es la restriccio de RestSolapament
      */
-    public void afegir_rest(RestSolapament r) {
-        restriccions_solapament.add(r);
+    public void afegirRest(RestSolapament r) {
+        restriccionsSolapament.add(r);
     }
 
     /**@pre: La restricció a borrar ha estat verificada per la clase RestSolapament
-     * @post: Queda borrada la restriccio a l'arraylist restriccions_solapament
+     * @post: Queda borrada la restriccio a l'arraylist restriccionsSolapament
      *
      * @param r Es la restriccio de RestSolapament
      */
     public boolean borrarElem(RestSolapament r) {
-        return restriccions_solapament.remove(r);
+        return restriccionsSolapament.remove(r);
     }
 
     /**
@@ -60,7 +60,7 @@ public class CjtRestSolapament extends CjtRestriccions{
      * @return true si hem trobat l'element o false en cas contrari.
      */
     public boolean buscarElem(RestSolapament r) {
-        for(RestSolapament r1: this.restriccions_solapament){
+        for(RestSolapament r1: this.restriccionsSolapament){
                 if(r1 == r) return true;
         }
         return false;

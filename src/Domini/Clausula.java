@@ -60,24 +60,6 @@ public class Clausula {
         return clausula.remove(c);
     }
 
-    /**
-     * Es busca l'element en la clau y es retorna on booleà indicant el resultat
-     * @param a, d, h son l'aula, el dia i l'hora que formen l'element a buscar
-     * @return true si hem trobat l'element o false en cas contrari.
-     */
-/*    
-    public boolean buscarElem(ClausulaNom c) {
-        clausulaNom e = new clausulaNom();
-        e.a = a;
-        e.d = d;
-        e.h = h;
-        for(clausulaNom e1: clausula){
-                if(e1 == e) return true;
-        }
-        return false;
-    }
-*/
-
     public void setGrup(Integer id) {
         this.grup = id;
     }

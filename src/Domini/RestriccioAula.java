@@ -100,13 +100,13 @@ class RestriccioAula extends Restriccio{
         //En esa aula en las horas en que esta prohibida ==> SE PRODUCE INCOHERENCIA!
         
         ArrayList<RestGrupoAula> r;
-        r = cjtRestGrupoAula.getRest_grupo_aula();
+        r = cjtRestGrupoAula.getRestGrupoAula();
         for (RestGrupoAula r1: r) { //Para cada restriccion Grupo-Aula
             if (r1.getAula().equals(this.aula.getNom())) { //Si a un assig+grupo le fuerzan ir a una aula
                 Integer grupo = r1.getGrup(); //Grupo forzado.
                 String ass = r1.getAssignatura(); //Assignatura forzada.
                 ArrayList<RestGrupSessio> rgs;
-                rgs = cjtRestGrupSesio.getRestriccions_grup_sesio();
+                rgs = cjtRestGrupSesio.getRestriccionsGrupSesio();
                 for (RestGrupSessio r2 : rgs) { //Para cada restriccion que diga que un assig+grupo que debia ir a un dia/hora.
                     if (r2.getGrup() == grupo && r2.getAssignatura().equals(ass)) { //Si se trata del assig+grupo que debia ir a nuestra aula de la restriccion.
                         if (r2.getHora() == this.hora) es_pot = false;
