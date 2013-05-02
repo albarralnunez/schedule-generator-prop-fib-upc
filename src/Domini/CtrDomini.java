@@ -7,7 +7,6 @@ package Domini;
 import Persistencia.CtrPersistencia;
 import java.util.ArrayList;
 
-
 /**
  *
  * @author miquelmasrieraquevedo
@@ -18,7 +17,10 @@ public class CtrDomini {
     private String nomUnitat;
     private CtrGeneracio cgen;
     
-    
+    /**
+     * 
+     * @param nomU 
+     */
     public CtrDomini( String nomU ){     
         nomUnitat = nomU;
         cper = new CtrPersistencia();
@@ -44,7 +46,18 @@ public class CtrDomini {
             for(int i = 0; i < a.size(); ++i) params.add(a.get(i));
             cper.creaAssignatura(nomUnitat+"-"+nomAsg , params);
     }
-    
+    /**
+     * 
+     * @param nomAsg
+     * @param nivell
+     * @param ht
+     * @param intervalsT
+     * @param hp
+     * @param intervalsP
+     * @param capTeo
+     * @param capPra
+     * @param grups 
+     */
     public void creaAssignatura( String nomAsg, int nivell, int ht, ArrayList<Integer> intervalsT, int hp,
             ArrayList<Integer> intervalsP , int capTeo, int capPra ,ArrayList grups ){ 
         
@@ -80,11 +93,18 @@ public class CtrDomini {
     public ArrayList llistaAssignatures(){
         return cper.llistaAssigantures(nomUnitat);
     }
-
+    /**
+     * 
+     * @param nomAsg
+     * @return 
+     */
     public boolean existeixAssignatura(String nomAsg) {
         return cper.existeixAssignatura(nomUnitat+"-"+nomAsg);
     }
-
+    /**
+     * 
+     * @param nomaAsg 
+     */
     public void printAssig( String nomaAsg){ //TODO: Toda la informaicon!
         ArrayList<String> atributs = cper.llegirAssignatura(nomUnitat+"-"+nomaAsg);
         String n = atributs.get(0);
@@ -94,7 +114,11 @@ public class CtrDomini {
         System.out.println("els valors actuals de "+n+" son \n hteoria="+nt+"\n hpractica="+np+"\n nivel="+nv);
         //Assignatura a = new Assignatura( atributs.get(0), nt, np, nv );
     }
-    
+    /**
+     * 
+     * @param nomAsg
+     * @return 
+     */
     public ArrayList<String> llegirAssignatura( String nomAsg){
         return cper.llegirAssignatura(nomUnitat+"-"+nomAsg);
     }
@@ -230,12 +254,14 @@ public class CtrDomini {
            aTeo.add(a);
         }
         
-        cgen.inicialitzarGenerador(configuracioInicial, assignatures, aLab, aTeo);
-        
-        
+        cgen.inicialitzarGenerador(configuracioInicial, assignatures, aLab, aTeo); 
     }
   
-    
+    /**
+     * 
+     * @param nomAsg
+     * @return 
+     */
     public Assignatura montaAssignatura( String nomAsg ){
         Assignatura asg = new Assignatura();
         nomAsg = nomAsg.replace("assig-"+nomUnitat+"-", "");
@@ -255,7 +281,6 @@ public class CtrDomini {
         int contadorip =  Integer.parseInt( atributs.get( ++contador) );
         contador = contador + contadorip;
         ArrayList<Integer> intersP = new ArrayList<Integer>(contadorip); 
-        //for( int i = contador-contadorip+1; i < contador; ++i){
         for( int i = contador-contadorip; i < contador; ++i){
             int interval = Integer.parseInt(atributs.get(i+1));
             intersP.add( interval );
@@ -272,24 +297,10 @@ public class CtrDomini {
         asg = new Assignatura( nom, nvl, numht, intersT, numhp, intersP, capt, capp, grupos );
         return asg;
     }
-    /*public Aula montaAula(String nomAula){
-        Aula a = new Aula();
-        if(grup%10 == 0){
-           ArrayList<String> atributs = cper.llegirAulaTeo(unitatDocent+"-"+nomAula);
-           boolean b;
-           if (Integer.parseInt (atributs.get(3)) == 1) b = true;
-           else b = false;
-            a = new AulaTeo(nomAula,Integer.parseInt (atributs.get(2)),b);
-        }
-        else{
-           ArrayList<String> atributs = cper.llegirAulaLab(unitatDocent+"-"+nomAula);
-           boolean b = false;
-           if (Integer.parseInt (atributs.get(3)) == 1) b = true;
-            a = new AulaLab(nomAula,Integer.parseInt (atributs.get(2)),b);
-        }
-        return a;
-    }*/
 
+    /**
+     * 
+     */
     public void generar() {
         if (cgen.generar()) {
             Representador rep = new Representador();
@@ -300,6 +311,11 @@ public class CtrDomini {
         }
     }
     
+    /**
+     * 
+     * @param tipus
+     * @param params 
+     */
     public void afegirRestriccio(int tipus, ArrayList params) {
         if(tipus == 1) {
             RestGrupoAula r = new RestGrupoAula();
@@ -403,18 +419,38 @@ public class CtrDomini {
             
         }
     }
-    
+    /**
+     * 
+     * @param nomA
+     * @param grup
+     * @param dia
+     * @param hora
+     * @return 
+     */
     public boolean AfegirRestriccioGrupSessio( String nomA, int grup, String dia, int hora ){
         return cgen.AfegirRestriccioGrupSessio( nomA, grup, dia, hora);
     }
-
+    /**
+     * 
+     * @param nom
+     * @return 
+     */
     private ArrayList<String> llegirAulaLab(String nom) {
         return cper.llegirAula("aula-lab-"+nomUnitat+"-"+nom);
     }
-
+    /**
+     * 
+     * @param nom
+     * @return 
+     */
     private ArrayList<String> llegirAulaTeo(String nom) {
         return cper.llegirAula("aula-teo-"+nomUnitat+"-"+nom);
     }
+    /**
+     * 
+     * @param tipus
+     * @return 
+     */
     public ArrayList<String> llistaRest(int tipus){
         ArrayList<String> l = new ArrayList();
         if(tipus == 1){
@@ -480,6 +516,12 @@ public class CtrDomini {
         }
         return l;
     }
+    
+    /**
+     * 
+     * @param tipus
+     * @param params 
+     */
     public void modificarRest(int tipus,ArrayList params){
         switch (tipus) {
             case 1: 
@@ -567,6 +609,12 @@ public class CtrDomini {
                     break;
         }
     }
+    
+    /**
+     * 
+     * @param tipus
+     * @param numRest 
+     */
     public void esborraRest(int tipus,int numRest){
         switch (tipus){
             case 1:
