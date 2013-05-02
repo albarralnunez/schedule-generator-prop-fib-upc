@@ -79,7 +79,6 @@ public class RestSolapament extends Restriccio{
             Restriccio res = llista.get(i);
             RestSolapament resdw = (RestSolapament) res;
             if(this.equals(resdw)) return false;
-            //if(this.assignaturaPrincipal == resdw.getAssignaturaPrincipal() && this.assignaturaSolapament == resdw.getAssignaturaSolapamiento() && this.grupPrincipal == resdw.getGrupPrincipal() && this.grupSolapament == resdw.getGrupSolapament()) return false;
         }
         return true;
     }
