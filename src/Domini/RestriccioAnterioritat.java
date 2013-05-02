@@ -13,8 +13,8 @@ package Domini;
 
 //Esta Restriccion marca que una assignatura obj1 debe impartirse antes que otra obj2.
 public class RestriccioAnterioritat extends Restriccio {
-    String obj1;
-    String obj2;
+    private String obj1;
+    private String obj2;
 
 
     //Aqui se crea la restriccion y se indican que asignacion debe ir antes (obj1) y cual despues (obj2)
