@@ -28,24 +28,6 @@ public class CtrDomini {
     }
 
 
-   /*
-    * Crea una assigatura (  un arxiu .txt amb tota la info)
-    * nom de l arxiu (unitat docent)-(assignatura)-(nom assignatura)
-    * 
-    * ara nomes posa el nom pero tenen que posarse i validar tots
-    * els parametres
-    */
-    public void creaAssignatura2( String nomAsg, int ht, int hp, int nivel,int capTeo,int capLab,ArrayList a ){ 
-            ArrayList params = new ArrayList();
-            params.add(nomAsg);
-            params.add(ht);
-            params.add(hp);
-            params.add(nivel);
-            params.add(capTeo);
-            params.add(capLab);
-            for(int i = 0; i < a.size(); ++i) params.add(a.get(i));
-            cper.creaAssignatura(nomUnitat+"-"+nomAsg , params);
-    }
     /**
      * 
      * @param nomAsg
@@ -105,13 +87,9 @@ public class CtrDomini {
      * 
      * @param nomaAsg 
      */
-    public void printAssig( String nomaAsg){ //TODO: Toda la informaicon!
-        ArrayList<String> atributs = cper.llegirAssignatura(nomUnitat+"-"+nomaAsg);
-        String n = atributs.get(0);
-        int nt = Integer.parseInt(atributs.get(1));
-        int np = Integer.parseInt(atributs.get(2));
-        int nv = Integer.parseInt(atributs.get(3));
-        System.out.println("els valors actuals de "+n+" son \n hteoria="+nt+"\n hpractica="+np+"\n nivel="+nv);
+    public ArrayList<String> mostraParametresAssignatura( String nomaAsg){ //TODO: Toda la informaicon!
+        return cper.llegirAssignatura(nomUnitat+"-"+nomaAsg);
+        
         //Assignatura a = new Assignatura( atributs.get(0), nt, np, nv );
     }
     /**

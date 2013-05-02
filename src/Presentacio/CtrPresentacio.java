@@ -289,13 +289,59 @@ public class CtrPresentacio {
             opcio = s.nextInt();
             
             System.out.println("");
-            if(opcio == 1) creaAssignatura();
+            if(opcio == 1) {
+                System.out.println("nom de la assigatura a crear ");
+                String nomAsg;
+                nomAsg = s.next(); // nom de la assignatura 
+                if( cd.existeixAssignatura( nomAsg) ) System.err.println("ja existeix");
+                else creaAssignatura(nomAsg);
+            }
             else if(opcio == 2) esborraAssignatura();
-            else if(opcio == 3) modificaAssignatura();
+            else if(opcio == 3) {
+                System.out.println("nom de la assigatura a modificar ");
+                String nomAsg;
+                nomAsg = s.next(); // nom de la assignatura 
+                if( ! cd.existeixAssignatura( nomAsg) ) System.err.println(nomAsg+" no existeix");
+                else creaAssignatura(nomAsg);
+            }
         }
-        
     }
     
+    /**
+    * Crea una assigatura (  un arxiu .txt amb tota la info)
+    * nom de l arxiu (unitat docent)-(nom assignatura)
+    * 
+    * ara nomes posa el nom pero tenen que posarse i validar tots
+    * els parametres
+    */
+    private static void creaAssignatura( String nomAsg){  
+       
+            System.out.println("nivell");
+            int nivell = s.nextInt();
+            System.out.println("hores de teoria ");
+            int horest;
+            horest = s.nextInt();
+            ArrayList<Integer> intervalsT = definirIntervalsHores( horest);
+            System.out.println("hores de practica");
+            int horesp;
+            horesp = s.nextInt();
+            ArrayList<Integer> intervalsP = definirIntervalsHores( horesp);
+            System.out.println("Capacitat grups Teoria");
+            int capTeo = s.nextInt();
+            System.out.println("Capacitat grups Laboratori");
+            int capLab = s.nextInt();
+            System.out.println("Numero de grups de teoria");
+            int ngt = s.nextInt();
+            System.out.println("Numero de grups de laboratori");
+            int ngl = s.nextInt();
+            ArrayList<Integer> grups = new ArrayList();
+            for(int i = 0; i < ngt; ++i){
+                for(int j = 0; j < ngl+1; ++j) grups.add((i+1)*10+j);
+            }
+            cd.creaAssignatura( nomAsg, nivell , horest, intervalsT, horesp, intervalsP,
+                    capTeo ,capLab, grups); // crea l'arxiu txt amb la info
+        //}
+    }
     
     private static void opcionsAules(){
         int opcio = 0;
@@ -591,109 +637,8 @@ public class CtrPresentacio {
             else System.out.println("No hi ha restriccions d'aquest tipus");
             System.out.println("");     
         }
-                    /*
-                    break;
-                
-            case 2:  
-                    llista = cd.llistaRest(2);
-                    if(!llista.isEmpty()){
-                        max = llista.size();
-                        rest = -1;
-                        System.out.println("");
-                        System.out.println(" Unitat Docent:"+unitatDocent+" Llista restriccions tipus "+2+" :");
-                        for(i = 0; i < llista.size(); ++i) { num = i+1; System.out.println(num+"-  "+llista.get(i) );}
-                        System.out.println("");
-                        System.out.println("Quina es vol esborrar?");
-                        while( 1> rest || rest > max) rest = s.nextInt();
-                        --rest;
-                        cd.esborraRest(2,rest);
-                    }
-                    else System.out.println("No hi ha restriccions d'aquest tipus");
-                    System.out.println("");
-                    break;
-            case 3:  
-                    llista = cd.llistaRest(3);
-                    if(!llista.isEmpty()){
-                        ArrayList<Integer> posicio = new ArrayList();
-                        max = llista.size();
-                        rest = -1;
-                        System.out.println("");
-                        System.out.println(" Unitat Docent:"+unitatDocent+" Llista restriccions tipus "+3+" :");
-                        for(i = 0; i < llista.size(); ++i) { 
-                            if(i%2 == 0) {num = i+1; System.out.println(num+"-  "+llista.get(i) );}
-                            else {
-                                posicio.add(Integer.parseInt(llista.get(i)));
-                            }
-                        }
-                        System.out.println("");
-                        System.out.println("Quina es vol esborrar?");
-                        while(1> rest || rest > max)rest = s.nextInt();
-                        --rest;
-                        cd.esborraRest(3,posicio.get(rest));
-                    }
-                    else System.out.println("No hi ha restriccions d'aquest tipus");
-                    System.out.println("");
-                     break;
-            case 4:  
-                    llista = cd.llistaRest(4);
-                    if(!llista.isEmpty()){
-                        ArrayList<Integer> posicio = new ArrayList();
-                        max = llista.size();
-                        rest = -1;
-                        System.out.println("");
-                        System.out.println(" Unitat Docent:"+unitatDocent+" Llista restriccions tipus "+4+" :");
-                        for(i = 0; i < llista.size(); ++i) { 
-                            if(i%2 == 0) {num = i+1; System.out.println(num+"-  "+llista.get(i) );}
-                            else {
-                                posicio.add(Integer.parseInt(llista.get(i)));
-                            }
-                        }
-                        System.out.println("");
-                        System.out.println("Quina es vol esborrar?");
-                        while( 1> rest || rest > max) rest = s.nextInt();
-                        --rest;
-                        cd.esborraRest(4,posicio.get(rest));
-                    }
-                    else System.out.println("No hi ha restriccions d'aquest tipus");
-                    System.out.println("");
-                        break;
-            case 5:  
-                    llista = cd.llistaRest(5);
-                    if(!llista.isEmpty()){
-                        max = llista.size();
-                        rest = -1;
-                        System.out.println("");
-                        System.out.println(" Unitat Docent:"+unitatDocent+" Llista restriccions tipus "+5+" :");
-                        for(i = 0; i < llista.size(); ++i) {num = i+1; System.out.println(num+"-  "+llista.get(i) );}
-                        System.out.println("");
-                        System.out.println("Quina es vol esborrar?");
-                        while( 1> rest || rest > max) rest = s.nextInt();
-                        --rest;
-                        cd.esborraRest(5, rest);
-                    } 
-                    else System.out.println("No hi ha restriccions d'aquest tipus");
-                    System.out.println("");
-                   break;
-            case 6:  
-                    llista = cd.llistaRest(6);
-                    if(!llista.isEmpty()){
-                        max = llista.size();
-                        rest = -1;
-                        System.out.println("");
-                        System.out.println(" Unitat Docent:"+unitatDocent+" Llista restriccions tipus "+6+" :");
-                        for(i = 0; i < llista.size(); ++i) {num = i+1; System.out.println(num+"-  "+llista.get(i) );}
-                        System.out.println("");
-                        System.out.println("Quina es vol esborrar?");
-                        while( 1> rest || rest > max) rest = s.nextInt();
-                        --rest;
-                        cd.esborraRest(6, rest);
-                    }
-                    else System.out.println("No hi ha restriccions d'aquest tipus");
-                    System.out.println("");
-                    break;
-        }*/
-        
     }
+    
     private static void modRest(int decisio){
        int opcio = 0;
         while( opcio != 7 ) {
@@ -738,7 +683,6 @@ public class CtrPresentacio {
     * 
     * ara nomes posa el nom pero tenen que posarse i validar tots
     * els parametres
-    */
     private static void creaAssignatura(){  
         
         System.out.println("nom de la assigatura a crear ");
@@ -771,7 +715,7 @@ public class CtrPresentacio {
             cd.creaAssignatura( nomAsg, nivell , horest, intervalsT, horesp, intervalsP,
                     capTeo ,capLab, grups); // crea l'arxiu txt amb la info
         }
-    }
+    }*/
     
     private static ArrayList<Integer> definirIntervalsHores( int numHores ){
         ArrayList<Integer> intervals = new ArrayList<Integer>();
@@ -808,7 +752,7 @@ public class CtrPresentacio {
         if( ! cd.esborraAssignatura(nomAsg) ) 
             System.err.println(nomAsg+" no existeix "); 
     }
-    
+    /*
     private static void modificaAssignatura() {
         
         System.out.println("nom de la assigatura a modificar ");
@@ -817,7 +761,7 @@ public class CtrPresentacio {
         if( ! cd.existeixAssignatura( nomAsg) ) 
             System.err.println(nomAsg+" no existeix");
         else {
-            cd.printAssig(nomAsg);
+            ArrayList<String> params = cd.mostraParametresAssignatura(nomAsg);
             System.out.println("hores de teoria ");
             int horest;
             horest = s.nextInt();
@@ -838,10 +782,8 @@ public class CtrPresentacio {
             for(int i = 0; i < ngt; ++i){
                 for(int j = 0; j < ngl+1; ++j) a.add((i+1)*10+j);
             }
-            //cd.creaAssignatura( nomAsg, horest, horesp, nivell, capTeo,capLab, a);
-            
         }
-    }
+    }*/
 
     private static void creaAula(){  
         
