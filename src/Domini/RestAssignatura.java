@@ -82,8 +82,7 @@ public class RestAssignatura extends Restriccio {
          for(int i = 0; i < size; ++i){
              Restriccio res = llista.get(i);
              RestGrupSessio resdw = (RestGrupSessio) res;
-             if(resdw.getAssignatura().equals(this.assignatura) && resdw.getGrup
-                     () == this.grup && resdw.getHora() == this.hora) return false;
+             if( (resdw.getAssignatura().equals(this.assignatura.getNom())) && (resdw.getGrup() == this.grup) && (resdw.getHora() == this.hora) ) return false;
          }
          return true;
     }
@@ -98,7 +97,7 @@ public class RestAssignatura extends Restriccio {
     public boolean compleixResDia(Assignatura assignatura, int grup, String dia){
         boolean comp = true;
         if(this.assignatura == assignatura && this.grup == grup){
-            if(this.dia == dia) comp = false;
+            if(this.dia.equals(dia)) comp = false;
         }
         return comp;
     }
