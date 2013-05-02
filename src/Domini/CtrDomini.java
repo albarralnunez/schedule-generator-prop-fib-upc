@@ -6,7 +6,7 @@ package Domini;
 
 import Persistencia.CtrPersistencia;
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 /**
  *
@@ -16,7 +16,6 @@ public class CtrDomini {
     
     private CtrPersistencia cper;
     private String nomUnitat;
-    private Scanner sc;
     private CtrGeneracio cgen;
     
     
