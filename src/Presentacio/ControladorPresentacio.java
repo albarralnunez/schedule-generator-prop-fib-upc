@@ -23,8 +23,8 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     public ControladorPresentacio() {
         initComponents();
         this.setVisible(true);
-        pLogin = new PanelLogin();
-        pLogin.setBounds(0,0,700,500);
+        pLogin = new PanelLogin( this );
+        //pLogin.setBounds(0,0,700,500);
         this.Layered.add(pLogin);
         canviaPanel("login");
     }

@@ -15,10 +15,14 @@ package Presentacio;
  * @author miquel.masriera
  */
 public class PanelLogin extends javax.swing.JPanel {
+    
+    ControladorPresentacio cp;
 
     /** Creates new form PanelLogin */
-    public PanelLogin() {
+    public PanelLogin( ControladorPresentacio cpres ) {
+        cp = cpres; 
         initComponents();
+        this.setBounds(0,0,700,500);
     }
 
     /** This method is called from within the constructor to
