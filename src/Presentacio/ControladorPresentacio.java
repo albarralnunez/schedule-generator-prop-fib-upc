@@ -19,14 +19,16 @@ import java.awt.Rectangle;
 public class ControladorPresentacio extends javax.swing.JFrame {
     
     PanelLogin pLogin;
+    Avisos avisos;
 
     public ControladorPresentacio() {
         initComponents();
+        avisos = new Avisos();
         this.setVisible(true);
         pLogin = new PanelLogin( this );
-        //pLogin.setBounds(0,0,700,500);
         this.Layered.add(pLogin);
         canviaPanel("login");
+        avisos.posaMissatge("INICIA");
     }
     
     
@@ -66,4 +68,8 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLayeredPane Layered;
     // End of variables declaration//GEN-END:variables
+
+    void mostraAvis(String text) {
+        avisos.posaMissatge(text);
+    }
 }

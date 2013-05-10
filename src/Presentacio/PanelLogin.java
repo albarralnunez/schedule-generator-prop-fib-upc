@@ -35,16 +35,40 @@ public class PanelLogin extends javax.swing.JPanel {
     private void initComponents() {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
-        jButton1 = new javax.swing.JButton();
+        botoLogin = new javax.swing.JButton();
+        nomUD = new javax.swing.JTextField();
+        labelNomUnitatDocent = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botoLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        botoLogin.setText("LOGIN");
+        botoLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botoLoginActionPerformed(evt);
             }
         });
-        jButton1.setBounds(310, 380, 88, 25);
-        jLayeredPane1.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        botoLogin.setBounds(300, 350, 100, 40);
+        jLayeredPane1.add(botoLogin, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        nomUD.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        nomUD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomUDActionPerformed(evt);
+            }
+        });
+        nomUD.setBounds(350, 250, 200, 40);
+        jLayeredPane1.add(nomUD, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        labelNomUnitatDocent.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        labelNomUnitatDocent.setText("Nom de la unitat docent  :");
+        labelNomUnitatDocent.setBounds(150, 250, 200, 40);
+        jLayeredPane1.add(labelNomUnitatDocent, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Generador d' horaris 6.1");
+        jLabel1.setBounds(100, 50, 500, 180);
+        jLayeredPane1.add(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -58,12 +82,22 @@ public class PanelLogin extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_jButton1ActionPerformed
+private void botoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoLoginActionPerformed
+    String nomUnitatDocent = nomUD.getText();
+    System.out.println(nomUnitatDocent);
+    if( nomUnitatDocent == null || nomUnitatDocent.contains(" ") )
+        cp.mostraAvis("El nom de la unitat docent ha de ser una cadena de Caracters sense espais en blanc");
+}//GEN-LAST:event_botoLoginActionPerformed
+
+    private void nomUDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomUDActionPerformed
+
+    }//GEN-LAST:event_nomUDActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton botoLogin;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JLabel labelNomUnitatDocent;
+    private javax.swing.JTextField nomUD;
     // End of variables declaration//GEN-END:variables
 }
