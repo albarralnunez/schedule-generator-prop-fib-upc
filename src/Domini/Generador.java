@@ -205,7 +205,8 @@ class Generador {
             CjtRestSolapament cjtRestS,CjtRestriccioAula cjtRestAul ) {
         inicialitzarCjtRestriccions(cjtResGA, cjtRestAss, cjtRestGS, cjtRestS,cjtRestAul);
         ArrayList<Clausula> clau = inicialitzarClausules(aulesT, aulesL, ass, dis, q);
-        return backtracking(clau, q);
+        boolean b =  backtracking(clau, q);
+        return b;
     }
 
     private boolean backtracking(ArrayList<Clausula> clau, Quadricula qu) {

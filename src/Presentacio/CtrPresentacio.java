@@ -13,19 +13,20 @@ import java.util.Scanner;
  */
 public class CtrPresentacio {
     
-    static String unitatDocent;
+    static String unitatDocent;  // nom de la unitat docent
     static CtrDomini cd;
     static Scanner s;
     
-    public static void main(String[] args) {
+    //public static void mayn(String[] args) {
         
+    public static void mayn() {
        boolean tancar = false;
         
         while(!tancar){
-            s = new Scanner( System.in ); 
+            s = new Scanner( System.in ); // scanner d'entrada
         
             System.out.println("Nom de la unitat docent: ");
-            unitatDocent = s.next(); 
+            unitatDocent = s.next(); //Agafa un string per teclat
         
             cd = new CtrDomini( unitatDocent );
       
@@ -59,11 +60,11 @@ public class CtrPresentacio {
         while( opcio != 7 ) {
             System.out.println(" OPCIONS ");
             System.out.println(" 1 - Restringir un grup a una aula");
-            System.out.println(" 2 - Restringir un grup a un dia i hora");
+            System.out.println(" 2 - Restringir un grup a una hora");
             System.out.println(" 3 - Restringir una hora en la que no es pugui impartir una asignatura+grup");
             System.out.println(" 4 - Restringir un dia per a que no es pugu impartir una assig+grup");
             System.out.println(" 5 - Una assig+grup no es pot impartir a la vegada que una altre temporalmente parlant");
-            System.out.println(" 6 - inhabilitar una aula a un dia/hora");
+            System.out.println(" 6 - Forzar una aula a no poderse usar un dia/hora");
             System.out.println(" 7 - Tornar");
             opcio = s.nextInt();
             
@@ -73,9 +74,8 @@ public class CtrPresentacio {
                 Integer grup;
                 String aula;
                 String rep;
-                ArrayList params;
+                ArrayList params = new ArrayList();
                 while(repetir){
-                    params = new ArrayList();
                     System.out.println("Introduir nom assignatura del grup");
                     assignatura = s.next();
                     System.out.println("Introduir numero del grup");
@@ -93,34 +93,37 @@ public class CtrPresentacio {
             }
             else if(opcio == 2){
                 boolean repetir = true;
+                String assignatura;
+                Integer grup;
+                Integer hora = new Integer("-1");
                 String rep;
-                ArrayList params;
+                ArrayList params = new ArrayList();
                 while(repetir){
-                    params = new ArrayList();
                     System.out.println("Introduir nom assignatura del grup");
-                    String assignatura = s.next();
+                    assignatura = s.next();
                     System.out.println("Introduir numero del grup");
-                    int grup = s.nextInt();
-                    System.out.println("Introduir dia <nom en minuscula>");
-                    String dia = s.next();
+                    grup = s.nextInt();
                     System.out.println("Introduir hora <0-23>");
-                    int hora = s.nextInt();
-                    if( ! cd.AfegirRestriccioGrupSessio( assignatura, grup, dia, hora) )
-                        System.err.println("no es pot definir aquesta restriccio");
+                    /*while((0 > hora) && (hora > 23)) */hora = s.nextInt();
+                    params.add(assignatura);
+                    params.add(grup);
+                    params.add(hora);
+                    cd.afegirRestriccio(2,params);
                     System.out.println("Vols afegir-ne una altre?<y,n>");
                     rep = s.next();
                     if(rep.equals("n")) repetir = false;
                }
+                
             }
+            
             else if(opcio ==  3 ){
                 boolean repetir = true;
                 String assignatura;
                 Integer grup;
                 Integer hora;
                 String rep;
-                ArrayList params;
+                ArrayList params = new ArrayList();
                 while(repetir){
-                    params = new ArrayList();
                     System.out.println("Introduir nom assignatura del grup");
                     assignatura = s.next();
                     System.out.println("Introduir numero del grup");
@@ -134,7 +137,8 @@ public class CtrPresentacio {
                     System.out.println("Vols afegir-ne una altre?<y,n>");
                     rep = s.next();
                     if(rep.equals("n")) repetir = false;
-               }   
+               }
+                
             }
             else if(opcio == 4 ){
                 boolean repetir = true;
@@ -142,9 +146,8 @@ public class CtrPresentacio {
                 Integer grup;
                 String dia;
                 String rep;
-                ArrayList params;
+                ArrayList params = new ArrayList();
                 while(repetir){
-                    params = new ArrayList();
                     System.out.println("Introduir nom assignatura del grup");
                     assignatura = s.next();
                     System.out.println("Introduir numero del grup");
@@ -169,9 +172,8 @@ public class CtrPresentacio {
                 Integer grupS = null;
                 String rep;
                 String nivell = "n"; //valor aleatori que ha de ser diferent de "a" i de "g"
-                ArrayList params;
+                ArrayList params = new ArrayList();
                 while(repetir){
-                    params = new ArrayList();
                     System.out.println("Solapament a nivell de assignatura o de grup ?<a,g>");
                     while((!nivell.equals("a")) && (!nivell.equals("g"))) {nivell = s.next();}
                     System.out.println("Introduir nom assignatura");
@@ -202,9 +204,8 @@ public class CtrPresentacio {
                 Integer hora;
                 String dia;
                 String rep;
-                ArrayList params;
+                ArrayList params = new ArrayList();
                 while(repetir){
-                    params = new ArrayList();
                     System.out.println("Introduir Aula");
                     Aula = s.next();
                     System.out.println("Introduir hora <0-23>");
@@ -218,20 +219,17 @@ public class CtrPresentacio {
                     System.out.println("Vols afegir-ne una altre?<y,n>");
                     rep = s.next();
                     if(rep.equals("n")) repetir = false;
-               }       
+               }
+                
             }
-        }  
+        }
+        
+        
     }
     private static void generarHorari(){
-        if ( cd.generar() ){
-            cd.imprimeixHorari();
-        }    
-        else System.out.println("\n NO S'HA POGUT GENERAR CAP HORARI");
+        if (cd.generar()) cd.imprimeixHorari();
     }
-    
-    
-    
-    
+     
     
     private static void generar() {
         
@@ -269,6 +267,7 @@ public class CtrPresentacio {
         
         int opcio = 0;
         while( opcio != 4 ) {
+            //llista les assignatures
             System.out.println(" Unitat Docent:"+unitatDocent+" llista d'assignatures:");
             ArrayList llista = cd.llistaAssignatures();
             for( int i = 0; i < llista.size(); ++i)    
@@ -280,33 +279,55 @@ public class CtrPresentacio {
             opcio = s.nextInt();
             
             System.out.println("");
-            if(opcio == 1) {
-                System.out.println("nom de la assigatura a crear ");
-                String nomAsg;
-                nomAsg = s.next(); // nom de la assignatura 
-                if( cd.existeixAssignatura( nomAsg) ) System.err.println("ja existeix");
-                else creaAssignatura(nomAsg);
-            }
+            if(opcio == 1) creaAssignatura();
             else if(opcio == 2) esborraAssignatura();
-            else if(opcio == 3) {
-                System.out.println("nom de la assigatura a modificar ");
-                String nomAsg;
-                nomAsg = s.next(); // nom de la assignatura 
-                if( ! cd.existeixAssignatura( nomAsg) ) System.err.println(nomAsg+" no existeix");
-                else creaAssignatura(nomAsg);
-            }
+            else if(opcio == 3) modificaAssignatura();
         }
+        
     }
     
-    /**
+    
+    private static void opcionsAules(){
+        int opcio = 0;
+        while( opcio != 4 ) {
+            //llista les assignatures
+            System.out.println(" Unitat Docent:"+unitatDocent+" llista aules:");
+            ArrayList llista = cd.llistaAules();
+            for( int i = 0; i < llista.size(); ++i)
+            System.out.println(llista.get(i) );
+            System.out.println("");
+            System.out.println(" OPCIONS ");
+            System.out.println("1-crear\n2-esborrar\n3-modificar\n4-tornar");
+            opcio = s.nextInt();
+
+            System.out.println("");
+            if(opcio == 1) creaAula();
+            else if(opcio == 2) esborraAula();
+            else if(opcio == 3) modificaAula();
+        }
+    }
+
+    private static void logout() {
+        
+    }
+    
+    private static void opcionsRestriccions(){
+        
+    }
+   /**
     * Crea una assigatura (  un arxiu .txt amb tota la info)
     * nom de l arxiu (unitat docent)-(nom assignatura)
     * 
     * ara nomes posa el nom pero tenen que posarse i validar tots
     * els parametres
     */
-    private static void creaAssignatura( String nomAsg){  
-       
+    private static void creaAssignatura(){  
+        
+        System.out.println("nom de la assigatura a crear ");
+        String nomAsg;
+        nomAsg = s.next(); // nom de la assignatura 
+        if( cd.existeixAssignatura( nomAsg) ) System.err.println("ja existeix");
+        else {
             System.out.println("nivell");
             int nivell = s.nextInt();
             System.out.println("hores de teoria ");
@@ -330,352 +351,8 @@ public class CtrPresentacio {
                 for(int j = 0; j < ngl+1; ++j) grups.add((i+1)*10+j);
             }
             cd.creaAssignatura( nomAsg, nivell , horest, intervalsT, horesp, intervalsP,
-            capTeo ,capLab, grups);
-        
-    }
-    
-    /**
-     * 
-     */
-    private static void opcionsAules(){
-        int opcio = 0;
-        while( opcio != 4 ) {
-            System.out.println(" Unitat Docent:"+unitatDocent+" llista aules:");
-            ArrayList llista = cd.llistaAules();
-            for( int i = 0; i < llista.size(); ++i)
-            System.out.println(llista.get(i) );
-            System.out.println("");
-            System.out.println(" OPCIONS ");
-            System.out.println("1-crear\n2-esborrar\n3-modificar\n4-tornar");
-            opcio = s.nextInt();
-
-            System.out.println("");
-            if(opcio == 1) creaAula();
-            else if(opcio == 2) esborraAula();
-            else if(opcio == 3) modificaAula();
+                    capTeo ,capLab, grups); // crea l'arxiu txt amb la info
         }
-    }
-    /**
-     * 
-     */
-    private static void logout() {
-        
-    }
-    
-    /**
-     * 
-     * @param opcio 
-     */
-    private static void modificarRest(int opcio){
-        if(opcio ==1) {
-                ArrayList<String> llista = cd.llistaRest(1);
-                if(!llista.isEmpty()){
-                    int max = llista.size();
-                    int rest = -1;
-                    int i;
-                    String a;
-                    int g;
-                    String aul;
-                    System.out.println("");
-                    System.out.println(" Unitat Docent:"+unitatDocent+" Llista restriccions tipus "+1+" :");
-                    for(i = 0; i < llista.size(); ++i) { int num = i+1; System.out.println(num+"-  "+llista.get(i) );}
-                    System.out.println("");
-                    System.out.println("Quina es vol modificar?");
-                    while( 1> rest || rest > max ) rest = s.nextInt();
-                    System.out.println("Introdueix Assignatura");
-                    a = s.next();
-                    System.out.println("Introduix Grup");
-                    g = s.nextInt();
-                    System.out.println("Introduiex Aula");
-                    aul = s.next();
-                    ArrayList params = new ArrayList();
-                    --rest;
-                    params.add(rest);
-                    params.add(a);
-                    params.add(g);
-                    params.add(aul);
-                    cd.modificarRest(1,params);
-                }
-                else System.out.println("No hi ha restriccions d'aquest tipus");
-                System.out.println("");
-            }
-            else if(opcio ==2) {
-                
-                ArrayList<String> llista = cd.llistaRest(2);
-                if(!llista.isEmpty()){
-                    int max = llista.size();
-                    int rest = -1;
-                    int i;
-                    String a;
-                    int g;
-                    int h;
-                    int d;
-                    System.out.println("");
-                    System.out.println(" Unitat Docent:"+unitatDocent+" Llista restriccions tipus "+2+" :");
-                    for(i = 0; i < llista.size(); ++i) { int num = i+1; System.out.println(num+"-  "+llista.get(i) );}
-                    System.out.println("");
-                    System.out.println("Quina es vol modificar?");
-                    while( 1> rest || rest > max) rest = s.nextInt();
-                    System.out.println("Introdueix Aula");
-                    a = s.next();
-                    System.out.println("Introduix grup");
-                    g = s.nextInt();
-                    System.out.println("Introduix dia");
-                    d = s.nextInt();
-                    System.out.println("Introduiex hora");
-                    h = s.nextInt();
-                    ArrayList params = new ArrayList();
-                    --rest;
-                    params.add(rest);
-                    params.add(a);
-                    params.add(g);
-                    params.add(d);
-                    params.add(h);
-                    cd.modificarRest(2,params);
-                }
-                else System.out.println("No hi ha restriccions d'aquest tipus");
-                System.out.println("");
-            }
-            else if(opcio ==3) {
-                
-                ArrayList<String> llista = cd.llistaRest(3);
-                if(!llista.isEmpty()){
-                    ArrayList<Integer> posicio = new ArrayList();
-                    int max = llista.size();
-                    int rest = -1;
-                    int i;
-                    String a;
-                    int g;
-                    int h;
-                    int num = 0;
-                    System.out.println("");
-                    System.out.println(" Unitat Docent:"+unitatDocent+" Llista restriccions tipus "+3+" :");
-                    for(i = 0; i < llista.size(); ++i) { 
-                        if(i%2 == 0) {++num; System.out.println(num+"-  "+llista.get(i) );}
-                        else {
-                            posicio.add(Integer.parseInt(llista.get(i)));
-                        }
-                    }
-                    System.out.println("");
-                    System.out.println("Quina es vol modificar?");
-                    while(1> rest || rest > max)rest = s.nextInt();
-                    System.out.println("Introdueix Assignatura");
-                    a = s.next();
-                    System.out.println("Introduix Grup");
-                    g = s.nextInt();
-                    System.out.println("Introduiex hora");
-                    h = s.nextInt();
-                    ArrayList params = new ArrayList();
-                    --rest;
-                    params.add(posicio.get(rest));
-                    params.add(a);
-                    params.add(g);
-                    params.add(h);
-                    cd.modificarRest(3,params);
-                }
-                else System.out.println("No hi ha restriccions d'aquest tipus");
-                System.out.println("");
-            }
-            else if(opcio ==4) {
-                
-                ArrayList<String> llista = cd.llistaRest(4);
-                if(!llista.isEmpty()){
-                    ArrayList<Integer> posicio = new ArrayList();
-                    int max = llista.size();
-                    int rest = -1;
-                    int i;
-                    String a;
-                    int g;
-                    String d;
-                    int num = 0;
-                    System.out.println("");
-                    System.out.println(" Unitat Docent:"+unitatDocent+" Llista restriccions tipus "+4+" :");
-                    for(i = 0; i < llista.size(); ++i) { 
-                        if(i%2 == 0) {++num; System.out.println(num+"-  "+llista.get(i) );}
-                        else {
-                            posicio.add(Integer.parseInt(llista.get(i)));
-                        }
-                    }
-                    System.out.println("");
-                    System.out.println("Quina es vol modificar?");
-                    while( 1> rest || rest > max) rest = s.nextInt();
-                    System.out.println("Introdueix Assignatura");
-                    a = s.next();
-                    System.out.println("Introduix Grup");
-                    g = s.nextInt();
-                    System.out.println("Introduiex Dia");
-                    d = s.next();
-                    ArrayList params = new ArrayList();
-                    --rest;
-                    params.add(posicio.get(rest));
-                    params.add(a);
-                    params.add(g);
-                    params.add(d);
-                    cd.modificarRest(4,params);
-                }
-                else System.out.println("No hi ha restriccions d'aquest tipus");
-                System.out.println("");
-            }
-            
-            else if(opcio ==5) {
-                
-                ArrayList<String> llista = cd.llistaRest(5);
-                if(!llista.isEmpty()){
-                    int max = llista.size();
-                    int rest = -1;
-                    int i;
-                    String a1;
-                    int g1;
-                    String a2;
-                    int g2;
-                    System.out.println("");
-                    System.out.println(" Unitat Docent:"+unitatDocent+" Llista restriccions tipus "+5+" :");
-                    for(i = 0; i < llista.size(); ++i) { int num = i+1; System.out.println(num+"-  "+llista.get(i) );}
-                    System.out.println("");
-                    System.out.println("Quina es vol modificar?");
-                    while( 1> rest || rest > max) rest = s.nextInt();
-                    System.out.println("Introdueix Assignatura 1");
-                    a1 = s.next();
-                    System.out.println("Introduix Grup 1  <-1 si no es vol modificar>");
-                    g1 = s.nextInt();
-                    System.out.println("Introduiex Assignatura 2");
-                    a2 = s.next();
-                    System.out.println("Introduiex Grup 2  <-1 si no es vol modificar>");
-                    g2 = s.nextInt();
-                    ArrayList params = new ArrayList();
-                    --rest;
-                    params.add(rest);
-                    params.add(a1);
-                    params.add(g1);
-                    params.add(a2);
-                    params.add(g2);
-                    cd.modificarRest(5,params);
-                }
-                else System.out.println("No hi ha restriccions d'aquest tipus");
-                System.out.println("");
-            }
-            else if(opcio ==6) {
-                
-                ArrayList<String> llista = cd.llistaRest(6);
-                if(!llista.isEmpty()){
-                    int max = llista.size();
-                    int rest = -1;
-                    int i;
-                    String a;
-                    String d;
-                    int h;
-                    System.out.println("");
-                    System.out.println(" Unitat Docent:"+unitatDocent+" Llista restriccions tipus "+6+" :");
-                    for(i = 0; i < llista.size(); ++i) { int num = i+1; System.out.println(num+"-  "+llista.get(i) );}
-                    System.out.println("");
-                    System.out.println("Quina es vol modificar?");
-                    while( 1> rest || rest > max) rest = s.nextInt();
-                    System.out.println("Introdueix Aula");
-                    a = s.next();
-                    System.out.println("Introduix dia");
-                    d = s.next();
-                    System.out.println("Introduiex hora");
-                    h = s.nextInt();
-                    ArrayList params = new ArrayList();
-                    --rest;
-                    params.add(rest);
-                    params.add(a);
-                    params.add(d);
-                    params.add(h);
-                    cd.modificarRest(6,params);
-                    
-                }
-                else System.out.println("No hi ha restriccions d'aquest tipus");
-                System.out.println("");
-            }
-        
-    }
-    
-    
-    private static void esborrarRest(int opcio){
-        ArrayList<String> llista = cd.llistaRest(opcio);
-        int i;
-        int max;
-        int rest;
-        int num;
-        if(opcio == 3 || opcio ==4){
-            if(!llista.isEmpty()){
-                ArrayList<Integer> posicio = new ArrayList();
-                max = llista.size();
-                rest = -1;
-                num = 0;
-                System.out.println("");
-                System.out.println(" Unitat Docent:"+unitatDocent+" Llista restriccions tipus "+4+" :");
-                for(i = 0; i < llista.size(); ++i) { 
-                    if(i%2 == 0) {++num; System.out.println(num+"-  "+llista.get(i) );}
-                    else {
-                        posicio.add(Integer.parseInt(llista.get(i)));
-                    }
-                }
-                System.out.println("");
-                System.out.println("Quina es vol esborrar?");
-                while( 1> rest || rest > max) rest = s.nextInt();
-                --rest;
-                cd.esborraRest(opcio,posicio.get(rest));
-            }
-            else System.out.println("No hi ha restriccions d'aquest tipus");
-            System.out.println("");
-        }
-        else{
-            if(!llista.isEmpty()){
-                max = llista.size();
-                rest = -1;
-                System.out.println("");
-                System.out.println(" Unitat Docent:"+unitatDocent+" Llista restriccions tipus "+opcio+" :");
-                for(i = 0; i < llista.size(); ++i) {num = i+1; System.out.println(num+"-  "+llista.get(i));}
-                System.out.println("");
-                System.out.println("Quina es vol esborrar?");
-                while( 1> rest || rest > max ) rest = s.nextInt();
-                --rest;
-                cd.esborraRest(opcio,rest);
-            }
-            else System.out.println("No hi ha restriccions d'aquest tipus");
-            System.out.println("");     
-        }
-    }
-    
-    private static void modRest(int decisio){
-       int opcio = 0;
-        while( opcio != 7 ) {
-            opcio = 0;
-            if(decisio == 1)System.out.println(" Indica el tipus de restriccio a modificar ");
-            if(decisio == 2)System.out.println(" Indica el tipus de restriccio a esborrar ");
-            System.out.println(" 1 - Restringir un grup a una aula");
-            System.out.println(" 2 - Restringir un grup a un dia i hora");
-            System.out.println(" 3 - Restringir una hora en la que no es pugui impartir una asignatura+grup");
-            System.out.println(" 4 - Restringir un dia per a que no es pugu impartir una assig+grup");
-            System.out.println(" 5 - Una assig+grup no es pot impartir a la vegada que una altre temporalmente parlant");
-            System.out.println(" 6 - Forzar una aula a no poderse usar un dia/hora");
-            System.out.println(" 7 - Tornar");
-            while(1>opcio || opcio>7){opcio = s.nextInt();if(1>opcio || opcio>7) System.out.println("valor no valid. Torna a seleccinar");}
-            switch (decisio) {
-            case 1: modificarRest(opcio);
-                    break;
-            case 2: esborrarRest(opcio);
-                    break;
-       }
-        
-        
-    }
-        
-    }
-    private static void opcionsRestriccions(){
-        
-        int opcio = 0;
-        while( opcio != 3 ) {
-            System.out.println(" OPCIONS ");
-            System.out.println("1-modificar\n2-esborrar\n3-tornar");
-            opcio = s.nextInt();
-            
-            System.out.println("");
-            if(opcio == 1 || opcio == 2) modRest(opcio);
-        }
-        
     }
     
     private static ArrayList<Integer> definirIntervalsHores( int numHores ){
@@ -714,6 +391,39 @@ public class CtrPresentacio {
             System.err.println(nomAsg+" no existeix "); 
     }
     
+    private static void modificaAssignatura() {
+        
+        System.out.println("nom de la assigatura a modificar ");
+        String nomAsg;
+        nomAsg = s.next(); // nom de la assignatura 
+        if( ! cd.existeixAssignatura( nomAsg) ) 
+            System.err.println(nomAsg+" no existeix");
+        else {
+            //cd.printAssig(nomAsg);
+            System.out.println("hores de teoria ");
+            int horest;
+            horest = s.nextInt();
+            System.out.println("hores de practica");
+            int horesp;
+            horesp = s.nextInt();
+            System.out.println("nivell");
+            int nivell = s.nextInt();
+            System.out.println("Capacitat grups Teoria");
+            int capTeo = s.nextInt();
+            System.out.println("Capacitat grups Laboratori");
+            int capLab = s.nextInt();
+            System.out.println("Numero de grups de teoria");
+            int ngt = s.nextInt();
+            System.out.println("Numero de grups de laboratori");
+            int ngl = s.nextInt();
+            ArrayList<Integer> a = new ArrayList();
+            for(int i = 0; i < ngt; ++i){
+                for(int j = 0; j < ngl+1; ++j) a.add((i+1)*10+j);
+            }
+            //cd.creaAssignatura( nomAsg, horest, horesp, nivell, capTeo,capLab, a);
+            
+        }
+    }
 
     private static void creaAula(){  
         
