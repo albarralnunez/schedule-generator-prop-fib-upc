@@ -10,6 +10,7 @@
  */
 package Presentacio;
 
+import Domini.CtrDomini;
 import java.awt.Rectangle;
 
 /**
@@ -18,25 +19,35 @@ import java.awt.Rectangle;
  */
 public class ControladorPresentacio extends javax.swing.JFrame {
     
+    CtrDomini cd;
+    String unitatDocent;
     PanelLogin pLogin;
     Avisos avisos;
 
     public ControladorPresentacio() {
         initComponents();
+        this.setResizable(false);
         avisos = new Avisos();
         this.setVisible(true);
         pLogin = new PanelLogin( this );
         this.Layered.add(pLogin);
         canviaPanel("login");
-        avisos.posaMissatge("INICIA");
     }
     
     
     
     
-    
+    /**
+     * el que fa aquesta funció es mostrar en el frame principal el panell que se li
+     * indica.
+     * primer de tot fa invisibles tots els panells i després només activa el que 
+     * s ha de mostrar 
+     * 
+     * @param nomPanel nom del panell a mostrar
+     */
     public void canviaPanel(String nomPanel){
         pLogin.setVisible(false);
+        
         if(nomPanel.equals("login"))
             pLogin.setVisible(true);
     }
@@ -69,7 +80,12 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     private javax.swing.JLayeredPane Layered;
     // End of variables declaration//GEN-END:variables
 
-    void mostraAvis(String text) {
+    public void mostraAvis(String text) {
         avisos.posaMissatge(text);
+    }
+
+    public void identificarUnitatDocent(String nomUnitatDocent) {
+        unitatDocent = nomUnitatDocent;
+        cd = new CtrDomini(unitatDocent);
     }
 }

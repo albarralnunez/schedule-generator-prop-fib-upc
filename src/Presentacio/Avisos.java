@@ -36,7 +36,8 @@ public class Avisos extends javax.swing.JFrame {
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        textAvis = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textAvis = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,19 +46,20 @@ public class Avisos extends javax.swing.JFrame {
         jLabel1.setBounds(0, 0, 300, 14);
         jLayeredPane1.add(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("OK");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jButton1.setBounds(0, 80, 300, 23);
+        jButton1.setBounds(0, 80, 300, 25);
         jLayeredPane1.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        textAvis.setBackground(new java.awt.Color(204, 204, 204));
-        textAvis.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        textAvis.setBounds(0, 20, 300, 60);
-        jLayeredPane1.add(textAvis, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jScrollPane1.setViewportView(textAvis);
+
+        jScrollPane1.setBounds(0, 20, 300, 60);
+        jLayeredPane1.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,7 +76,7 @@ public class Avisos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     
@@ -82,6 +84,7 @@ public class Avisos extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JTextField textAvis;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextPane textAvis;
     // End of variables declaration//GEN-END:variables
 }
