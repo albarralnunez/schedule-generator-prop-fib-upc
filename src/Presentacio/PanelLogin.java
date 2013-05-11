@@ -84,12 +84,12 @@ public class PanelLogin extends javax.swing.JPanel {
 
 private void botoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoLoginActionPerformed
     String nomUnitatDocent = nomUD.getText();
-    System.out.println(nomUnitatDocent);
     if( nomUnitatDocent == null || nomUnitatDocent.contains(" ") || nomUnitatDocent.equals("") )
         cp.mostraAvis("El nom de la unitat docent ha de ser \n una cadena de Caracters sense espais en blanc");
     else { // el nom es valid
         cp.identificarUnitatDocent(nomUnitatDocent);
-        cp.canviaPanel("menu");
+        this.nomUD.setText(null);
+        cp.canviaPanel("menuPrincipal");
     }
 }//GEN-LAST:event_botoLoginActionPerformed
 
