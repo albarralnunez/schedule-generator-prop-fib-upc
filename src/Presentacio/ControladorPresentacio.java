@@ -12,6 +12,7 @@ package Presentacio;
 
 import Domini.CtrDomini;
 import java.awt.Rectangle;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -88,7 +89,8 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void mostraAvis(String text) {
-        avisos.posaMissatge(text);
+        //PODEMOS TENER UN SEGUNDO PARAMETRO QUE INDICARA QUE TIPO DE AVISO ES PARA MOSTRAR UN WARNING_MESSAGE O OTRO TIPO DE MENSAJE.
+        JOptionPane.showMessageDialog(this, text, "GeneradorHoraris::ERROR", JOptionPane.WARNING_MESSAGE);;
     }
 
     public void identificarUnitatDocent(String nomUnitatDocent) {
