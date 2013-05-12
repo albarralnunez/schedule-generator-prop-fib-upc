@@ -113,7 +113,7 @@ class Generador {
                                         if (compleixResDomini(c,cn,q)) cnaux.add(cn);
                                     }
                                 }
-                                if (j == 1) {
+                                else if (j == 1) {
                                     for (Integer d : dis.getDimarts()) {
                                         ClausulaNom cn = new ClausulaNom();
                                         cn.setAula(au);
@@ -122,7 +122,7 @@ class Generador {
                                         if (compleixResDomini(c,cn,q)) cnaux.add(cn);
                                     }
                                 }
-                                if (j == 2) {
+                                else if (j == 2) {
                                     for (Integer d : dis.getDimecres()) {
                                         ClausulaNom cn = new ClausulaNom();
                                         cn.setAula(au);
@@ -131,7 +131,7 @@ class Generador {
                                         if (compleixResDomini(c,cn,q)) cnaux.add(cn);
                                     }
                                 }
-                                if (j == 3) {
+                                else if (j == 3) {
                                     for (Integer d : dis.getDijous()) {
                                         ClausulaNom cn = new ClausulaNom();
                                         cn.setAula(au);
@@ -140,7 +140,7 @@ class Generador {
                                         if (compleixResDomini(c,cn,q)) cnaux.add(cn);
                                     }
                                 }
-                                if (j == 4) {
+                                else if (j == 4) {
                                     for (Integer d : dis.getDivendres()) {
                                         ClausulaNom cn = new ClausulaNom();
                                         cn.setAula(au);
@@ -149,7 +149,7 @@ class Generador {
                                         if (compleixResDomini(c,cn,q)) cnaux.add(cn);
                                     }
                                 }
-                                if (j == 5) {
+                                else if (j == 5) {
                                     for (Integer d : dis.getDissabte()) {
                                         ClausulaNom cn = new ClausulaNom();
                                         cn.setAula(au);
@@ -158,7 +158,7 @@ class Generador {
                                         if (compleixResDomini(c,cn,q)) cnaux.add(cn);   
                                     }
                                 }
-                                if (j == 6) {
+                                else if (j == 6) {
                                     for (Integer d : dis.getDiumenge()) {
                                         ClausulaNom cn = new ClausulaNom();
                                         cn.setAula(au);
@@ -177,7 +177,29 @@ class Generador {
         }
         return clausules;
     }
-
+    private boolean duracioConsecutiva(ClausulaNom cn,Clausula c, int duracio){
+        ArrayList<ClausulaNom> aux = c.getClausula();
+        if(aux.size() > 1) {
+            int index = aux.indexOf(cn);
+            if((index + (duracio - 1)) < aux.size()){
+                int horaActmes1;
+                int horaSeg;
+                for(int i = 1; i < duracio; ++i){
+                    horaActmes1 = aux.get(index).getHora()+1;
+                    horaSeg = aux.get(index+1).getHora();
+                    if(horaActmes1 != horaSeg) return false;
+                    ++index;
+                }
+            }
+            else return false;
+        }
+        return true;
+        
+    }
+    public boolean assignacioValida2(ClausulaNom cn,Clausula c,int duracio) {
+      if(! duracioConsecutiva(cn,c,duracio)) return false;
+      return true;
+    }
     public boolean assignacioValida(Quadricula q, Element e, String dia, int hora) {
         CjtElements elems = q.getElementsPosicio(dia, hora);//elements d aquella posicio
         // que en aquella hora nomes hi hagi un grup per aula
@@ -205,8 +227,7 @@ class Generador {
             CjtRestSolapament cjtRestS,CjtRestriccioAula cjtRestAul ) {
         inicialitzarCjtRestriccions(cjtResGA, cjtRestAss, cjtRestGS, cjtRestS,cjtRestAul);
         ArrayList<Clausula> clau = inicialitzarClausules(aulesT, aulesL, ass, dis, q);
-        boolean b =  backtracking(clau, q);
-        return b;
+        return backtracking(clau, q);
     }
 
     private boolean backtracking(ArrayList<Clausula> clau, Quadricula qu) {
@@ -226,6 +247,9 @@ class Generador {
                     int hor = cn.getHora()+i;
                     String di = cn.getDia();
                     qu.afegirElement(di, hor, e);
+                    if(i == 0) {
+                        if(!assignacioValida2(cn,c, duracio)) ++esVal;
+                    } 
                     if (! assignacioValida(qu, e, di, hor)) ++esVal;
                 }
                 if (esVal == 0) {
