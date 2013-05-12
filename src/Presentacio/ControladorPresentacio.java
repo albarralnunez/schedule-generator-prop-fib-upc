@@ -11,7 +11,6 @@
 package Presentacio;
 
 import Domini.CtrDomini;
-import java.awt.Rectangle;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,18 +23,20 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     String unitatDocent;
     PanelLogin pLogin;
     PanelMenuPrincipal pMenup;
-    Avisos avisos;
+    PanelHorariLectiu pHorariLectiu;
 
     public ControladorPresentacio() {
         initComponents();
         this.setResizable(false);
-        avisos = new Avisos();
         this.setVisible(true);
-        pLogin = new PanelLogin( this );
-        pMenup = new PanelMenuPrincipal( this );
+        pLogin = new PanelLogin(this);
+        pMenup = new PanelMenuPrincipal(this);
+        pHorariLectiu = new PanelHorariLectiu(this);
+
         
         this.Layered.add(pLogin);
         this.Layered.add(pMenup);
+        this.Layered.add(pHorariLectiu);
         canviaPanel("login");
     }
     
@@ -51,13 +52,14 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     public void canviaPanel(String nomPanel){
         pLogin.setVisible(false);
         pMenup.setVisible(false);
-        if(nomPanel.equals("login"))
-            pLogin.setVisible(true);
-        else if( nomPanel.equals("menuPrincipal")){
+        pHorariLectiu.setVisible(false);
+
+        if(nomPanel.equals("login")) pLogin.setVisible(true);
+        else if(nomPanel.equals("menuPrincipal")) {
             pMenup.setNomUnitatDocent(unitatDocent);
             pMenup.setVisible(true);
         }
-            
+        else if (nomPanel.equals("PanelHorariLectiu")) pHorariLectiu.setVisible(true);            
     }
 
     @SuppressWarnings("unchecked")
@@ -76,7 +78,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Layered, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addComponent(Layered, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
         );
 
         pack();
@@ -90,7 +92,8 @@ public class ControladorPresentacio extends javax.swing.JFrame {
 
     public void mostraAvis(String text) {
         //PODEMOS TENER UN SEGUNDO PARAMETRO QUE INDICARA QUE TIPO DE AVISO ES PARA MOSTRAR UN WARNING_MESSAGE O OTRO TIPO DE MENSAJE.
-        JOptionPane.showMessageDialog(this, text, "GeneradorHoraris::ERROR", JOptionPane.WARNING_MESSAGE);;
+        //TIPOS DE MENSAJE: WARNING_MESSAGE, ERROR_MESSAGE, PLAIN_MESSAGE, INFORMATION_MESSAGE
+        JOptionPane.showMessageDialog(this, text, "GeneradorHoraris::ERROR", JOptionPane.WARNING_MESSAGE);
     }
 
     public void identificarUnitatDocent(String nomUnitatDocent) {
