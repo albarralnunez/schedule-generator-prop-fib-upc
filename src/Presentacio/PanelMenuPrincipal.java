@@ -42,6 +42,12 @@ public class PanelMenuPrincipal extends javax.swing.JPanel {
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
 
+        jLayeredPane1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jLayeredPane1FocusGained(evt);
+            }
+        });
+
         botoLogout.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         botoLogout.setText("Logout");
         botoLogout.setSelected(true);
@@ -155,6 +161,10 @@ public class PanelMenuPrincipal extends javax.swing.JPanel {
         if (jRadioButton2.isSelected()) jRadioButton2.doClick();
         cp.canviaPanel("PanelModificarDades");
     }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void jLayeredPane1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jLayeredPane1FocusGained
+
+    }//GEN-LAST:event_jLayeredPane1FocusGained
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botoLogout;
