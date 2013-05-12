@@ -10,6 +10,8 @@
  */
 package Presentacio;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author miquel.masriera
@@ -23,9 +25,10 @@ public class Avisos extends javax.swing.JFrame {
     }
     
     public void posaMissatge(String missatge){
-        textAvis.setText( missatge );
+        JOptionPane.showMessageDialog(this, missatge, "GeneradorHoraris::ERROR", JOptionPane.WARNING_MESSAGE);
+        //textAvis.setText( missatge );
         textAvis.setEditable(false);
-        setVisible(true);
+        //setVisible(true);
     }
 
 

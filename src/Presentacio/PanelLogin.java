@@ -85,7 +85,7 @@ public class PanelLogin extends javax.swing.JPanel {
 private void botoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoLoginActionPerformed
     String nomUnitatDocent = nomUD.getText();
     if( nomUnitatDocent == null || nomUnitatDocent.contains(" ") || nomUnitatDocent.equals("") )
-        cp.mostraAvis("El nom de la unitat docent ha de ser \n una cadena de Caracters sense espais en blanc");
+        cp.mostraAvis("El nom de la unitat docent ha de ser \nuna cadena de carácters sense espais en blanc.");
     else { // el nom es valid
         cp.identificarUnitatDocent(nomUnitatDocent);
         this.nomUD.setText(null);
