@@ -22,7 +22,6 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     CtrDomini cd;
     String unitatDocent;
     PanelLogin pLogin;
-    PanelMenuPrincipal pMenup;
     Avisos avisos;
 
     public ControladorPresentacio() {
@@ -31,12 +30,11 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         avisos = new Avisos();
         this.setVisible(true);
         pLogin = new PanelLogin( this );
-        pMenup = new PanelMenuPrincipal( this );
-        
         this.Layered.add(pLogin);
-        this.Layered.add(pMenup);
         canviaPanel("login");
     }
+    
+    
     
     
     /**
@@ -49,14 +47,9 @@ public class ControladorPresentacio extends javax.swing.JFrame {
      */
     public void canviaPanel(String nomPanel){
         pLogin.setVisible(false);
-        pMenup.setVisible(false);
+        
         if(nomPanel.equals("login"))
             pLogin.setVisible(true);
-        else if( nomPanel.equals("menuPrincipal")){
-            pMenup.setNomUnitatDocent(unitatDocent);
-            pMenup.setVisible(true);
-        }
-            
     }
 
     @SuppressWarnings("unchecked")
@@ -92,7 +85,6 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     }
 
     public void identificarUnitatDocent(String nomUnitatDocent) {
-        System.out.println(nomUnitatDocent);
         unitatDocent = nomUnitatDocent;
         cd = new CtrDomini(unitatDocent);
     }
