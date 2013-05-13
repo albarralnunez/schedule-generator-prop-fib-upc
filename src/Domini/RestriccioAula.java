@@ -72,20 +72,6 @@ class RestriccioAula extends Restriccio{
     @Override
     public boolean CompleixRes() {return false;}
 
-    public boolean CompleixResAux(Aula aula, Integer hora, String dia) {
-        boolean compleix = true;
-        if (this.aula.equals(aula)) { //Si hablan de la aula que esta restringida
-            if (this.hora != null) { //Si este aula no puede usarse un dia a una hora concreta...
-                if (this.dia.equals(dia)) {
-                    if (this.hora == hora) compleix = false; //Si se va a usar la hora que esta prohibida.
-                }
-            } else { //Si este aula no puede usarse un dia entero...
-                if (this.dia.equals(dia)) compleix = false;
-            }
-        }
-        return compleix;
-    }
-
     /**
      *
      * @param cjtRestriccioAula Conjunt al que afeigir la noestra restriccio y en el que es poden produir incoherencies.
@@ -118,9 +104,21 @@ class RestriccioAula extends Restriccio{
     }
 
    public boolean compleixRes(Clausula c, ClausulaNom cn) {
-        Aula a = cn.getAula();
-        int h = cn.getHora();
-        String d = cn.getDia();
-        return CompleixResAux(a, h, d);
+        Aula aulaa = cn.getAula();
+        int horaa = cn.getHora();
+        String diaa = cn.getDia();
+        int dur = c.getDuracio();
+        boolean compleix = true;
+        if (this.aula.equals(aulaa)) { //Si hablan de la aula que esta restringida
+            if (this.hora != null) { //Si este aula no puede usarse un dia a una hora concreta...
+                if (this.dia.equals(diaa)) {
+                    if (this.hora >= horaa && this.hora < horaa+dur)
+                        compleix = false; //Si se va a usar la hora que esta prohibida.
+                }
+            } else { //Si este aula no puede usarse un dia entero...
+                if (this.dia.equals(diaa)) compleix = false;
+            }
+        }
+        return compleix;
     }
 }
