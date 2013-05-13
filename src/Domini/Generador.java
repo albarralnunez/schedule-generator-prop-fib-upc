@@ -191,16 +191,12 @@ class Generador {
                     ++index;
                 }
             }
-            else return false;
+            //else return false;
         }
         return true;
         
     }
-    public boolean assignacioValida2(ClausulaNom cn,Clausula c,int duracio) {
-      if(! duracioConsecutiva(cn,c,duracio)) return false;
-      return true;
-    }
-    public boolean assignacioValida(Quadricula q, Element e, String dia, int hora) {
+    public boolean assignacioValida(Quadricula q, Element e, String dia, int hora,ClausulaNom cn,Clausula c,int duracio,int i) {
         CjtElements elems = q.getElementsPosicio(dia, hora);//elements d aquella posicio
         // que en aquella hora nomes hi hagi un grup per aula
        if (!elems.aulaRepetida(e)) return false;
@@ -208,6 +204,9 @@ class Generador {
        if (elems.solapamentTeoriaPractica(e)) return false;
         //si es vols posar dos assignaturas del mateix nivell
         //if (!elems.solapamentNivell(e)) return false; PENDIENTE!
+       if(i==0){//per fer nomes un cop
+            if(! duracioConsecutiva(cn,c,duracio)) return false; //comprovacio de que el domini sigui seguit
+       }
         return true;
     }
 
@@ -247,10 +246,7 @@ class Generador {
                     int hor = cn.getHora()+i;
                     String di = cn.getDia();
                     qu.afegirElement(di, hor, e);
-                    if(i == 0) {
-                        if(!assignacioValida2(cn,c, duracio)) ++esVal;
-                    } 
-                    if (! assignacioValida(qu, e, di, hor)) ++esVal;
+                    if (! assignacioValida(qu, e, di, hor,cn,c,duracio,i)) ++esVal;
                 }
                 if (esVal == 0) {
                     boolean b = backtracking(clau, qu);
@@ -289,6 +285,7 @@ class Generador {
     }
 
     private boolean suficientHoresSegui(Clausula c, ClausulaNom cn, Quadricula q) {
+        
         int du = c.getDuracio();
         int h = cn.getHora();
         String di = cn.getDia();

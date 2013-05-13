@@ -61,10 +61,10 @@ public class CtrPresentacio {
             System.out.println(" OPCIONS ");
             System.out.println(" 1 - Restringir un grup a una aula");
             System.out.println(" 2 - Restringir un grup a un dia i hora");
-            System.out.println(" 3 - Restringir una hora en la que no es pugui impartir una asignatura+grup");
+            System.out.println(" 3 - Restringir una hora en la que no es pugui impartir una asignatura+grup"); /*OK*/
             System.out.println(" 4 - Restringir un dia per a que no es pugu impartir una assig+grup");
             System.out.println(" 5 - Una assig+grup no es pot impartir a la vegada que una altre temporalmente parlant");
-            System.out.println(" 6 - inhabilitar una aula a un dia/hora");
+            System.out.println(" 6 - inhabilitar una aula a un dia/hora"); /*OK*/
             System.out.println(" 7 - Tornar");
             opcio = s.nextInt();
             
