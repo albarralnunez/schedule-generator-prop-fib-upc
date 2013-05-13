@@ -278,7 +278,9 @@ public class CtrDomini {
      * 
      */
     public boolean generar( ) {
-        return cgen.generar();
+        ArrayList<String> configuracioInicial = 
+                cper.llegirConfiguracioHoraria("configuracioHoraria-"+nomUnitat);
+        return cgen.generar(configuracioInicial);
     }
     
     
