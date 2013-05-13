@@ -24,6 +24,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     PanelLogin pLogin;
     PanelMenuPrincipal pMenup;
     PanelHorariLectiu pHorariLectiu;
+    PanelGeneracioAssignatures pGenAss;
 
     public ControladorPresentacio() {
         initComponents();
@@ -32,11 +33,12 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         pLogin = new PanelLogin(this);
         pMenup = new PanelMenuPrincipal(this);
         pHorariLectiu = new PanelHorariLectiu(this);
-
+        pGenAss = new PanelGeneracioAssignatures(this);
         
         this.Layered.add(pLogin);
         this.Layered.add(pMenup);
         this.Layered.add(pHorariLectiu);
+        this.Layered.add(pGenAss);
         canviaPanel("login");
     }
     
@@ -53,13 +55,15 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         pLogin.setVisible(false);
         pMenup.setVisible(false);
         pHorariLectiu.setVisible(false);
+        pGenAss.setVisible(false);
 
         if(nomPanel.equals("login")) pLogin.setVisible(true);
         else if(nomPanel.equals("menuPrincipal")) {
             pMenup.setNomUnitatDocent(unitatDocent);
             pMenup.setVisible(true);
         }
-        else if (nomPanel.equals("PanelHorariLectiu")) pHorariLectiu.setVisible(true);            
+        else if (nomPanel.equals("PanelHorariLectiu")) pHorariLectiu.setVisible(true);
+        else if (nomPanel.equals("GeneracioAssignatures")) pGenAss.setVisible(true);
     }
 
     @SuppressWarnings("unchecked")

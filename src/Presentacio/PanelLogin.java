@@ -89,7 +89,7 @@ private void botoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         cp.mostraAvis("El nom de la unitat docent ha de ser \nuna cadena de carácters sense espais en blanc.");
     else { // el nom es valid
         cp.identificarUnitatDocent(nomUnitatDocent);
-        cp.canviaPanel("menu");
+        cp.canviaPanel("menuPrincipal");
     }
 }//GEN-LAST:event_botoLoginActionPerformed
 

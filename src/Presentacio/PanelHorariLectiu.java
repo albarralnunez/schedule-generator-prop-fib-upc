@@ -256,228 +256,452 @@ public class PanelHorariLectiu extends javax.swing.JPanel {
         jLayeredPane1.add(jCheckBox20, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jCheckBox21.setBounds(370, 90, 30, 21);
         jLayeredPane1.add(jCheckBox21, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox22.setSelected(true);
         jCheckBox22.setBounds(430, 110, 30, 21);
         jLayeredPane1.add(jCheckBox22, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox23.setSelected(true);
         jCheckBox23.setBounds(70, 110, 30, 21);
         jLayeredPane1.add(jCheckBox23, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox24.setSelected(true);
         jCheckBox24.setBounds(130, 110, 30, 21);
         jLayeredPane1.add(jCheckBox24, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox25.setSelected(true);
         jCheckBox25.setBounds(190, 110, 30, 21);
         jLayeredPane1.add(jCheckBox25, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox26.setSelected(true);
         jCheckBox26.setBounds(250, 110, 30, 21);
         jLayeredPane1.add(jCheckBox26, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox27.setSelected(true);
         jCheckBox27.setBounds(310, 110, 30, 21);
         jLayeredPane1.add(jCheckBox27, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox28.setSelected(true);
         jCheckBox28.setBounds(370, 110, 30, 21);
         jLayeredPane1.add(jCheckBox28, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox29.setSelected(true);
         jCheckBox29.setBounds(430, 130, 30, 21);
         jLayeredPane1.add(jCheckBox29, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox30.setSelected(true);
         jCheckBox30.setBounds(70, 130, 30, 21);
         jLayeredPane1.add(jCheckBox30, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox31.setSelected(true);
         jCheckBox31.setBounds(130, 130, 30, 21);
         jLayeredPane1.add(jCheckBox31, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox32.setSelected(true);
         jCheckBox32.setBounds(190, 130, 30, 21);
         jLayeredPane1.add(jCheckBox32, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox33.setSelected(true);
         jCheckBox33.setBounds(250, 130, 30, 21);
         jLayeredPane1.add(jCheckBox33, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox34.setSelected(true);
         jCheckBox34.setBounds(310, 130, 30, 21);
         jLayeredPane1.add(jCheckBox34, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox35.setSelected(true);
         jCheckBox35.setBounds(370, 130, 30, 21);
         jLayeredPane1.add(jCheckBox35, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox36.setSelected(true);
         jCheckBox36.setBounds(430, 150, 30, 21);
         jLayeredPane1.add(jCheckBox36, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox37.setSelected(true);
         jCheckBox37.setBounds(70, 150, 30, 21);
         jLayeredPane1.add(jCheckBox37, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox38.setSelected(true);
         jCheckBox38.setBounds(130, 150, 30, 21);
         jLayeredPane1.add(jCheckBox38, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox39.setSelected(true);
         jCheckBox39.setBounds(190, 150, 30, 21);
         jLayeredPane1.add(jCheckBox39, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox40.setSelected(true);
         jCheckBox40.setBounds(250, 150, 30, 21);
         jLayeredPane1.add(jCheckBox40, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox41.setSelected(true);
         jCheckBox41.setBounds(310, 150, 30, 21);
         jLayeredPane1.add(jCheckBox41, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox42.setSelected(true);
         jCheckBox42.setBounds(370, 150, 30, 21);
         jLayeredPane1.add(jCheckBox42, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox43.setSelected(true);
         jCheckBox43.setBounds(430, 170, 30, 21);
         jLayeredPane1.add(jCheckBox43, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox44.setSelected(true);
         jCheckBox44.setBounds(70, 170, 30, 21);
         jLayeredPane1.add(jCheckBox44, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox45.setSelected(true);
         jCheckBox45.setBounds(130, 170, 30, 21);
         jLayeredPane1.add(jCheckBox45, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox46.setSelected(true);
         jCheckBox46.setBounds(190, 170, 30, 21);
         jLayeredPane1.add(jCheckBox46, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox47.setSelected(true);
         jCheckBox47.setBounds(250, 170, 30, 21);
         jLayeredPane1.add(jCheckBox47, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox48.setSelected(true);
         jCheckBox48.setBounds(310, 170, 30, 21);
         jLayeredPane1.add(jCheckBox48, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox49.setSelected(true);
         jCheckBox49.setBounds(370, 170, 30, 21);
         jLayeredPane1.add(jCheckBox49, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox50.setSelected(true);
         jCheckBox50.setBounds(430, 190, 30, 21);
         jLayeredPane1.add(jCheckBox50, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox51.setSelected(true);
         jCheckBox51.setBounds(70, 190, 30, 21);
         jLayeredPane1.add(jCheckBox51, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox52.setSelected(true);
         jCheckBox52.setBounds(130, 190, 30, 21);
         jLayeredPane1.add(jCheckBox52, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox53.setSelected(true);
         jCheckBox53.setBounds(190, 190, 30, 21);
         jLayeredPane1.add(jCheckBox53, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox54.setSelected(true);
         jCheckBox54.setBounds(250, 190, 30, 21);
         jLayeredPane1.add(jCheckBox54, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox55.setSelected(true);
         jCheckBox55.setBounds(310, 190, 30, 21);
         jLayeredPane1.add(jCheckBox55, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox56.setSelected(true);
         jCheckBox56.setBounds(370, 190, 30, 21);
         jLayeredPane1.add(jCheckBox56, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox57.setSelected(true);
         jCheckBox57.setBounds(430, 210, 30, 21);
         jLayeredPane1.add(jCheckBox57, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox58.setSelected(true);
         jCheckBox58.setBounds(70, 210, 30, 21);
         jLayeredPane1.add(jCheckBox58, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox59.setSelected(true);
         jCheckBox59.setBounds(130, 210, 30, 21);
         jLayeredPane1.add(jCheckBox59, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox60.setSelected(true);
         jCheckBox60.setBounds(190, 210, 30, 21);
         jLayeredPane1.add(jCheckBox60, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox61.setSelected(true);
         jCheckBox61.setBounds(250, 210, 30, 21);
         jLayeredPane1.add(jCheckBox61, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox62.setSelected(true);
         jCheckBox62.setBounds(310, 210, 30, 21);
         jLayeredPane1.add(jCheckBox62, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox63.setSelected(true);
         jCheckBox63.setBounds(370, 210, 30, 21);
         jLayeredPane1.add(jCheckBox63, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox64.setSelected(true);
         jCheckBox64.setBounds(430, 230, 30, 21);
         jLayeredPane1.add(jCheckBox64, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox65.setSelected(true);
         jCheckBox65.setBounds(70, 230, 30, 21);
         jLayeredPane1.add(jCheckBox65, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox66.setSelected(true);
         jCheckBox66.setBounds(130, 230, 30, 21);
         jLayeredPane1.add(jCheckBox66, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox67.setSelected(true);
         jCheckBox67.setBounds(190, 230, 30, 21);
         jLayeredPane1.add(jCheckBox67, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox68.setSelected(true);
         jCheckBox68.setBounds(250, 230, 30, 21);
         jLayeredPane1.add(jCheckBox68, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox69.setSelected(true);
         jCheckBox69.setBounds(310, 230, 30, 21);
         jLayeredPane1.add(jCheckBox69, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox70.setSelected(true);
         jCheckBox70.setBounds(370, 230, 30, 21);
         jLayeredPane1.add(jCheckBox70, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox71.setSelected(true);
         jCheckBox71.setBounds(430, 250, 30, 21);
         jLayeredPane1.add(jCheckBox71, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox72.setSelected(true);
         jCheckBox72.setBounds(70, 250, 30, 21);
         jLayeredPane1.add(jCheckBox72, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox73.setSelected(true);
         jCheckBox73.setBounds(130, 250, 30, 21);
         jLayeredPane1.add(jCheckBox73, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox74.setSelected(true);
         jCheckBox74.setBounds(190, 250, 30, 21);
         jLayeredPane1.add(jCheckBox74, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox75.setSelected(true);
         jCheckBox75.setBounds(250, 250, 30, 21);
         jLayeredPane1.add(jCheckBox75, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox76.setSelected(true);
         jCheckBox76.setBounds(310, 250, 30, 21);
         jLayeredPane1.add(jCheckBox76, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox77.setSelected(true);
         jCheckBox77.setBounds(370, 250, 30, 21);
         jLayeredPane1.add(jCheckBox77, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox78.setSelected(true);
         jCheckBox78.setBounds(430, 270, 30, 21);
         jLayeredPane1.add(jCheckBox78, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox79.setSelected(true);
         jCheckBox79.setBounds(70, 270, 30, 21);
         jLayeredPane1.add(jCheckBox79, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox80.setSelected(true);
         jCheckBox80.setBounds(130, 270, 30, 21);
         jLayeredPane1.add(jCheckBox80, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox81.setSelected(true);
         jCheckBox81.setBounds(190, 270, 30, 21);
         jLayeredPane1.add(jCheckBox81, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox82.setSelected(true);
         jCheckBox82.setBounds(250, 270, 30, 21);
         jLayeredPane1.add(jCheckBox82, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox83.setSelected(true);
         jCheckBox83.setBounds(310, 270, 30, 21);
         jLayeredPane1.add(jCheckBox83, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox84.setSelected(true);
         jCheckBox84.setBounds(370, 270, 30, 21);
         jLayeredPane1.add(jCheckBox84, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox85.setSelected(true);
         jCheckBox85.setBounds(430, 290, 30, 21);
         jLayeredPane1.add(jCheckBox85, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox86.setSelected(true);
         jCheckBox86.setBounds(70, 290, 30, 21);
         jLayeredPane1.add(jCheckBox86, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox87.setSelected(true);
         jCheckBox87.setBounds(130, 290, 30, 21);
         jLayeredPane1.add(jCheckBox87, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox88.setSelected(true);
         jCheckBox88.setBounds(190, 290, 30, 21);
         jLayeredPane1.add(jCheckBox88, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox89.setSelected(true);
         jCheckBox89.setBounds(250, 290, 30, 21);
         jLayeredPane1.add(jCheckBox89, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox90.setSelected(true);
         jCheckBox90.setBounds(310, 290, 30, 21);
         jLayeredPane1.add(jCheckBox90, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox91.setSelected(true);
         jCheckBox91.setBounds(370, 290, 30, 21);
         jLayeredPane1.add(jCheckBox91, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox92.setSelected(true);
         jCheckBox92.setBounds(430, 310, 30, 21);
         jLayeredPane1.add(jCheckBox92, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox93.setSelected(true);
         jCheckBox93.setBounds(70, 310, 30, 21);
         jLayeredPane1.add(jCheckBox93, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox94.setSelected(true);
         jCheckBox94.setBounds(130, 310, 30, 21);
         jLayeredPane1.add(jCheckBox94, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox95.setSelected(true);
         jCheckBox95.setBounds(190, 310, 30, 21);
         jLayeredPane1.add(jCheckBox95, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox96.setSelected(true);
         jCheckBox96.setBounds(250, 310, 30, 21);
         jLayeredPane1.add(jCheckBox96, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox97.setSelected(true);
         jCheckBox97.setBounds(310, 310, 30, 21);
         jLayeredPane1.add(jCheckBox97, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox98.setSelected(true);
         jCheckBox98.setBounds(370, 310, 30, 21);
         jLayeredPane1.add(jCheckBox98, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox99.setSelected(true);
         jCheckBox99.setBounds(430, 330, 30, 21);
         jLayeredPane1.add(jCheckBox99, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox100.setSelected(true);
         jCheckBox100.setBounds(70, 330, 30, 21);
         jLayeredPane1.add(jCheckBox100, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox101.setSelected(true);
         jCheckBox101.setBounds(130, 330, 30, 21);
         jLayeredPane1.add(jCheckBox101, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox102.setSelected(true);
         jCheckBox102.setBounds(190, 330, 30, 21);
         jLayeredPane1.add(jCheckBox102, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox103.setSelected(true);
         jCheckBox103.setBounds(250, 330, 30, 21);
         jLayeredPane1.add(jCheckBox103, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox104.setSelected(true);
         jCheckBox104.setBounds(310, 330, 30, 21);
         jLayeredPane1.add(jCheckBox104, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox105.setSelected(true);
         jCheckBox105.setBounds(370, 330, 30, 21);
         jLayeredPane1.add(jCheckBox105, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox106.setSelected(true);
         jCheckBox106.setBounds(430, 350, 30, 21);
         jLayeredPane1.add(jCheckBox106, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox107.setSelected(true);
         jCheckBox107.setBounds(70, 350, 30, 21);
         jLayeredPane1.add(jCheckBox107, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox108.setSelected(true);
         jCheckBox108.setBounds(130, 350, 30, 21);
         jLayeredPane1.add(jCheckBox108, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox109.setSelected(true);
         jCheckBox109.setBounds(190, 350, 30, 21);
         jLayeredPane1.add(jCheckBox109, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox110.setSelected(true);
         jCheckBox110.setBounds(250, 350, 30, 21);
         jLayeredPane1.add(jCheckBox110, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox111.setSelected(true);
         jCheckBox111.setBounds(310, 350, 30, 21);
         jLayeredPane1.add(jCheckBox111, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox112.setSelected(true);
         jCheckBox112.setBounds(370, 350, 30, 21);
         jLayeredPane1.add(jCheckBox112, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox113.setSelected(true);
         jCheckBox113.setBounds(430, 370, 30, 21);
         jLayeredPane1.add(jCheckBox113, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox114.setSelected(true);
         jCheckBox114.setBounds(70, 370, 30, 21);
         jLayeredPane1.add(jCheckBox114, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox115.setSelected(true);
         jCheckBox115.setBounds(130, 370, 30, 21);
         jLayeredPane1.add(jCheckBox115, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox116.setSelected(true);
         jCheckBox116.setBounds(190, 370, 30, 21);
         jLayeredPane1.add(jCheckBox116, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox117.setSelected(true);
         jCheckBox117.setBounds(250, 370, 30, 21);
         jLayeredPane1.add(jCheckBox117, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox118.setSelected(true);
         jCheckBox118.setBounds(310, 370, 30, 21);
         jLayeredPane1.add(jCheckBox118, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox119.setSelected(true);
         jCheckBox119.setBounds(370, 370, 30, 21);
         jLayeredPane1.add(jCheckBox119, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox120.setSelected(true);
         jCheckBox120.setBounds(430, 390, 30, 21);
         jLayeredPane1.add(jCheckBox120, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox121.setSelected(true);
         jCheckBox121.setBounds(70, 390, 30, 21);
         jLayeredPane1.add(jCheckBox121, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox122.setSelected(true);
         jCheckBox122.setBounds(130, 390, 30, 21);
         jLayeredPane1.add(jCheckBox122, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox123.setSelected(true);
         jCheckBox123.setBounds(190, 390, 30, 21);
         jLayeredPane1.add(jCheckBox123, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox124.setSelected(true);
         jCheckBox124.setBounds(250, 390, 30, 21);
         jLayeredPane1.add(jCheckBox124, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox125.setSelected(true);
         jCheckBox125.setBounds(310, 390, 30, 21);
         jLayeredPane1.add(jCheckBox125, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox126.setSelected(true);
         jCheckBox126.setBounds(370, 390, 30, 21);
         jLayeredPane1.add(jCheckBox126, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox127.setSelected(true);
         jCheckBox127.setBounds(430, 410, 30, 21);
         jLayeredPane1.add(jCheckBox127, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox128.setSelected(true);
         jCheckBox128.setBounds(70, 410, 30, 21);
         jLayeredPane1.add(jCheckBox128, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox129.setSelected(true);
         jCheckBox129.setBounds(130, 410, 30, 21);
         jLayeredPane1.add(jCheckBox129, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox130.setSelected(true);
         jCheckBox130.setBounds(190, 410, 30, 21);
         jLayeredPane1.add(jCheckBox130, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox131.setSelected(true);
         jCheckBox131.setBounds(250, 410, 30, 21);
         jLayeredPane1.add(jCheckBox131, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox132.setSelected(true);
         jCheckBox132.setBounds(310, 410, 30, 21);
         jLayeredPane1.add(jCheckBox132, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jCheckBox133.setSelected(true);
         jCheckBox133.setBounds(370, 410, 30, 21);
         jLayeredPane1.add(jCheckBox133, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jCheckBox134.setBounds(430, 430, 30, 21);
@@ -524,14 +748,14 @@ public class PanelHorariLectiu extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(123, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -543,6 +767,9 @@ public class PanelHorariLectiu extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        // AQUI HAY QUE INICIALIZAR LAS RESTRICCIONES HORARIAS SEGUNE L ESTAOD DE TODOS LOS CHECKBOX.
+
+        cp.canviaPanel("GeneracioAssignatures");
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
