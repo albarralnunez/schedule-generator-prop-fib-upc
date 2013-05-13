@@ -35,18 +35,35 @@ public class PanelMenuPrincipal extends javax.swing.JPanel {
     private void initComponents() {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
-        botoLogout = new javax.swing.JButton();
+        botoGenHorari = new javax.swing.JButton();
         etiquetaNom = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        botoLogout = new javax.swing.JButton();
+        botoVeureHoraris = new javax.swing.JButton();
+        botoModificarDades = new javax.swing.JButton();
 
         jLayeredPane1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jLayeredPane1FocusGained(evt);
             }
         });
+
+        botoGenHorari.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        botoGenHorari.setText("Generar Horari");
+        botoGenHorari.setSelected(true);
+        botoGenHorari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoGenHorariActionPerformed(evt);
+            }
+        });
+        botoGenHorari.setBounds(160, 130, 150, 40);
+        jLayeredPane1.add(botoGenHorari, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        etiquetaNom.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        etiquetaNom.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        etiquetaNom.setText("-");
+        etiquetaNom.setBounds(-20, 50, 500, 30);
+        jLayeredPane1.add(etiquetaNom, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        etiquetaNom.getAccessibleContext().setAccessibleName("UnitatDocent");
 
         botoLogout.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         botoLogout.setText("Logout");
@@ -56,123 +73,77 @@ public class PanelMenuPrincipal extends javax.swing.JPanel {
                 botoLogoutActionPerformed(evt);
             }
         });
-        botoLogout.setBounds(275, 400, 150, 40);
+        botoLogout.setBounds(160, 400, 150, 40);
         jLayeredPane1.add(botoLogout, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        etiquetaNom.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        etiquetaNom.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        etiquetaNom.setText("-");
-        etiquetaNom.setBounds(100, 50, 500, 30);
-        jLayeredPane1.add(etiquetaNom, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        etiquetaNom.getAccessibleContext().setAccessibleName("UnitatDocent");
-
-        jPanel1.setName("panelOpcions"); // NOI18N
-
-        jRadioButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jRadioButton1.setLabel("Generar Horari");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        botoVeureHoraris.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        botoVeureHoraris.setText("Veure Horaris");
+        botoVeureHoraris.setSelected(true);
+        botoVeureHoraris.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                botoVeureHorarisActionPerformed(evt);
             }
         });
+        botoVeureHoraris.setBounds(160, 290, 150, 40);
+        jLayeredPane1.add(botoVeureHoraris, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jRadioButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jRadioButton2.setText("Veure Horaris");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        botoModificarDades.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        botoModificarDades.setText("Modificar Dades");
+        botoModificarDades.setSelected(true);
+        botoModificarDades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                botoModificarDadesActionPerformed(evt);
             }
         });
-
-        jRadioButton3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jRadioButton3.setText("Modificar Dades");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton3)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jRadioButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)))
-                .addContainerGap(78, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
-        );
-
-        jRadioButton1.getAccessibleContext().setAccessibleName("jRadioButton");
-
-        jPanel1.setBounds(230, 140, 250, 250);
-        jLayeredPane1.add(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jPanel1.getAccessibleContext().setAccessibleName("panelOpcions");
-        jPanel1.getAccessibleContext().setAccessibleDescription("Panel con opciones");
+        botoModificarDades.setBounds(160, 210, 150, 40);
+        jLayeredPane1.add(botoModificarDades, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(99, 99, 99)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botoLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoLogoutActionPerformed
-        cp.canviaPanel("login");
-    }//GEN-LAST:event_botoLogoutActionPerformed
-
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
-        //Esto es pk me falla nse pk el groupradiobutton :S
-        if (jRadioButton2.isSelected()) jRadioButton2.doClick();
-        if (jRadioButton3.isSelected()) jRadioButton3.doClick();
+    private void botoGenHorariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoGenHorariActionPerformed
         cp.canviaPanel("PanelHorariLectiu");
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
-
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
-        if (jRadioButton1.isSelected()) jRadioButton1.doClick();
-        if (jRadioButton3.isSelected()) jRadioButton3.doClick();
-        cp.canviaPanel("PanelVisorHoraris");
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
-
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        // TODO add your handling code here:
-        if (jRadioButton1.isSelected()) jRadioButton1.doClick();
-        if (jRadioButton2.isSelected()) jRadioButton2.doClick();
-        cp.canviaPanel("PanelModificarDades");
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_botoGenHorariActionPerformed
 
     private void jLayeredPane1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jLayeredPane1FocusGained
 
     }//GEN-LAST:event_jLayeredPane1FocusGained
 
+    private void botoLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoLogoutActionPerformed
+        // TODO add your handling code here:
+        cp.canviaPanel("login");
+    }//GEN-LAST:event_botoLogoutActionPerformed
+
+    private void botoVeureHorarisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoVeureHorarisActionPerformed
+        // TODO add your handling code here:
+        cp.canviaPanel("PanelVisorHoraris");
+    }//GEN-LAST:event_botoVeureHorarisActionPerformed
+
+    private void botoModificarDadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoModificarDadesActionPerformed
+        // TODO add your handling code here:
+        cp.canviaPanel("PanelModificarDades");
+    }//GEN-LAST:event_botoModificarDadesActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botoGenHorari;
     private javax.swing.JButton botoLogout;
+    private javax.swing.JButton botoModificarDades;
+    private javax.swing.JButton botoVeureHoraris;
     private javax.swing.JLabel etiquetaNom;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     // End of variables declaration//GEN-END:variables
 }

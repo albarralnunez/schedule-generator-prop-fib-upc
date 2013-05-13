@@ -25,6 +25,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     PanelMenuPrincipal pMenup;
     PanelHorariLectiu pHorariLectiu;
     PanelGeneracioAssignatures pGenAss;
+    PanelModificarDades pModDades;
 
     public ControladorPresentacio() {
         initComponents();
@@ -34,11 +35,13 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         pMenup = new PanelMenuPrincipal(this);
         pHorariLectiu = new PanelHorariLectiu(this);
         pGenAss = new PanelGeneracioAssignatures(this);
+        pModDades = new PanelModificarDades(this);
         
         this.Layered.add(pLogin);
         this.Layered.add(pMenup);
         this.Layered.add(pHorariLectiu);
         this.Layered.add(pGenAss);
+        this.Layered.add(pModDades);
         canviaPanel("login");
     }
     
@@ -56,6 +59,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         pMenup.setVisible(false);
         pHorariLectiu.setVisible(false);
         pGenAss.setVisible(false);
+        pModDades.setVisible(false);
 
         if(nomPanel.equals("login")) pLogin.setVisible(true);
         else if(nomPanel.equals("menuPrincipal")) {
@@ -64,6 +68,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         }
         else if (nomPanel.equals("PanelHorariLectiu")) pHorariLectiu.setVisible(true);
         else if (nomPanel.equals("GeneracioAssignatures")) pGenAss.setVisible(true);
+        else if (nomPanel.equals("PanelModificarDades")) pModDades.setVisible(true);
     }
 
     @SuppressWarnings("unchecked")
