@@ -187,7 +187,7 @@ class Generador {
                 for(int i = 1; i < duracio; ++i){
                     horaActmes1 = aux.get(index).getHora()+1;
                     horaSeg = aux.get(index+1).getHora();
-                    if(horaActmes1 != horaSeg) return false;
+                    if((horaActmes1 != horaSeg) && (aux.get(index).getAula() == aux.get(index+1).getAula())) return false;
                     ++index;
                 }
             }
