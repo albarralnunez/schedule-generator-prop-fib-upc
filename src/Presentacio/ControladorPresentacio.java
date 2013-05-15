@@ -59,7 +59,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         pMenup.setVisible(false);
         pHorariLectiu.setVisible(false);
         pGenAss.setVisible(false);
-        pModDades.setVisible(false);
+        //pModDades.setVisible(false);
 
         if(nomPanel.equals("login")) pLogin.setVisible(true);
         else if(nomPanel.equals("menuPrincipal")) {
