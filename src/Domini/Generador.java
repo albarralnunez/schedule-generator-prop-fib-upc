@@ -5,6 +5,7 @@
 package Domini;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  *
@@ -17,7 +18,6 @@ class Generador {
     private CjtRestriccioAula cjtRula;
     private CjtRestGrupSessio cjtRestGS;
     private CjtRestSolapament cjtRestS;
-    
     
     public Generador(CjtRestGrupoAula cjtRgraula, CjtRestAssignatura cjtRass,
             CjtRestriccioAula cjtRula,CjtRestGrupSessio cjtRestGS,
@@ -45,6 +45,7 @@ class Generador {
      this.cjtRestGS = cjtRestGS;
      this.cjtRestS = cjtRestS;
     }
+    
     
     
     public ArrayList<Aula> cjtCapacitatMajorDeL (int x,ArrayList<AulaLab> a){
@@ -187,8 +188,10 @@ class Generador {
                 for(int i = 1; i < duracio; ++i){
                     horaActmes1 = aux.get(index).getHora()+1;
                     horaSeg = aux.get(index+1).getHora();
-                    if((horaActmes1 != horaSeg) && (aux.get(index).getAula() == aux.get(index+1).getAula())) return false;
-                    ++index;
+                    if((horaActmes1 != horaSeg) && 
+                            (aux.get(index).getAula() == aux.get(index+1).getAula()))
+                        return false;
+                        ++index;
                 }
             }
             //else return false;
@@ -196,17 +199,18 @@ class Generador {
         return true;
         
     }
-    public boolean assignacioValida(Quadricula q, Element e, String dia, int hora,ClausulaNom cn,Clausula c,int duracio,int i) {
+    public boolean assignacioValida(Quadricula q, Element e, String dia, int hora
+            ,ClausulaNom cn,Clausula c,int duracioi) { //int i
         CjtElements elems = q.getElementsPosicio(dia, hora);//elements d aquella posicio
         // que en aquella hora nomes hi hagi un grup per aula
         if (!elems.aulaRepetida(e)) return false;
-        //si es vol posar un grup de lab on hi ha un de teoria o al reves 
+        //si es vol posar un grup de getElementsPosiciolab on hi ha un de teoria o al reves 
         if (elems.solapamentTeoriaPractica(e)) return false;
         //si es vols posar dos assignaturas del mateix nivell
         //if (!elems.solapamentNivell(e)) return false; PENDIENTE!
-        if(i==0){//per fer nomes un cop
-            if(! duracioConsecutiva(cn,c,duracio)) return false; //comprovacio de que el domini sigui seguit
-        }
+        //if(i==0){//per fer nomes un cop
+            //if(! duracioConsecutiva(cn,c,duracio)) return false; //comprovacio de que el domini sigui seguit
+        //}
         return true;
     }
 
@@ -226,29 +230,33 @@ class Generador {
             CjtRestSolapament cjtRestS,CjtRestriccioAula cjtRestAul ) {
         inicialitzarCjtRestriccions(cjtResGA, cjtRestAss, cjtRestGS, cjtRestS,cjtRestAul);
         ArrayList<Clausula> clau = inicialitzarClausules(aulesT, aulesL, ass, dis, q);
-        return backtracking(clau, q,0);
+        Stack<Clausula> b = new Stack<Clausula>();
+        return backtracking(clau, q,0, b);
     }
 
-    private boolean backtracking(ArrayList<Clausula> clau, Quadricula qu, int j) {
-        if (clau.size() == j) { // Tenim una solucio
+    private boolean backtracking(ArrayList<Clausula> clau, Quadricula qu, int j,
+            Stack<Clausula> backUp) {
+        if (clau.isEmpty()) { // Tenim una solucio
             return true;
         } else {
             Clausula c = clau.get(j);
+            clau.remove(0);
+            backUp.push(c);
             for (ClausulaNom cn : c.getClausula()) {
                 Element e = new Element();
                 e.setAssignatura(c.getAssignatura());
                 e.setAula(cn.getAula());
                 e.setGrupo(c.getGrup());
                 int duracio = c.getDuracio();
-                int esVal = 0;        
+                int esVal = 0;
                 for (int i = 0; i < duracio; ++i) {
                     int hor = cn.getHora()+i;
                     String di = cn.getDia();
                     qu.afegirElement(di, hor, e);
-                    if (! assignacioValida(qu, e, di, hor,cn,c,duracio,i)) ++esVal;
+                    if (!propagaRest(backUp,clau, cn, c,hor)) ++esVal;
                 }
                 if (esVal == 0) {
-                    boolean b = backtracking(clau, qu,j+1);
+                    boolean b = backtracking(clau, qu,j+1,backUp);
                     if (b) return true;
                     else {
                         for (int i = 0; i < duracio; ++i) {
@@ -257,8 +265,8 @@ class Generador {
                             qu.borrarElement(di, hor, e);
                         }
                     }
-                } 
-                else {
+                }
+                else {         
                     for (int i = 0; i < duracio; ++i) {
                         int hor = cn.getHora() + i;
                         String di = cn.getDia();
@@ -298,5 +306,36 @@ class Generador {
 
     private boolean foraLimits(Clausula c, ClausulaNom cn) {
         return (c.getDuracio()+cn.getHora() > 23);
+    }
+
+    private boolean propagaRest(ArrayList<Clausula> clau, ClausulaNom cn, 
+            Clausula c,int hor){
+        ArrayList<Clausula> clauAux = new ArrayList<Clausula>(clau);
+        for (Clausula cl : clau) {
+            for (ClausulaNom cln : cl.getClausula()) {
+                if (conflicte(cn,c,cl,cln,hor)) cl.borrarElem(cln);
+            }
+            if (cl.getClausula().isEmpty()) {
+                System.out.print(clau.get(0).getDuracio()); //!!
+                clau = clauAux;
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    private boolean conflicte(ClausulaNom cn, Clausula c, Clausula cl, 
+            ClausulaNom cln, int hor) {
+         if (solapamentTeoriaPractica (cn,c,cl,cln,hor)) return true;
+         return false;
+    }
+    
+    private boolean solapamentTeoriaPractica (ClausulaNom cn, Clausula c, Clausula cl, 
+            ClausulaNom cln, int hor) {
+        if (cn.getDia().equals(cln.getDia()) &&
+                cn.getHora() == cln.getHora() &&
+                c.getAssignatura().equals(cl.getAssignatura()) &&  
+                c.getGrup()%10 == cl.getGrup()%10) return true;
+        return false;
     }
 }
