@@ -12,6 +12,7 @@ package Presentacio;
 
 import Domini.CtrDomini;
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
 
 /**
  *
@@ -109,5 +110,11 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         System.out.println(nomUnitatDocent);
         unitatDocent = nomUnitatDocent;
         cd = new CtrDomini(unitatDocent);
+    }
+
+    public ArrayList llistaAssignatures() {
+        ArrayList assig = new ArrayList();
+        assig = cd.llistaAssignatures();
+        return assig;
     }
 }
