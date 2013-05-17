@@ -27,6 +27,10 @@ public class Casella extends javax.swing.JPanel {
         initComponents();
     }
 
+    public boolean getEstat(){
+        return activada;
+    }
+    
     private void initComponents() {
         
         //MOUSE LISTENER
@@ -35,8 +39,6 @@ public class Casella extends javax.swing.JPanel {
                 formMouseClicked(evt);
             }
         });
-        
-        
         
          javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -48,7 +50,6 @@ public class Casella extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap( 0, 300, Short.MAX_VALUE)
         );
-        
     }
     
     private void formMouseClicked(MouseEvent evt) {

@@ -124,4 +124,8 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     public ArrayList<String> llegeixConfiguracioHoraria(){
         return cd.llegeixConfiguracioHoraria();
     }
+
+    void guardaConfiguracioHoraria( ArrayList conf) {
+        cd.escriuConfigurcioHoraria(conf);
+    }
 }

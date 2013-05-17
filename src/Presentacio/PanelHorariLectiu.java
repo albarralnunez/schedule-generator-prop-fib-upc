@@ -147,6 +147,11 @@ public class PanelHorariLectiu extends javax.swing.JPanel {
         LayeredPrincipal.add(botoTornar, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         botoAcceptar.setText("Acceptar");
+        botoAcceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoAcceptarActionPerformed(evt);
+            }
+        });
         botoAcceptar.setBounds(590, 210, 100, 40);
         LayeredPrincipal.add(botoAcceptar, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -356,6 +361,26 @@ public class PanelHorariLectiu extends javax.swing.JPanel {
     private void botoTornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoTornarActionPerformed
         cp.canviaPanel("menuPrincipal");
     }//GEN-LAST:event_botoTornarActionPerformed
+
+    private void botoAcceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoAcceptarActionPerformed
+        ArrayList conf = new ArrayList();
+        for(int d = 0; d < 7; ++d){
+            if(d == 0) conf.add("dilluns");
+            else if( d == 1) conf.add("dimarts");
+            else if( d == 2) conf.add("dimecres");
+            else if( d == 3) conf.add("dijous");
+            else if( d == 4) conf.add("divendres");
+            else if( d == 5) conf.add("dissabte");
+            else if( d == 6) conf.add("diumenge");
+            for(int h = 0 ; h < 24; ++h ) {
+                if( caselles[d][h].getEstat() ){
+                    conf.add(h);
+                }
+            }
+        }
+        cp.guardaConfiguracioHoraria( conf );
+        cp.canviaPanel("siguiente");
+    }//GEN-LAST:event_botoAcceptarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

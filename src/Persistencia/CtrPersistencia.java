@@ -164,4 +164,8 @@ public class CtrPersistencia {
     public ArrayList<String> llegirConfiguracioHoraria(String nomConfig ) {
         return ca.llegirArxiu(nomConfig);
     }
+
+    public void escriuConfiguracioHoraria(ArrayList conf, String nomUnitat) {
+        ca.creaArxiu( "configuracioHoraria-"+nomUnitat, conf);
+    }
 }

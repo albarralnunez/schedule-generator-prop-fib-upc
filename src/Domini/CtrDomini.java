@@ -240,7 +240,7 @@ public class CtrDomini {
     }
      
     public void escriuConfigurcioHoraria( ArrayList conf ){
-        //per actualitzarla
+        cper.escriuConfiguracioHoraria(conf, nomUnitat);
     }
   
     /**
