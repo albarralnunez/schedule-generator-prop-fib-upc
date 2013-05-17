@@ -43,7 +43,9 @@ public class PanelHorariLectiu extends javax.swing.JPanel {
     
     
     public void carregaConfHoraria(){
-        
+        boolean b = false;
+        if( cp.existeixConfiguracioHoraria() ) {
+        b = true;
         for(int d = 0; d < 7; ++d){ // d = 7
             for(int h = 0; h < 24; ++h){ // h = 24
                 caselles[d][h].reset();
@@ -87,6 +89,10 @@ public class PanelHorariLectiu extends javax.swing.JPanel {
                 }
             }
         }
+        
+        }
+        
+        boolean c = b;
         
     }
 

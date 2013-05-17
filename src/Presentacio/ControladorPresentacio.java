@@ -128,4 +128,8 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     void guardaConfiguracioHoraria( ArrayList conf) {
         cd.escriuConfigurcioHoraria(conf);
     }
+
+    boolean existeixConfiguracioHoraria() {
+        return cd.existeixConfiguracioHoraria();
+    }
 }

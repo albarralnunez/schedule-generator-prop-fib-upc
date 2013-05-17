@@ -168,4 +168,8 @@ public class CtrPersistencia {
     public void escriuConfiguracioHoraria(ArrayList conf, String nomUnitat) {
         ca.creaArxiu( "configuracioHoraria-"+nomUnitat, conf);
     }
+
+    public boolean existeixConfiguracioHoraria(String nomUnitat) {
+        return cdisc.existeix("configuracioHoraria-"+nomUnitat);
+    }
 }

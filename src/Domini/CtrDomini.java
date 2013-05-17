@@ -656,4 +656,8 @@ public class CtrDomini {
        }
         
     }
+
+    public boolean existeixConfiguracioHoraria() {
+        return cper.existeixConfiguracioHoraria(nomUnitat);
+    }
 }
