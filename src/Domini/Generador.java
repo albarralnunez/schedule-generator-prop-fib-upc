@@ -224,25 +224,25 @@ class Generador {
         return true;
     }
     
+    private Stack<Clausula> backUp;
+    
     public boolean generar(ArrayList<AulaTeo> aulesT, ArrayList<AulaLab> aulesL,
             ArrayList<Assignatura> ass,RestriccioTemps dis, Quadricula q,
             CjtRestGrupoAula cjtResGA,CjtRestAssignatura cjtRestAss,CjtRestGrupSessio cjtRestGS,
             CjtRestSolapament cjtRestS,CjtRestriccioAula cjtRestAul ) {
         inicialitzarCjtRestriccions(cjtResGA, cjtRestAss, cjtRestGS, cjtRestS,cjtRestAul);
         ArrayList<Clausula> clau = inicialitzarClausules(aulesT, aulesL, ass, dis, q);
-        Stack<Clausula> b = new Stack<Clausula>();
-        return backtracking(clau, q,0, b);
+        backUp = new Stack<Clausula>();
+        return backtracking(clau, q);
     }
 
-    private boolean backtracking(ArrayList<Clausula> clau, Quadricula qu, int j,
-            Stack<Clausula> backUp) {
-        if (clau.isEmpty()) { // Tenim una solucio
-            return true;
-        } else {
+    private boolean backtracking(ArrayList<Clausula> clau, Quadricula qu) {
+        if (clau.isEmpty()) return true;
+        else {
             Clausula c = clau.get(0);
             clau.remove(0);
-            backUp.push(c);
             for (ClausulaNom cn : c.getClausula()) {
+                backUp.push(c);  
                 Element e = new Element();
                 e.setAssignatura(c.getAssignatura());
                 e.setAula(cn.getAula());
@@ -256,10 +256,9 @@ class Generador {
                     if (!propagaRest(clau, cn, c,hor)) ++esVal;
                 }
                 if (esVal == 0) {
-                    boolean b = backtracking(clau, qu,j+1,backUp);
+                    boolean b = backtracking(clau, qu);
                     if (b) return true;
                     else {
-                        clau.add(0, backUp.pop());
                         for (int i = 0; i < duracio; ++i) {
                             int hor = cn.getHora() + i;
                             String di = cn.getDia();
@@ -268,6 +267,7 @@ class Generador {
                     }
                 }
                 else {
+                    clau.add(0, backUp.pop());
                     for (int i = 0; i < duracio; ++i) {
                         int hor = cn.getHora() + i;
                         String di = cn.getDia();
@@ -335,11 +335,13 @@ class Generador {
     
     private boolean solapamentTeoriaPractica (ClausulaNom cn, Clausula c, Clausula cl, 
             ClausulaNom cln, int hor) {
-        if (cn.getDia().equals(cln.getDia()) &&
-                (cn.getHora() < cln.getHora() && 
-                cn.getHora() >= cln.getHora()+cl.getDuracio())&&
-                c.getAssignatura().equals(cl.getAssignatura()) &&  
-                c.getGrup()%10 == cl.getGrup()%10) return true;
+        if (    c.getAssignatura().equals(cl.getAssignatura()) &&
+                cn.getDia().equals(cln.getDia()) &&
+                cn.getHora()-cl.getDuracio() <= cln.getHora() && 
+                cn.getHora()+1 >= cln.getHora()&&
+                c.getGrup()%10 != cl.getGrup()%10 &&
+                c.getGrup()/10 == cl.getGrup()/10) return true;
+                //cn.getHora() >= cln.getHora()+cl.getDuracio())&&) return true;
         return false;
     }
 }
