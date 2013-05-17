@@ -10,6 +10,8 @@
  */
 package Presentacio;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author miquel.masriera
@@ -51,9 +53,9 @@ public class PanelLogin extends javax.swing.JPanel {
         jLayeredPane1.add(botoLogin, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         nomUD.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        nomUD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomUDActionPerformed(evt);
+        nomUD.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                nomUDKeyReleased(evt);
             }
         });
         nomUD.setBounds(350, 250, 200, 40);
@@ -83,19 +85,28 @@ public class PanelLogin extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
 private void botoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoLoginActionPerformed
-    String nomUnitatDocent = nomUD.getText();
-    System.out.println(nomUnitatDocent);
-    if( nomUnitatDocent == null || nomUnitatDocent.contains(" ") || nomUnitatDocent.equals("") )
-        cp.mostraAvis("El nom de la unitat docent ha de ser \nuna cadena de carácters sense espais en blanc.");
-    else { // el nom es valid
-        cp.identificarUnitatDocent(nomUnitatDocent);
-        cp.canviaPanel("menuPrincipal");
-    }
+  
+        String nomUnitatDocent = nomUD.getText();
+        if( nomUnitatDocent == null || nomUnitatDocent.contains(" ") || nomUnitatDocent.equals("") )
+            cp.mostraAvis("El nom de la unitat docent ha de ser \nuna cadena de carácters sense espais en blanc.");
+        else { // el nom es valid
+            cp.identificarUnitatDocent(nomUnitatDocent);
+            cp.canviaPanel("menuPrincipal");
+        }
 }//GEN-LAST:event_botoLoginActionPerformed
 
-    private void nomUDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomUDActionPerformed
-        
-    }//GEN-LAST:event_nomUDActionPerformed
+    private void nomUDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nomUDKeyReleased
+        if( evt.getKeyCode() == KeyEvent.VK_ENTER ){    
+            System.out.println("KEY EVENT ENTER 1 VEZ");
+        String nomUnitatDocent = nomUD.getText();
+        if( nomUnitatDocent == null || nomUnitatDocent.contains(" ") || nomUnitatDocent.equals("") )
+            cp.mostraAvis("El nom de la unitat docent ha de ser \nuna cadena de carácters sense espais en blanc.");
+        else { // el nom es valid
+            cp.identificarUnitatDocent(nomUnitatDocent);
+            cp.canviaPanel("menuPrincipal");
+        }
+    }
+    }//GEN-LAST:event_nomUDKeyReleased
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botoLogin;
