@@ -30,6 +30,26 @@ public class Clausula {
         duracio = null;
         assignatura = null;
     }
+    
+    public Clausula(Clausula c) {
+        this.grup = new Integer (c.getGrup());
+        this.duracio = new Integer(c.getDuracio());
+        Assignatura as = new Assignatura();
+        as.setCapacitatLab(c.getAssignatura().getCapacitatLab());
+        as.setCapacitatTeo(c.getAssignatura().getCapacitatTeo());
+        as.setGrupss(c.getAssignatura().getGrups());
+        as.setHoresP(c.getAssignatura().getHoresP());
+        as.setHoresT(c.getAssignatura().getHoresT());
+        as.setMaterial(c.getAssignatura().necesitaMaterial());
+        as.setNivell(c.getAssignatura().getNivell());
+        as.setNom(c.getAssignatura().getNom());
+        as.setProjector(c.getAssignatura().necesitaProjector());
+        as.setIntervalsP(c.getAssignatura().getIntervalsP());
+        as.setIntervalsT(c.getAssignatura().getIntervalsT());
+        this.assignatura = as;
+        this.clausula = new ArrayList<ClausulaNom> (c.getClausula());
+        
+    }
 
 
 

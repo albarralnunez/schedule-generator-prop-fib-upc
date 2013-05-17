@@ -239,23 +239,25 @@ class Generador {
     private boolean backtracking(ArrayList<Clausula> clau, Quadricula qu) {
         if (clau.isEmpty()) return true;
         else {
-            Clausula c = clau.get(0);
+            Clausula c = new Clausula(clau.get(0));
             clau.remove(0);
-            for (ClausulaNom cn : c.getClausula()) {
-                backUp.push(c);  
+            boolean esVal = true;
+            for (int y = 0; y < c.getClausula().size(); ++y) {
+                ClausulaNom cn = c.getClausula().get(y);
                 Element e = new Element();
                 e.setAssignatura(c.getAssignatura());
                 e.setAula(cn.getAula());
                 e.setGrupo(c.getGrup());
                 int duracio = c.getDuracio();
-                int esVal = 0;
+                esVal = true;
                 for (int i = 0; i < duracio; ++i) {
+                    if (!esVal) break;
                     int hor = cn.getHora()+i;
                     String di = cn.getDia();
                     qu.afegirElement(di, hor, e);
-                    if (!propagaRest(clau, cn, c,hor)) ++esVal;
+                    if (!propagaRest(clau, cn, c,hor)) esVal = false;
                 }
-                if (esVal == 0) {
+                if (esVal) {
                     boolean b = backtracking(clau, qu);
                     if (b) return true;
                     else {
@@ -267,7 +269,6 @@ class Generador {
                     }
                 }
                 else {
-                    clau.add(0, backUp.pop());
                     for (int i = 0; i < duracio; ++i) {
                         int hor = cn.getHora() + i;
                         String di = cn.getDia();
@@ -275,6 +276,7 @@ class Generador {
                     }
                 }
             }
+            //clau.add(0,c);
             return false;
         }
     }
@@ -311,16 +313,22 @@ class Generador {
 
     private boolean propagaRest(ArrayList<Clausula> clau, ClausulaNom cn, 
             Clausula c,int hor){
-        ArrayList<Clausula> clauAux = new ArrayList<Clausula>(clau);
-        for (Clausula cl : clau) {
-            ArrayList<ClausulaNom>  claux = new ArrayList<ClausulaNom> (cl.getClausula());
-            for (ClausulaNom cln : claux) {
-                if (conflicte(cn,c,cl,cln,hor)) {
-                    cl.borrarElem(cln);
-                }
+        Stack<Clausula> stackclau  = new Stack<Clausula>();
+        int j = 0;
+        for (Clausula cl : clau) {  //Recorremos todas las clausulas
+            ++j;
+            Clausula cla = new Clausula(cl);
+            stackclau.push(cla); //guardamos la clausula por si se han de deshacer los cambios
+            for (int u = 0; u < cl.getClausula().size(); ++u) {  //recorregut de totes els elements
+                ClausulaNom cln = cl.getClausula().get(u);
+                if (conflicte(cn,c,cl,cln,hor)) cl.borrarElem(cln); //si hay conflictos borra el elemento 
             }
-            if (cl.getClausula().isEmpty()) {
-                clau = clauAux;
+            if (cl.getClausula().isEmpty()) {   //si se ha quedado sin elementos no se puede hacer
+                while (!stackclau.isEmpty()) { // reestablecemos la estructura
+                    --j;
+                    clau.remove(j);
+                    clau.add(j, stackclau.pop());
+                }
                 return false;
             }
         }
