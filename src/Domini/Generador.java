@@ -233,7 +233,7 @@ class Generador {
         inicialitzarCjtRestriccions(cjtResGA, cjtRestAss, cjtRestGS, cjtRestS,cjtRestAul);
         ArrayList<Clausula> clau = inicialitzarClausules(aulesT, aulesL, ass, dis, q);
         backUp = new Stack<Clausula>();
-        return backtracking(clau, q);
+        return backtracking(clau, q,0,clau.size());
     }
 
     private boolean backtracking(ArrayList<Clausula> clau, Quadricula qu) {
@@ -280,6 +280,47 @@ class Generador {
             return false;
         }
     }
+    private boolean backtracking(ArrayList<Clausula> clau, Quadricula qu, int j,
+            int s) {
+        if (clau.size() == j) { // Tenim una solucio
+            return true;
+        } else {
+            Clausula c = clau.get(0);
+            for (ClausulaNom cn : c.getClausula()) {
+                Element e = new Element();
+                e.setAssignatura(c.getAssignatura());
+                e.setAula(cn.getAula());
+                e.setGrupo(c.getGrup());
+                int duracio = c.getDuracio();
+                int esVal = 0;        
+                for (int i = 0; i < duracio; ++i) {
+                    int hor = cn.getHora()+i;
+                    String di = cn.getDia();
+                    qu.afegirElement(di, hor, e);
+                    if (!propagaRest(clau, cn, c,hor,j)) ++esVal;
+                }
+                if (esVal == 0) {
+                    boolean b = backtracking(clau, qu,j+1,s);
+                    if (b) return true;
+                    else {
+                        for (int i = 0; i < duracio; ++i) {
+                            int hor = cn.getHora() + i;
+                            String di = cn.getDia();
+                            qu.borrarElement(di, hor, e);
+                        }
+                    }
+                } 
+                else {
+                    for (int i = 0; i < duracio; ++i) {
+                        int hor = cn.getHora() + i;
+                        String di = cn.getDia();
+                        qu.borrarElement(di, hor, e);
+                    }
+                }
+            }
+            return false;
+        }
+    }
 
     public boolean AfegirRestriccioGrupSessio(String nomA, int grup, String dia, int hora) {
        int d;
@@ -312,7 +353,7 @@ class Generador {
     }
 
     private boolean propagaRest(ArrayList<Clausula> clau, ClausulaNom cn, 
-            Clausula c,int hor){
+            Clausula c,int hor, int p){
         Stack<Clausula> stackclau  = new Stack<Clausula>();
         int j = 0;
         for (Clausula cl : clau) {  //Recorremos todas las clausulas
