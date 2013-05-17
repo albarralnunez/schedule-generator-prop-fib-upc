@@ -270,7 +270,7 @@ class Generador {
         }
     }
 
-    public boolean AfegirRestriccioGrupSessio(String nomA, int grup, String dia, int hora) {
+    public boolean AfegirRestriccioGrupSessio(String nomA, int grup, String dia, int hora,int id) {
        int d;
         if ( dia.equals("dilluns") ) d = 0;
         else if ( dia.equals("dimarts") ) d = 1;
@@ -279,7 +279,7 @@ class Generador {
         else if ( dia.equals("divendres") ) d = 4;
         else if ( dia.equals("dissabte") ) d = 5;
         else d = 6;
-        RestGrupSessio rgs = new RestGrupSessio(nomA, grup, d, hora);
+        RestGrupSessio rgs = new RestGrupSessio(nomA, grup, d, hora,id);
         return cjtRestGS.afegeixRestriccio( rgs );
     }
 
