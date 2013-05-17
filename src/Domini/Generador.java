@@ -239,7 +239,7 @@ class Generador {
         if (clau.isEmpty()) { // Tenim una solucio
             return true;
         } else {
-            Clausula c = clau.get(j);
+            Clausula c = clau.get(0);
             clau.remove(0);
             backUp.push(c);
             for (ClausulaNom cn : c.getClausula()) {
@@ -253,12 +253,13 @@ class Generador {
                     int hor = cn.getHora()+i;
                     String di = cn.getDia();
                     qu.afegirElement(di, hor, e);
-                    if (!propagaRest(backUp,clau, cn, c,hor)) ++esVal;
+                    if (!propagaRest(clau, cn, c,hor)) ++esVal;
                 }
                 if (esVal == 0) {
                     boolean b = backtracking(clau, qu,j+1,backUp);
                     if (b) return true;
                     else {
+                        clau.add(0, backUp.pop());
                         for (int i = 0; i < duracio; ++i) {
                             int hor = cn.getHora() + i;
                             String di = cn.getDia();
@@ -266,7 +267,7 @@ class Generador {
                         }
                     }
                 }
-                else {         
+                else {
                     for (int i = 0; i < duracio; ++i) {
                         int hor = cn.getHora() + i;
                         String di = cn.getDia();
@@ -312,11 +313,13 @@ class Generador {
             Clausula c,int hor){
         ArrayList<Clausula> clauAux = new ArrayList<Clausula>(clau);
         for (Clausula cl : clau) {
-            for (ClausulaNom cln : cl.getClausula()) {
-                if (conflicte(cn,c,cl,cln,hor)) cl.borrarElem(cln);
+            ArrayList<ClausulaNom>  claux = new ArrayList<ClausulaNom> (cl.getClausula());
+            for (ClausulaNom cln : claux) {
+                if (conflicte(cn,c,cl,cln,hor)) {
+                    cl.borrarElem(cln);
+                }
             }
             if (cl.getClausula().isEmpty()) {
-                System.out.print(clau.get(0).getDuracio()); //!!
                 clau = clauAux;
                 return false;
             }
@@ -333,7 +336,8 @@ class Generador {
     private boolean solapamentTeoriaPractica (ClausulaNom cn, Clausula c, Clausula cl, 
             ClausulaNom cln, int hor) {
         if (cn.getDia().equals(cln.getDia()) &&
-                cn.getHora() == cln.getHora() &&
+                (cn.getHora() < cln.getHora() && 
+                cn.getHora() >= cln.getHora()+cl.getDuracio())&&
                 c.getAssignatura().equals(cl.getAssignatura()) &&  
                 c.getGrup()%10 == cl.getGrup()%10) return true;
         return false;
