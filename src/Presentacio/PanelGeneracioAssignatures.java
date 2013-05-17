@@ -11,20 +11,84 @@
 
 package Presentacio;
 
+//import java.awt.Frame;
+//import java.awt.event.WindowListener;
+//import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
+
+
 /**
  *
  * @author albertomarin
  */
-public class PanelGeneracioAssignatures extends javax.swing.JPanel {
+public class PanelGeneracioAssignatures extends javax.swing.JPanel{
 
     ControladorPresentacio cp;
+    //private Frame ventana;
 
     /** Creates new form PanelGeneracioAssignatures */
     public PanelGeneracioAssignatures(ControladorPresentacio cpr) {
         cp = cpr;
         initComponents();
+
+        //INICIALIZAR LISTA
+
+        /*ArrayList assig = new ArrayList();
+        assig = cp.llistaAssignatures();
+
+        for (int i = 0; i < assig.size(); ++i) {
+            jList1.add(jList1, assig.get(i));
+            
+        }*/
+
         this.setBounds(0, 0, 700, 500);
+        //ventana = new Frame();
+        //ventana.setVisible(false);
+        //ventana.addWindowListener(new EscuchaVentana());
+
     }
+/*
+    class EscuchaVentana implements WindowListener{
+        
+        @Override
+        public void windowActivated(WindowEvent e){
+            System.out.println("windowActivated");
+        }
+
+        @Override
+        public void windowClosed(WindowEvent e){
+            System.out.println("windowClosed");
+        }
+
+        @Override
+        public void windowClosing(WindowEvent e){
+            System.out.println("windowClosing");
+        }
+
+        @Override
+        public void windowDeactivated(WindowEvent e){
+            System.out.println("windowDeactivated");
+        }
+
+        @Override
+        public void windowDeiconified(WindowEvent e){
+            System.out.println("windowDeiconified");
+        }
+
+        @Override
+        public void windowIconified(WindowEvent e){
+            System.out.println("windowIconified");
+        }
+
+        @Override
+        public void windowOpened(WindowEvent e){
+            System.out.println("windowOpened");
+        }
+
+    }*/
+
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -73,6 +137,11 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
         jLabel1.setBounds(10, 10, 130, 15);
         jLayeredPane1.add(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        jList1.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "XC", "SO", "ASO", "CI", "BD" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
         jScrollPane1.setViewportView(jList1);
 
         jScrollPane1.setBounds(0, 220, 140, 140);
@@ -84,7 +153,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jButton1.setBounds(150, 230, 100, 25);
+        jButton1.setBounds(160, 230, 100, 25);
         jLayeredPane1.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton2.setText("Editar...");
@@ -93,7 +162,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        jButton2.setBounds(150, 260, 100, 25);
+        jButton2.setBounds(160, 260, 100, 25);
         jLayeredPane1.add(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton3.setText("Següent");
@@ -129,6 +198,40 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        //int filas = jTable1.getRowCount();
+        DefaultTableModel modelo=(DefaultTableModel) jTable1.getModel();
+        //modelo.addRow(new Object[filas]);
+
+        //YA HEMOS AÑADIDO UNA FILA, AHORA HAY QUE RELLENARLA CON LA INFO DE LA ASSIGNATURA
+        Object[] cadena = jList1.getSelectedValues();
+        int h = cadena.length;
+        String cadenaString;
+
+        /*
+         //CONTROL DE ERRORES:
+        for (int i = 0; i < jTable1.getRowCount(); ++i) {
+            //String ass = jTable1.getValueAt(i, 0).toString();
+            String ass = "XC";
+            cp.mostraAvis(""+ass);
+            for (int j = 0; j < h; ++j) {
+                if (ass.equals(cadena[i].toString())) cp.mostraAvis("No pots afegir una assignatura que ja esta afegida!");
+            }
+        }*/
+
+
+
+
+        for (int i=0; i < h; i++){ //Para cada elemento seleccionado de la lista...
+            cadenaString = cadena[i].toString(); //YA TENEMOS LA ASSIGNATURA SELECCIONADA
+            int filas = jTable1.getRowCount();
+            modelo.addRow(new Object[filas]);
+
+            //AQUI HAY QUE IR ACCEDIENDO A CADA UNA DE LAS PROPIEDADES D LA ASIGNATURA Y RELLENAR LA TABLA
+
+            jTable1.setValueAt(cadenaString, filas, 0); //pirmera columna de la fila añadida.
+            jTable1.setValueAt(cadenaString, filas, 1); //segunda columnda d la fila añadida.
+            jTable1.setValueAt(true, filas, 9); //penultima columnda d la fila añadida.
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
