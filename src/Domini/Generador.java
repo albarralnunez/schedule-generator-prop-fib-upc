@@ -279,8 +279,10 @@ class Generador {
         else if ( dia.equals("divendres") ) d = 4;
         else if ( dia.equals("dissabte") ) d = 5;
         else d = 6;
-        RestGrupSessio rgs = new RestGrupSessio(nomA, grup, d, hora,id);
+        /*RestGrupSessio rgs = new RestGrupSessio(nomA, grup, d, hora,id);
         return cjtRestGS.afegeixRestriccio( rgs );
+        */
+        return true;
     }
 
     private boolean suficientHoresSegui(Clausula c, ClausulaNom cn, Quadricula q) {

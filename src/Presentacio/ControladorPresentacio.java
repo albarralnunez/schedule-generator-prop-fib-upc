@@ -67,7 +67,10 @@ public class ControladorPresentacio extends javax.swing.JFrame {
             pMenup.setNomUnitatDocent(unitatDocent);
             pMenup.setVisible(true);
         }
-        else if (nomPanel.equals("PanelHorariLectiu")) pHorariLectiu.setVisible(true);
+        else if (nomPanel.equals("PanelHorariLectiu")) {
+            pHorariLectiu.carregaConfHoraria();
+            pHorariLectiu.setVisible(true);
+        }
         else if (nomPanel.equals("GeneracioAssignatures")) pGenAss.setVisible(true);
         //else if (nomPanel.equals("PanelModificarDades")) pModDades.setVisible(true);
     }
@@ -116,5 +119,9 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         ArrayList assig = new ArrayList();
         assig = cd.llistaAssignatures();
         return assig;
+    }
+    
+    public ArrayList<String> llegeixConfiguracioHoraria(){
+        return cd.llegeixConfiguracioHoraria();
     }
 }
