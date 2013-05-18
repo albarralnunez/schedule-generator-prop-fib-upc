@@ -385,7 +385,7 @@ public class PanelHorariLectiu extends javax.swing.JPanel {
             }
         }
         cp.guardaConfiguracioHoraria( conf );
-        cp.canviaPanel("siguiente");
+        cp.canviaPanel("PanelGeneracioAssignatures");
     }//GEN-LAST:event_botoAcceptarActionPerformed
 
 

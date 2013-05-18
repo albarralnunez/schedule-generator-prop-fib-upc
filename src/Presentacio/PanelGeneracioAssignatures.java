@@ -11,10 +11,8 @@
 
 package Presentacio;
 
-//import java.awt.Frame;
-//import java.awt.event.WindowListener;
-//import java.awt.event.WindowEvent;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -23,73 +21,19 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author albertomarin
  */
-public class PanelGeneracioAssignatures extends javax.swing.JPanel{
+public class PanelGeneracioAssignatures extends javax.swing.JPanel {
 
     ControladorPresentacio cp;
-    //private Frame ventana;
+
+    //ONLOAD:
 
     /** Creates new form PanelGeneracioAssignatures */
     public PanelGeneracioAssignatures(ControladorPresentacio cpr) {
         cp = cpr;
         initComponents();
-
-        //INICIALIZAR LISTA
-
-        /*ArrayList assig = new ArrayList();
-        assig = cp.llistaAssignatures();
-
-        for (int i = 0; i < assig.size(); ++i) {
-            jList1.add(jList1, assig.get(i));
-            
-        }*/
-
+        //jButton5.doClick();
         this.setBounds(0, 0, 700, 500);
-        //ventana = new Frame();
-        //ventana.setVisible(false);
-        //ventana.addWindowListener(new EscuchaVentana());
-
     }
-/*
-    class EscuchaVentana implements WindowListener{
-        
-        @Override
-        public void windowActivated(WindowEvent e){
-            System.out.println("windowActivated");
-        }
-
-        @Override
-        public void windowClosed(WindowEvent e){
-            System.out.println("windowClosed");
-        }
-
-        @Override
-        public void windowClosing(WindowEvent e){
-            System.out.println("windowClosing");
-        }
-
-        @Override
-        public void windowDeactivated(WindowEvent e){
-            System.out.println("windowDeactivated");
-        }
-
-        @Override
-        public void windowDeiconified(WindowEvent e){
-            System.out.println("windowDeiconified");
-        }
-
-        @Override
-        public void windowIconified(WindowEvent e){
-            System.out.println("windowIconified");
-        }
-
-        @Override
-        public void windowOpened(WindowEvent e){
-            System.out.println("windowOpened");
-        }
-
-    }*/
-
-
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -109,6 +53,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel{
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -148,21 +93,23 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel{
         jLayeredPane1.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton1.setText("Afegir");
+        jButton1.setEnabled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jButton1.setBounds(160, 230, 100, 25);
+        jButton1.setBounds(150, 230, 100, 25);
         jLayeredPane1.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton2.setText("Editar...");
+        jButton2.setEnabled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jButton2.setBounds(160, 260, 100, 25);
+        jButton2.setBounds(150, 260, 100, 25);
         jLayeredPane1.add(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton3.setText("Següent");
@@ -177,6 +124,15 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel{
         });
         jButton4.setBounds(440, 330, 81, 25);
         jLayeredPane1.add(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/refresh.png"))); // NOI18N
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jButton5.setBounds(150, 330, 30, 30);
+        jLayeredPane1.add(jButton5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -198,6 +154,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel{
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+
         //int filas = jTable1.getRowCount();
         DefaultTableModel modelo=(DefaultTableModel) jTable1.getModel();
         //modelo.addRow(new Object[filas]);
@@ -228,6 +185,14 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel{
 
             //AQUI HAY QUE IR ACCEDIENDO A CADA UNA DE LAS PROPIEDADES D LA ASIGNATURA Y RELLENAR LA TABLA
 
+            ArrayList<String> param = cp.mostraParametresAssignatura(cadenaString);
+            for (int j = 0; j < param.size(); ++j) {
+                System.out.println("HEY MAN:" + param.get(j));
+            }
+
+
+
+
             jTable1.setValueAt(cadenaString, filas, 0); //pirmera columna de la fila añadida.
             jTable1.setValueAt(cadenaString, filas, 1); //segunda columnda d la fila añadida.
             jTable1.setValueAt(true, filas, 9); //penultima columnda d la fila añadida.
@@ -244,12 +209,29 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel{
         cp.canviaPanel("PanelModificarDades");
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        DefaultListModel listModel = new DefaultListModel();
+        jList1.setModel(listModel);
+        ArrayList<String> Assignaturas = cp.llistaAssignatures();
+        for (String ass : Assignaturas) {
+            ass = ass.substring(0, ass.length()-4); //QUITAMOS EL .txt
+            ass = ass.substring(6, ass.length()); //QUITAMOS EL assig-
+            String unitatDocent = cp.getNomUnitatDocent();
+            ass = ass.substring(unitatDocent.length()+1, ass.length()); //QUITAMOS EL FIB-
+            listModel.addElement(ass);
+        }
+        jButton1.setEnabled(true);
+        jButton2.setEnabled(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JList jList1;

@@ -76,6 +76,9 @@ public class ControladorPresentacio extends javax.swing.JFrame {
             pModDades.inicialitza();
             pModDades.setVisible(true);
         }
+        else if (nomPanel.equals("PanelGeneracioAssignatures")) {
+            pGenAss.setVisible(true);
+        }
         
     }
 
@@ -138,5 +141,9 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     
     public String getNomUnitatDocent(){
         return this.unitatDocent;
+    }
+
+    public ArrayList<String> mostraParametresAssignatura(String nomAss) {
+        return cd.mostraParametresAssignatura(nomAss);
     }
 }
