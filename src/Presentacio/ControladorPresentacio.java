@@ -27,6 +27,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     PanelHorariLectiu pHorariLectiu;
     PanelGeneracioAssignatures pGenAss;
     PanelModificarDades pModDades;
+    PanelGeneracioAules pGenAul;
 
     public ControladorPresentacio() {
         initComponents();
@@ -37,12 +38,14 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         pHorariLectiu = new PanelHorariLectiu(this);
         pGenAss = new PanelGeneracioAssignatures(this);
         pModDades = new PanelModificarDades(this);
+        pGenAul = new PanelGeneracioAules(this);
         
         this.Layered.add(pLogin);
         this.Layered.add(pMenup);
         this.Layered.add(pHorariLectiu);
         this.Layered.add(pGenAss);
         this.Layered.add(pModDades);
+        this.Layered.add(pGenAul);
         canviaPanel("login");
     }
     
@@ -61,6 +64,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         pHorariLectiu.setVisible(false);
         pGenAss.setVisible(false);
         pModDades.setVisible(false);
+        pGenAul.setVisible(false);
 
         if(nomPanel.equals("login")) pLogin.setVisible(true);
         else if(nomPanel.equals("menuPrincipal")) {
@@ -78,6 +82,9 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         }
         else if (nomPanel.equals("PanelGeneracioAssignatures")) {
             pGenAss.setVisible(true);
+        }
+        else if (nomPanel.equals("PanelGeneracioAules")) {
+            pGenAul.setVisible(true);
         }
         
     }
@@ -126,7 +133,11 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         return cd.llistaAssignatures();
         
     }
-    
+
+    public ArrayList<String> llistaAules() {
+        return cd.llistaAules();
+    }
+
     public ArrayList<String> llegeixConfiguracioHoraria(){
         return cd.llegeixConfiguracioHoraria();
     }
@@ -146,4 +157,9 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     public ArrayList<String> mostraParametresAssignatura(String nomAss) {
         return cd.mostraParametresAssignatura(nomAss);
     }
+
+    public ArrayList<String> mostraParametresAula(String nomaul) {
+        return cd.llegirAula(nomaul);
+    }
+
 }
