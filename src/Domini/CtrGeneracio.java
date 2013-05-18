@@ -249,7 +249,9 @@ public class CtrGeneracio {
                     for(  int j = 0; j < a.getHoresT() && b; ++j ){
                         b = quad.getElementsPosicio(dia, hora).isValid() ;
                         if(b){
+                            /*
                             b = gen.AfegirRestriccioGrupSessio( nomA, grup, dia, hora+j );
+                            */
                             int z = 3;
                         }
                     }
@@ -258,7 +260,9 @@ public class CtrGeneracio {
                     for(  int j = 0; j < a.getHoresP() && b; ++j ){
                        b = quad.getElementsPosicio(dia, hora).isValid() ;
                         if(b){
+                            /*
                             b = gen.AfegirRestriccioGrupSessio( nomA, grup, dia, hora+j );
+                            */
                         }
                     }
                 }

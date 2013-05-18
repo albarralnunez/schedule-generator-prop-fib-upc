@@ -752,7 +752,7 @@ public class CtrPresentacio {
         if( ! cd.existeixAula( nomAula) ) 
             System.err.println(nomAula+" no existeix");
         else {
-            cd.printAula(nomAula);
+            //cd.printAula(nomAula);
             System.out.println("es de teoria? (y/n)");
             String y = s.next();
             System.out.println("capacitat ");

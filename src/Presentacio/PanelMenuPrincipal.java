@@ -73,7 +73,7 @@ public class PanelMenuPrincipal extends javax.swing.JPanel {
                 botoLogoutActionPerformed(evt);
             }
         });
-        botoLogout.setBounds(160, 400, 150, 40);
+        botoLogout.setBounds(160, 370, 150, 40);
         jLayeredPane1.add(botoLogout, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         botoVeureHoraris.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -104,13 +104,13 @@ public class PanelMenuPrincipal extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(99, 99, 99)
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 591, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents

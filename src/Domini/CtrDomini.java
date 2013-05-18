@@ -72,7 +72,7 @@ public class CtrDomini {
      * 
      * @return 
      */
-    public ArrayList llistaAssignatures(){
+    public ArrayList<String> llistaAssignatures(){
         return cper.llistaAssigantures(nomUnitat);
     }
     /**
@@ -120,7 +120,7 @@ public class CtrDomini {
      * TODO:TEMPORAL!
      * Escriu un Aula per terminal  
      * @param nomAula 
-     */
+     
     public void printAula( String nomAula){
         ArrayList<String> atributs = cper.llegirAula(nomUnitat+"-"+nomAula);
         int t = Integer.parseInt(atributs.get(0));
@@ -134,7 +134,7 @@ public class CtrDomini {
         if (t==1 && b==0) System.out.println(" no te projector\n");
         if (t==0 && b==1) System.out.println(" te material\n");
         if (t==0 && b==0) System.out.println(" no te material\n");
-    }
+    }*/
     
     /**
      * 
@@ -187,10 +187,12 @@ public class CtrDomini {
     }
     
     
+    
     /**
      * fara que s'inicialitzin la quadricula, les aules i les assignatures
      */
     public void inicialitzaGenerador() {
+        
         
         ArrayList<String> configuracioInicial =  cper.llegirConfiguracioHoraria("configuracioHoraria-"+nomUnitat);
         
@@ -231,6 +233,14 @@ public class CtrDomini {
         }
         
         cgen.inicialitzarGenerador(configuracioInicial, assignatures, aLab, aTeo); 
+    }
+    
+     public ArrayList<String> llegeixConfiguracioHoraria(){
+         return cper.llegirConfiguracioHoraria("configuracioHoraria-"+nomUnitat);
+    }
+     
+    public void escriuConfigurcioHoraria( ArrayList conf ){
+        cper.escriuConfiguracioHoraria(conf, nomUnitat);
     }
   
     /**
@@ -645,5 +655,9 @@ public class CtrDomini {
                     break;
        }
         
+    }
+
+    public boolean existeixConfiguracioHoraria() {
+        return cper.existeixConfiguracioHoraria(nomUnitat);
     }
 }
