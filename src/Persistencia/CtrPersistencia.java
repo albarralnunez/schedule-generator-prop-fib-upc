@@ -27,7 +27,7 @@ public class CtrPersistencia {
         return ca.numArxius();
     }
 
-    public ArrayList llistaAssigantures(String nomUnitat) {
+    public ArrayList<String> llistaAssigantures(String nomUnitat) {
         return ca.llistaDirectori("assig-" + nomUnitat); // te totes les assignatures de la unitat docent 
     }
 

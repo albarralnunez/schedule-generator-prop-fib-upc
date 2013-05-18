@@ -72,7 +72,7 @@ public class CtrDomini {
      * 
      * @return 
      */
-    public ArrayList llistaAssignatures(){
+    public ArrayList<String> llistaAssignatures(){
         return cper.llistaAssigantures(nomUnitat);
     }
     /**
