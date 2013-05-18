@@ -236,51 +236,6 @@ class Generador {
         return backtracking(clau, q,0,clau.size());
     }
 
-    
-    // NOT USED NOW!
-    private boolean backtracking(ArrayList<Clausula> clau, Quadricula qu,int j) {
-        if (clau.size() == j) return true;
-        else {
-            Clausula c = new Clausula(clau.get(0));
-            for (int y = 0; y < c.getClausula().size(); ++y) {
-                ClausulaNom cn = c.getClausula().get(y);
-                Element e = new Element();
-                e.setAssignatura(c.getAssignatura());
-                e.setAula(cn.getAula());
-                e.setGrupo(c.getGrup());
-                int duracio = c.getDuracio();
-                int esVal = 0;
-                for (int i = 0; i < duracio; ++i) {
-                    int hor = cn.getHora()+i;
-                    String di = cn.getDia();
-                    qu.afegirElement(di, hor, e);
-                    if (!propagaRest(clau, cn, c,hor,j)) ++esVal;
-                }
-                if (esVal == 0) {
-                    boolean b = backtracking(clau, qu,j+1);
-                    if (b) return true;
-                    else {
-                        for (int i = 0; i < duracio; ++i) {
-                            int hor = cn.getHora() + i;
-                            String di = cn.getDia();
-                            qu.borrarElement(di, hor, e);
-                        }
-                    }
-                }
-                else {
-                   // clau.add(esVal, c) = backUp.pop();
-                    //clau = backUp.pop();
-                    for (int i = 0; i < duracio; ++i) {
-                        int hor = cn.getHora() + i;
-                        String di = cn.getDia();
-                        qu.borrarElement(di, hor, e);
-                    }
-                }
-            }
-            //clau.add(0,c);
-            return false;
-        }
-    }
     private boolean backtracking(ArrayList<Clausula> clau, Quadricula qu, int j,
             int s) {
         if (clau.size() == j) { // Tenim una solucio
@@ -295,13 +250,8 @@ class Generador {
                 int duracio = c.getDuracio();
                 boolean esVal = true;
                 int i = 0;
-                ArrayList<Clausula> auxc = new ArrayList<Clausula>();
-                for (Clausula cu : clau) {
-                    Clausula caux = new Clausula(cu);
-                    auxc.add(caux);
-                }
+                ArrayList<Clausula> auxc = (ArrayList<Clausula>) clau.clone();
                 while (i < duracio && esVal) {
-                //for (int i = 0; i < duracio; ++i) {
                     int hor = cn.getHora()+i;
                     String di = cn.getDia();
                     qu.afegirElement(di, hor, e);
@@ -310,12 +260,9 @@ class Generador {
                 }
                 if (esVal) {
                     boolean b = backtracking(clau, qu,j+1,s);
-                   // clau = backUp.pop();
                     if (b) return true;
                     else {
-                        // clau = auxc;
                         while (i >= 0){
-                        //for (int i = 0; i < duracio; ++i) {
                             int hor = cn.getHora() + i;
                             String di = cn.getDia();
                             qu.borrarElement(di, hor, e);
@@ -324,10 +271,8 @@ class Generador {
                     }
                 } 
                 else {
-                    //clau.get(j).borrarElem(cn);
                     clau = auxc;
                     while (i >= 0){
-                       //for (int i = 0; i < duracio; ++i) {
                        int hor = cn.getHora() + i;
                        String di = cn.getDia();
                        qu.borrarElement(di, hor, e);
@@ -380,9 +325,7 @@ class Generador {
             int u = 0;
             while ( u < cl.getClausula().size()) {
                 ClausulaNom cln = cl.getClausula().get(u);
-                if (conflicte(cn,c,cl,cln,hor)){
-                    cl.borrarElem(cln);
-                }//si hay conflictos borra el elemento 
+                if (conflicte(cn,c,cl,cln,hor)) cl.borrarElem(cln);//si hay conflictos borra el elemento 
                 else ++u;
             }
             if (cl.getClausula().isEmpty()) return false;
@@ -404,7 +347,6 @@ class Generador {
                 hor >= cln.getHora() &&
                 c.getGrup()%10 != cl.getGrup()%10 &&
                 c.getGrup()/10 == cl.getGrup()/10) return true;
-                //cn.getHora() >= cln.getHora()+cl.getDuracio())&&) return true;
         return false;
     }
 }
