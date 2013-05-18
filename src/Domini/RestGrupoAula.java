@@ -67,39 +67,28 @@ public class RestGrupoAula extends Restriccio {
      * @return
      */
     public boolean esPotAfegir(CjtRestGrupoAula cjtRga,CjtRestriccioAula cjtResAul,
-            CjtRestAssignatura cjtResAssig) {
-        boolean comp = true;
+            CjtRestGrupSessio cjtResGS) {
         for (Restriccio  res: cjtRga.getCjtRes()) {
             RestGrupoAula resdw = (RestGrupoAula) res; 
-            if (resdw.getAssignatura().equals(this.assignatura) &&
-                    resdw.getGrup() == this.grup) comp = false;
-        } 
-        for (Restriccio resa : cjtResAul.getCjtRes()) {
-            RestriccioAula resAuldw = (RestriccioAula)resa; 
-            if (this.aula.equals(resAuldw.getAula().getNom())) {
-                for (Restriccio resb : cjtResAssig.getCjtRes()) {
-                    RestAssignatura resAssdw = (RestAssignatura)resb;
-                    if (this.assignatura.equals(resAssdw.getAssignatura().getNom()) &&
-                            this.grup == resAssdw.getGrup()){
-                        if (resAuldw.getDia() == null) {
-                            if (resAssdw.getHora() == resAuldw.getHora())
-                                comp = false;
-                        }
-                        else if (resAuldw.getHora() == -1) { 
-                            if (resAssdw.getDia().equals(resAuldw.getDia()))
-                                comp = false;
-                        }
-                        else {
-                            if (resAssdw.getHora() == resAuldw.getHora() && 
-                                    resAssdw.getDia().equals(resAuldw.getDia())) {
-                                comp = false;
-                            }
-                        }
-                    }
-                }
+            if (resdw.getAssignatura().equals(this.assignatura) && resdw.getGrup() == this.grup) return false;
+            if(this.id == 1){
+                if (resdw.getId() == 2 && resdw.getAssignatura().equals(this.assignatura) && resdw.getGrup() == this.grup && resdw.getAula().equals(this.aula)) return false;
+            }
+            else if(this.id == 2){
+                if (resdw.getId() == 1 && resdw.getAssignatura().equals(this.assignatura) && resdw.getGrup() == this.grup && resdw.getAula().equals(this.aula)) return false;
             }
         }
-        return comp;
+        switch(this.id){
+            case 1:
+                    boolean trobat = false;
+                    for(int i = 0;i<cjtResAul.size() && (!trobat);++i){
+                        
+                    }
+                    break;
+            case 2:
+                    break;
+        }
+        return true;
     }
     
     
