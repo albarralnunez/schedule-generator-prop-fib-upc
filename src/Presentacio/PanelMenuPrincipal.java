@@ -55,25 +55,30 @@ public class PanelMenuPrincipal extends javax.swing.JPanel {
                 botoGenHorariActionPerformed(evt);
             }
         });
-        botoGenHorari.setBounds(160, 130, 150, 40);
+        botoGenHorari.setBounds(160, 130, 160, 40);
         jLayeredPane1.add(botoGenHorari, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        etiquetaNom.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        etiquetaNom.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         etiquetaNom.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         etiquetaNom.setText("-");
-        etiquetaNom.setBounds(-20, 50, 500, 30);
+        etiquetaNom.setBounds(-10, 50, 500, 30);
         jLayeredPane1.add(etiquetaNom, javax.swing.JLayeredPane.DEFAULT_LAYER);
         etiquetaNom.getAccessibleContext().setAccessibleName("UnitatDocent");
 
         botoLogout.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         botoLogout.setText("Logout");
         botoLogout.setSelected(true);
+        botoLogout.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                botoLogoutMouseMoved(evt);
+            }
+        });
         botoLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botoLogoutActionPerformed(evt);
             }
         });
-        botoLogout.setBounds(160, 370, 150, 40);
+        botoLogout.setBounds(160, 370, 160, 40);
         jLayeredPane1.add(botoLogout, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         botoVeureHoraris.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -84,7 +89,7 @@ public class PanelMenuPrincipal extends javax.swing.JPanel {
                 botoVeureHorarisActionPerformed(evt);
             }
         });
-        botoVeureHoraris.setBounds(160, 290, 150, 40);
+        botoVeureHoraris.setBounds(160, 290, 160, 40);
         jLayeredPane1.add(botoVeureHoraris, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         botoModificarDades.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -95,7 +100,7 @@ public class PanelMenuPrincipal extends javax.swing.JPanel {
                 botoModificarDadesActionPerformed(evt);
             }
         });
-        botoModificarDades.setBounds(160, 210, 150, 40);
+        botoModificarDades.setBounds(160, 210, 160, 40);
         jLayeredPane1.add(botoModificarDades, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -130,13 +135,17 @@ public class PanelMenuPrincipal extends javax.swing.JPanel {
 
     private void botoVeureHorarisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoVeureHorarisActionPerformed
         // TODO add your handling code here:
-        cp.canviaPanel("PanelVisorHoraris");
+        cp.canviaPanel("PanelVeureHoraris");
     }//GEN-LAST:event_botoVeureHorarisActionPerformed
 
     private void botoModificarDadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoModificarDadesActionPerformed
         // TODO add your handling code here:
         cp.canviaPanel("PanelModificarDades");
     }//GEN-LAST:event_botoModificarDadesActionPerformed
+
+    private void botoLogoutMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botoLogoutMouseMoved
+
+    }//GEN-LAST:event_botoLogoutMouseMoved
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botoGenHorari;
