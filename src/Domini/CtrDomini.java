@@ -340,8 +340,8 @@ public class CtrDomini {
             r.setAssignatura((String) params.get(0));
             r.setGrup((Integer) params.get(1));
             r.setAula((String) params.get(2));
-            if(r.esPotAfegir(cgen.getCjtResGA(), cgen.getCjtRestAul(), cgen.getCjtRestAss()))
-                cgen.setResResGA(r);
+            r.setId((Integer) params.get(3));
+            if(r.esPotAfegir(cgen.getCjtResGA(), cgen.getCjtRestAul(), cgen.getCjtRestGS(),cgen.getQuad())) cgen.setResResGA(r);
         }
         else if(tipus == 2){
             
@@ -355,15 +355,17 @@ public class CtrDomini {
             Assignatura a = new Assignatura();
             String assig = (String)params.get(0);
             for(int i = 0;i < size && !trobat;++i){
-                if(l.get(i).getNom().equals(assig)) {trobat =true; a = l.get(i); ;}
+                if(l.get(i).getNom().equals(assig)) {trobat =true; a = l.get(i);}
             }
             if(trobat){
                 int grup = (Integer) params.get(1);
                 int hora = (Integer) params.get(2);
+                int id = (Integer) params.get(3);
                 RestAssignatura r = new RestAssignatura();
                 r.setAssignatura(a);
                 r.setGrup(grup);
                 r.setHora(hora);
+                r.setId(id);
                 if(r.esPotAfegir(cgen.getCjtRestAss(),cgen.getCjtRestGS())) cgen.setResRestAss(r);
            }
         }
@@ -374,15 +376,17 @@ public class CtrDomini {
             Assignatura a = new Assignatura();
             String assig = (String)params.get(0);
             for(int i = 0;i < size && !trobat;++i){
-                if(l.get(i).getNom().equals(assig)) {trobat =true; a = l.get(i); ;}
+                if(l.get(i).getNom().equals(assig)) {trobat =true; a = l.get(i);}
             }
             if(trobat){
                 int grup = (Integer) params.get(1);
                 String dia = (String) params.get(2);
+                int id = (Integer) params.get(3);
                 RestAssignatura r = new RestAssignatura();
                 r.setAssignatura(a);
                 r.setGrup(grup);
                 r.setDia(dia);
+                r.setId(id);
                 if(r.esPotAfegir(cgen.getCjtRestAss(),cgen.getCjtRestGS())) cgen.setResRestAss(r);
            }
         }
@@ -397,8 +401,8 @@ public class CtrDomini {
             ArrayList<Assignatura> l = cgen.getCjtAs();
             int sizeAss = l.size();
             for(int i = 0;i < sizeAss && (!trobat1 || !trobat2);++i){
-                if(l.get(i).getNom().equals(assP)) {trobat1 =true; aP = l.get(i); ;}
-                else if(l.get(i).getNom().equals(assS)) {trobat2 =true; aS = l.get(i); ;}
+                if(l.get(i).getNom().equals(assP)) {trobat1 =true; aP = l.get(i);}
+                else if(l.get(i).getNom().equals(assS)) {trobat2 =true; aS = l.get(i);}
             }
             if(trobat1 && trobat2){
                 RestSolapament r = new RestSolapament();
@@ -432,6 +436,8 @@ public class CtrDomini {
                 r.setAula(a);
                 r.setHora((Integer)params.get(1));
                 r.setDia((String)params.get(2));
+                r.setId((Integer) params.get(3));
+                
                 if(r.esPotAfegir(cgen.getCjtRestAul(),cgen.getCjtResGA(),cgen.getCjtRestGS())) cgen.setResRestAul(r);
             }
             
@@ -445,8 +451,8 @@ public class CtrDomini {
      * @param hora
      * @return 
      */
-    public boolean AfegirRestriccioGrupSessio( String nomA, int grup, String dia, int hora ){
-        return cgen.AfegirRestriccioGrupSessio( nomA, grup, dia, hora);
+    public boolean AfegirRestriccioGrupSessio( String nomA, int grup, String dia, int hora,int id ){
+        return cgen.AfegirRestriccioGrupSessio( nomA, grup, dia, hora,id);
     }
     /**
      * 
@@ -471,47 +477,59 @@ public class CtrDomini {
      */
     public ArrayList<String> llistaRest(int tipus){
         ArrayList<String> l = new ArrayList();
-        if(tipus == 1){
+        if(0<tipus && tipus <3){
             CjtRestGrupoAula cjt= cgen.getCjtResGA();
             int size = cjt.size();
             for(int i = 0; i < size; ++i){
                 RestGrupoAula a = cjt.get(i);
-                l.add(a.getAssignatura()+"-"+a.getGrup()+"-"+a.getAula());
+                if(tipus == a.getId()){
+                    l.add(a.getAssignatura()+"-"+a.getGrup()+"-"+a.getAula());
+                    Integer j = i;
+                    l.add(j.toString());
+                }
             }
         }
-        else if(tipus == 2){
+        else if(2<tipus && tipus<6 ){
             CjtRestGrupSessio cjt = cgen.getCjtRestGS();
             int size = cjt.size();
             for(int i = 0; i < size; ++i){
                 RestGrupSessio r = cjt.get(i);
-                l.add(r.getAssignatura()+"-"+r.getGrup()+"-"+r.getDia()+"-"+r.getHora());
+                if(tipus == r.ObtenirId()){
+                    l.add(r.getAssignatura()+"-"+r.getGrup()+"-"+r.getDia()+"-"+r.getHora());
+                    Integer j = i;
+                    l.add(j.toString());
+                }
             }
         }
-        else if(tipus == 3){
+        else if(5<tipus && tipus <9){
             CjtRestAssignatura cjt = cgen.getCjtRestAss();
             int size = cjt.size();
             for(int i = 0; i < size; ++i){
                 RestAssignatura r = cjt.get(i);
                 if(r.getHora()!= -1){
-                    l.add(r.getAssignatura().getNom()+"-"+r.getGrup()+"-"+r.getHora());
-                    Integer j = i;
-                    l.add(j.toString());
+                    if(tipus == r.getId()){
+                        l.add(r.getAssignatura().getNom()+"-"+r.getGrup()+"-"+r.getHora());
+                        Integer j = i;
+                        l.add(j.toString());
+                    }
                 }
             }
         }
-        else if(tipus == 4){
+        else if(8<tipus && tipus < 12){
             CjtRestAssignatura cjt = cgen.getCjtRestAss();
             int size = cjt.size();
             for(int i = 0; i < size; ++i){
                 RestAssignatura r = cjt.get(i);
                 if(r.getDia() != null){
-                    l.add(r.getAssignatura().getNom()+"-"+r.getGrup()+"-"+r.getDia());
-                    Integer j = i;
-                    l.add(j.toString());
+                    if(tipus == r.getId()){
+                        l.add(r.getAssignatura().getNom()+"-"+r.getGrup()+"-"+r.getDia());
+                        Integer j = i;
+                        l.add(j.toString());
+                    }
                 }
             }
         }
-        else if(tipus == 5){
+        else if(tipus == 12){
             CjtRestSolapament cjt = cgen.getCjtRestS();
             int size = cjt.size();
             for(int i = 0; i < size; ++i){
@@ -524,12 +542,16 @@ public class CtrDomini {
                 }
             }
         }
-        else {
+        else if (12<tipus && tipus<16) {
             CjtRestriccioAula cjt = cgen.getCjtRestAul();
             int size = cjt.size();
             for(int i = 0; i < size; ++i){
                 RestriccioAula r = cjt.get(i);
-                l.add(r.getAula().getNom()+"-"+r.getDia()+"-"+r.getHora());
+                if(tipus == r.getId()) {
+                    l.add(r.getAula().getNom()+"-"+r.getDia()+"-"+r.getHora());
+                    Integer j = i;
+                    l.add(j.toString());
+                }
             }
         }
         return l;
@@ -635,22 +657,22 @@ public class CtrDomini {
      */
     public void esborraRest(int tipus,int numRest){
         switch (tipus){
-            case 1:
+            case 1: case 2:
                     cgen.getCjtResGA().remove(numRest);
                     break;
-            case 2:
+            case 3: case 4: case 5:
                     cgen.getCjtRestGS().remove(numRest);
                     break;
-            case 3:
+            case 6: case 7: case 8:
                     cgen.getCjtRestAss().remove(numRest);
                     break;
-            case 4:
+            case 9: case 10: case 11:
                     cgen.getCjtRestAss().remove(numRest);
                     break;
-            case 5: 
+            case 12: 
                     cgen.getCjtRestS().remove(numRest);
                     break;
-            case 6:
+            case 13: case 14: case 15:
                     cgen.getCjtRestAul().remove(numRest);
                     break;
        }

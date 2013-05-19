@@ -53,6 +53,13 @@ public class RestAssignatura extends Restriccio {
     public int getHora(){
         return hora;
     }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public boolean everyday(){
         if(dia == null) return true;
         else return false;
