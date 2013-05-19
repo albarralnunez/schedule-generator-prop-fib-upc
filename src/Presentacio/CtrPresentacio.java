@@ -261,7 +261,7 @@ public class CtrPresentacio {
         while( opcio != 3 ) {
             System.out.println(" OPCIONS ");
             System.out.println(" 1 - definir restriccions");
-            System.out.println(" 2 - generar horari");
+            System.out.println(" 2 - generar horari <En fase de proves si es posen restriccions>");
             System.out.println(" 3 - tornar");
             opcio = s.nextInt();     
             if(opcio == 1) definirRes();
