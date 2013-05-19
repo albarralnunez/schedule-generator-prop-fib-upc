@@ -24,6 +24,7 @@ public class Assignatura {
     private boolean material;
     private boolean projector;
 
+
     @Override
     public int hashCode() {
         int hash = 5;
@@ -254,6 +255,10 @@ public class Assignatura {
         this.grups.addAll(grupos);
     }
 
+    public void setGrupss(ArrayList<Integer> grupos) {
+        this.grups = grupos;
+    }
+    
     /**
      * 
      * @param grupo 

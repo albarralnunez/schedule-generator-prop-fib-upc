@@ -26,7 +26,8 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     PanelMenuPrincipal pMenup;
     PanelHorariLectiu pHorariLectiu;
     PanelGeneracioAssignatures pGenAss;
-    //PanelModificarDades pModDades;
+    PanelModificarDades pModDades;
+    PanelGeneracioAules pGenAul;
 
     public ControladorPresentacio() {
         initComponents();
@@ -36,13 +37,15 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         pMenup = new PanelMenuPrincipal(this);
         pHorariLectiu = new PanelHorariLectiu(this);
         pGenAss = new PanelGeneracioAssignatures(this);
-        //pModDades = new PanelModificarDades(this);
+        pModDades = new PanelModificarDades(this);
+        pGenAul = new PanelGeneracioAules(this);
         
         this.Layered.add(pLogin);
         this.Layered.add(pMenup);
         this.Layered.add(pHorariLectiu);
         this.Layered.add(pGenAss);
-        //this.Layered.add(pModDades);
+        this.Layered.add(pModDades);
+        this.Layered.add(pGenAul);
         canviaPanel("login");
     }
     
@@ -60,16 +63,30 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         pMenup.setVisible(false);
         pHorariLectiu.setVisible(false);
         pGenAss.setVisible(false);
-        //pModDades.setVisible(false);
+        pModDades.setVisible(false);
+        pGenAul.setVisible(false);
 
         if(nomPanel.equals("login")) pLogin.setVisible(true);
         else if(nomPanel.equals("menuPrincipal")) {
             pMenup.setNomUnitatDocent(unitatDocent);
             pMenup.setVisible(true);
         }
-        else if (nomPanel.equals("PanelHorariLectiu")) pHorariLectiu.setVisible(true);
-        else if (nomPanel.equals("GeneracioAssignatures")) pGenAss.setVisible(true);
-        //else if (nomPanel.equals("PanelModificarDades")) pModDades.setVisible(true);
+        else if (nomPanel.equals("PanelHorariLectiu")) {
+            pHorariLectiu.carregaConfHoraria();
+            pHorariLectiu.setVisible(true);
+        }
+        //else if (nomPanel.equals("GeneracioAssignatures")) pGenAss.setVisible(true);
+        else if (nomPanel.equals("PanelModificarDades")) {
+            pModDades.inicialitza();
+            pModDades.setVisible(true);
+        }
+        else if (nomPanel.equals("PanelGeneracioAssignatures")) {
+            pGenAss.setVisible(true);
+        }
+        else if (nomPanel.equals("PanelGeneracioAules")) {
+            pGenAul.setVisible(true);
+        }
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -112,9 +129,44 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         cd = new CtrDomini(unitatDocent);
     }
 
-    public ArrayList llistaAssignatures() {
-        ArrayList assig = new ArrayList();
-        assig = cd.llistaAssignatures();
-        return assig;
+    public ArrayList<String> llistaAssignatures() {
+        return cd.llistaAssignatures();
+        
     }
+
+    public ArrayList<String> llistaAules() {
+        return cd.llistaAules();
+    }
+
+    public ArrayList<String> llegeixConfiguracioHoraria(){
+        return cd.llegeixConfiguracioHoraria();
+    }
+
+    public void guardaConfiguracioHoraria( ArrayList conf) {
+        cd.escriuConfigurcioHoraria(conf);
+    }
+
+    public boolean existeixConfiguracioHoraria() {
+        return cd.existeixConfiguracioHoraria();
+    }
+    
+    public String getNomUnitatDocent(){
+        return this.unitatDocent;
+    }
+
+    public ArrayList<String> mostraParametresAssignatura(String nomAss) {
+        return cd.mostraParametresAssignatura(nomAss);
+    }
+
+    public ArrayList<String> mostraParametresAula(String nomaul) {
+        String tipo_aula = nomaul.substring(0, 9);
+        nomaul = nomaul.substring(9, nomaul.length()); //QUITAMOS EL aula-teo-
+        nomaul = nomaul.substring(this.unitatDocent.length()+1, nomaul.length());
+        if (tipo_aula.equals("aula-teo-")) {
+            return cd.llegirAulaTeo(nomaul);
+        } else {
+            return cd.llegirAulaLab(nomaul);
+        }
+    }
+
 }
