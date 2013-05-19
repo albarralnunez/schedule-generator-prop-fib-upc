@@ -88,7 +88,7 @@ private void botoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
   
         String nomUnitatDocent = nomUD.getText();
         if( nomUnitatDocent == null || nomUnitatDocent.contains(" ") || nomUnitatDocent.equals("") )
-            cp.mostraAvis("El nom de la unitat docent ha de ser \nuna cadena de carácters sense espais en blanc.");
+            cp.mostraAvis("El nom de la unitat docent ha de ser \nuna cadena de carácters sense espais en blanc.", "ERROR");
         else { // el nom es valid
             cp.identificarUnitatDocent(nomUnitatDocent);
             cp.canviaPanel("menuPrincipal");
@@ -100,7 +100,7 @@ private void botoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
             System.out.println("KEY EVENT ENTER 1 VEZ");
         String nomUnitatDocent = nomUD.getText();
         if( nomUnitatDocent == null || nomUnitatDocent.contains(" ") || nomUnitatDocent.equals("") )
-            cp.mostraAvis("El nom de la unitat docent ha de ser \nuna cadena de carácters sense espais en blanc.");
+            cp.mostraAvis("El nom de la unitat docent ha de ser \nuna cadena de carácters sense espais en blanc.", "ERROR");
         else { // el nom es valid
             cp.identificarUnitatDocent(nomUnitatDocent);
             cp.canviaPanel("menuPrincipal");

@@ -158,42 +158,44 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
         DefaultTableModel modelo=(DefaultTableModel) jTable1.getModel();
         Object[] cadena = jList1.getSelectedValues();
         int h = cadena.length;
-        String cadenaString;
-
-        for (int i=0; i < h; i++){ //Para cada elemento seleccionado de la lista...
-            //Si ya no lo hemos añadido...
-            cadenaString = cadena[i].toString(); //YA TENEMOS LA ASSIGNATURA SELECCIONADA
-            if (assignatures.contains(cadenaString)) {
-                cp.mostraAvis("No es pot afegir de nou l'assignatura "+ cadenaString);
-            } else {
-                assignatures.add(cadenaString);
-                int filas = jTable1.getRowCount();
-                modelo.addRow(new Object[filas]);
-                //AQUI HAY QUE IR ACCEDIENDO A CADA UNA DE LAS PROPIEDADES D LA ASIGNATURA Y RELLENAR LA TABLA
-                ArrayList<String> param = cp.mostraParametresAssignatura(cadenaString);
-                int index;
-                for (index = 0; index < 4; ++index) {
-                    jTable1.setValueAt(param.get(index), filas, index); //NOMBRE, NIVEL, HOREST, INTERVALT
+        if (h == 0) cp.mostraAvis("Seleccioni l'assignatura a afegir", "WARNING");
+        else {
+            String cadenaString;
+            for (int i=0; i < h; i++){ //Para cada elemento seleccionado de la lista...
+                //Si ya no lo hemos añadido...
+                cadenaString = cadena[i].toString(); //YA TENEMOS LA ASSIGNATURA SELECCIONADA
+                if (assignatures.contains(cadenaString)) {
+                    cp.mostraAvis("No es pot afegir de nou l'assignatura "+ cadenaString, "ERROR");
+                } else {
+                    assignatures.add(cadenaString);
+                    int filas = jTable1.getRowCount();
+                    modelo.addRow(new Object[filas]);
+                    //AQUI HAY QUE IR ACCEDIENDO A CADA UNA DE LAS PROPIEDADES D LA ASIGNATURA Y RELLENAR LA TABLA
+                    ArrayList<String> param = cp.mostraParametresAssignatura(cadenaString);
+                    int index;
+                    for (index = 0; index < 4; ++index) {
+                        jTable1.setValueAt(param.get(index), filas, index); //NOMBRE, NIVEL, HOREST, INTERVALT
+                    }
+                    Integer interval_t = Integer.parseInt(param.get(3));
+                    index += interval_t;
+                    jTable1.setValueAt(param.get(index), filas, 4); //HORESL
+                    ++index;
+                    jTable1.setValueAt(param.get(index), filas, 5); //INTERVALL
+                    Integer interval_l = Integer.parseInt(param.get(index));
+                    ++index;
+                    index += interval_l; //Nos saltamos tantas filas como interval de lab.
+                    jTable1.setValueAt(param.get(index), filas, 6); //CAPACITAT T;
+                    ++index;
+                    jTable1.setValueAt(param.get(index), filas, 7); //CAPACITAT L;
+                    ++index;
+                    String grupos = "";
+                    for (int k = index; k < param.size()-1; ++k) {
+                        grupos = grupos + param.get(k);
+                        grupos = grupos + ",";
+                    }
+                    grupos = grupos + param.get(param.size()-1);
+                    jTable1.setValueAt(grupos, filas, 8); //GRUPS;
                 }
-                Integer interval_t = Integer.parseInt(param.get(3));
-                index += interval_t;
-                jTable1.setValueAt(param.get(index), filas, 4); //HORESL
-                ++index;
-                jTable1.setValueAt(param.get(index), filas, 5); //INTERVALL
-                Integer interval_l = Integer.parseInt(param.get(index));
-                ++index;
-                index += interval_l; //Nos saltamos tantas filas como interval de lab.
-                jTable1.setValueAt(param.get(index), filas, 6); //CAPACITAT T;
-                ++index;
-                jTable1.setValueAt(param.get(index), filas, 7); //CAPACITAT L;
-                ++index;
-                String grupos = "";
-                for (int k = index; k < param.size()-1; ++k) {
-                    grupos = grupos + param.get(k);
-                    grupos = grupos + ",";
-                }
-                grupos = grupos + param.get(param.size()-1);
-                jTable1.setValueAt(grupos, filas, 8); //GRUPS;
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
