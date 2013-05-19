@@ -129,5 +129,79 @@ public class RestAssignatura extends Restriccio {
         }
         return true;
     }
+    public boolean compleixRes6(Clausula c,ClausulaNom cn){
+        if(c.getAssignatura().equals(this.assignatura) && c.getGrup() == this.grup){
+            if(this.hora != -1){
+               if(this.hora >= cn.getHora() && (this.hora < cn.getHora() + c.getDuracio())) return false;
+               else return true;
+            }
+        }
+        return true;
+    }
+    public boolean compleixRes7(Clausula c,ClausulaNom cn){
+        if(c.getAssignatura().equals(this.assignatura) && c.getGrup() == this.grup){
+            if(this.hora != -1){
+                if ((cn.getHora() > (this.hora+1)) && ((cn.getHora() + c.getDuracio()) > (this.hora+1))) return true;
+                else return false;
+            }
+        }
+        return true;
+    }
+    public boolean compleixRes8(Clausula c,ClausulaNom cn){
+        if(c.getAssignatura().equals(this.assignatura) && c.getGrup() == this.grup){
+            if(this.hora != -1){
+                if ((cn.getHora() < this.hora) && ((cn.getHora() + c.getDuracio()) < this.hora )) return true;
+                else return false;
+            }
+            
+        }
+        return true;
+    }
+    public boolean compleixRes9(Clausula c,ClausulaNom cn){
+         if(c.getAssignatura().equals(this.assignatura) && c.getGrup() == this.grup){
+            if(this.dia != null){
+                if(cn.getDia().equals(this.dia)) return false;
+                else return true;
+            }
+            
+        }
+        return true;
+    }
+    private int canviDiaInt(String dia){
+        int d = -1;
+        if ( dia.equals("dilluns") ) d = 0;
+        else if ( dia.equals("dimarts") ) d = 1;
+        else if ( dia.equals("dimecres") ) d = 2;
+        else if ( dia.equals("dijous") ) d = 3;
+        else if ( dia.equals("divendres") ) d = 4;
+        else if ( dia.equals("dissabte") ) d = 5;
+        else if (dia.equals("diumenge"))d = 6;
+        return d;
+    }
+    public boolean compleixRes10(Clausula c,ClausulaNom cn){
+        if(c.getAssignatura().equals(this.assignatura) && c.getGrup() == this.grup){
+            if(this.dia != null){
+                int diaR = canviDiaInt(this.dia);
+                int diaCn = canviDiaInt(cn.getDia());
+                if(diaCn <= diaR) return false;
+                else return true;
+            }
+            
+        }
+        return true;
+        
+    }
+    public boolean compleixRes11(Clausula c,ClausulaNom cn){
+        if(c.getAssignatura().equals(this.assignatura) && c.getGrup() == this.grup){
+            if(this.dia != null){
+                int diaR = canviDiaInt(this.dia);
+                int diaCn = canviDiaInt(cn.getDia());
+                if(diaCn >= diaR) return false;
+                else return true;
+            }
+            
+        }
+        return true;
+    }
     
 }

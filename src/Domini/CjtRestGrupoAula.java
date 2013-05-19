@@ -74,7 +74,8 @@ public class CjtRestGrupoAula extends CjtRestriccions{
         boolean b = true;
         for (RestGrupoAula rga : this.restGrupoAula) {
             if (!b) break;
-            b = rga.compleixRes(c, cn);
+            if(rga.ObtenirId() == 1)b = rga.compleixRes1(c, cn);
+            else if(rga.ObtenirId() == 2) b = rga.compleixRes2(c, cn);
         }
         return b;
     }
