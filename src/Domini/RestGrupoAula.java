@@ -91,7 +91,13 @@ public class RestGrupoAula extends Restriccio {
      */
     public boolean esPotAfegir(CjtRestGrupoAula cjtRga,CjtRestriccioAula cjtResAul,
             CjtRestGrupSessio cjtResGS, Quadricula quad) {
-        for (Restriccio  res: cjtRga.getCjtRes()) {
+        
+        
+        return true;
+        
+        //NO BORRAR ESTO!!!!!!!!!!!!!!!!!!!!!!!!!!
+        
+       /* for (Restriccio  res: cjtRga.getCjtRes()) {
             RestGrupoAula resdw = (RestGrupoAula) res; 
             if (resdw.getAssignatura().equals(this.assignatura) && resdw.getGrup() == this.grup) return false;
             if(this.id == 1){
@@ -149,7 +155,7 @@ public class RestGrupoAula extends Restriccio {
             case 2:
                     break;
         }
-        return true;
+        return true;*/
     }
     
     

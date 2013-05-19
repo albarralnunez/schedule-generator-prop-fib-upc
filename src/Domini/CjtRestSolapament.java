@@ -65,13 +65,13 @@ public class CjtRestSolapament extends CjtRestriccions{
         }
         return false;
     }
-     boolean ComprovarRes(Clausula c, ClausulaNom cn, Clausula e) {
+     boolean ComprovarRes(Clausula c, ClausulaNom cn, Clausula e,int h,String dia) {
         boolean b = true;
         for (RestSolapament rga : this.restriccionsSolapament) {
             if (!b) {
                 break;
             }
-            b = rga.CompleixRes(c, cn, e);
+            b = rga.CompleixRes(c, cn, e,h,dia);
         }
         return b;
     }
