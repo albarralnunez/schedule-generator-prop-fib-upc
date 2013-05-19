@@ -427,10 +427,25 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jScrollPane3.setViewportView(jList3);
 
         jButton8.setText("Definir...");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton9.setText("Modificar...");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         jButton10.setText("Borrar...");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -515,6 +530,8 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jButton5.setEnabled(true);
         jButton6.setEnabled(true);
         jButton7.setEnabled(true);
+        jPanel4.setVisible(false);
+        jPanel5.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -636,6 +653,24 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jCheckBox4.setSelected(false);
         jPanel5.setVisible(false);
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        Object[] cadena = jList3.getSelectedValues();
+        int h = cadena.length;
+        if (h == 0) cp.mostraAvis("Seleccioni la restricció que vol definir", "WARNING");
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        Object[] cadena = jList3.getSelectedValues();
+        int h = cadena.length;
+        if (h == 0) cp.mostraAvis("Seleccioni la restricció que vol modificar", "WARNING");
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        Object[] cadena = jList3.getSelectedValues();
+        int h = cadena.length;
+        if (h == 0) cp.mostraAvis("Seleccioni la restricció que vol borrar", "WARNING");
+    }//GEN-LAST:event_jButton10ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
