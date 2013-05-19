@@ -180,7 +180,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         }
     }
 
-    public void creaAula(String nom, boolean tipo, Integer capacitat, boolean mat, boolean proj, boolean modify) {
+    public void creaAula(String nom, boolean tipo, Integer capacitat, boolean proj, boolean mat, boolean modify) {
             if (!modify) if (cd.existeixAula(nom)) mostraAvis("No se puede crear una aula que ya existe!");
             int teo, boo;
             if (tipo) {

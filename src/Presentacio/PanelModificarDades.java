@@ -518,6 +518,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        jPanel5.setVisible(false);
         jPanel4.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -550,7 +551,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-
+        jPanel5.setVisible(false);
         Object[] cadena = jList2.getSelectedValues(); //AULAS A ELIMINAR
         int h = cadena.length;
         String cadenaString;
@@ -569,8 +570,14 @@ public class PanelModificarDades extends javax.swing.JPanel {
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         //MODIFICAR UNA AULA
         boolean tipo;
-        if (jCheckBox3.isSelected() && jCheckBox4.isSelected()) cp.mostraAvis("Les aules son de teoria o de lab pero no dels dos tipus!");
-        else if (jTextField4.getText().equals("")) cp.mostraAvis("Es necessari indicar al capacitat de l'aula");
+        if (jCheckBox3.isSelected() && jCheckBox4.isSelected()) {
+            cp.mostraAvis("Les aules son de teoria o de lab pero no dels dos tipus!");
+            jPanel5.setVisible(false);
+        }
+        else if (jTextField4.getText().equals("")) {
+            cp.mostraAvis("Es necessari indicar al capacitat de l'aula");
+            jPanel5.setVisible(false);
+        }
         else {
             if (jCheckBox3.isSelected()) tipo = true; //DE TEORIA
             else tipo = false; //DE LAB
@@ -581,10 +588,13 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jTextField5.setText("");
         jCheckBox3.setSelected(false);
         jCheckBox4.setSelected(false);
+        jPanel5.setVisible(false);
         jButton3.doClick();
+        cp.mostraAvis("S'ha modificat l'aula exitosament.");
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        jPanel4.setVisible(false);
         Object[] filas_mod = jList2.getSelectedValues();
         if (filas_mod.length == 0) cp.mostraAvis("Seleccioni quina aula vol modificar.");
         else if (filas_mod.length > 1) cp.mostraAvis("No es pot modificar mes d'una aula a la vegada");
@@ -593,10 +603,27 @@ public class PanelModificarDades extends javax.swing.JPanel {
             //Cojemos el nombre del aula en cuestion:
             Object[] cadena = jList2.getSelectedValues(); //AULA A MODIFICAR
             String cadenaString = cadena[0].toString();
+            String cadenaCompleta = cadenaString;
             cadenaString = cadenaString.substring(9, cadenaString.length()); //QUITAMOS aula-lab-
             String unitatDocent = cp.getNomUnitatDocent();
             cadenaString = cadenaString.substring(unitatDocent.length()+1, cadenaString.length()); //QUITAMOS EL FIB-
             jTextField5.setText(cadenaString);
+
+            ArrayList<String> param = cp.mostraParametresAula(cadenaCompleta); //OBTENEMOS LOS PARAMETROS ACTUALES DEL AULA
+
+            jTextField4.setText(param.get(2)); //CAPACIDAD.
+            Integer tipo = Integer.parseInt(param.get(0)); //TIPO: 1 = TEO, 0 = LAB
+            if (tipo == 0) {
+                jCheckBox3.setSelected(false);
+                Integer material = Integer.parseInt(param.get(3)); //1 = TIENE, 0 = NO TIENE.
+                if (material == 0) jCheckBox4.setSelected(false);
+                else jCheckBox4.setSelected(true);
+            } else {
+                jCheckBox4.setSelected(false);
+                Integer material = Integer.parseInt(param.get(3)); //1 = TIENE, 0 = NO TIENE.
+                if (material == 0) jCheckBox3.setSelected(false);
+                else jCheckBox3.setSelected(true);
+            }
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
