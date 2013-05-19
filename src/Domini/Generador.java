@@ -354,8 +354,8 @@ class Generador {
             ClausulaNom cln, int hor) {
          if (solapamentTeoriaPractica (cn,c,cl,cln,hor)) return true;
          if (aulaRepetida(cn,c,cl,cln,hor)) return true;
+         //if(this.cjtRestS.ComprovarRes(cl, cln, c)) return true;
          //if (mateixNivell(cn,c,cl,cln,hor)) return true;
-         if(!this.cjtRestS.ComprovarRes(cl, cln, c)) return true;
          return false;
     }
     
