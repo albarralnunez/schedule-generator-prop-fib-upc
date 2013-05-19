@@ -164,7 +164,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
             //Si ya no lo hemos añadido...
             cadenaString = cadena[i].toString(); //YA TENEMOS LA ASSIGNATURA SELECCIONADA
             if (assignatures.contains(cadenaString)) {
-                cp.mostraAvis("No es pot afegir de nou l'assignatura "+ cadenaString);
+                cp.mostraAvis("No es pot afegir de nou l'assignatura "+ cadenaString, "ERROR");
             } else {
                 assignatures.add(cadenaString);
                 int filas = jTable1.getRowCount();

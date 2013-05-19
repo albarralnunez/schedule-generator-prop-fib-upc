@@ -204,7 +204,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
 
         jLabel9.setText("Projector:");
 
-        jButton1.setText("Afegir");
+        jButton1.setText("Crear");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -233,7 +233,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jCheckBox1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -267,9 +267,9 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jCheckBox1))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(108, Short.MAX_VALUE)
+                .addContainerGap(105, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
@@ -318,11 +318,11 @@ public class PanelModificarDades extends javax.swing.JPanel {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jCheckBox3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                                 .addComponent(jButton11))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jCheckBox4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                                 .addComponent(jButton12))))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,9 +353,9 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(jCheckBox3))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
+                .addContainerGap(84, Short.MAX_VALUE)
                 .addComponent(jButton12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton11)
@@ -382,14 +382,14 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, 0, 0, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel5, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33))
+                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(32, 32, 32))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -400,7 +400,6 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jButton5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -408,7 +407,8 @@ public class PanelModificarDades extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton7)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton3)))
+                                .addComponent(jButton3))
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE))
@@ -534,9 +534,9 @@ public class PanelModificarDades extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //AFEGIR UNA AULA
         boolean tipo;
-        if (jCheckBox1.isSelected() && jCheckBox2.isSelected()) cp.mostraAvis("Les aules son de teoria o de lab pero no dels dos tipus!");
-        else if (jTextField3.getText().equals("")) cp.mostraAvis("Es necessari donar-li un nom a l'aula");
-        else if (jTextField2.getText().equals("")) cp.mostraAvis("Es necessari indicar al capacitat de l'aula");
+        if (jCheckBox1.isSelected() && jCheckBox2.isSelected()) cp.mostraAvis("Les aules son de teoria o de lab pero no dels dos tipus!", "ERROR");
+        else if (jTextField3.getText().equals("")) cp.mostraAvis("Es necessari donar-li un nom a l'aula", "ERROR");
+        else if (jTextField2.getText().equals("")) cp.mostraAvis("Es necessari indicar al capacitat de l'aula", "ERROR");
         else {
             if (jCheckBox1.isSelected()) tipo = true; //DE TEORIA
             else tipo = false; //DE LAB
@@ -571,11 +571,11 @@ public class PanelModificarDades extends javax.swing.JPanel {
         //MODIFICAR UNA AULA
         boolean tipo;
         if (jCheckBox3.isSelected() && jCheckBox4.isSelected()) {
-            cp.mostraAvis("Les aules son de teoria o de lab pero no dels dos tipus!");
+            cp.mostraAvis("Les aules son de teoria o de lab pero no dels dos tipus!", "ERROR");
             jPanel5.setVisible(false);
         }
         else if (jTextField4.getText().equals("")) {
-            cp.mostraAvis("Es necessari indicar al capacitat de l'aula");
+            cp.mostraAvis("Es necessari indicar al capacitat de l'aula", "ERROR");
             jPanel5.setVisible(false);
         }
         else {
@@ -590,14 +590,14 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jCheckBox4.setSelected(false);
         jPanel5.setVisible(false);
         jButton3.doClick();
-        cp.mostraAvis("S'ha modificat l'aula exitosament.");
+        cp.mostraAvis("S'ha modificat l'aula exitosament.", "INFORMATION");
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         jPanel4.setVisible(false);
         Object[] filas_mod = jList2.getSelectedValues();
-        if (filas_mod.length == 0) cp.mostraAvis("Seleccioni quina aula vol modificar.");
-        else if (filas_mod.length > 1) cp.mostraAvis("No es pot modificar mes d'una aula a la vegada");
+        if (filas_mod.length == 0) cp.mostraAvis("Seleccioni l'aula que vol modificar.", "ERROR");
+        else if (filas_mod.length > 1) cp.mostraAvis("No es pot modificar mes d'una aula a la vegada", "ERROR");
         else {
             jPanel5.setVisible(true);
             //Cojemos el nombre del aula en cuestion:

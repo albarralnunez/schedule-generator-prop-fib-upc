@@ -125,10 +125,13 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     private javax.swing.JLayeredPane Layered;
     // End of variables declaration//GEN-END:variables
 
-    public void mostraAvis(String text) {
+    public void mostraAvis(String text, String tipo) {
         //PODEMOS TENER UN SEGUNDO PARAMETRO QUE INDICARA QUE TIPO DE AVISO ES PARA MOSTRAR UN WARNING_MESSAGE O OTRO TIPO DE MENSAJE.
         //TIPOS DE MENSAJE: WARNING_MESSAGE, ERROR_MESSAGE, PLAIN_MESSAGE, INFORMATION_MESSAGE
-        JOptionPane.showMessageDialog(this, text, "GeneradorHoraris::ERROR", JOptionPane.WARNING_MESSAGE);
+        if (tipo.equals("WARNING")) JOptionPane.showMessageDialog(this, text, "GeneradorHoraris::WARNING", JOptionPane.WARNING_MESSAGE);
+        else if (tipo.equals("ERROR")) JOptionPane.showMessageDialog(this, text, "GeneradorHoraris::ERROR", JOptionPane.ERROR_MESSAGE);
+        else if (tipo.equals("PLAIN")) JOptionPane.showMessageDialog(this, text, "GeneradorHoraris::_", JOptionPane.PLAIN_MESSAGE);
+        else if (tipo.equals("INFORMATION")) JOptionPane.showMessageDialog(this, text, "GeneradorHoraris::INFO.", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void identificarUnitatDocent(String nomUnitatDocent) {
@@ -181,7 +184,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     }
 
     public void creaAula(String nom, boolean tipo, Integer capacitat, boolean proj, boolean mat, boolean modify) {
-            if (!modify) if (cd.existeixAula(nom)) mostraAvis("No se puede crear una aula que ya existe!");
+            if (!modify) if (cd.existeixAula(nom)) mostraAvis("No se puede crear una aula que ya existe!", "ERROR");
             int teo, boo;
             if (tipo) {
                 //ES DE TEORIA:

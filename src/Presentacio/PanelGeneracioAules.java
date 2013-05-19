@@ -192,7 +192,7 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
             cadenaString = cadenaString.substring(unitatDocent.length()+1, cadenaString.length()); //QUITAMOS EL FIB-
             
             if (aules.contains(cadenaString)) {
-                cp.mostraAvis("No es pot afegir de nou l'aula "+ cadenaString);
+                cp.mostraAvis("No es pot afegir de nou l'aula "+ cadenaString, "ERROR");
             } else {
                 aules.add(cadenaString);
                 int filas = jTable1.getRowCount();
