@@ -161,20 +161,19 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     public ArrayList<String> mostraParametresAula(String nomaul) {
         String tipo_aula = nomaul.substring(0, 9);
         nomaul = nomaul.substring(9, nomaul.length()); //QUITAMOS EL aula-teo-
-        nomaul = nomaul.substring(this.unitatDocent.length()+1, nomaul.length());
+        nomaul = nomaul.substring(this.unitatDocent.length()+1, nomaul.length()); //QUITAMOS EL FIB-
         ArrayList<String> e = new ArrayList<String>();
-        return e;
-        /*
+        //return e;
+        
         if (tipo_aula.equals("aula-teo-")) {    
             return cd.llegirAulaTeo(nomaul);
         } else {
             return cd.llegirAulaLab(nomaul);
-        } */
+        }
     }
 
-    public void creaAula(String nom, boolean tipo, Integer capacitat, boolean mat, boolean proj) {
-        if (cd.existeixAula(nom)) mostraAvis("No se puede crear una aula que ya existe!");
-        else {
+    public void creaAula(String nom, boolean tipo, Integer capacitat, boolean mat, boolean proj, boolean modify) {
+            if (!modify) if (cd.existeixAula(nom)) mostraAvis("No se puede crear una aula que ya existe!");
             int teo, boo;
             if (tipo) {
                 //ES DE TEORIA:
@@ -189,12 +188,9 @@ public class ControladorPresentacio extends javax.swing.JFrame {
                 cd.creaAula(nom, capacitat, teo, boo);
             }
         }
-    }
+
 
     public void esborraAula(String nomAula) {
-        cd.esborraAula(nomAula);
+         cd.esborraAula(nomAula);
     }
-
-
-
 }
