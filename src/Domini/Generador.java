@@ -248,15 +248,15 @@ class Generador {
         ArrayList<Clausula> clau = inicialitzarClausules(aulesT, aulesL, ass, dis, q);
         backUp = new Stack<Clausula>();    		
 	long timeInMillis = System.currentTimeMillis();
-        boolean b = backtracking(clau, q,0,clau.size());
+        boolean b = backtracking(clau, q,0);
+        long timeInMillis1 = System.currentTimeMillis();
         System.out.println("-------------Time in milis-------------");
-        System.out.println(System.currentTimeMillis()-timeInMillis);
+        System.out.println(timeInMillis1-timeInMillis);
         System.out.println("-------------Time in milis-------------\n");
         return b;
     }
 
-    private boolean backtracking(ArrayList<Clausula> clau, Quadricula qu, int j,
-            int s) {
+    private boolean backtracking(ArrayList<Clausula> clau, Quadricula qu, int j) {
         if (clau.size() == j) { // Tenim una solucio
             return true;
         } else {
@@ -278,7 +278,7 @@ class Generador {
                     ++i;
                 }
                 if (esVal) {
-                    boolean b = backtracking(clau, qu,j+1,s);
+                    boolean b = backtracking(clau, qu,j+1);
                     if (b) return true;
                     else {
                         while (i >= 0){
@@ -354,7 +354,7 @@ class Generador {
             ClausulaNom cln, int hor) {
          if (solapamentTeoriaPractica (cn,c,cl,cln,hor)) return true;
          if (aulaRepetida(cn,c,cl,cln,hor)) return true;
-         if (mateixNivell(cn,c,cl,cln,hor)) return true;
+         //if (mateixNivell(cn,c,cl,cln,hor)) return true;
          return false;
     }
     
@@ -384,6 +384,7 @@ class Generador {
                 if (    cn.getDia().equals(cln.getDia()) &&
                 hor-cl.getDuracio() < cln.getHora() && 
                 hor >= cln.getHora() &&
+                !c.getAssignatura().equals(cl.getAssignatura()) &&
                 c.getAssignatura().getNivell() == cl.getAssignatura().getNivell()
                 ) return true;
         return false;
