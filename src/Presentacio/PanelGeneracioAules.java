@@ -181,44 +181,46 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
         DefaultTableModel modelo=(DefaultTableModel) jTable1.getModel();
         Object[] cadena = jList1.getSelectedValues();
         int h = cadena.length;
-        String cadenaString;
+        if (h == 0) cp.mostraAvis("Seleccioni l'aula a afegir", "WARNING");
+        else {
+            String cadenaString;
+            for (int i=0; i < h; i++){ //Para cada elemento seleccionado de la lista...
+                //Si ya no lo hemos añadido...
+                cadenaString = cadena[i].toString(); //YA TENEMOS LA ASSIGNATURA SELECCIONADA (aula-lab-FIB-A5001)
+                String cadenaCompleta = cadenaString;
+                cadenaString = cadenaString.substring(9, cadenaString.length()); //QUITAMOS aula-teo-
+                String unitatDocent = cp.getNomUnitatDocent();
+                cadenaString = cadenaString.substring(unitatDocent.length()+1, cadenaString.length()); //QUITAMOS EL FIB-
 
-        for (int i=0; i < h; i++){ //Para cada elemento seleccionado de la lista...
-            //Si ya no lo hemos añadido...
-            cadenaString = cadena[i].toString(); //YA TENEMOS LA ASSIGNATURA SELECCIONADA (aula-lab-FIB-A5001)
-            String cadenaCompleta = cadenaString;
-            cadenaString = cadenaString.substring(9, cadenaString.length()); //QUITAMOS aula-teo-
-            String unitatDocent = cp.getNomUnitatDocent();
-            cadenaString = cadenaString.substring(unitatDocent.length()+1, cadenaString.length()); //QUITAMOS EL FIB-
-            
-            if (aules.contains(cadenaString)) {
-                cp.mostraAvis("No es pot afegir de nou l'aula "+ cadenaString, "ERROR");
-            } else {
-                aules.add(cadenaString);
-                int filas = jTable1.getRowCount();
-                modelo.addRow(new Object[filas]);
-                //AQUI HAY QUE IR ACCEDIENDO A CADA UNA DE LAS PROPIEDADES DEL AULA Y RELLENAR LA TABLA
-
-                ArrayList<String> param = cp.mostraParametresAula(cadenaCompleta);
-
-                for (int m = 0; m < param.size(); ++m) {
-                    System.out.println(""+ param.get(m));
-                }
-
-                Integer tipo = Integer.parseInt(param.get(0)); //TIPO: 1 = TEO, 0 = LAB
-                jTable1.setValueAt(param.get(1), filas, 0); //NOMBRE
-                jTable1.setValueAt(param.get(2), filas, 1); //CAPACIDAD
- 
-                if (tipo == 0) {
-                    jTable1.setValueAt(false, filas, 2);
-                    Integer material = Integer.parseInt(param.get(3)); //1 = TIENE, 0 = NO TIENE.
-                    if (material == 0) jTable1.setValueAt(false, filas, 3);
-                    else jTable1.setValueAt(true, filas, 3);
+                if (aules.contains(cadenaString)) {
+                    cp.mostraAvis("No es pot afegir de nou l'aula "+ cadenaString, "ERROR");
                 } else {
-                    jTable1.setValueAt(false, filas, 3);
-                    Integer projector = Integer.parseInt(param.get(3)); //1 = TIENE, 0 = NO TIENE.
-                    if (projector == 0) jTable1.setValueAt(false, filas, 2);
-                    else jTable1.setValueAt(true, filas, 2);
+                    aules.add(cadenaString);
+                    int filas = jTable1.getRowCount();
+                    modelo.addRow(new Object[filas]);
+                    //AQUI HAY QUE IR ACCEDIENDO A CADA UNA DE LAS PROPIEDADES DEL AULA Y RELLENAR LA TABLA
+
+                    ArrayList<String> param = cp.mostraParametresAula(cadenaCompleta);
+
+                    for (int m = 0; m < param.size(); ++m) {
+                        System.out.println(""+ param.get(m));
+                    }
+
+                    Integer tipo = Integer.parseInt(param.get(0)); //TIPO: 1 = TEO, 0 = LAB
+                    jTable1.setValueAt(param.get(1), filas, 0); //NOMBRE
+                    jTable1.setValueAt(param.get(2), filas, 1); //CAPACIDAD
+
+                    if (tipo == 0) {
+                        jTable1.setValueAt(false, filas, 2);
+                        Integer material = Integer.parseInt(param.get(3)); //1 = TIENE, 0 = NO TIENE.
+                        if (material == 0) jTable1.setValueAt(false, filas, 3);
+                        else jTable1.setValueAt(true, filas, 3);
+                    } else {
+                        jTable1.setValueAt(false, filas, 3);
+                        Integer projector = Integer.parseInt(param.get(3)); //1 = TIENE, 0 = NO TIENE.
+                        if (projector == 0) jTable1.setValueAt(false, filas, 2);
+                        else jTable1.setValueAt(true, filas, 2);
+                    }
                 }
             }
         }
