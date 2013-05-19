@@ -331,8 +331,7 @@ public class CtrDomini {
             r.setGrup((Integer) params.get(1));
             r.setAula((String) params.get(2));
             r.setId((Integer) params.get(3));
-            if(r.esPotAfegir(cgen.getCjtResGA(), cgen.getCjtRestAul(), cgen.getCjtRestGS()))
-                cgen.setResResGA(r);
+            if(r.esPotAfegir(cgen.getCjtResGA(), cgen.getCjtRestAul(), cgen.getCjtRestGS(),cgen.getQuad())) cgen.setResResGA(r);
         }
         else if(tipus == 2){
             
@@ -346,7 +345,7 @@ public class CtrDomini {
             Assignatura a = new Assignatura();
             String assig = (String)params.get(0);
             for(int i = 0;i < size && !trobat;++i){
-                if(l.get(i).getNom().equals(assig)) {trobat =true; a = l.get(i); ;}
+                if(l.get(i).getNom().equals(assig)) {trobat =true; a = l.get(i);}
             }
             if(trobat){
                 int grup = (Integer) params.get(1);
@@ -367,7 +366,7 @@ public class CtrDomini {
             Assignatura a = new Assignatura();
             String assig = (String)params.get(0);
             for(int i = 0;i < size && !trobat;++i){
-                if(l.get(i).getNom().equals(assig)) {trobat =true; a = l.get(i); ;}
+                if(l.get(i).getNom().equals(assig)) {trobat =true; a = l.get(i);}
             }
             if(trobat){
                 int grup = (Integer) params.get(1);
@@ -392,8 +391,8 @@ public class CtrDomini {
             ArrayList<Assignatura> l = cgen.getCjtAs();
             int sizeAss = l.size();
             for(int i = 0;i < sizeAss && (!trobat1 || !trobat2);++i){
-                if(l.get(i).getNom().equals(assP)) {trobat1 =true; aP = l.get(i); ;}
-                else if(l.get(i).getNom().equals(assS)) {trobat2 =true; aS = l.get(i); ;}
+                if(l.get(i).getNom().equals(assP)) {trobat1 =true; aP = l.get(i);}
+                else if(l.get(i).getNom().equals(assS)) {trobat2 =true; aS = l.get(i);}
             }
             if(trobat1 && trobat2){
                 RestSolapament r = new RestSolapament();
