@@ -68,7 +68,13 @@ class RestriccioAula extends Restriccio{
     public void setDia(String dia) {
         this.dia = dia;
     }
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
     @Override
     public boolean CompleixRes() {return false;}
 

@@ -126,7 +126,4 @@ public class RestriccioTemps {
     public void setDivendres(ArrayList<Integer> divendres) {
         this.divendres = divendres;
     }
-
-    
-
 }
