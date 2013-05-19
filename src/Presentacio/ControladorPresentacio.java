@@ -169,4 +169,29 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         }
     }
 
+    public void creaAula(String nom, boolean tipo, Integer capacitat, boolean mat, boolean proj) {
+        if (cd.existeixAula(nom)) mostraAvis("No se puede crear una aula que ya existe!");
+        else {
+            int teo, boo;
+            if (tipo) {
+                //ES DE TEORIA:
+                teo = 1;
+                if (proj) boo = 1;
+                else boo = 0;
+                cd.creaAula(nom, capacitat, teo, boo);
+            } else {
+                teo = 0;
+                if (mat) boo = 1;
+                else boo = 0;
+                cd.creaAula(nom, capacitat, teo, boo);
+            }
+        }
+    }
+
+    public void esborraAula(String nomAula) {
+        cd.esborraAula(nomAula);
+    }
+
+
+
 }
