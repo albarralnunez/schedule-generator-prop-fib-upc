@@ -453,7 +453,7 @@ public class CtrDomini {
      * @param nom
      * @return 
      */
-    private ArrayList<String> llegirAulaLab(String nom) {
+    public ArrayList<String> llegirAulaLab(String nom) {
         return cper.llegirAula("aula-lab-"+nomUnitat+"-"+nom);
     }
     /**
@@ -461,7 +461,7 @@ public class CtrDomini {
      * @param nom
      * @return 
      */
-    private ArrayList<String> llegirAulaTeo(String nom) {
+    public ArrayList<String> llegirAulaTeo(String nom) {
         return cper.llegirAula("aula-teo-"+nomUnitat+"-"+nom);
     }
     /**
