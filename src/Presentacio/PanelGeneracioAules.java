@@ -75,6 +75,7 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
+        jTable1.setEnabled(false);
         jScrollPane1.setViewportView(jTable1);
 
         jScrollPane1.setBounds(80, 30, 490, 170);
@@ -82,7 +83,7 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
 
         jScrollPane2.setViewportView(jList1);
 
-        jScrollPane2.setBounds(40, 210, 140, 160);
+        jScrollPane2.setBounds(50, 210, 140, 160);
         jLayeredPane1.add(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton1.setText("Afegir");
@@ -92,7 +93,7 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jButton1.setBounds(190, 230, 90, 25);
+        jButton1.setBounds(200, 230, 90, 25);
         jLayeredPane1.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton2.setText("Editar..");
@@ -102,7 +103,7 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        jButton2.setBounds(190, 260, 90, 25);
+        jButton2.setBounds(200, 260, 90, 25);
         jLayeredPane1.add(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/refresh.png"))); // NOI18N
@@ -111,7 +112,7 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        jButton3.setBounds(200, 340, 30, 25);
+        jButton3.setBounds(210, 340, 30, 25);
         jLayeredPane1.add(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton4.setText("Enrere");
@@ -134,13 +135,13 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 662, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -162,9 +163,9 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
         ArrayList<String> Aules = cp.llistaAules();
         for (String aul : Aules) {
             aul = aul.substring(0, aul.length()-4); //QUITAMOS EL .txt
-            aul = aul.substring(9, aul.length()); //QUITAMOS EL aula-lab- ó aula-teo-
-            String unitatDocent = cp.getNomUnitatDocent();
-            aul = aul.substring(unitatDocent.length()+1, aul.length()); //QUITAMOS EL FIB-
+            //aul = aul.substring(9, aul.length()); //QUITAMOS EL aula-lab- ó aula-teo-
+            //String unitatDocent = cp.getNomUnitatDocent();
+            //aul = aul.substring(unitatDocent.length()+1, aul.length()); //QUITAMOS EL FIB-
             listModel.addElement(aul);
         }
         jButton1.setEnabled(true);
