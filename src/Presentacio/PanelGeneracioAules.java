@@ -185,7 +185,12 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
 
         for (int i=0; i < h; i++){ //Para cada elemento seleccionado de la lista...
             //Si ya no lo hemos añadido...
-            cadenaString = cadena[i].toString(); //YA TENEMOS LA ASSIGNATURA SELECCIONADA
+            cadenaString = cadena[i].toString(); //YA TENEMOS LA ASSIGNATURA SELECCIONADA (aula-lab-FIB-A5001)
+            String cadenaCompleta = cadenaString;
+            cadenaString = cadenaString.substring(9, cadenaString.length()); //QUITAMOS aula-teo-
+            String unitatDocent = cp.getNomUnitatDocent();
+            cadenaString = cadenaString.substring(unitatDocent.length()+1, cadenaString.length()); //QUITAMOS EL FIB-
+            
             if (aules.contains(cadenaString)) {
                 cp.mostraAvis("No es pot afegir de nou l'aula "+ cadenaString);
             } else {
@@ -194,13 +199,13 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
                 modelo.addRow(new Object[filas]);
                 //AQUI HAY QUE IR ACCEDIENDO A CADA UNA DE LAS PROPIEDADES DEL AULA Y RELLENAR LA TABLA
 
-                ArrayList<String> param = cp.mostraParametresAula(cadenaString);
-                
+                ArrayList<String> param = cp.mostraParametresAula(cadenaCompleta);
+
+                for (int m = 0; m < param.size(); ++m) {
+                    System.out.println(""+ param.get(m));
+                }
 
                 Integer tipo = Integer.parseInt(param.get(0)); //TIPO: 1 = TEO, 0 = LAB
-                boolean teoria;
-                if (tipo == 1) teoria = true;
-                else teoria = false;
                 jTable1.setValueAt(param.get(1), filas, 0); //NOMBRE
                 jTable1.setValueAt(param.get(2), filas, 1); //CAPACIDAD
  

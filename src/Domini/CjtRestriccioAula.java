@@ -69,7 +69,9 @@ public class CjtRestriccioAula extends CjtRestriccions{
         boolean b = true;
         for (RestriccioAula rga : this.restriccionsAula) {
             if (!b) break;
-            b = rga.compleixRes(c, cn);
+            if(rga.ObtenirId() == 13) b = rga.compleixRes13(c, cn);
+            else if(rga.ObtenirId() == 14) b = rga.compleixRes14(c, cn);
+            else if(rga.ObtenirId() == 15) b = rga.compleixRes15(c, cn);
         }
         return b; 
     }

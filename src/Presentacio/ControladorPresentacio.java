@@ -28,6 +28,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     PanelGeneracioAssignatures pGenAss;
     PanelModificarDades pModDades;
     PanelGeneracioAules pGenAul;
+    PanelVeureHoraris pVeuH;
 
     public ControladorPresentacio() {
         initComponents();
@@ -39,6 +40,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         pGenAss = new PanelGeneracioAssignatures(this);
         pModDades = new PanelModificarDades(this);
         pGenAul = new PanelGeneracioAules(this);
+        pVeuH = new PanelVeureHoraris(this);
         
         this.Layered.add(pLogin);
         this.Layered.add(pMenup);
@@ -46,6 +48,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         this.Layered.add(pGenAss);
         this.Layered.add(pModDades);
         this.Layered.add(pGenAul);
+        this.Layered.add(pVeuH);
         canviaPanel("login");
     }
     
@@ -65,6 +68,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         pGenAss.setVisible(false);
         pModDades.setVisible(false);
         pGenAul.setVisible(false);
+        pVeuH.setVisible(false);
 
         if(nomPanel.equals("login")) pLogin.setVisible(true);
         else if(nomPanel.equals("menuPrincipal")) {
@@ -85,6 +89,10 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         }
         else if (nomPanel.equals("PanelGeneracioAules")) {
             pGenAul.setVisible(true);
+        }
+        else if (nomPanel.equals("PanelVeureHoraris")) {
+            pVeuH.setNomUnitatDocent(unitatDocent);
+            pVeuH.setVisible(true);
         }
         
     }
@@ -161,15 +169,36 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     public ArrayList<String> mostraParametresAula(String nomaul) {
         String tipo_aula = nomaul.substring(0, 9);
         nomaul = nomaul.substring(9, nomaul.length()); //QUITAMOS EL aula-teo-
-        nomaul = nomaul.substring(this.unitatDocent.length()+1, nomaul.length());
+        nomaul = nomaul.substring(this.unitatDocent.length()+1, nomaul.length()); //QUITAMOS EL FIB-
         ArrayList<String> e = new ArrayList<String>();
-        return e;
-        /*
+        //return e;
+        
         if (tipo_aula.equals("aula-teo-")) {    
             return cd.llegirAulaTeo(nomaul);
         } else {
             return cd.llegirAulaLab(nomaul);
-        } */
+        }
     }
 
+    public void creaAula(String nom, boolean tipo, Integer capacitat, boolean mat, boolean proj, boolean modify) {
+            if (!modify) if (cd.existeixAula(nom)) mostraAvis("No se puede crear una aula que ya existe!");
+            int teo, boo;
+            if (tipo) {
+                //ES DE TEORIA:
+                teo = 1;
+                if (proj) boo = 1;
+                else boo = 0;
+                cd.creaAula(nom, capacitat, teo, boo);
+            } else {
+                teo = 0;
+                if (mat) boo = 1;
+                else boo = 0;
+                cd.creaAula(nom, capacitat, teo, boo);
+            }
+        }
+
+
+    public void esborraAula(String nomAula) {
+         cd.esborraAula(nomAula);
+    }
 }

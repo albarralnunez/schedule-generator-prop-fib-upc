@@ -109,7 +109,7 @@ class RestriccioAula extends Restriccio{
         return es_pot;
     }
 
-   public boolean compleixRes(Clausula c, ClausulaNom cn) {
+   public boolean compleixRes13(Clausula c, ClausulaNom cn) {
         Aula aulaa = cn.getAula();
         int horaa = cn.getHora();
         String diaa = cn.getDia();
@@ -126,5 +126,51 @@ class RestriccioAula extends Restriccio{
             }
         }
         return compleix;
+    }
+   private int canviDiaInt(String dia){
+        int d = -1;
+        if ( dia.equals("dilluns") ) d = 0;
+        else if ( dia.equals("dimarts") ) d = 1;
+        else if ( dia.equals("dimecres") ) d = 2;
+        else if ( dia.equals("dijous") ) d = 3;
+        else if ( dia.equals("divendres") ) d = 4;
+        else if ( dia.equals("dissabte") ) d = 5;
+        else if (dia.equals("diumenge"))d = 6;
+        return d;
+    }
+   public boolean compleixRes14(Clausula c, ClausulaNom cn) {
+        Aula aulaa = cn.getAula();
+        String diaa = cn.getDia();
+        if (this.aula.equals(aulaa)) { //Si hablan de la aula que esta restringida
+            if (this.hora != null) { //Si este aula no puede usarse un dia a una hora concreta...
+                if (this.dia.equals(diaa)) {
+                    if ((cn.getHora() > (this.hora+1)) && ((cn.getHora() + c.getDuracio()) > (this.hora+1))) return true;
+                    else return false;
+                }
+                else if (canviDiaInt(diaa) < canviDiaInt(this.dia))return false;
+                else if (canviDiaInt(diaa) > canviDiaInt(this.dia))return true;
+            } else { //Si este aula no puede usarse un dia entero...
+                if (this.dia.equals(diaa)) return false;
+            }
+        }
+        return true;
+    }
+                
+     public boolean compleixRes15(Clausula c, ClausulaNom cn) {
+        Aula aulaa = cn.getAula();
+        String diaa = cn.getDia();
+        if (this.aula.equals(aulaa)) { //Si hablan de la aula que esta restringida
+            if (this.hora != null) { //Si este aula no puede usarse un dia a una hora concreta...
+                if (this.dia.equals(diaa)) {
+                    if ((cn.getHora() < this.hora) && ((cn.getHora() + c.getDuracio()) < this.hora )) return true;
+                    else return false;
+                }
+                else if (canviDiaInt(diaa) < canviDiaInt(this.dia))return true;
+                else if (canviDiaInt(diaa) > canviDiaInt(this.dia))return false;
+            } else { //Si este aula no puede usarse un dia entero...
+                if (this.dia.equals(diaa)) return false;
+            }
+        }
+        return true;
     }
 }

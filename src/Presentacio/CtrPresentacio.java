@@ -586,12 +586,12 @@ public class CtrPresentacio {
             System.out.println(" 5 - Restringir un grup despres de un dia i hora");
             
             System.out.println(" 6 - Restringir una hora en la que no es pugui impartir una asignatura+grup"); /*OK*/ //
-            System.out.println(" 7 - Restringir una hora en la que abans d'aquesta no es pugui impartir una asignatura+grup");
-            System.out.println(" 8 - Restringir una hora en la que despres d'aquesta no es pugui impartir una asignatura+grup");
+            System.out.println(" 7 - Restringir una hora en la que a partir d'aquesta no es pugui impartir una asignatura+grup en una hora igual o anterior a la definida");
+            System.out.println(" 8 - Restringir una hora en la que a partir d'aquesta no es pugui impartir una asignatura+grup en una hora igual o posterior a la definida");
             
             System.out.println(" 9 - Restringir un dia per a que no es pugu impartir una assig+grup");//
-            System.out.println(" 10 - Restringir un dia per a que abans d'aquest no es pugu impartir una assig+grup");
-            System.out.println(" 11 - Restringir un dia per a que despres d'aquest no es pugu impartir una assig+grup");
+            System.out.println(" 10 - Restringir un dia per a que a partir d'aquest no es pugui impartir una assig+grup en un dia igual o anterior definit");
+            System.out.println(" 11 - Restringir un dia per a que a partir d'aquest no es pugui impartir una assig+grup en un dia igual o posterior al definit");
             
             System.out.println(" 12 - Una assig+grup no es pot impartir a la vegada que una altre temporalmente parlant"); //
             
