@@ -162,11 +162,14 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         String tipo_aula = nomaul.substring(0, 9);
         nomaul = nomaul.substring(9, nomaul.length()); //QUITAMOS EL aula-teo-
         nomaul = nomaul.substring(this.unitatDocent.length()+1, nomaul.length());
-        if (tipo_aula.equals("aula-teo-")) {
+        ArrayList<String> e = new ArrayList<String>();
+        return e;
+        /*
+        if (tipo_aula.equals("aula-teo-")) {    
             return cd.llegirAulaTeo(nomaul);
         } else {
             return cd.llegirAulaLab(nomaul);
-        }
+        } */
     }
 
     public void creaAula(String nom, boolean tipo, Integer capacitat, boolean mat, boolean proj) {

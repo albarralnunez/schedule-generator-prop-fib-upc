@@ -21,11 +21,11 @@ public class RestGrupSessio extends Restriccio{
 
     //Constructora por defecto
     public RestGrupSessio() {
-        super(2); //ID PRIVISIONAL 1002
+        super(-1); //ID PRIVISIONAL 1002
     }
 
-    public RestGrupSessio( String assignatura, Integer grup, Integer dia, Integer hora) {
-        super(2);
+    public RestGrupSessio( String assignatura, Integer grup, Integer dia, Integer hora,int id) {
+        super(id);
         this.assignatura = assignatura;
         this.grup = grup;
         this.dia = dia;

@@ -29,6 +29,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jPanel4.setVisible(false);
         jPanel5.setVisible(false);
         this.setBounds(0, 0, 700, 550);
+        this.comboBoxAssigs.setVisible(false);
     }
 
     /** This method is called from within the constructor to
@@ -47,12 +48,14 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jScrollPane4 = new javax.swing.JScrollPane();
         llistaAssignatures = new javax.swing.JTextArea();
         comboBoxOpcionsAssig = new javax.swing.JComboBox();
-        panelSeleccions = new javax.swing.JLayeredPane();
-        comboBoxAssigs = new javax.swing.JComboBox();
-        jTextField1 = new javax.swing.JTextField();
+        panelNomAssig = new javax.swing.JLayeredPane();
         jLabel5 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
         panellDadesAssignatura = new javax.swing.JLayeredPane();
         jLabel4 = new javax.swing.JLabel();
+        nivell = new javax.swing.JTextField();
+        comboBoxAssigs = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList2 = new javax.swing.JList();
@@ -90,7 +93,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        botoTornar = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(700, 550));
 
@@ -114,6 +117,18 @@ public class PanelModificarDades extends javax.swing.JPanel {
             }
         });
 
+<<<<<<< HEAD
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setText("nom de l' assignatura");
+        jLabel5.setBounds(50, 10, 135, 15);
+        panelNomAssig.add(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jTextField2.setBounds(200, 10, 110, 20);
+        panelNomAssig.add(jTextField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setText("nivell");
+        jLabel4.setBounds(30, 10, 50, 20);
+=======
         comboBoxAssigs.setBounds(140, 0, 100, -1);
         panelSeleccions.add(comboBoxAssigs, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jTextField1.setBounds(200, 30, 110, -1);
@@ -127,7 +142,15 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("nom de l' assignatura");
         jLabel4.setBounds(20, 30, 135, -1);
+>>>>>>> 26bcf18ba48df36a92c8c11a349e79ce9543550d
         panellDadesAssignatura.add(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        nivell.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        nivell.setBounds(80, 10, 70, 20);
+        panellDadesAssignatura.add(nivell, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.setText("ACCEPTAR");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -138,30 +161,43 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane4))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(comboBoxOpcionsAssig, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(panelSeleccions, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
-                    .addComponent(panellDadesAssignatura))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panelNomAssig, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                            .addComponent(panellDadesAssignatura)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(140, 140, 140)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(comboBoxAssigs, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboBoxOpcionsAssig, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(jButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBoxOpcionsAssig, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(comboBoxOpcionsAssig, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14)
-                        .addComponent(panelSeleccions, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(comboBoxAssigs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(panellDadesAssignatura))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                        .addComponent(panelNomAssig, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panellDadesAssignatura, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
+                        .addGap(26, 26, 26))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40))))
         );
 
         jTabbedPane1.addTab("Assignatures", jPanel1);
@@ -472,14 +508,20 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jTabbedPane1.setBounds(10, 10, 680, 490);
         jLayeredPane1.add(jTabbedPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jButton4.setText("Tornar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        botoTornar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        botoTornar.setText("Tornar");
+        botoTornar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                botoTornarActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
+        botoTornar.setBounds(300, 510, 100, 30);
+        jLayeredPane1.add(botoTornar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+=======
         jButton4.setBounds(300, 510, 90, 25);
         jLayeredPane1.add(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+>>>>>>> 26bcf18ba48df36a92c8c11a349e79ce9543550d
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -495,13 +537,27 @@ public class PanelModificarDades extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void botoTornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoTornarActionPerformed
         // TODO add your handling code here:
         cp.canviaPanel("menuPrincipal");
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_botoTornarActionPerformed
 
     private void comboBoxOpcionsAssigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxOpcionsAssigActionPerformed
-        
+        if( ( (String) comboBoxOpcionsAssig.getSelectedItem() ).equals("CREAR")  ) {
+            this.comboBoxAssigs.setVisible(false);
+            this.panelNomAssig.setVisible(true);
+            this.panellDadesAssignatura.setVisible(true);
+        }
+        else if( ( (String) comboBoxOpcionsAssig.getSelectedItem() ).equals("MODIFICAR")  ) {
+            this.comboBoxAssigs.setVisible(true);
+            this.panelNomAssig.setVisible(false);
+            this.panellDadesAssignatura.setVisible(true);
+        }
+        else if( ( (String) comboBoxOpcionsAssig.getSelectedItem() ).equals("ESBORRAR")  ) {
+            this.comboBoxAssigs.setVisible(true);
+            this.panelNomAssig.setVisible(false);
+            this.panellDadesAssignatura.setVisible(false);
+        }
     }//GEN-LAST:event_comboBoxOpcionsAssigActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -613,15 +669,19 @@ public class PanelModificarDades extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botoTornar;
     private javax.swing.JComboBox comboBoxAssigs;
     private javax.swing.JComboBox comboBoxOpcionsAssig;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+<<<<<<< HEAD
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+=======
+>>>>>>> a76a2c48ee927db78ea8e74d367c36abdbaea5e8
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -656,13 +716,18 @@ public class PanelModificarDades extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
+<<<<<<< HEAD
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+=======
+    private javax.swing.JTextField jTextField2;
+>>>>>>> a76a2c48ee927db78ea8e74d367c36abdbaea5e8
     private javax.swing.JTextArea llistaAssignatures;
-    private javax.swing.JLayeredPane panelSeleccions;
+    private javax.swing.JTextField nivell;
+    private javax.swing.JLayeredPane panelNomAssig;
     private javax.swing.JLayeredPane panellDadesAssignatura;
     // End of variables declaration//GEN-END:variables
 
