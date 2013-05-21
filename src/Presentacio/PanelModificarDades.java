@@ -22,11 +22,13 @@ public class PanelModificarDades extends javax.swing.JPanel {
 
     ControladorPresentacio cp;
     Integer rest;
+    Integer opcio;
 
     /** Creates new form PanelModificarDades */
     public PanelModificarDades(ControladorPresentacio cpr) {
         cp = cpr;
         rest = -1;
+        opcio = -1;
         initComponents();
         buttonGroup1.add(jRadioButton1);
         buttonGroup1.add(jRadioButton2);
@@ -122,6 +124,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jComboBox1 = new javax.swing.JComboBox();
         jComboBox2 = new javax.swing.JComboBox();
         jButton13 = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
         jButton4 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(700, 550));
@@ -483,8 +486,18 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jPanel7.setPreferredSize(new java.awt.Dimension(447, 246));
 
         jRadioButton1.setText("Grup");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
 
         jRadioButton2.setText("Assignatura");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel19.setText("Solapament a nivell de grup o d'assignatura?");
 
@@ -497,6 +510,11 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jLabel25.setText("Grup 2:");
 
         jButton14.setText("Definir");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -580,6 +598,11 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
 
         jButton13.setText("Definir");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -638,21 +661,24 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 661, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton8)
-                        .addGap(12, 12, 12)
-                        .addComponent(jButton9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton10))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 661, Short.MAX_VALUE)
+                    .addComponent(jLabel3)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(jButton8)
+                                .addGap(12, 12, 12)
+                                .addComponent(jButton9)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton10)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -667,7 +693,9 @@ public class PanelModificarDades extends javax.swing.JPanel {
                     .addComponent(jButton8)
                     .addComponent(jButton9)
                     .addComponent(jButton10))
-                .addGap(18, 18, 18)
+                .addGap(3, 3, 3)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -685,7 +713,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jButton4ActionPerformed(evt);
             }
         });
-        jButton4.setBounds(300, 510, 90, 25);
+        jButton4.setBounds(300, 510, 90, -1);
         jLayeredPane1.add(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -704,6 +732,10 @@ public class PanelModificarDades extends javax.swing.JPanel {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        jPanel6.setVisible(false);
+        jPanel7.setVisible(false);
+        rest = -1;
+        opcio = -1;
         cp.canviaPanel("menuPrincipal");
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -870,6 +902,11 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jLabel18.setVisible(false);
                 jComboBox1.setVisible(false);
                 jComboBox2.setVisible(false);
+
+                //SET OPTION
+
+                if ((cadena[0].toString().equals("1. Restringir un grup a una aula."))) opcio = 1;
+                else opcio = 2;
             }
             else if ((cadena[0].toString().equals("3. Restringir un grup a un dia i hora.")) ||
                      (cadena[0].toString().equals("4. Restringir un grup abans d'un dia i hora.")) ||
@@ -886,6 +923,12 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jPanel6.setVisible(true);
                 jTextField8.setVisible(false);
                 jLabel16.setVisible(false);
+
+                //SET OPTION
+
+                if ((cadena[0].toString().equals("3. Restringir un grup a un dia i hora."))) opcio = 3;
+                else if ((cadena[0].toString().equals("4. Restringir un grup abans d'un dia i hora."))) opcio = 4;
+                else opcio = 5;
             }
             else if ((cadena[0].toString().equals("6. Restringir una hora en la que no es pugui impartir una assignatura+grup.")) ||
                      (cadena[0].toString().equals("7. Restringir una hora en la que abans d'aquesta no es pugui impartir una assig+grup.")) ||
@@ -902,6 +945,12 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jLabel16.setVisible(false);
                 jComboBox1.setVisible(false);
                 jLabel17.setVisible(false);
+
+                //SET OPTION
+
+                if ((cadena[0].toString().equals("6. Restringir una hora en la que no es pugui impartir una assignatura+grup."))) opcio = 6;
+                else if ((cadena[0].toString().equals("7. Restringir una hora en la que abans d'aquesta no es pugui impartir una assig+grup."))) opcio = 7;
+                else opcio = 8;
             }
             else if ((cadena[0].toString().equals("9. Restringir una assignatura+grup en un dia.")) ||
                      (cadena[0].toString().equals("10. Restringir una assignatura+grup abans d'un dia.")) ||
@@ -919,6 +968,14 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jLabel16.setVisible(false);
                 jComboBox2.setVisible(false);
                 jLabel18.setVisible(false);
+
+                //SET OPTION
+
+                if ((cadena[0].toString().equals("9. Restringir una assignatura+grup en un dia."))) opcio = 9;
+                else if ((cadena[0].toString().equals("10. Restringir una assignatura+grup abans d'un dia."))) opcio = 10;
+                else opcio = 11;
+
+
             }
             else if ((cadena[0].toString().equals("13. Restringir un aula a no utilitzar-se un dia/hora.")) ||
                      (cadena[0].toString().equals("14. Restringir un aula a no utilitzar-se abans d'un dia/hora.")) ||
@@ -935,10 +992,18 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jTextField7.setVisible(false);
                 jLabel14.setVisible(false);
                 jLabel15.setVisible(false);
+
+                //SET OPTION
+
+                if ((cadena[0].toString().equals("13. Restringir un aula a no utilitzar-se un dia/hora."))) opcio = 13;
+                else if ((cadena[0].toString().equals("14. Restringir un aula a no utilitzar-se abans d'un dia/hora."))) opcio = 14;
+                else opcio = 15;
             }
             else if ((cadena[0].toString().equals("12. Dues assig+grup no poden impartir-se a la vegada temporalment parlant."))) {
+                rest = 5; //RESTRICCION 5;
                 jPanel6.setVisible(false);
                 jPanel7.setVisible(true);
+                opcio = 12;
 
             }
         }
@@ -955,6 +1020,92 @@ public class PanelModificarDades extends javax.swing.JPanel {
         int h = cadena.length;
         if (h == 0) cp.mostraAvis("Seleccioni la restricció que vol borrar", "WARNING");
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // COMPARAMOS rest PARA IDENTIFICAR LA RESTRICCIÓN QUE SE QUIERE DEFINIR
+        if (rest == 1) { //RESTRICCION 1
+            ArrayList params = new ArrayList();
+            params.add(jTextField6.getText()); //ASSIG
+            params.add(Integer.parseInt(jTextField7.getText())); //GRUP
+            params.add(jTextField8.getText()); //AULA
+            params.add(opcio); //OPCIO
+            cp.afegirRestriccio(rest,params);
+        }
+        else if (rest == 2) {
+            String assignatura = jTextField6.getText();
+            Integer grup = Integer.parseInt(jTextField7.getText());
+            String dia = jComboBox1.toString();
+            Integer hora = Integer.parseInt(jComboBox2.getSelectedItem().toString());
+            if (!cp.AfegirRestriccioGrupSessio(assignatura, grup, dia, hora, opcio)) cp.mostraAvis("No es pot definir aquesta restricció", "ERROR");
+        }
+        else if (rest == 3) {
+            ArrayList params = new ArrayList();
+            params.add(jTextField6.getText()); //ASSIG
+            params.add(Integer.parseInt(jTextField7.getText())); //GRUP
+            params.add(jComboBox2.getSelectedItem()); //HORA
+            params.add(opcio); //OPCIO
+            cp.afegirRestriccio(rest, params);
+        }
+        else if (rest == 4) {
+            ArrayList params = new ArrayList();
+            params.add(jTextField6.getText()); //ASSIG
+            params.add(Integer.parseInt((jTextField7.getText()))); //GRUP
+            params.add(jComboBox1.toString()); //DIA
+            params.add(opcio); //OPCIO
+            cp.afegirRestriccio(rest, params);
+        }
+        else if (rest == 5) {
+
+        }
+        else if (rest == 6) {
+            ArrayList params = new ArrayList();
+            params.add(jTextField8.getText()); //AULA
+            params.add(jComboBox2.getSelectedItem()); //HORA
+            params.add(jComboBox1.toString()); //DIA
+            params.add(opcio); //OPCIO
+            cp.afegirRestriccio(rest, params);
+        }
+
+        opcio = -1;
+        rest = -1;
+        jTextField6.setText("");
+        jTextField7.setText("");
+        jTextField8.setText("");
+        jPanel6.setVisible(false);
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        jLabel23.setVisible(false);
+        jLabel25.setVisible(false);
+        jTextField10.setVisible(false);
+        jTextField12.setVisible(false);
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        jLabel23.setVisible(true);
+        jLabel25.setVisible(true);
+        jTextField10.setVisible(true);
+        jTextField12.setVisible(true);
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        if (!jRadioButton1.isSelected() && !jRadioButton2.isSelected()) cp.mostraAvis("Seleccioni de quin nivell de solapament parla ", "WARNING");
+        else {
+            ArrayList params = new ArrayList();
+            params.add(jTextField9.getText());
+            params.add(jTextField11.getText());
+            if (jRadioButton1.isSelected()) {
+                params.add(jTextField10.getText());
+                params.add(jTextField11.getText());
+            }
+            cp.afegirRestriccio(5, params);
+            jTextField9.setText("");
+            jTextField10.setText("");
+            jTextField11.setText("");
+            jTextField12.setText("");
+            jPanel7.setVisible(false);
+        }
+    }//GEN-LAST:event_jButton14ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1019,6 +1170,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;

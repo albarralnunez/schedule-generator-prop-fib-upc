@@ -211,4 +211,13 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     public void esborraAula(String nomAula) {
          cd.esborraAula(nomAula);
     }
+
+    public void afegirRestriccio(Integer i, ArrayList params) {
+        cd.afegirRestriccio(i, params);
+    }
+
+    public boolean AfegirRestriccioGrupSessio(String ass, Integer grup, String dia, Integer hora, Integer opcio) {
+        return cd.AfegirRestriccioGrupSessio(ass, grup, dia, hora, opcio);
+    }
+
 }
