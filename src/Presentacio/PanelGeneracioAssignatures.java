@@ -114,7 +114,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        jButton3.setBounds(540, 360, 94, 25);
+        jButton3.setBounds(560, 360, 94, 25);
         jLayeredPane1.add(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton4.setText("Enrere");
@@ -123,7 +123,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
                 jButton4ActionPerformed(evt);
             }
         });
-        jButton4.setBounds(450, 360, 81, 25);
+        jButton4.setBounds(470, 360, 81, 25);
         jLayeredPane1.add(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/refresh.png"))); // NOI18N
