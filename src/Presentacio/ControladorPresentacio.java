@@ -220,4 +220,8 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         return cd.AfegirRestriccioGrupSessio(ass, grup, dia, hora, opcio);
     }
 
+    public ArrayList<String> llistaRest(int opcio) {
+        return cd.llistaRest(opcio);
+    }
+
 }
