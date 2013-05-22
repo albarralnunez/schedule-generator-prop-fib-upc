@@ -599,8 +599,8 @@ public class CtrPresentacio {
             System.out.println(" 2 - Restringir que un grup no pugui anar a una aula");
             
             System.out.println(" 3 - Restringir un grup a un dia i hora"); //
-            System.out.println(" 4 - Restringir un grup abans de un dia i hora");
-            System.out.println(" 5 - Restringir un grup despres de un dia i hora");
+            System.out.println(" 4 - Restringir un grup de una assignatura per a que nomes s'imparteixi abans de un dia i hora");
+            System.out.println(" 5 - Restringir un grup de una assignatura per a que nomes s'imparteixi despres de un dia i hora");
             
             System.out.println(" 6 - Restringir una hora en la que no es pugui impartir una asignatura+grup"); /*OK*/ //
             System.out.println(" 7 - Restringir una hora en la que a partir d'aquesta no es pugui impartir una asignatura+grup en una hora igual o anterior a la definida");

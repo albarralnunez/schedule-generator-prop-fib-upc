@@ -152,8 +152,9 @@ public class RestAssignatura extends Restriccio {
     public boolean compleixRes8(Clausula c,ClausulaNom cn){
         if(c.getAssignatura().equals(this.assignatura) && c.getGrup() == this.grup){
             if(this.hora != -1){
-                if ((cn.getHora() < this.hora) && ((cn.getHora() + c.getDuracio()) < this.hora )) return true;
-                else return false;
+                if ((cn.getHora() < this.hora) && ((cn.getHora() + c.getDuracio()) > this.hora)) return false;
+                if ((cn.getHora() >= this.hora)) return false;
+                else return true;
             }
             
         }

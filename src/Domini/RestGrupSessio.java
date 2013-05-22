@@ -125,23 +125,23 @@ public class RestGrupSessio extends Restriccio{
     public boolean CompleixRes4(Clausula c,ClausulaNom cn) {
         if(c.getAssignatura().getNom().equals(this.assignatura) && c.getGrup() == this.grup){
             if (this.canviIntStringDia().equals(cn.getDia())) {
-                if ((cn.getHora() < (this.horaInici+1))) return false;
-                else return true;
-            }
-            else if (canviDiaInt(cn.getDia()) < this.dia)return false;
-            else if (canviDiaInt(cn.getDia()) > this.dia)return true;
-        }
-        return true;
-   }
-    public boolean CompleixRes5(Clausula c,ClausulaNom cn) {
-        if(c.getAssignatura().getNom().equals(this.assignatura) && c.getGrup() == this.grup){
-            if (this.canviIntStringDia().equals(cn.getDia())) {
                 if ((cn.getHora() < this.horaInici) && ((cn.getHora() + c.getDuracio()) > this.horaInici )) return false;
                 if ((cn.getHora() >= this.horaInici)) return false;
                 else return true;
             }
             else if (canviDiaInt(cn.getDia()) < this.dia)return true;
             else if (canviDiaInt(cn.getDia()) > this.dia)return false;
+        }
+        return true;
+   }
+    public boolean CompleixRes5(Clausula c,ClausulaNom cn) {
+        if(c.getAssignatura().getNom().equals(this.assignatura) && c.getGrup() == this.grup){
+            if (this.canviIntStringDia().equals(cn.getDia())) {
+                if ((cn.getHora() < (this.horaInici+1))) return false;
+                else return true;
+            }
+            else if (canviDiaInt(cn.getDia()) < this.dia)return false;
+            else if (canviDiaInt(cn.getDia()) > this.dia)return true;
         }
         return true;
     }
