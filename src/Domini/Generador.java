@@ -236,7 +236,7 @@ class Generador {
 
     private boolean compleixResDomini(Clausula c, ClausulaNom cn, Quadricula q) {
         if( !this.cjtRestGS.ComprovarRes(c, cn)) return false;   
-        //if (!cjtRgraula.ComprovarRes(c, cn)) return false;
+        if (!cjtRgraula.ComprovarRes(c, cn.getAula())) return false;
         if (!cjtRass.ComprovarRes(c,cn)) return false;
         if (!cjtRula.ComprovarRes(c,cn)) return false;
         if (!suficientHoresSegui(c,cn,q)) return false;

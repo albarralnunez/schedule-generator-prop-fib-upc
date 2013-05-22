@@ -201,8 +201,16 @@ public class RestSolapament extends Restriccio{
        Assignatura a2 = e.getAssignatura();
        int g1 = c.getGrup();
        int g2 = e.getGrup();
-       boolean combinacio1 =(a1.equals(this.assignaturaPrincipal)) && (g1 == this.grupPrincipal) && (a2.equals(this.assignaturaSolapament)) && (g2 == this.grupSolapament);
-       boolean combinacio2 = (a2.equals(this.assignaturaPrincipal)) && (g2 == this.grupPrincipal) && (a1.equals(this.assignaturaSolapament)) && (g1 == this.grupSolapament);
+       boolean combinacio1 = false;
+       boolean combinacio2 = false;
+       if(this.grupPrincipal != -1 && this.grupSolapament != -1){
+            combinacio1 =(a1.equals(this.assignaturaPrincipal)) && (g1 == this.grupPrincipal) && (a2.equals(this.assignaturaSolapament)) && (g2 == this.grupSolapament);
+            combinacio2 = (a2.equals(this.assignaturaPrincipal)) && (g2 == this.grupPrincipal) && (a1.equals(this.assignaturaSolapament)) && (g1 == this.grupSolapament);
+       }
+       else {
+            combinacio1 =(a1.equals(this.assignaturaPrincipal)) && (a2.equals(this.assignaturaSolapament));
+            combinacio2 = (a2.equals(this.assignaturaPrincipal)) &&(a1.equals(this.assignaturaSolapament));  
+       }
        if(combinacio1 || combinacio2) {
            if(dia.equals(cn.getDia()) && (hor-c.getDuracio() < cn.getHora() && hor >= cn.getHora()))return false;
            else return true;

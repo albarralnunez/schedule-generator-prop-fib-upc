@@ -59,8 +59,8 @@ public class CtrPresentacio {
         int opcio = 0;
         while( opcio != 16 ) {
             System.out.println(" OPCIONS ");
-            System.out.println(" 1 - Restringir un grup a una aula"); //1
-            System.out.println(" 2 - Restringir que un grup no pugui anar a una aula");
+            System.out.println(" 1 - Restringir un grup a una aula"); /*OK*/
+            System.out.println(" 2 - Restringir que un grup no pugui anar a una aula");/*OK*/
             
             System.out.println(" 3 - Restringir un grup a un dia i hora"); //
             System.out.println(" 4 - Restringir un grup abans de un dia i hora");
@@ -74,7 +74,7 @@ public class CtrPresentacio {
             System.out.println(" 10 - Restringir un dia per a que abans d'aquest no es pugu impartir una assig+grup");
             System.out.println(" 11 - Restringir un dia per a que despres d'aquest no es pugu impartir una assig+grup");
             
-            System.out.println(" 12 - Una assig+grup no es pot impartir a la vegada que una altre temporalmente parlant"); //
+            System.out.println(" 12 - Una assig+grup no es pot impartir a la vegada que una altre temporalmente parlant"); /*OK*/
             
             System.out.println(" 13 - inhabilitar una aula a un dia/hora");/*OK*/ //
             System.out.println(" 14 - inhabilitar una aula abans de un dia/hora");
