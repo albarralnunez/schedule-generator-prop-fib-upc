@@ -4,13 +4,14 @@
  */
 package Domini;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author miquel
  */
-public class CjtElements {
+public class CjtElements implements Serializable {
 
     /**
      * valid diu si aquell conjunt es valid

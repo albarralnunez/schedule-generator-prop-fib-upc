@@ -246,6 +246,16 @@ public class CtrPresentacio {
     private static void generarHorari(){
         if ( cd.generar() ){
             cd.imprimeixHorari();
+            
+            System.out.println("EL VOLS GUARDAR? s/n");
+            String resposta = s.next();
+            if( resposta.equals("s")){
+                System.out.println("posa un nom a l'horari");
+                String nom = s.next();
+                boolean b = cd.guardaHorari( nom );
+                if( ! b ) System.out.println("aquest nom ja existeix");
+            }
+            
         }    
         else System.out.println("\n NO S'HA POGUT GENERAR CAP HORARI");
     }
@@ -612,6 +622,7 @@ public class CtrPresentacio {
     }
         
     }
+    
     private static void llistar(){
         System.out.println(" Llistat ");
         for(int i = 1; i <=15; ++i) {

@@ -682,4 +682,9 @@ public class CtrDomini {
     public boolean existeixConfiguracioHoraria() {
         return cper.existeixConfiguracioHoraria(nomUnitat);
     }
+
+    public boolean guardaHorari( String nomh) {
+        Quadricula q = cgen.getQuad();
+        return cper.guardaHorari( "horari-"+nomUnitat+"-"+nomh ,q);
+    }
 }
