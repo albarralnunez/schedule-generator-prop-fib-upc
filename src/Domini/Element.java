@@ -4,11 +4,13 @@
  */
 package Domini;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Daniel
  */
-public class Element {
+public class Element implements Serializable{
 
     private Aula aula;
     private Assignatura assignatura;
