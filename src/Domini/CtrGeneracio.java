@@ -102,6 +102,9 @@ public class CtrGeneracio {
     public void setResRestS(RestSolapament r){
         cjtRestS.afegirRest(r);
     }
+    public void setResRestGS(RestGrupSessio r){
+        this.cjtRestGS.afegir_rest(r);
+    }
 
     public String getNomUnitat() {
         return nomUnitat;

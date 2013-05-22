@@ -344,8 +344,13 @@ public class CtrDomini {
             if(r.esPotAfegir(cgen.getCjtResGA(), cgen.getCjtRestAul(), cgen.getCjtRestGS(),cgen.getQuad())) cgen.setResResGA(r);
         }
         else if(tipus == 2){
-            
-            //EN MIKIS LA VOL FER
+            RestGrupSessio r = new RestGrupSessio();
+            r.setAssignatura((String) params.get(0));
+            r.setGrup((Integer) params.get(1));
+            r.setDia((String) params.get(2));
+            r.setHora((Integer) params.get(3));
+            r.AssignarId((Integer) params.get(4));
+            cgen.setResRestGS(r);
             
         }
         else if(tipus == 3){
@@ -495,7 +500,7 @@ public class CtrDomini {
             for(int i = 0; i < size; ++i){
                 RestGrupSessio r = cjt.get(i);
                 if(tipus == r.ObtenirId()){
-                    l.add(r.getAssignatura()+"-"+r.getGrup()+"-"+r.getDia()+"-"+r.getHora());
+                    l.add(r.getAssignatura()+"-"+r.getGrup()+"-"+r.getDiaString()+"-"+r.getHora());
                     Integer j = i;
                     l.add(j.toString());
                 }
@@ -556,7 +561,6 @@ public class CtrDomini {
         }
         return l;
     }
-    
     /**
      * 
      * @param tipus
@@ -576,7 +580,7 @@ public class CtrDomini {
                     rGS = cgen.getCjtRestGS().get((Integer)params.get(0));
                     rGS.setAssignatura((String)params.get(1));
                     rGS.setGrup((Integer)params.get(2));
-                    rGS.setDia((Integer)params.get(3));
+                    rGS.setDia((String)params.get(3));
                     rGS.setHora((Integer)params.get(4));
                      break;
             case 3:  

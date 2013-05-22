@@ -122,8 +122,14 @@ public class CtrPresentacio {
                     String dia = s.next();
                     System.out.println("Introduir hora <0-23>");
                     int hora = s.nextInt();
-                    if( ! cd.AfegirRestriccioGrupSessio( assignatura, grup, dia, hora,opcio) )
-                        System.err.println("no es pot definir aquesta restriccio");
+                    params.add(assignatura);
+                    params.add(grup);
+                    params.add(dia);
+                    params.add(hora);
+                    params.add(opcio);
+                    cd.afegirRestriccio(2,params);
+                    //if( ! cd.AfegirRestriccioGrupSessio( assignatura, grup, dia, hora,opcio) )
+                     //   System.err.println("no es pot definir aquesta restriccio");
                     System.out.println("Vols afegir-ne una altre?<y,n>");
                     rep = s.next();
                     if(rep.equals("n")) repetir = false;
@@ -444,13 +450,13 @@ public class CtrPresentacio {
                         String a;
                         int g;
                         int h;
-                        int d;
+                        String d;
                         System.out.println("Introdueix Aula");
                         a = s.next();
                         System.out.println("Introduix grup");
                         g = s.nextInt();
                         System.out.println("Introduix dia");
-                        d = s.nextInt();
+                        d = s.next();
                         System.out.println("Introduiex hora");
                         h = s.nextInt();
                         ArrayList params = new ArrayList();

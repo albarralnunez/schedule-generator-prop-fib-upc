@@ -56,7 +56,12 @@ public class RestGrupSessio extends Restriccio{
     public int getDia(){
         return dia;
     }
-    
+    public String getDiaString(){
+        return canviIntStringDia();
+    }
+    public void setDia(String d){
+        dia = canviStringIntDia(d);
+    }
     public void setDia( int d){
         dia = d;
     }
@@ -64,7 +69,26 @@ public class RestGrupSessio extends Restriccio{
     public void setHora(Integer hora) {
         this.horaInici = hora;
     }
-
+    private int canviStringIntDia(String dia){
+        if(dia.equals("dilluns"))return 0;
+        else if(dia.equals("dimarts"))return 1;
+        else if(dia.equals("dimecres"))return 2;
+        else if(dia.equals("dijous"))return 3;
+        else if(dia.equals("divendres"))return 4;
+        else if(dia.equals("dissabte"))return 5;
+        else if(dia.equals("diumenge"))return 6;
+        return -1;
+    }
+    private String canviIntStringDia(){
+        if(this.dia == 0) return "dilluns";
+        if(this.dia == 1) return "dimarts";
+        if(this.dia == 2) return "dimecres";
+        if(this.dia == 3) return "dijous";
+        if(this.dia == 4) return "divendres";
+        if(this.dia == 5) return "dissabte";
+        if(this.dia == 6) return "diumenge";
+        return null;
+    }
     @Override
     public boolean CompleixRes() {return false;}
 
