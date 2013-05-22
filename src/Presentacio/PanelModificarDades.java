@@ -37,6 +37,12 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jPanel6.setVisible(false);
         jPanel7.setVisible(false);
         jPanel8.setVisible(false);
+        
+        this.panellNomAsg.setVisible(true);
+        this.comboBoxAssigs.setVisible(false);
+        this.panellDadesAssignatura.setVisible(true);
+        this.botoOK.setVisible(true);
+            
         this.setBounds(0, 0, 700, 550);
     }
 
@@ -57,12 +63,13 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jScrollPane4 = new javax.swing.JScrollPane();
         llistaAssignatures = new javax.swing.JTextArea();
         comboBoxOpcionsAssig = new javax.swing.JComboBox();
-        panelSeleccions = new javax.swing.JLayeredPane();
-        comboBoxAssigs = new javax.swing.JComboBox();
+        panellNomAsg = new javax.swing.JLayeredPane();
         jTextField1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         panellDadesAssignatura = new javax.swing.JLayeredPane();
         jLabel4 = new javax.swing.JLabel();
+        comboBoxAssigs = new javax.swing.JComboBox();
+        botoOK = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList2 = new javax.swing.JList();
@@ -135,17 +142,17 @@ public class PanelModificarDades extends javax.swing.JPanel {
 
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(600, 400));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Assignatures Disponibles:");
 
+        llistaAssignatures.setEditable(false);
         llistaAssignatures.setBackground(new java.awt.Color(240, 240, 240));
         llistaAssignatures.setColumns(20);
-        llistaAssignatures.setEditable(false);
-        llistaAssignatures.setFont(new java.awt.Font("Tahoma", 1, 14));
+        llistaAssignatures.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         llistaAssignatures.setRows(5);
         jScrollPane4.setViewportView(llistaAssignatures);
 
-        comboBoxOpcionsAssig.setFont(new java.awt.Font("Tahoma", 1, 12));
+        comboBoxOpcionsAssig.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         comboBoxOpcionsAssig.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CREAR", "MODIFICAR", "ESBORRAR" }));
         comboBoxOpcionsAssig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,20 +160,25 @@ public class PanelModificarDades extends javax.swing.JPanel {
             }
         });
 
-        comboBoxAssigs.setBounds(140, 0, 100, -1);
-        panelSeleccions.add(comboBoxAssigs, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jTextField1.setBounds(200, 30, 110, -1);
-        panelSeleccions.add(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jTextField1.setBounds(190, 10, 110, 20);
+        panellNomAsg.add(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("nom de l' assignatura");
-        jLabel5.setBounds(50, 30, 135, -1);
-        panelSeleccions.add(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLabel5.setBounds(40, 10, 135, 15);
+        panellNomAsg.add(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("nom de l' assignatura");
-        jLabel4.setBounds(20, 30, 135, -1);
+        jLabel4.setBounds(20, 30, 135, 15);
         panellDadesAssignatura.add(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        botoOK.setText("OK");
+        botoOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoOKActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -177,30 +189,42 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane4))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(comboBoxOpcionsAssig, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(panelSeleccions, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
-                    .addComponent(panellDadesAssignatura))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panellNomAsg, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                            .addComponent(panellDadesAssignatura)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(comboBoxOpcionsAssig, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59)
+                        .addComponent(comboBoxAssigs, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addComponent(botoOK)))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(comboBoxOpcionsAssig, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14)
-                        .addComponent(panelSeleccions, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(comboBoxOpcionsAssig, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                            .addComponent(comboBoxAssigs))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(panellDadesAssignatura))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                        .addComponent(panellNomAsg, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panellDadesAssignatura, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(botoOK)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Assignatures", jPanel1);
@@ -325,7 +349,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
 
         jLabel13.setText("Projector:");
 
-        jTextField5.setFont(new java.awt.Font("Dialog", 1, 12));
+        jTextField5.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jTextField5.setEnabled(false);
 
         jButton11.setText("Modificar");
@@ -428,7 +452,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jLabel2))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -450,7 +474,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -582,7 +606,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel23)
                         .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(jButton14)
                 .addContainerGap())
         );
@@ -656,7 +680,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(jButton13)
                 .addContainerGap())
         );
@@ -690,7 +714,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 661, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)
                     .addComponent(jLabel3)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -719,7 +743,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, Short.MAX_VALUE)
+                        .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                         .addGap(3, 3, 3))
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -729,14 +753,14 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         jTabbedPane1.addTab("Restriccions", jPanel3);
 
-        jTabbedPane1.setBounds(10, 10, 690, 490);
+        jTabbedPane1.setBounds(10, 10, 690, 500);
         jLayeredPane1.add(jTabbedPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton4.setText("Tornar");
@@ -745,7 +769,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jButton4ActionPerformed(evt);
             }
         });
-        jButton4.setBounds(300, 520, 90, 25);
+        jButton4.setBounds(300, 520, 90, 23);
         jLayeredPane1.add(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -767,10 +791,27 @@ public class PanelModificarDades extends javax.swing.JPanel {
         rest = -1;
         opcio = -1;
         cp.canviaPanel("menuPrincipal");
+        this.botoOK.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void comboBoxOpcionsAssigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxOpcionsAssigActionPerformed
         
+        if( ( (String) comboBoxOpcionsAssig.getSelectedItem() ).equals("CREAR")  ) {
+            this.panellNomAsg.setVisible(true);
+            this.comboBoxAssigs.setVisible(false);
+            this.panellDadesAssignatura.setVisible(true);
+        }
+        
+        else if( ( (String) comboBoxOpcionsAssig.getSelectedItem() ).equals("ESBORRAR")  ) {
+            this.panellNomAsg.setVisible(false);
+            this.comboBoxAssigs.setVisible(true);
+            this.panellDadesAssignatura.setVisible(false);
+        }
+        else if( ( (String) comboBoxOpcionsAssig.getSelectedItem() ).equals("MODIFICAR")  ) {
+            this.panellDadesAssignatura.setVisible(true);
+            this.comboBoxAssigs.setVisible(true);
+            this.panellNomAsg.setVisible(true);
+        }
     }//GEN-LAST:event_comboBoxOpcionsAssigActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -1232,8 +1273,25 @@ public class PanelModificarDades extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton14ActionPerformed
 
+    private void botoOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoOKActionPerformed
+        
+        String opcio = (String) comboBoxOpcionsAssig.getSelectedItem();
+        System.out.println(opcio); 
+        
+        if( opcio.equals("CREAR") ){
+            
+        }
+        else if ( opcio.equals("ESBORRAR")){
+            
+        }
+        else if( opcio.equals("MODIFICAR") ){
+            
+        }
+    }//GEN-LAST:event_botoOKActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botoOK;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox comboBoxAssigs;
     private javax.swing.JComboBox comboBoxOpcionsAssig;
@@ -1313,8 +1371,8 @@ public class PanelModificarDades extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JTextArea llistaAssignatures;
-    private javax.swing.JLayeredPane panelSeleccions;
     private javax.swing.JLayeredPane panellDadesAssignatura;
+    private javax.swing.JLayeredPane panellNomAsg;
     // End of variables declaration//GEN-END:variables
 
     public void inicialitza() {
