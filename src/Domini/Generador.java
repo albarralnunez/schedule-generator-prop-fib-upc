@@ -308,7 +308,7 @@ class Generador {
             return false;
         }
     }
-
+/*
     public boolean AfegirRestriccioGrupSessio(String nomA, int grup, String dia, int hora,int id) {
        int d;
         if ( dia.equals("dilluns") ) d = 0;
@@ -319,7 +319,7 @@ class Generador {
         else if ( dia.equals("dissabte") ) d = 5;
         else d = 6;
         return true;
-    }
+    }*/
 
     private boolean suficientHoresSegui(Clausula c, ClausulaNom cn, Quadricula q) {
         int du = c.getDuracio();
