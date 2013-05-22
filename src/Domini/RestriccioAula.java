@@ -144,8 +144,10 @@ class RestriccioAula extends Restriccio{
         if (this.aula.equals(aulaa)) { //Si hablan de la aula que esta restringida
             if (this.hora != null) { //Si este aula no puede usarse un dia a una hora concreta...
                 if (this.dia.equals(diaa)) {
-                    if ((cn.getHora() > (this.hora+1)) && ((cn.getHora() + c.getDuracio()) > (this.hora+1))) return true;
-                    else return false;
+                    //if ((cn.getHora() > (this.hora+1)) && ((cn.getHora() + c.getDuracio()) > (this.hora+1))) return true;
+                    //else return false;
+                    if ((cn.getHora() < (this.hora+1))) return false;
+                    else return true;
                 }
                 else if (canviDiaInt(diaa) < canviDiaInt(this.dia))return false;
                 else if (canviDiaInt(diaa) > canviDiaInt(this.dia))return true;
