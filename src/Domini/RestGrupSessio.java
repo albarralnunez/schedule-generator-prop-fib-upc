@@ -89,19 +89,60 @@ public class RestGrupSessio extends Restriccio{
         if(this.dia == 6) return "diumenge";
         return null;
     }
+    private int canviDiaInt(String dia){
+        int d = -1;
+        if ( dia.equals("dilluns") ) d = 0;
+        else if ( dia.equals("dimarts") ) d = 1;
+        else if ( dia.equals("dimecres") ) d = 2;
+        else if ( dia.equals("dijous") ) d = 3;
+        else if ( dia.equals("divendres") ) d = 4;
+        else if ( dia.equals("dissabte") ) d = 5;
+        else if (dia.equals("diumenge"))d = 6;
+        return d;
+    }
     @Override
     public boolean CompleixRes() {return false;}
 
     /*
      * NOMÉS S HA DE MIRAR AMB LA 1A HORA
      */
-    public boolean CompleixRes(String assignatura, Integer grup, int dia, Integer hora) {
+   /* public boolean CompleixRes(String assignatura, Integer grup, int dia, Integer hora) {
         boolean compleix = true; //Miramos si habla de la restriccion que afecta a nuestro grupo
         if ( this.assignatura.equals(assignatura) && this.grup.equals(grup)) {
             if( this.dia != dia) return false;
             if (this.horaInici != hora) compleix = false;
         }
         return compleix;
+    }*/
+    public boolean CompleixRes3(Clausula c,ClausulaNom cn) {
+        if(c.getAssignatura().getNom().equals(this.assignatura) && c.getGrup() == this.grup){
+            if(cn.getHora() == this.horaInici && canviStringIntDia(cn.getDia()) == this.dia) return true;
+            else return false;
+        }
+        return true;
+        
+    }
+    public boolean CompleixRes4(Clausula c,ClausulaNom cn) {
+        if(c.getAssignatura().getNom().equals(this.assignatura) && c.getGrup() == this.grup){
+            if (this.canviIntStringDia().equals(cn.getDia())) {
+                if ((cn.getHora() > (this.horaInici+1)) && ((cn.getHora() + c.getDuracio()) > (this.horaInici+1))) return true;
+                else return false;
+            }
+            else if (canviDiaInt(cn.getDia()) < this.dia)return false;
+            else if (canviDiaInt(cn.getDia()) > this.dia)return true;
+        }
+        return true;
+   }
+    public boolean CompleixRes5(Clausula c,ClausulaNom cn) {
+        if(c.getAssignatura().getNom().equals(this.assignatura) && c.getGrup() == this.grup){
+            if (this.canviIntStringDia().equals(cn.getDia())) {
+                if ((cn.getHora() < this.horaInici) && ((cn.getHora() + c.getDuracio()) < this.horaInici )) return true;
+                else return false;
+            }
+            else if (canviDiaInt(cn.getDia()) < this.dia)return true;
+            else if (canviDiaInt(cn.getDia()) > this.dia)return false;
+        }
+        return true;
     }
 
     /**

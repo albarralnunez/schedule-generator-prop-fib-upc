@@ -59,6 +59,7 @@ public class CtrPresentacio {
         int opcio = 0;
         while( opcio != 16 ) {
             System.out.println(" OPCIONS ");
+            System.out.println(" OPCIONS ");
             System.out.println(" 1 - Restringir un grup a una aula"); /*OK*/
             System.out.println(" 2 - Restringir que un grup no pugui anar a una aula");/*OK*/
             
@@ -67,16 +68,16 @@ public class CtrPresentacio {
             System.out.println(" 5 - Restringir un grup despres de un dia i hora");
             
             System.out.println(" 6 - Restringir una hora en la que no es pugui impartir una asignatura+grup"); /*OK*/ //
-            System.out.println(" 7 - Restringir una hora en la que abans d'aquesta no es pugui impartir una asignatura+grup");
-            System.out.println(" 8 - Restringir una hora en la que despres d'aquesta no es pugui impartir una asignatura+grup");
+            System.out.println(" 7 - Restringir una hora en la que a partir d'aquesta no es pugui impartir una asignatura+grup en una hora igual o anterior a la definida");
+            System.out.println(" 8 - Restringir una hora en la que a partir d'aquesta no es pugui impartir una asignatura+grup en una hora igual o posterior a la definida");
             
             System.out.println(" 9 - Restringir un dia per a que no es pugu impartir una assig+grup");//
-            System.out.println(" 10 - Restringir un dia per a que abans d'aquest no es pugu impartir una assig+grup");
-            System.out.println(" 11 - Restringir un dia per a que despres d'aquest no es pugu impartir una assig+grup");
+            System.out.println(" 10 - Restringir un dia per a que a partir d'aquest no es pugui impartir una assig+grup en un dia igual o anterior definit");
+            System.out.println(" 11 - Restringir un dia per a que a partir d'aquest no es pugui impartir una assig+grup en un dia igual o posterior al definit");
             
             System.out.println(" 12 - Una assig+grup no es pot impartir a la vegada que una altre temporalmente parlant"); /*OK*/
             
-            System.out.println(" 13 - inhabilitar una aula a un dia/hora");/*OK*/ //
+            System.out.println(" 13 - inhabilitar una aula a un dia/hora");/*OK*/
             System.out.println(" 14 - inhabilitar una aula abans de un dia/hora");
             System.out.println(" 15 - inhabilitar una aula despres de un dia/hora");
             
@@ -441,7 +442,7 @@ public class CtrPresentacio {
                         int g;
                         int h;
                         String d;
-                        System.out.println("Introdueix Aula");
+                        System.out.println("Introdueix Assignatura");
                         a = s.next();
                         System.out.println("Introduix grup");
                         g = s.nextInt();
@@ -583,7 +584,7 @@ public class CtrPresentacio {
             opcio = 0;
             if(decisio == 1)System.out.println(" Indica el tipus de restriccio a modificar ");
             if(decisio == 2)System.out.println(" Indica el tipus de restriccio a esborrar ");
-                        System.out.println(" OPCIONS ");
+            System.out.println(" OPCIONS ");
             System.out.println(" 1 - Restringir un grup a una aula"); //1
             System.out.println(" 2 - Restringir que un grup no pugui anar a una aula");
             

@@ -80,18 +80,10 @@ public class CjtRestGrupSessio extends CjtRestriccions{
     boolean ComprovarRes(Clausula c, ClausulaNom cn) {
         boolean b = true;
         for( RestGrupSessio gs : restriccionsGrupSesio){
-            String dia = cn.getDia();
-            int i;
-            if (dia.equals("dilluns")) i = 0;
-            else if (dia.equals("dimarts")) i = 1;
-            else if (dia.equals("dimecres")) i = 2;
-            else if (dia.equals("dijous")) i = 3;
-            else if (dia.equals("divendres")) i = 4;
-            else if (dia.equals("dissabte")) i = 5;
-            else i = 6;
-            
-            if ( gs.CompleixRes( c.getAssignatura().getNom(), c.getGrup(), i, cn.getHora() )) return true;
-            else b = false;
+            if(!b) break;
+            if(gs.ObtenirId() == 3) b = gs.CompleixRes3(c,cn);
+            else if(gs.ObtenirId() == 4) b= gs.CompleixRes4(c,cn);
+            else if(gs.ObtenirId() == 5) b= gs.CompleixRes5(c,cn);
         }
         return b;
     }
