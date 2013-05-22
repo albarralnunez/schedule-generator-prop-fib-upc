@@ -38,10 +38,10 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jPanel7.setVisible(false);
         jPanel8.setVisible(false);
         
-        this.panelSeleccions.setVisible(false);
+        this.panellNomAsg.setVisible(true);
         this.comboBoxAssigs.setVisible(false);
-        this.panellDadesAssignatura.setVisible(false);
-        this.botoOK.setVisible(false);
+        this.panellDadesAssignatura.setVisible(true);
+        this.botoOK.setVisible(true);
             
         this.setBounds(0, 0, 700, 550);
     }
@@ -63,7 +63,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jScrollPane4 = new javax.swing.JScrollPane();
         llistaAssignatures = new javax.swing.JTextArea();
         comboBoxOpcionsAssig = new javax.swing.JComboBox();
-        panelSeleccions = new javax.swing.JLayeredPane();
+        panellNomAsg = new javax.swing.JLayeredPane();
         jTextField1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         panellDadesAssignatura = new javax.swing.JLayeredPane();
@@ -145,9 +145,9 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Assignatures Disponibles:");
 
+        llistaAssignatures.setEditable(false);
         llistaAssignatures.setBackground(new java.awt.Color(240, 240, 240));
         llistaAssignatures.setColumns(20);
-        llistaAssignatures.setEditable(false);
         llistaAssignatures.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         llistaAssignatures.setRows(5);
         jScrollPane4.setViewportView(llistaAssignatures);
@@ -161,12 +161,12 @@ public class PanelModificarDades extends javax.swing.JPanel {
         });
 
         jTextField1.setBounds(190, 10, 110, 20);
-        panelSeleccions.add(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        panellNomAsg.add(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("nom de l' assignatura");
         jLabel5.setBounds(40, 10, 135, 15);
-        panelSeleccions.add(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        panellNomAsg.add(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("nom de l' assignatura");
@@ -174,6 +174,11 @@ public class PanelModificarDades extends javax.swing.JPanel {
         panellDadesAssignatura.add(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         botoOK.setText("OK");
+        botoOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoOKActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -188,7 +193,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(panelSeleccions, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                            .addComponent(panellNomAsg, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
                             .addComponent(panellDadesAssignatura)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(59, 59, 59)
@@ -196,7 +201,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                         .addGap(59, 59, 59)
                         .addComponent(comboBoxAssigs, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
+                        .addGap(157, 157, 157)
                         .addComponent(botoOK)))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
@@ -207,20 +212,19 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(comboBoxOpcionsAssig, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                             .addComponent(comboBoxAssigs))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(panelSeleccions, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(panellNomAsg, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panellDadesAssignatura, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(panellDadesAssignatura, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(botoOK)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(botoOK)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Assignatures", jPanel1);
@@ -787,15 +791,26 @@ public class PanelModificarDades extends javax.swing.JPanel {
         rest = -1;
         opcio = -1;
         cp.canviaPanel("menuPrincipal");
+        this.botoOK.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void comboBoxOpcionsAssigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxOpcionsAssigActionPerformed
         
         if( ( (String) comboBoxOpcionsAssig.getSelectedItem() ).equals("CREAR")  ) {
-            this.panelSeleccions.setVisible(true);
+            this.panellNomAsg.setVisible(true);
             this.comboBoxAssigs.setVisible(false);
             this.panellDadesAssignatura.setVisible(true);
-            this.botoOK.setVisible(true);
+        }
+        
+        else if( ( (String) comboBoxOpcionsAssig.getSelectedItem() ).equals("ESBORRAR")  ) {
+            this.panellNomAsg.setVisible(false);
+            this.comboBoxAssigs.setVisible(true);
+            this.panellDadesAssignatura.setVisible(false);
+        }
+        else if( ( (String) comboBoxOpcionsAssig.getSelectedItem() ).equals("MODIFICAR")  ) {
+            this.panellDadesAssignatura.setVisible(true);
+            this.comboBoxAssigs.setVisible(true);
+            this.panellNomAsg.setVisible(true);
         }
     }//GEN-LAST:event_comboBoxOpcionsAssigActionPerformed
 
@@ -1258,6 +1273,22 @@ public class PanelModificarDades extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton14ActionPerformed
 
+    private void botoOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoOKActionPerformed
+        
+        String opcio = (String) comboBoxOpcionsAssig.getSelectedItem();
+        System.out.println(opcio); 
+        
+        if( opcio.equals("CREAR") ){
+            
+        }
+        else if ( opcio.equals("ESBORRAR")){
+            
+        }
+        else if( opcio.equals("MODIFICAR") ){
+            
+        }
+    }//GEN-LAST:event_botoOKActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botoOK;
@@ -1340,8 +1371,8 @@ public class PanelModificarDades extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JTextArea llistaAssignatures;
-    private javax.swing.JLayeredPane panelSeleccions;
     private javax.swing.JLayeredPane panellDadesAssignatura;
+    private javax.swing.JLayeredPane panellNomAsg;
     // End of variables declaration//GEN-END:variables
 
     public void inicialitza() {
