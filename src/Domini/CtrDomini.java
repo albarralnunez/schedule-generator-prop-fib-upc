@@ -329,6 +329,44 @@ public class CtrDomini {
             }
         }
     }
+    
+    
+    public void imprimeixHorari( Quadricula qu) {
+        
+        Quadricula q = qu;
+        
+        for(int i=0; i < 7; ++i) {
+            String dia;
+            if (i == 0) dia = "dilluns";
+            else if (i == 1) dia = "dimarts";
+            else if (i == 2) dia = "dimecres";
+            else if (i == 3) dia = "dijous";
+            else if (i == 4) dia = "divendres";
+            else if (i == 5) dia = "dissabte";
+            else dia = "diumenge";
+            System.out.println("DIA: "+ dia); //DIA: DILLUNS
+            for (int j=0; j < 24; ++j) {
+                CjtElements cjt_elem = new CjtElements();
+                cjt_elem = q.getElementsPosicio(dia, j);
+                if (cjt_elem.isValid() && !cjt_elem.getAssignacions().isEmpty()) {
+                    System.out.println(" "+j+": ");
+                    //Si el conjunto de elementos es valido
+                    ArrayList<Element> assignacions;
+                    assignacions = cjt_elem.getAssignacions();
+                    for (Element e1 : assignacions) {
+                        Aula a = new Aula();
+                        Assignatura ass = new Assignatura();
+                        int grupo;
+                        a = e1.getAula();
+                        ass = e1.getAssignatura();
+                        grupo = e1.getGrupo();
+                        System.out.println("     "+ass.getNom()+", "+grupo+", "+a.getNom());
+                    }
+                }
+            }
+        }
+    }
+    
     /**
      * 
      * @param tipus
@@ -747,5 +785,13 @@ public class CtrDomini {
     public boolean guardaHorari( String nomh) {
         Quadricula q = cgen.getQuad();
         return cper.guardaHorari( "horari-"+nomUnitat+"-"+nomh ,q);
+    }
+    
+    public boolean carregarHorari( String nomHorari){
+        if( ! cper.existeixHorari(  "horari-"+nomUnitat+"-"+nomHorari ) ) 
+            return false;
+        
+        cper.carregaHorari("horari-"+nomUnitat+"-"+nomHorari);
+        return true;
     }
 }

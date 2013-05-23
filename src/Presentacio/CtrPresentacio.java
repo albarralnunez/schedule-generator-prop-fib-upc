@@ -321,7 +321,14 @@ public class CtrPresentacio {
 }
 
 
-    private static  void carregar() {} // 3a entrega
+    private static  void carregar() {
+        System.out.println("escriu el nom de l horari a carregar");
+        String nomH = s.next();
+        if( ! cd.carregarHorari(nomH) )
+            System.out.println("no existe");
+        else
+            System.out.println("ahi esta");
+    } // 3a entrega
     
     private static void modificar() {
         

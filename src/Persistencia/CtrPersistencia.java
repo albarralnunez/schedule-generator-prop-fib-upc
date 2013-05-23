@@ -175,9 +175,19 @@ public class CtrPersistencia {
     }
 
     public boolean guardaHorari(String nomh, Quadricula q) {
-        if( co.existeix(nomh)) return false;
+        if( co.existeix(nomh)) 
+            return false;
         co.creaObjecte( nomh , q);
         System.out.println("creat "+nomh);
         return true;
+    }
+    
+    public Quadricula carregaHorari( String nomHorari ){
+        Quadricula q =  (Quadricula) co.llegirObjecte(nomHorari);
+        return q;
+    }
+
+    public boolean existeixHorari( String nom ) {
+        return co.existeix(nom);
     }
 }

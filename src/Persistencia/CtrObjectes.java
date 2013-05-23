@@ -66,7 +66,7 @@ public class CtrObjectes<Classe> extends CtrDisc implements Serializable {
     public Classe llegirObjecte(String nom) {
         Classe aux = null;
         try {
-            ObjectInputStream entrada = new ObjectInputStream(new FileInputStream("./Data/" + nom + ".txt"));
+            ObjectInputStream entrada = new ObjectInputStream(new FileInputStream("./Data/" + nom + ".o"));
             aux = (Classe) entrada.readObject();
             entrada.close();
             return aux;
