@@ -854,7 +854,8 @@ public class PanelModificarDades extends javax.swing.JPanel {
         else if (jTextField2.getText().equals("")) cp.mostraAvis("Es necessari indicar al capacitat de l'aula", "ERROR");
         else {
             if (jCheckBox1.isSelected()) tipo = true; //DE TEORIA
-            else tipo = false; //DE LAB
+            else if (jCheckBox2.isSelected()) tipo = false; //DE LAB
+            else tipo = true; //DE TEORIA
             cp.creaAula(jTextField3.getText(), tipo, Integer.parseInt(jTextField2.getText()), jCheckBox2.isSelected(), jCheckBox1.isSelected(), false);
         }
         
@@ -1106,29 +1107,16 @@ public class PanelModificarDades extends javax.swing.JPanel {
 
             ArrayList<String> llista = cp.llistaRest(opcio);
             if (!llista.isEmpty()) {
-                ArrayList<Integer> posicio = new ArrayList();
-                //int rest = -1;
                 int i;
-                int num=0;
-                //int max = 0;
+                System.out.println(""+llista.get(0));
                 if (opcio != 12) {
                     for (i = 0; i < llista.size(); ++i) {
-                        if (i%2 == 0) {
-                            ++num;
-                            jComboBox3.addItem(llista.get(i));
+
+                        System.out.println(""+llista.get(i));
+                            if (llista.get(i).toString().length() > 1) jComboBox3.addItem(llista.get(i));
                         }
-                        else posicio.add(Integer.parseInt(llista.get(i)));
-                    }
-                    //max = posicio.size();
                 }
-                else if (opcio == 12) {
-                    for (i = 0; i < llista.size(); ++i) {
-                        num = i+1;
-                        jComboBox3.addItem(llista.get(i));
-                    }
-                    //max = llista.size();
-                }
-            }
+            } else cp.mostraAvis("LLISTA BUIDA", "ERROR");
 
 
 
@@ -1169,13 +1157,16 @@ public class PanelModificarDades extends javax.swing.JPanel {
         else if (rest == 2) {
             if (jTextField6.getText().isEmpty() || jTextField7.getText().isEmpty()) cp.mostraAvis("Falten indicacions per crear la restricció", "ERROR");
             else {
-                String assignatura = jTextField6.getText();
-                Integer grup = Integer.parseInt(jTextField7.getText());
-                String dia = jComboBox1.getSelectedItem().toString();
-                Integer hora = Integer.parseInt(jComboBox2.getSelectedItem().toString());
-                if (!cp.AfegirRestriccioGrupSessio(assignatura, grup, dia, hora, opcio)) cp.mostraAvis("No es pot definir aquesta restricció", "ERROR");
-                else cp.mostraAvis("S'ha afegit la restricció "+ jTextField6.getText()+ " - "+ jTextField7.getText()+ " - "+ dia+ " - "+
-                        hora, "INFORMATION");
+                ArrayList params = new ArrayList();
+                params.add(jTextField6.getText()); //ASSIG
+                params.add(Integer.parseInt(jTextField7.getText())); //GRUP
+                params.add(jComboBox1.getSelectedItem().toString()); //DIA
+                params.add(Integer.parseInt(jComboBox2.getSelectedItem().toString())); //HORA
+                params.add(opcio); //OPCIO
+                cp.afegirRestriccio(rest,params);
+                cp.mostraAvis("S'ha afegit la restricció "+jTextField6.getText()+ " - "+ jTextField7.getText()+ " - "+ jComboBox1.getSelectedItem()+ " - "+
+                        jComboBox2.getSelectedItem(), "INFORMATION");
+           
             }
         }
         else if (rest == 3) {
@@ -1184,7 +1175,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 ArrayList params = new ArrayList();
                 params.add(jTextField6.getText()); //ASSIG
                 params.add(Integer.parseInt(jTextField7.getText())); //GRUP
-                params.add(jComboBox2.getSelectedItem()); //HORA
+                params.add(Integer.parseInt(jComboBox2.getSelectedItem().toString())); //HORA
                 params.add(opcio); //OPCIO
                 cp.afegirRestriccio(rest, params);
                 cp.mostraAvis("S'ha afegit la restricció "+jTextField6.getText()+ " - "+ jTextField7.getText()+ " - "+ jComboBox2.getSelectedItem(), "INFORMATION");
@@ -1196,7 +1187,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 ArrayList params = new ArrayList();
                 params.add(jTextField6.getText()); //ASSIG
                 params.add(Integer.parseInt((jTextField7.getText()))); //GRUP
-                params.add(jComboBox1.getSelectedItem()); //DIA
+                params.add(jComboBox1.getSelectedItem().toString()); //DIA
                 params.add(opcio); //OPCIO
                 cp.afegirRestriccio(rest, params);
                 cp.mostraAvis("S'ha afegit la restricció "+jTextField6.getText()+ " - "+ jTextField7.getText()+ " - "+ jComboBox1.getSelectedItem(), "INFORMATION");
@@ -1207,8 +1198,8 @@ public class PanelModificarDades extends javax.swing.JPanel {
             else {
                 ArrayList params = new ArrayList();
                 params.add(jTextField8.getText()); //AULA
-                params.add(jComboBox2.getSelectedItem()); //HORA
-                params.add(jComboBox1.getSelectedItem()); //DIA
+                params.add(Integer.parseInt(jComboBox2.getSelectedItem().toString())); //HORA
+                params.add(jComboBox1.getSelectedItem().toString()); //DIA
                 params.add(opcio); //OPCIO
                 cp.afegirRestriccio(rest, params);
                 cp.mostraAvis("S'ha afegit la restricció "+jTextField8.getText()+ " - "+ jComboBox2.getSelectedItem()+ " - "+ jComboBox1.getSelectedItem(), "INFORMATION");
@@ -1252,8 +1243,8 @@ public class PanelModificarDades extends javax.swing.JPanel {
                         error = true;
                     }
                     else {
-                        params.add(jTextField10.getText());
-                        params.add(jTextField11.getText());
+                        params.add(Integer.parseInt(jTextField10.getText()));
+                        params.add(Integer.parseInt(jTextField12.getText()));
                     }
                 }
                 if (!error){

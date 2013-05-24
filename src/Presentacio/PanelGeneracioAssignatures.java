@@ -234,6 +234,9 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        for (int i = 0; i < assignatures.size(); ++i) {
+            System.out.println(""+assignatures.get(i));
+        } //EN ESTE ARRAYLIST ESTAN LAS ASSIG CON LAS QUE SE GENERARA EL HORARIO
         cp.canviaPanel("PanelGeneracioAules");
     }//GEN-LAST:event_jButton3ActionPerformed
 

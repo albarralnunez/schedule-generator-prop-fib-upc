@@ -204,12 +204,12 @@ public class RestSolapament extends Restriccio{
        boolean combinacio1 = false;
        boolean combinacio2 = false;
        if(this.grupPrincipal != -1 && this.grupSolapament != -1){
-            combinacio1 =(a1.equals(this.assignaturaPrincipal)) && (g1 == this.grupPrincipal) && (a2.equals(this.assignaturaSolapament)) && (g2 == this.grupSolapament);
-            combinacio2 = (a2.equals(this.assignaturaPrincipal)) && (g2 == this.grupPrincipal) && (a1.equals(this.assignaturaSolapament)) && (g1 == this.grupSolapament);
+            combinacio1 =(a1.getNom().equals(this.assignaturaPrincipal.getNom())) && (g1 == this.grupPrincipal) && (a2.getNom().equals(this.assignaturaSolapament.getNom())) && (g2 == this.grupSolapament);
+            combinacio2 = (a2.getNom().equals(this.assignaturaPrincipal.getNom())) && (g2 == this.grupPrincipal) && (a1.getNom().equals(this.assignaturaSolapament.getNom())) && (g1 == this.grupSolapament);
        }
        else {
-            combinacio1 =(a1.equals(this.assignaturaPrincipal)) && (a2.equals(this.assignaturaSolapament));
-            combinacio2 = (a2.equals(this.assignaturaPrincipal)) &&(a1.equals(this.assignaturaSolapament));  
+            combinacio1 =(a1.getNom().equals(this.assignaturaPrincipal.getNom())) && (a2.getNom().equals(this.assignaturaSolapament.getNom()));
+            combinacio2 = (a2.getNom().equals(this.assignaturaPrincipal.getNom())) &&(a1.getNom().equals(this.assignaturaSolapament.getNom()));  
        }
        if(combinacio1 || combinacio2) {
            if(dia.equals(cn.getDia()) && (hor-c.getDuracio() < cn.getHora() && hor >= cn.getHora()))return false;

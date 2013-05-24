@@ -4,11 +4,13 @@
  */
 package Domini;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Daniel Albarral
  */
-public class Aula {
+public class Aula implements Serializable{
 
     private String nom;
     private int capacitat;

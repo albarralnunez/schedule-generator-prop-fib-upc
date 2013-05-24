@@ -4,11 +4,13 @@
  */
 package Domini;
 
+import java.io.Serializable;
+
 /**
  *
  * @author miquel
  */
-public class Quadricula {
+public class Quadricula implements Serializable {
     
     private CjtElements quadricula[][];
 

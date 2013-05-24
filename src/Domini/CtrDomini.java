@@ -329,6 +329,44 @@ public class CtrDomini {
             }
         }
     }
+    
+    
+    public void imprimeixHorari( Quadricula qu) {
+        
+        Quadricula q = qu;
+        
+        for(int i=0; i < 7; ++i) {
+            String dia;
+            if (i == 0) dia = "dilluns";
+            else if (i == 1) dia = "dimarts";
+            else if (i == 2) dia = "dimecres";
+            else if (i == 3) dia = "dijous";
+            else if (i == 4) dia = "divendres";
+            else if (i == 5) dia = "dissabte";
+            else dia = "diumenge";
+            System.out.println("DIA: "+ dia); //DIA: DILLUNS
+            for (int j=0; j < 24; ++j) {
+                CjtElements cjt_elem = new CjtElements();
+                cjt_elem = q.getElementsPosicio(dia, j);
+                if (cjt_elem.isValid() && !cjt_elem.getAssignacions().isEmpty()) {
+                    System.out.println(" "+j+": ");
+                    //Si el conjunto de elementos es valido
+                    ArrayList<Element> assignacions;
+                    assignacions = cjt_elem.getAssignacions();
+                    for (Element e1 : assignacions) {
+                        Aula a = new Aula();
+                        Assignatura ass = new Assignatura();
+                        int grupo;
+                        a = e1.getAula();
+                        ass = e1.getAssignatura();
+                        grupo = e1.getGrupo();
+                        System.out.println("     "+ass.getNom()+", "+grupo+", "+a.getNom());
+                    }
+                }
+            }
+        }
+    }
+    
     /**
      * 
      * @param tipus
@@ -344,8 +382,13 @@ public class CtrDomini {
             if(r.esPotAfegir(cgen.getCjtResGA(), cgen.getCjtRestAul(), cgen.getCjtRestGS(),cgen.getQuad())) cgen.setResResGA(r);
         }
         else if(tipus == 2){
-            
-            //EN MIKIS LA VOL FER
+            RestGrupSessio r = new RestGrupSessio();
+            r.setAssignatura((String) params.get(0));
+            r.setGrup((Integer) params.get(1));
+            r.setDia((String) params.get(2));
+            r.setHora((Integer) params.get(3));
+            r.AssignarId((Integer) params.get(4));
+            cgen.setResRestGS(r);
             
         }
         else if(tipus == 3){
@@ -417,7 +460,7 @@ public class CtrDomini {
                 if(r.esPotAfegir(cgen.getCjtRestS())) cgen.setResRestS(r);
             }
         }
-        else {
+        else if(tipus == 6) {
             String nomAula =/*nomUnitat+"-"+*/((String)params.get(0));
             ArrayList<AulaLab> llistalab = cgen.getCjtAulLab();
             ArrayList<AulaTeo> llistaTeo = cgen.getCjtAulTeo();
@@ -440,6 +483,30 @@ public class CtrDomini {
                 
                 if(r.esPotAfegir(cgen.getCjtRestAul(),cgen.getCjtResGA(),cgen.getCjtRestGS())) cgen.setResRestAul(r);
             }
+            
+        }
+        else if(tipus == 7){
+            ArrayList<Assignatura> l = cgen.getCjtAs();
+            int size = l.size();
+            boolean trobat = false;
+            Assignatura a = new Assignatura();
+            String assig = (String)params.get(0);
+            for(int i = 0;i < size && !trobat;++i){
+                if(l.get(i).getNom().equals(assig)) {trobat =true; a = l.get(i);}
+            }
+            if(trobat){
+                int grup = (Integer) params.get(1);
+                String dia = (String) params.get(2);
+                int hora = (Integer) params.get(3);
+                int id = (Integer) params.get(4);
+                RestAssignatura r = new RestAssignatura();
+                r.setAssignatura(a);
+                r.setGrup(grup);
+                r.setDia(dia);
+                r.setHora(hora);
+                r.setId(id);
+                if(r.esPotAfegir(cgen.getCjtRestAss(),cgen.getCjtRestGS())) cgen.setResRestAss(r);
+           }
             
         }
     }
@@ -495,7 +562,7 @@ public class CtrDomini {
             for(int i = 0; i < size; ++i){
                 RestGrupSessio r = cjt.get(i);
                 if(tipus == r.ObtenirId()){
-                    l.add(r.getAssignatura()+"-"+r.getGrup()+"-"+r.getDia()+"-"+r.getHora());
+                    l.add(r.getAssignatura()+"-"+r.getGrup()+"-"+r.getDiaString()+"-"+r.getHora());
                     Integer j = i;
                     l.add(j.toString());
                 }
@@ -529,7 +596,21 @@ public class CtrDomini {
                 }
             }
         }
-        else if(tipus == 12){
+        else if(11<tipus && tipus < 15){
+            CjtRestAssignatura cjt = cgen.getCjtRestAss();
+            int size = cjt.size();
+            for(int i = 0; i < size; ++i){
+                RestAssignatura r = cjt.get(i);
+                if(r.getDia() != null){
+                    if(tipus == r.getId()){
+                        l.add(r.getAssignatura().getNom()+"-"+r.getGrup()+"-"+r.getDia()+"-"+r.getHora());
+                        Integer j = i;
+                        l.add(j.toString());
+                    }
+                }
+            }
+        }
+        else if(tipus == 15){
             CjtRestSolapament cjt = cgen.getCjtRestS();
             int size = cjt.size();
             for(int i = 0; i < size; ++i){
@@ -542,7 +623,7 @@ public class CtrDomini {
                 }
             }
         }
-        else if (12<tipus && tipus<16) {
+        else if (15<tipus && tipus<19) {
             CjtRestriccioAula cjt = cgen.getCjtRestAul();
             int size = cjt.size();
             for(int i = 0; i < size; ++i){
@@ -556,7 +637,6 @@ public class CtrDomini {
         }
         return l;
     }
-    
     /**
      * 
      * @param tipus
@@ -576,7 +656,7 @@ public class CtrDomini {
                     rGS = cgen.getCjtRestGS().get((Integer)params.get(0));
                     rGS.setAssignatura((String)params.get(1));
                     rGS.setGrup((Integer)params.get(2));
-                    rGS.setDia((Integer)params.get(3));
+                    rGS.setDia((String)params.get(3));
                     rGS.setHora((Integer)params.get(4));
                      break;
             case 3:  
@@ -647,6 +727,22 @@ public class CtrDomini {
                         rAul.setHora((Integer)params.get(3));
                     }
                     break;
+            case 7:
+                    RestAssignatura rA3;
+                    rA3 = cgen.getCjtRestAss().get(((Integer)params.get(0)));
+                    Assignatura aaa = new Assignatura();
+                    String aass = (String)params.get(1);
+                    boolean trobatt = false;
+                    for(int i = 0;i < cgen.getCjtAs().size() && !trobatt; ++i){
+                        if(cgen.getCjtAs().get(i).getNom().equals(aass)) {aaa = cgen.getCjtAs().get(i); trobatt = true;}
+                    }
+                    if(trobatt){
+                        rA3.setAssignatura(aaa);
+                        rA3.setGrup((Integer)params.get(2));
+                        rA3.setDia((String)params.get(3));
+                        rA3.setHora((Integer) params.get(4));
+                    }    
+                     break;
         }
     }
     
@@ -669,10 +765,13 @@ public class CtrDomini {
             case 9: case 10: case 11:
                     cgen.getCjtRestAss().remove(numRest);
                     break;
-            case 12: 
+            case 12: case 13: case 14:
+                    cgen.getCjtRestAss().remove(numRest);
+                    break;    
+            case 15: 
                     cgen.getCjtRestS().remove(numRest);
                     break;
-            case 13: case 14: case 15:
+            case 16: case 17: case 18:
                     cgen.getCjtRestAul().remove(numRest);
                     break;
        }
@@ -681,5 +780,18 @@ public class CtrDomini {
 
     public boolean existeixConfiguracioHoraria() {
         return cper.existeixConfiguracioHoraria(nomUnitat);
+    }
+
+    public boolean guardaHorari( String nomh) {
+        Quadricula q = cgen.getQuad();
+        return cper.guardaHorari( "horari-"+nomUnitat+"-"+nomh ,q);
+    }
+    
+    public boolean carregarHorari( String nomHorari){
+        if( ! cper.existeixHorari(  "horari-"+nomUnitat+"-"+nomHorari ) ) 
+            return false;
+        
+        cper.carregaHorari("horari-"+nomUnitat+"-"+nomHorari);
+        return true;
     }
 }

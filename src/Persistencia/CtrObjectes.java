@@ -4,6 +4,7 @@
  */
 package Persistencia;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -38,7 +39,7 @@ public class CtrObjectes<Classe> extends CtrDisc implements Serializable {
         ObjectOutputStream sortida = null;
         try {
             if (!existeix(nom)) {
-                sortida = new ObjectOutputStream(new FileOutputStream("./Data/" + nom + ".txt"));
+                sortida = new ObjectOutputStream(new FileOutputStream("./Data/" + nom + ".o"));
                 sortida.writeObject(elem);
                 sortida.close();
                 return true;
@@ -52,6 +53,10 @@ public class CtrObjectes<Classe> extends CtrDisc implements Serializable {
         return false;
     }
 
+    public boolean existeix(String nomObjecte) {
+        return new File("./Data/" + nomObjecte + ".o").canRead();
+    }
+    
     /**
      *
      * @param nom nom de la classe a llegir
@@ -61,7 +66,7 @@ public class CtrObjectes<Classe> extends CtrDisc implements Serializable {
     public Classe llegirObjecte(String nom) {
         Classe aux = null;
         try {
-            ObjectInputStream entrada = new ObjectInputStream(new FileInputStream("./Data/" + nom + ".txt"));
+            ObjectInputStream entrada = new ObjectInputStream(new FileInputStream("./Data/" + nom + ".o"));
             aux = (Classe) entrada.readObject();
             entrada.close();
             return aux;

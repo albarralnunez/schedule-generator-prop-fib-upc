@@ -4,13 +4,14 @@
  */
 package Domini;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author miquel.masriera
  */
-public class Assignatura {
+public class Assignatura implements Serializable{
 
     private String nom;
     private int nivel;

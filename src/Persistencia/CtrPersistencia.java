@@ -4,6 +4,7 @@
  */
 package Persistencia;
 
+import Domini.Quadricula;
 import java.util.ArrayList;
 
 /**
@@ -171,5 +172,22 @@ public class CtrPersistencia {
 
     public boolean existeixConfiguracioHoraria(String nomUnitat) {
         return cdisc.existeix("configuracioHoraria-"+nomUnitat);
+    }
+
+    public boolean guardaHorari(String nomh, Quadricula q) {
+        if( co.existeix(nomh)) 
+            return false;
+        co.creaObjecte( nomh , q);
+        System.out.println("creat "+nomh);
+        return true;
+    }
+    
+    public Quadricula carregaHorari( String nomHorari ){
+        Quadricula q =  (Quadricula) co.llegirObjecte(nomHorari);
+        return q;
+    }
+
+    public boolean existeixHorari( String nom ) {
+        return co.existeix(nom);
     }
 }

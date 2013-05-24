@@ -118,6 +118,9 @@ public class CjtRestAssignatura extends CjtRestriccions {
             else if(rga.ObtenirId() == 9) b = rga.compleixRes9(c, cn);
             else if(rga.ObtenirId() == 10) b = rga.compleixRes10(c, cn);
             else if(rga.ObtenirId() == 11) b = rga.compleixRes11(c, cn);
+            else if(rga.ObtenirId() == 12) b = rga.compleixRes12(c, cn);
+            else if(rga.ObtenirId() == 13) b = rga.compleixRes13(c, cn);
+            else if(rga.ObtenirId() == 14) b = rga.compleixRes14(c, cn);
         }
         return b;
     }
