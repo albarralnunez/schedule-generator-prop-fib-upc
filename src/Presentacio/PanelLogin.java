@@ -97,7 +97,6 @@ private void botoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
 
     private void nomUDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nomUDKeyReleased
         if( evt.getKeyCode() == KeyEvent.VK_ENTER ){    
-            System.out.println("KEY EVENT ENTER 1 VEZ");
         String nomUnitatDocent = nomUD.getText();
         if( nomUnitatDocent == null || nomUnitatDocent.contains(" ") || nomUnitatDocent.equals("") )
             cp.mostraAvis("El nom de la unitat docent ha de ser \nuna cadena de carácters sense espais en blanc.", "ERROR");
