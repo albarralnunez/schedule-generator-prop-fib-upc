@@ -244,7 +244,7 @@ class Generador {
         return true;
     }
     
-    private Stack<Clausula> backUp;
+    private Stack<ArrayList<Clausula>> backUp;
     
     public boolean generar(ArrayList<AulaTeo> aulesT, ArrayList<AulaLab> aulesL,
             ArrayList<Assignatura> ass,RestriccioTemps dis, Quadricula q,
@@ -252,7 +252,7 @@ class Generador {
             CjtRestSolapament cjtRestS,CjtRestriccioAula cjtRestAul ) {
         inicialitzarCjtRestriccions(cjtResGA, cjtRestAss, cjtRestGS, cjtRestS,cjtRestAul);
         ArrayList<Clausula> clau = inicialitzarClausules(aulesT, aulesL, ass, dis, q);
-        backUp = new Stack<Clausula>();    		
+        backUp = new Stack<ArrayList<Clausula>>();  		
 	long timeInMillis = System.currentTimeMillis();
         boolean b = backtracking(clau, q,0);
         long timeInMillis1 = System.currentTimeMillis();
@@ -263,9 +263,8 @@ class Generador {
     }
 
     private boolean backtracking(ArrayList<Clausula> clau, Quadricula qu, int j) {
-        if (clau.size() == j) { // Tenim una solucio
-            return true;
-        } else {
+        if (clau.size() == j) return true;
+        else {
             Clausula c = clau.get(j);
             for (ClausulaNom cn : c.getClausula()) {
                 Element e = new Element();
@@ -275,7 +274,11 @@ class Generador {
                 int duracio = c.getDuracio();
                 boolean esVal = true;
                 int i = 0;
-                ArrayList<Clausula> auxc = (ArrayList<Clausula>) clau.clone();
+                ArrayList<Clausula> auxc = new ArrayList<Clausula>();
+                for (Clausula caa : clau) {
+                    Clausula aux = new Clausula(caa);
+                    auxc.add(aux);
+                }
                 while (i < duracio && esVal) {
                     int hor = cn.getHora()+i;
                     String di = cn.getDia();
@@ -283,18 +286,7 @@ class Generador {
                     if (!propagaRest(clau, cn, c,hor,j)) esVal = false;
                     ++i;
                 }
-                if (esVal) {
-                    boolean b = backtracking(clau, qu,j+1);
-                    if (b) return true;
-                    else {
-                        while (i >= 0){
-                            int hor = cn.getHora() + i;
-                            String di = cn.getDia();
-                            qu.borrarElement(di, hor, e);
-                            --i;
-                        }
-                    }
-                } 
+                if (esVal) return backtracking(clau, qu,j+1);
                 else {
                     clau = auxc;
                     while (i >= 0){
