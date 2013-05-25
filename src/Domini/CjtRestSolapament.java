@@ -77,7 +77,7 @@ public class CjtRestSolapament extends CjtRestriccions{
         }
         return false;
     }
-     /*boolean ComprovarRes(Clausula c, ClausulaNom cn, Clausula e,int h,String dia) {
+     boolean ComprovarRes(Clausula c, ClausulaNom cn, Clausula e,int h,String dia) {
         boolean b = true;
         for (RestSolapament rga : this.restriccionsSolapament) {
             if (!b) {
@@ -86,8 +86,8 @@ public class CjtRestSolapament extends CjtRestriccions{
             b = rga.CompleixRes(c, cn, e,h,dia);
         }
         return b;
-    }*/
-    boolean ComprovarRess(String a,int g,Element e){
+    }
+    /*boolean ComprovarRess(String a,int g,Element e){
        boolean b = true;
         for (RestSolapament rga : this.restriccionsSolapament) {
             if (!b) {
@@ -97,6 +97,6 @@ public class CjtRestSolapament extends CjtRestriccions{
         }
         return b;
         
-   }
+   }*/
 
 }

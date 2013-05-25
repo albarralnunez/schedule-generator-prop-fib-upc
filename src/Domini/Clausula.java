@@ -164,20 +164,34 @@ public class Clausula {
     void addClausula(ArrayList<ClausulaNom> cnaux) {
         this.clausula.addAll(cnaux);
     }
-    public boolean compleixRestsAssignatura(ClausulaNom cn){
+    private boolean compleixRestsAssignatura(ClausulaNom cn){
         return this.cjtRestAss.ComprovarRes(cn,this.duracio);
     }
-    public boolean compleixRestsGrupSessio(ClausulaNom cn){
+    private boolean compleixRestsGrupSessio(ClausulaNom cn){
         return this.cjtRestGS.ComprovarRes(cn,this.duracio);
     }
-    public boolean compleixRestsGrupoAula(ClausulaNom cn){
+    private boolean compleixRestsGrupoAula(ClausulaNom cn){
         return this.cjtRestGA.ComprovarRes(cn.getAula());
     }
-    public boolean compleixRestsAula(ClausulaNom cn){
+    private boolean compleixRestsAula(ClausulaNom cn){
         return this.cjtRestAula.ComprovarRes(cn, this.duracio);
     }
-    public boolean compleixRestsSolapament(Element e){
-        return this.cjtRestS.ComprovarRess(this.assignatura.getNom(), this.grup, e);
+    public boolean compleixRestsSolapament(Clausula c, ClausulaNom cn, Clausula e,int h,String dia){
+        //return this.cjtRestS.ComprovarRess(this.assignatura.getNom(), this.grup, e);
+        return this.cjtRestS.ComprovarRes(c, cn, c, h, dia);
+    }
+    private boolean compleixResDomini(ClausulaNom cn){
+        if(!compleixRestsAssignatura(cn)) return false;
+        else if(!compleixRestsGrupSessio(cn)) return false;
+        else if(!compleixRestsGrupoAula(cn)) return false;
+        else if(!compleixRestsAula(cn)) return false;
+        else return true;
+    }
+    public void reduccioClausules(){
+        for(ClausulaNom cn: this.clausula){
+            if(!compleixResDomini(cn)) clausula.remove(cn);
+        }
+        
     }
 
 }

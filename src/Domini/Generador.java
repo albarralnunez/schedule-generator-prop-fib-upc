@@ -226,21 +226,26 @@ class Generador {
         if (foraLimits (c,cn)) return false;
         return true;
     }
-     private boolean compleixResDomini(Clausula c, ClausulaNom cn,Element e) {
+    /* private boolean compleixResDomini(Clausula c, ClausulaNom cn,Element e) {
         if (!c.compleixRestsAssignatura(cn)) return false;   
         else if(!c.compleixRestsAula(cn)) return false;
         else if(! c.compleixRestsGrupSessio(cn)) return false;
         else if(!c.compleixRestsGrupoAula(cn)) return false;
         else if(!c.compleixRestsSolapament(e)) return false;
         return true;
+    }*/
+    private void reduirClausulesNom(){
+        for(Clausula c : this.clausules){
+            c.reduccioClausules();
+        }
     }
-    
     private Stack<ArrayList<Clausula>> backUp;
     
     public boolean generar(ArrayList<AulaTeo> aulesT, ArrayList<AulaLab> aulesL,
             ArrayList<Assignatura> ass,RestriccioTemps dis, Quadricula q) {
         //inicialitzarCjtRestriccions(cjtResGA, cjtRestAss, cjtRestGS, cjtRestS,cjtRestAul);
         inicialitzarClausulesNom(aulesT, aulesL, dis, q);
+        reduirClausulesNom();
         backUp = new Stack<ArrayList<Clausula>>();  		
 	long timeInMillis = System.currentTimeMillis();
         boolean b = backtracking(this.clausules, q,0);
@@ -272,7 +277,7 @@ class Generador {
                     int hor = cn.getHora()+i;
                     String di = cn.getDia();
                     qu.afegirElement(di, hor, e);
-                    if (!propagaRest(clau, cn, c,hor,j,e)) esVal = false;
+                    if (!propagaRest(clau, cn, c,hor,j)) esVal = false;
                     ++i;
                 }
                 if (esVal) return backtracking(clau, qu,j+1);
@@ -319,7 +324,7 @@ class Generador {
     }
     
     private boolean propagaRest(ArrayList<Clausula> clau, ClausulaNom cn, 
-            Clausula c,int hor, int p,Element e){
+            Clausula c,int hor, int p){
         Stack<Clausula> stackclau  = new Stack<Clausula>();
         int j = 0;
         for (int i = p+1; i < clau.size(); ++i) {
@@ -329,7 +334,7 @@ class Generador {
             int u = 0;
             while ( u < cl.getClausula().size()) {
                 ClausulaNom cln = cl.getClausula().get(u);
-                if (conflicte(cn,c,cl,cln,hor,e)) cl.borrarElem(cln);//si hay conflictos borra el elemento 
+                if (conflicte(cn,c,cl,cln,hor,cn.getDia())) cl.borrarElem(cln);//si hay conflictos borra el elemento 
                 else ++u;
             }
             if (cl.getClausula().isEmpty()) return false;
@@ -338,11 +343,11 @@ class Generador {
     }
     
     private boolean conflicte(ClausulaNom cn, Clausula c, Clausula cl, 
-            ClausulaNom cln, int hor,Element e) {
+            ClausulaNom cln, int hor,String dia) {
          if (solapamentTeoriaPractica (cn,c,cl,cln,hor)) return true;
          if (aulaRepetida(cn,c,cl,cln,hor)) return true;
-         if (! compleixResDomini(cl,cln,e)) return true;
          //if(!this.cjtRestS.ComprovarRes(cl, cln, c,hor,cn.getDia())) return true;
+         if(!c.compleixRestsSolapament(cl,cln,c,hor,dia));
          //if (mateixNivell(cn,c,cl,cln,hor)) return true;
          return false;
     }
