@@ -233,4 +233,8 @@ public class ControladorPresentacio extends javax.swing.JFrame {
             return true;
     }
 
+    boolean existeixAsignatura(String nomAsg) {
+        return cd.existeixAssignatura(nomAsg);
+    }
+
 }
