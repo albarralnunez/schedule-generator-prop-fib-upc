@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author albertomarin
+ * @author Alberto Marin
  */
 public class CjtRestGrupSessio extends CjtRestriccions{
 

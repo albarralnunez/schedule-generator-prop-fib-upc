@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Daniel
+ * @author Daniel Albarral
  */
 
 //Forzar una aula a no poderse usar un dia/hora

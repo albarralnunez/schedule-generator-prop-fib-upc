@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author miquel.masriera
+ * @author Miquel Masriera
  */
 public class Assignatura implements Serializable{
 

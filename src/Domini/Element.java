@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author Daniel
+ * @author Daniel Albarral
  */
 public class Element implements Serializable{
 

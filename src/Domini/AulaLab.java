@@ -6,7 +6,7 @@ package Domini;
 
 /**
  *
- * @author Daniel
+ * @author Daniel Albarral
  */
 public class AulaLab extends Aula {
 
