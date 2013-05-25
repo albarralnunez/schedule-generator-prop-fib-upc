@@ -104,85 +104,85 @@ class Generador {
            //Inicialitzacio del domini
             for (Aula au : aulesPos) {                        
                 ArrayList<ClausulaNom> cnaux = new ArrayList<ClausulaNom>();
-                            boolean doo = true;       
-                            if (au.getClass().equals(AulaLab.class)) {
-                                AulaLab aal = (AulaLab) au;
-                                 if (!aal.getMaterial() && a.necesitaMaterial())
-                                 doo = false;
-                            }
-                            if (au.getClass().equals(AulaTeo.class)) {
-                                AulaTeo aat = (AulaTeo) au;
-                                 if (!aat.getProjector()&& a.necesitaProjector())
-                                 doo = false;
-                            }
-                            if (doo) {
-                                for (int j = 0; j < 7; ++j) {
-                                    if (j == 0) {
-                                        for (Integer d : dis.getDilluns()) {
-                                            ClausulaNom cn = new ClausulaNom();
-                                            cn.setAula(au);
-                                            cn.setDia("dilluns");
-                                            cn.setHora(d);
-                                            if (horesiLimits(c,cn,q)) cnaux.add(cn);
-                                        }
-                                    }
-                                    else if (j == 1) {
-                                        for (Integer d : dis.getDimarts()) {
-                                            ClausulaNom cn = new ClausulaNom();
-                                            cn.setAula(au);
-                                            cn.setDia("dimarts");
-                                            cn.setHora(d);
-                                            if (horesiLimits(c,cn,q)) cnaux.add(cn);
-                                        }
-                                    }
-                                    else if (j == 2) {
-                                        for (Integer d : dis.getDimecres()) {
-                                            ClausulaNom cn = new ClausulaNom();
-                                            cn.setAula(au);
-                                            cn.setDia("dimecres");
-                                            cn.setHora(d);
-                                            if (horesiLimits(c,cn,q)) cnaux.add(cn);
-                                        }
-                                    }
-                                    else if (j == 3) {
-                                        for (Integer d : dis.getDijous()) {
-                                            ClausulaNom cn = new ClausulaNom();
-                                            cn.setAula(au);
-                                            cn.setDia("dijous");
-                                            cn.setHora(d);
-                                            if (horesiLimits(c,cn,q)) cnaux.add(cn);
-                                        }
-                                    }
-                                    else if (j == 4) {
-                                        for (Integer d : dis.getDivendres()) {
-                                            ClausulaNom cn = new ClausulaNom();
-                                            cn.setAula(au);
-                                            cn.setDia("divendres");
-                                            cn.setHora(d);
-                                            if (horesiLimits(c,cn,q)) cnaux.add(cn);
-                                        }
-                                    }
-                                    else if (j == 5) {
-                                        for (Integer d : dis.getDissabte()) {
-                                            ClausulaNom cn = new ClausulaNom();
-                                            cn.setAula(au);
-                                            cn.setDia("dissabte");
-                                            cn.setHora(d);
-                                            if (horesiLimits(c,cn,q)) cnaux.add(cn);   
-                                        }
-                                    }
-                                    else if (j == 6) {
-                                        for (Integer d : dis.getDiumenge()) {
-                                            ClausulaNom cn = new ClausulaNom();
-                                            cn.setAula(au);
-                                            cn.setDia("diumenge");
-                                            cn.setHora(d);
-                                            if (horesiLimits(c,cn,q)) cnaux.add(cn);
-                                        }
+                        boolean doo = true;       
+                        if (au.getClass().equals(AulaLab.class)) {
+                            AulaLab aal = (AulaLab) au;
+                             if (!aal.getMaterial() && a.necesitaMaterial())
+                             doo = false;
+                        }
+                        if (au.getClass().equals(AulaTeo.class)) {
+                            AulaTeo aat = (AulaTeo) au;
+                             if (!aat.getProjector()&& a.necesitaProjector())
+                             doo = false;
+                        }
+                        if (doo) {
+                            for (int j = 0; j < 7; ++j) {
+                                if (j == 0) {
+                                    for (Integer d : dis.getDilluns()) {
+                                        ClausulaNom cn = new ClausulaNom();
+                                        cn.setAula(au);
+                                        cn.setDia("dilluns");
+                                        cn.setHora(d);
+                                        if (horesiLimits(c,cn,q)) cnaux.add(cn);
                                     }
                                 }
-                                c.addClausula(cnaux);
-                            }   
+                                else if (j == 1) {
+                                    for (Integer d : dis.getDimarts()) {
+                                        ClausulaNom cn = new ClausulaNom();
+                                        cn.setAula(au);
+                                        cn.setDia("dimarts");
+                                        cn.setHora(d);
+                                        if (horesiLimits(c,cn,q)) cnaux.add(cn);
+                                    }
+                                }
+                                else if (j == 2) {
+                                    for (Integer d : dis.getDimecres()) {
+                                        ClausulaNom cn = new ClausulaNom();
+                                        cn.setAula(au);
+                                        cn.setDia("dimecres");
+                                        cn.setHora(d);
+                                        if (horesiLimits(c,cn,q)) cnaux.add(cn);
+                                    }
+                                }
+                                else if (j == 3) {
+                                    for (Integer d : dis.getDijous()) {
+                                        ClausulaNom cn = new ClausulaNom();
+                                        cn.setAula(au);
+                                        cn.setDia("dijous");
+                                        cn.setHora(d);
+                                        if (horesiLimits(c,cn,q)) cnaux.add(cn);
+                                    }
+                                }
+                                else if (j == 4) {
+                                    for (Integer d : dis.getDivendres()) {
+                                        ClausulaNom cn = new ClausulaNom();
+                                        cn.setAula(au);
+                                        cn.setDia("divendres");
+                                        cn.setHora(d);
+                                        if (horesiLimits(c,cn,q)) cnaux.add(cn);
+                                    }
+                                }
+                                else if (j == 5) {
+                                    for (Integer d : dis.getDissabte()) {
+                                        ClausulaNom cn = new ClausulaNom();
+                                        cn.setAula(au);
+                                        cn.setDia("dissabte");
+                                        cn.setHora(d);
+                                        if (horesiLimits(c,cn,q)) cnaux.add(cn);   
+                                    }
+                                }
+                                else if (j == 6) {
+                                    for (Integer d : dis.getDiumenge()) {
+                                        ClausulaNom cn = new ClausulaNom();
+                                        cn.setAula(au);
+                                        cn.setDia("diumenge");
+                                        cn.setHora(d);
+                                        if (horesiLimits(c,cn,q)) cnaux.add(cn);
+                                    }
+                                }
+                            }
+                            c.addClausula(cnaux);
+                        }   
                     }            
                 }
             }
@@ -345,8 +345,9 @@ class Generador {
          if (solapamentTeoriaPractica (cn,c,cl,cln,hor)) return true;
          if (aulaRepetida(cn,c,cl,cln,hor)) return true;
          //if(!this.cjtRestS.ComprovarRes(cl, cln, c,hor,cn.getDia())) return true;
-         if(!c.compleixRestsSolapament(cl,cln,c,hor,dia));
+         if(!c.compleixRestsSolapament(cl,cln,c,hor,dia)) return true;
          //if (mateixNivell(cn,c,cl,cln,hor)) return true;
+         if (solapamentAssignaturaHora(cn,c,cl,cln,hor));
          return false;
     }
     
@@ -376,7 +377,7 @@ class Generador {
                 if (    cn.getDia().equals(cln.getDia()) &&
                 hor-cl.getDuracio() < cln.getHora() && 
                 hor >= cln.getHora() &&
-                !c.getAssignatura().equals(cl.getAssignatura()) &&
+                !c.getAssignatura().equals(cl.getAssignatura()) &&          
                 c.getAssignatura().getNivell() == cl.getAssignatura().getNivell()
                 ) return true;
         return false;
@@ -432,6 +433,16 @@ class Generador {
             
         }
         return true;
+    }
+
+    private boolean solapamentAssignaturaHora(ClausulaNom cn, Clausula c, 
+            Clausula cl, ClausulaNom cln, int hor) {
+        if (    c.getAssignatura().equals(cl.getAssignatura()) &&
+                cn.getDia().equals(cln.getDia()) &&
+                hor-cl.getDuracio() < cln.getHora() && 
+                hor >= cln.getHora() &&
+                c.getGrup() == cl.getGrup()) return true;
+        return false;
     }
     
 }
