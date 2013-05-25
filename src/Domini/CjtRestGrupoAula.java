@@ -18,7 +18,18 @@ public class CjtRestGrupoAula extends CjtRestriccions{
     public CjtRestGrupoAula() {
         restGrupoAula = new ArrayList<RestGrupoAula>();
     }
-    
+    public CjtRestGrupoAula(CjtRestGrupoAula cjt) {
+        restGrupoAula = new ArrayList<RestGrupoAula>();
+        for(int i = 0; i < cjt.size();++i){
+            RestGrupoAula gs = cjt.get(i);
+            RestGrupoAula rg = new RestGrupoAula();
+            rg.setAssignatura(gs.getAssignatura());
+            rg.setGrup(gs.getGrup());
+            rg.setAula(gs.getAula());
+            rg.AssignarId(gs.ObtenirId());
+            this.restGrupoAula.add(rg);
+        }
+    }
     //Getters y Setters
 
     public ArrayList<RestGrupoAula> getRestGrupoAula() {

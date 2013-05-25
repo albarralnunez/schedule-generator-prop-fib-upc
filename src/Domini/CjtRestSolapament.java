@@ -18,7 +18,19 @@ public class CjtRestSolapament extends CjtRestriccions{
     public CjtRestSolapament() {
         restriccionsSolapament = new ArrayList();
     }
-
+    public CjtRestSolapament(CjtRestSolapament cjt) {
+        restriccionsSolapament = new ArrayList();
+        for(int i = 0; i < cjt.size();++i){
+            RestSolapament gs = cjt.get(i);
+            RestSolapament rg = new RestSolapament();
+            rg.setAssignaturaPrincipal(gs.getAssignaturaPrincipal());
+            rg.setAssignaturaSolapament(gs.getAssignaturaSolapament());
+            rg.setGrupPrincipal(gs.getGrupPrincipal());
+            rg.setGrupSolapament(gs.getGrupSolapament());
+            rg.AssignarId(gs.ObtenirId());
+            this.restriccionsSolapament.add(rg);
+        }
+    }
     //Getters y Setters
     public ArrayList<RestSolapament> getRestriccionsSolapament() {
         return restriccionsSolapament;

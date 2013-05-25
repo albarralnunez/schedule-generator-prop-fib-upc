@@ -18,7 +18,18 @@ public class CjtRestriccioAula extends CjtRestriccions{
     public CjtRestriccioAula() {
         restriccionsAula = new ArrayList<RestriccioAula>();
     }
-
+    public CjtRestriccioAula(CjtRestriccioAula cjt) {
+        restriccionsAula = new ArrayList<RestriccioAula>();
+        for(int i = 0; i < cjt.size();++i){
+            RestriccioAula ga = cjt.get(i);
+            RestriccioAula rg = new RestriccioAula();
+            rg.setAula(ga.getAula());
+            rg.setDia(ga.getDia());
+            rg.setHora(ga.getHora());
+            rg.AssignarId(ga.ObtenirId());
+            this.restriccionsAula.add(rg);
+        }
+    }
     //Getters y Setters:
     public ArrayList<RestriccioAula> getRestriccionsAula() {
         return this.restriccionsAula;

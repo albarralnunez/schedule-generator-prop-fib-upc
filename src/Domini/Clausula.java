@@ -60,6 +60,10 @@ public class Clausula {
         this.assignatura = as;
         this.clausula = new ArrayList<ClausulaNom> (c.getClausula());
         this.cjtRestAss = new CjtRestAssignatura(c.getCjtRestAss());
+        this.cjtRestAula = new CjtRestriccioAula(c.getCjtRestAula());
+        this.cjtRestGA = new CjtRestGrupoAula(c.getCjtRestGA());
+        this.cjtRestGS = new CjtRestGrupSessio(c.getCjtRestGS());
+        this.cjtRestS = new CjtRestSolapament(c.getCjtRestS());
         
     }
 
