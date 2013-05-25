@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author miquel
+ * @author Miquel Masriera
  */
 public class CtrGeneracio {
     

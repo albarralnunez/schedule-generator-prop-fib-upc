@@ -8,7 +8,7 @@ package Domini;
 
 /**
  *
- * @author albertomarin
+ * @author Alberto Marin
  */
 
 //Esta Restriccion marca que una assignatura obj1 debe impartirse antes que otra obj2.

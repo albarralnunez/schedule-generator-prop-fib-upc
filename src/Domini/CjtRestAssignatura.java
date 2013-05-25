@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Joan Pol
+ * @author Joan Pol Farre
  */
 public class CjtRestAssignatura extends CjtRestriccions {
 

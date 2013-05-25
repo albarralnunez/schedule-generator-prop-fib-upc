@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author miquel.masriera
+ * @author Miquel Masriera
  */
 public class CtrDisc {
 

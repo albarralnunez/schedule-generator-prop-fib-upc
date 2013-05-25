@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author miquelmasrieraquevedo
+ * @author Miquel Masriera
  */
 public class CtrPersistencia {
 
