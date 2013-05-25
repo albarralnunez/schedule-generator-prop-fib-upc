@@ -348,6 +348,11 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jSlider2.setPaintLabels(true);
         jSlider2.setPaintTicks(true);
         jSlider2.setSnapToTicks(true);
+        jSlider2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSlider2StateChanged(evt);
+            }
+        });
         jSlider2.setBounds(130, 230, 200, 26);
         panellDadesAssignatura.add(jSlider2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -1053,7 +1058,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
         
         if( ( (String) comboBoxOpcionsAssig.getSelectedItem() ).equals("CREAR")  ) {
             this.fieldNomAssignatura1.setVisible(true);
-            this.labelNomAssignatura.setVisible(true);
+            this.labelNomAssignatura1.setVisible(true);
             this.comboBoxAssigs.setVisible(false);
             this.panellDadesAssignatura.setVisible(true);
         }
@@ -1063,7 +1068,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
             this.panellDadesAssignatura.setVisible(false);
         }
         else if( ( (String) comboBoxOpcionsAssig.getSelectedItem() ).equals("MODIFICAR")  ) {
-             this.labelNomAssignatura.setVisible(false);
+            this.labelNomAssignatura1.setVisible(false);
             this.fieldNomAssignatura1.setVisible(false);
             this.panellDadesAssignatura.setVisible(true);
             this.comboBoxAssigs.setVisible(true);
@@ -1535,6 +1540,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
             }
             
             boolean b = intentaCrearAssignatura(nomA);
+            if(b) inicialitza();
                         
         }
         else if ( opcio.equals("ESBORRAR")){
@@ -1544,7 +1550,9 @@ public class PanelModificarDades extends javax.swing.JPanel {
             }
         }
         else if( opcio.equals("MODIFICAR") ){
-            
+            String nomAsg = (String) this.comboBoxAssigs.getSelectedItem();
+            boolean b = intentaCrearAssignatura(nomAsg);
+            if(b) inicialitza();
         }
     }//GEN-LAST:event_botoOKActionPerformed
 
@@ -1636,6 +1644,23 @@ public class PanelModificarDades extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_numSubgrupsActionPerformed
 
+    private void jSlider2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider2StateChanged
+         int numInt = jSlider2.getValue();
+        
+        if(numInt == 2){
+            jSpinner8.setVisible(false);
+            jSpinner7.setVisible(false);
+            jSpinner6.setVisible(false);
+        }
+        else if( numInt == 3){
+            jSpinner7.setVisible(false);
+            jSpinner6.setVisible(false);
+        }
+        else if( numInt == 4){
+            jSpinner6.setVisible(false);
+        }
+    }//GEN-LAST:event_jSlider2StateChanged
+
     
     private boolean intentaCrearAssignatura(String nomAsg) {
         int nvl = (Integer) spinnerNivell1.getValue();
@@ -1705,7 +1730,61 @@ public class PanelModificarDades extends javax.swing.JPanel {
              intsT.add( ht );
          }
          
-         
+         //////////////////////
+         ArrayList<Integer> intsP = new ArrayList<Integer>();
+         if( intervalsP ){
+             int numintP = jSlider2.getValue();
+             
+             int itv1 = (Integer) jSpinner10.getValue();
+             int itv2 = (Integer) jSpinner9.getValue();
+             int itv3 = (Integer) jSpinner8.getValue();
+             int itv4 = (Integer) jSpinner7.getValue();
+             int itv5 = (Integer) jSpinner6.getValue();
+             
+             boolean interror = false;
+             if(numintP == 2){
+                if( (itv1+itv2) != hp  ) interror = true;
+                else {
+                    intsP.add(itv1);
+                    intsP.add(itv2);
+                }
+             }
+            else if( numintP == 3){
+                if( (itv1+itv2+itv3) != hp  ) interror = true;
+                else {
+                    intsP.add(itv1);
+                    intsP.add(itv2);
+                    intsP.add(itv3);
+                }
+            }
+            else if( numintP == 4){
+                if( (itv1+itv2+itv3+itv4) != hp  ) interror = true;
+                else {
+                    intsP.add(itv1);
+                    intsP.add(itv2);
+                    intsP.add(itv3);
+                    intsP.add(itv4);
+                }
+            }
+            else if( numintP == 5){
+                if( (itv1+itv2+itv3+itv4+itv5) != hp  ) interror = true;
+                else {
+                    intsP.add(itv1);
+                    intsP.add(itv2);
+                    intsP.add(itv3);
+                    intsP.add(itv4);
+                    intsP.add(itv5);
+                }
+           } 
+           if(interror){
+               cp.mostraAvis("intervals de practica Erronis", "ERROR");
+           }
+           int a =0;
+         }
+         else{
+             intsP.add( hp );
+         }
+         //////////////////
          
          String numgt = numGrupsTeoria.getText();
          if( numgt == null ) return false;
@@ -1724,6 +1803,17 @@ public class PanelModificarDades extends javax.swing.JPanel {
              cp.mostraAvis( "el nombre subgrups ha de ser major o igual a 0", "ERROR");
              return false;
          }
+         
+         ArrayList<Integer> grups = new ArrayList();
+            for(int i = 0; i < ngt; ++i){
+                for(int j = 0; j < ngp+1; ++j) grups.add((i+1)*10+j);
+            }
+            
+            int capT = Integer.parseInt((String) comboBoxOcupacioTeoria.getSelectedItem());
+            int capL = Integer.parseInt((String) ocupacioSubgrups.getSelectedItem());
+            
+            cp.creaAssignatura( nomAsg, nvl , ht, intsT, hp, intsP,
+            capT ,capL, grups);
 
         return true;
     }
