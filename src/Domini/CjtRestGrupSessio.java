@@ -18,7 +18,19 @@ public class CjtRestGrupSessio extends CjtRestriccions{
     public CjtRestGrupSessio() {
         restriccionsGrupSesio = new ArrayList();
     }
-
+    public CjtRestGrupSessio(CjtRestGrupSessio cjt) {
+        restriccionsGrupSesio = new ArrayList();
+        for(int i = 0; i < cjt.size();++i){
+            RestGrupSessio gs = cjt.get(i);
+            RestGrupSessio rg = new RestGrupSessio();
+            rg.setAssignatura(gs.getAssignatura());
+            rg.setGrup(gs.getGrup());
+            rg.setDia(gs.getDiaString());
+            rg.setHora(gs.getHora());
+            rg.AssignarId(gs.ObtenirId());
+            this.restriccionsGrupSesio.add(rg);
+        }
+    }
     //Getters y Setters:
     public ArrayList<RestGrupSessio> getRestriccionsGrupSesio() {
         return restriccionsGrupSesio;
@@ -77,13 +89,13 @@ public class CjtRestGrupSessio extends CjtRestriccions{
         return true;
     }
 
-    boolean ComprovarRes(Clausula c, ClausulaNom cn) {
+    boolean ComprovarRes(ClausulaNom cn,int duracio) {
         boolean b = true;
         for( RestGrupSessio gs : restriccionsGrupSesio){
             if(!b) break;
-            if(gs.ObtenirId() == 3) b = gs.CompleixRes3(c,cn);
-            else if(gs.ObtenirId() == 4) b= gs.CompleixRes4(c,cn);
-            else if(gs.ObtenirId() == 5) b= gs.CompleixRes5(c,cn);
+            if(gs.ObtenirId() == 3) b = gs.CompleixRes3(cn);
+            else if(gs.ObtenirId() == 4) b= gs.CompleixRes4(cn,duracio);
+            else if(gs.ObtenirId() == 5) b= gs.CompleixRes5(cn);
         }
         return b;
     }

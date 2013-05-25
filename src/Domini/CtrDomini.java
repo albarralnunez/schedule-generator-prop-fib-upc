@@ -57,7 +57,9 @@ public class CtrDomini {
             for(int i = 0; i < grups.size(); ++i) params.add(grups.get(i));
             cper.creaAssignatura(nomUnitat+"-"+nomAsg , params);
     }
-   
+    public void inicialitzarClausules(){
+        cgen.inicialitzarClausules();
+    }
     /**
      * 
      * @param nomAsg

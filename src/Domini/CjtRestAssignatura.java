@@ -20,7 +20,19 @@ public class CjtRestAssignatura extends CjtRestriccions {
     public CjtRestAssignatura() {
         restsAssignatura = new ArrayList();
     }
-
+    public CjtRestAssignatura(CjtRestAssignatura cjt){
+        restsAssignatura = new ArrayList();
+        for(int i = 0; i < cjt.size();++i){
+            RestAssignatura rga = cjt.get(i);
+            RestAssignatura rg = new RestAssignatura();
+            rg.setAssignatura(rga.getAssignatura());
+            rg.setGrup(rga.getGrup());
+            rg.setDia(rga.getDia());
+            rg.setHora(rga.getHora());
+            rg.AssignarId(rga.ObtenirId());
+            this.restsAssignatura.add(rg);
+        }
+    }
     /**
      *
      * @return
@@ -106,21 +118,21 @@ public class CjtRestAssignatura extends CjtRestriccions {
      * @param cn
      * @return
      */
-    boolean ComprovarRes(Clausula c, ClausulaNom cn) {
+    boolean ComprovarRes(ClausulaNom cn, int duracio) {
         boolean b = true;
         for (RestAssignatura rga : this.restsAssignatura) {
             if (!b) {
                 break;
             }
-            if(rga.ObtenirId() == 6) b = rga.compleixRes6(c, cn);
-            else if(rga.ObtenirId() == 7) b = rga.compleixRes7(c, cn);
-            else if(rga.ObtenirId() == 8) b = rga.compleixRes8(c, cn);
-            else if(rga.ObtenirId() == 9) b = rga.compleixRes9(c, cn);
-            else if(rga.ObtenirId() == 10) b = rga.compleixRes10(c, cn);
-            else if(rga.ObtenirId() == 11) b = rga.compleixRes11(c, cn);
-            else if(rga.ObtenirId() == 12) b = rga.compleixRes12(c, cn);
-            else if(rga.ObtenirId() == 13) b = rga.compleixRes13(c, cn);
-            else if(rga.ObtenirId() == 14) b = rga.compleixRes14(c, cn);
+            if(rga.ObtenirId() == 6) b = rga.compleixRes6(cn,duracio);
+            else if(rga.ObtenirId() == 7) b = rga.compleixRes7(cn);
+            else if(rga.ObtenirId() == 8) b = rga.compleixRes8(cn,duracio);
+            else if(rga.ObtenirId() == 9) b = rga.compleixRes9(cn);
+            else if(rga.ObtenirId() == 10) b = rga.compleixRes10(cn);
+            else if(rga.ObtenirId() == 11) b = rga.compleixRes11(cn);
+            else if(rga.ObtenirId() == 12) b = rga.compleixRes12(cn);
+            else if(rga.ObtenirId() == 13) b = rga.compleixRes13(cn);
+            else if(rga.ObtenirId() == 14) b = rga.compleixRes14(cn,duracio);
         }
         return b;
     }

@@ -44,7 +44,7 @@ public class CtrGeneracio {
         cjtRestGS = new CjtRestGrupSessio();
         cjtRestS = new CjtRestSolapament();
         cjtRestAul = new CjtRestriccioAula();
-        gen = new Generador(cjtResGA, cjtRestAss, cjtRestAul,cjtRestGS,cjtRestS);
+        gen = new Generador();
        // cper = new CtrPersistencia();
         
         
@@ -173,8 +173,7 @@ public class CtrGeneracio {
     
     public boolean generar(ArrayList<String>configuracioInicial) {
         montaRestriccionsTemps(configuracioInicial);
-        return gen.generar(cjtAulTeo, cjtAulLab, cjtAs, resT, quad, cjtResGA, 
-                cjtRestAss, cjtRestGS, cjtRestS, cjtRestAul);
+        return gen.generar(cjtAulTeo, cjtAulLab, cjtAs, resT, quad);
     }
     
     /**
@@ -270,5 +269,8 @@ public class CtrGeneracio {
             }
         }
        return b;
+    }
+    public void inicialitzarClausules(){
+        gen.inicialitzarClausules(cjtAs);
     }
 }

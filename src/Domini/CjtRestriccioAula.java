@@ -65,13 +65,13 @@ public class CjtRestriccioAula extends CjtRestriccions{
         return false;
     }
 
-    boolean ComprovarRes(Clausula c, ClausulaNom cn) {
+    boolean ComprovarRes(ClausulaNom cn,int duracio) {
         boolean b = true;
         for (RestriccioAula rga : this.restriccionsAula) {
             if (!b) break;
-            if(rga.ObtenirId() == 16) b = rga.compleixRes16(c, cn);
-            else if(rga.ObtenirId() == 17) b = rga.compleixRes17(c, cn);
-            else if(rga.ObtenirId() == 18) b = rga.compleixRes18(c, cn);
+            if(rga.ObtenirId() == 16) b = rga.compleixRes16(cn,duracio);
+            else if(rga.ObtenirId() == 17) b = rga.compleixRes17(cn);
+            else if(rga.ObtenirId() == 18) b = rga.compleixRes18(cn,duracio);
         }
         return b; 
     }

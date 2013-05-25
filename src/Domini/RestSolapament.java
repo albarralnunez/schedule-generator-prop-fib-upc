@@ -217,4 +217,19 @@ public class RestSolapament extends Restriccio{
        }
        return true;
    }
+   public boolean CompleixRess(String a, int g, Element e){
+       boolean combinacio1 = false;
+       boolean combinacio2 = false;
+       if(this.grupPrincipal != -1 && this.grupSolapament != -1){
+            combinacio1 =(a.equals(this.assignaturaPrincipal.getNom())) && (g == this.grupPrincipal) && (e.getAssignatura().getNom().equals(this.assignaturaSolapament.getNom())) && (e.getGrupo() == this.grupSolapament);
+            combinacio2 = (e.getAssignatura().getNom().equals(this.assignaturaPrincipal.getNom())) && (e.getGrupo() == this.grupPrincipal) && (a.equals(this.assignaturaSolapament.getNom())) && (g == this.grupSolapament);
+       }
+       else {
+            combinacio1 =(a.equals(this.assignaturaPrincipal.getNom())) && (e.getAssignatura().getNom().equals(this.assignaturaSolapament.getNom()));
+            combinacio2 = (e.getAssignatura().getNom().equals(this.assignaturaPrincipal.getNom())) &&(a.equals(this.assignaturaSolapament.getNom()));  
+       }
+       if(combinacio1 || combinacio2) return true;
+       else return false;
+   }
+   
 }

@@ -18,6 +18,12 @@ public class Clausula {
     private Integer grup;
     private Integer duracio;
     private ArrayList<ClausulaNom> clausula;
+    private CjtRestAssignatura cjtRestAss;
+    private CjtRestGrupSessio cjtRestGS;
+    private CjtRestGrupoAula cjtRestGA;
+    private CjtRestSolapament cjtRestS;
+    private CjtRestriccioAula cjtRestAula;
+    
 
     public ArrayList<ClausulaNom> getClausula() {
         return clausula;
@@ -25,6 +31,11 @@ public class Clausula {
 
     //Constructora
     public Clausula() {
+        cjtRestAss = new CjtRestAssignatura();
+        cjtRestGS = new CjtRestGrupSessio();
+        cjtRestGA = new CjtRestGrupoAula();
+        cjtRestS = new CjtRestSolapament();
+        cjtRestAula = new CjtRestriccioAula();
         clausula = new ArrayList<ClausulaNom>();
         grup = null;
         duracio = null;
@@ -48,6 +59,7 @@ public class Clausula {
         as.setIntervalsT(c.getAssignatura().getIntervalsT());
         this.assignatura = as;
         this.clausula = new ArrayList<ClausulaNom> (c.getClausula());
+        this.cjtRestAss = new CjtRestAssignatura(c.getCjtRestAss());
         
     }
 
@@ -105,9 +117,63 @@ public class Clausula {
         return grup;
     }
 
+    public CjtRestAssignatura getCjtRestAss() {
+        return cjtRestAss;
+    }
+
+    public CjtRestGrupSessio getCjtRestGS() {
+        return cjtRestGS;
+    }
+
+    public CjtRestGrupoAula getCjtRestGA() {
+        return cjtRestGA;
+    }
+
+    public CjtRestSolapament getCjtRestS() {
+        return cjtRestS;
+    }
+
+    public CjtRestriccioAula getCjtRestAula() {
+        return cjtRestAula;
+    }
+
+    public void setCjtRestAss(CjtRestAssignatura cjtRestAss) {
+        this.cjtRestAss = cjtRestAss;
+    }
+
+    public void setCjtRestGS(CjtRestGrupSessio cjtRestGS) {
+        this.cjtRestGS = cjtRestGS;
+    }
+
+    public void setCjtRestGA(CjtRestGrupoAula cjtRestGA) {
+        this.cjtRestGA = cjtRestGA;
+    }
+
+    public void setCjtRestS(CjtRestSolapament cjtRestS) {
+        this.cjtRestS = cjtRestS;
+    }
+
+    public void setCjtRestAula(CjtRestriccioAula cjtRestAula) {
+        this.cjtRestAula = cjtRestAula;
+    }
+    
     void addClausula(ArrayList<ClausulaNom> cnaux) {
         this.clausula.addAll(cnaux);
     }
-
+    public boolean compleixRestsAssignatura(ClausulaNom cn){
+        return this.cjtRestAss.ComprovarRes(cn,this.duracio);
+    }
+    public boolean compleixRestsGrupSessio(ClausulaNom cn){
+        return this.cjtRestGS.ComprovarRes(cn,this.duracio);
+    }
+    public boolean compleixRestsGrupoAula(ClausulaNom cn){
+        return this.cjtRestGA.ComprovarRes(cn.getAula());
+    }
+    public boolean compleixRestsAula(ClausulaNom cn){
+        return this.cjtRestAula.ComprovarRes(cn, this.duracio);
+    }
+    public boolean compleixRestsSolapament(Element e){
+        return this.cjtRestS.ComprovarRess(this.assignatura.getNom(), this.grup, e);
+    }
 
 }

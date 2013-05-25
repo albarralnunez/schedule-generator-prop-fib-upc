@@ -14,39 +14,15 @@ import java.util.Stack;
  */
 class Generador {
 
-    private CjtRestGrupoAula cjtRgraula;
-    private CjtRestAssignatura cjtRass;
-    private CjtRestriccioAula cjtRula;
-    private CjtRestGrupSessio cjtRestGS;
-    private CjtRestSolapament cjtRestS;
+    private ArrayList<Clausula> clausules;
     
-    public Generador(CjtRestGrupoAula cjtRgraula, CjtRestAssignatura cjtRass,
-            CjtRestriccioAula cjtRula,CjtRestGrupSessio cjtRestGS,
-            CjtRestSolapament cjtRestS) {
-        this.cjtRgraula = cjtRgraula;
-        this.cjtRass = cjtRass;
-        this.cjtRula = cjtRula;
-        this.cjtRestGS = cjtRestGS;
-        this.cjtRestS = cjtRestS;
+    public Generador(ArrayList<Clausula> c) {
+        this.clausules = c;
     }
    
     public Generador() {
-        cjtRgraula = new CjtRestGrupoAula();
-        cjtRass = new CjtRestAssignatura();
-        cjtRula = new CjtRestriccioAula();
-        cjtRestGS = new CjtRestGrupSessio();
-        cjtRestS = new CjtRestSolapament();
+        this.clausules = new ArrayList();
     }
-    public void inicialitzarCjtRestriccions(CjtRestGrupoAula cjtResGA,
-            CjtRestAssignatura cjtRestAss,CjtRestGrupSessio cjtRestGS,
-            CjtRestSolapament cjtRestS,CjtRestriccioAula cjtRestAul){
-     cjtRgraula = cjtResGA;
-     cjtRass = cjtRestAss;
-     cjtRula = cjtRestAul;
-     this.cjtRestGS = cjtRestGS;
-     this.cjtRestS = cjtRestS;
-    }
-    
     
     /**
      * Retorna un subset de les aules de Laboratori amb capacitat major de x
@@ -75,7 +51,32 @@ class Generador {
         }
         return listaRefactor;
     }   
-     
+     public void inicialitzarClausules(ArrayList<Assignatura> ass){
+        ArrayList<Clausula> clausules = new ArrayList();
+        for (int i = 0; i < ass.size(); ++i) {
+            Assignatura a;
+            a = ass.get(i);
+            ArrayList<Integer> gup = a.getGrups();
+            for (int k = 0; k < gup.size(); ++k) {
+                Integer g = gup.get(k);
+                ArrayList<Integer> interval = new ArrayList<Integer>();
+                //Inicialitzacio clausules amb grups de laboratori         
+                if (g % 10 != 0) {  //GupsLab
+                     interval = a.getIntervalsP();
+                } else { //GrupsTeo
+                    interval = a.getIntervalsT();
+                }
+                for (Integer h : interval) {
+                    Clausula c = new Clausula();
+                    c.setAssignatura(a);
+                    c.setDuracio(h);
+                    c.setGrup(g);
+                    clausules.add(c);
+                }
+            }
+        }
+        this.clausules = clausules;
+     }
     /**
      * Retorna el domini de totes les clausules del problema, acotat per les restriccions unearies.
      * @param aulesT
@@ -85,39 +86,22 @@ class Generador {
      * @param q
      * @return Retorna una ArrayList de Clausula, on cada Clausula te el seu domini inicialitzat i acotat.
      */
-    private ArrayList<Clausula> inicialitzarClausules(ArrayList<AulaTeo> aulesT, 
-            ArrayList<AulaLab> aulesL, ArrayList<Assignatura> ass, RestriccioTemps dis
-            ,Quadricula q) {
-        ArrayList<Clausula> clausules = new ArrayList();
-        for (int i = 0; i < ass.size(); ++i) {
-            Assignatura a;
-            a = ass.get(i);
+    private void inicialitzarClausulesNom(ArrayList<AulaTeo> aulesT, 
+            ArrayList<AulaLab> aulesL, RestriccioTemps dis ,Quadricula q) {
+        for (int i = 0; i < this.clausules.size(); ++i) {
+            Clausula c = this.clausules.get(i);
+            Assignatura a = c.getAssignatura();
             ArrayList<Aula> aulesPosT = new ArrayList<Aula>();
             ArrayList<Aula> aulesPosL = new ArrayList<Aula>();
             aulesPosL = cjtCapacitatMajorDeL(a.getCapacitatLab(),aulesL);
             aulesPosT = cjtCapacitatMajorDeT(a.getCapacitatTeo(),aulesT);
-            ArrayList<Integer> gup = a.getGrups();
-            for (int k = 0; k < gup.size(); ++k) {
-                Integer g = gup.get(k);
-                ArrayList<Integer> interval = new ArrayList<Integer>();
-                ArrayList<Aula> aulesPos = new ArrayList<Aula>();
-                //Inicialitzacio clausules amb grups de laboratori         
-                if (g % 10 != 0) {  //GupsLab
-                     aulesPos = aulesPosL;
-                     interval = a.getIntervalsP();
-                } else { //GrupsTeo
-                    aulesPos = aulesPosT;
-                    interval = a.getIntervalsT();
-                }
-                for (Integer h : interval) {
-                    Clausula c = new Clausula();
-                    c.setAssignatura(a);
-                    c.setDuracio(h);
-                    c.setGrup(g);
-                    //Inicialitzacio del domini
-                    for (Aula au : aulesPos) {                        
-                        ArrayList<ClausulaNom> cnaux = new ArrayList<ClausulaNom>();
-                        if (cjtRgraula.ComprovarRes(c, au)) {
+            Integer g = c.getGrup();
+            ArrayList<Aula> aulesPos = new ArrayList<Aula>();        
+            if (g % 10 != 0) aulesPos = aulesPosL; //GrupsLAB
+            else aulesPos = aulesPosT; //GrupsTeo
+           //Inicialitzacio del domini
+            for (Aula au : aulesPos) {                        
+                ArrayList<ClausulaNom> cnaux = new ArrayList<ClausulaNom>();
                             boolean doo = true;       
                             if (au.getClass().equals(AulaLab.class)) {
                                 AulaLab aal = (AulaLab) au;
@@ -137,7 +121,7 @@ class Generador {
                                             cn.setAula(au);
                                             cn.setDia("dilluns");
                                             cn.setHora(d);
-                                            if (compleixResDomini(c,cn,q)) cnaux.add(cn);
+                                            if (horesiLimits(c,cn,q)) cnaux.add(cn);
                                         }
                                     }
                                     else if (j == 1) {
@@ -146,7 +130,7 @@ class Generador {
                                             cn.setAula(au);
                                             cn.setDia("dimarts");
                                             cn.setHora(d);
-                                            if (compleixResDomini(c,cn,q)) cnaux.add(cn);
+                                            if (horesiLimits(c,cn,q)) cnaux.add(cn);
                                         }
                                     }
                                     else if (j == 2) {
@@ -155,7 +139,7 @@ class Generador {
                                             cn.setAula(au);
                                             cn.setDia("dimecres");
                                             cn.setHora(d);
-                                            if (compleixResDomini(c,cn,q)) cnaux.add(cn);
+                                            if (horesiLimits(c,cn,q)) cnaux.add(cn);
                                         }
                                     }
                                     else if (j == 3) {
@@ -164,7 +148,7 @@ class Generador {
                                             cn.setAula(au);
                                             cn.setDia("dijous");
                                             cn.setHora(d);
-                                            if (compleixResDomini(c,cn,q)) cnaux.add(cn);
+                                            if (horesiLimits(c,cn,q)) cnaux.add(cn);
                                         }
                                     }
                                     else if (j == 4) {
@@ -173,7 +157,7 @@ class Generador {
                                             cn.setAula(au);
                                             cn.setDia("divendres");
                                             cn.setHora(d);
-                                            if (compleixResDomini(c,cn,q)) cnaux.add(cn);
+                                            if (horesiLimits(c,cn,q)) cnaux.add(cn);
                                         }
                                     }
                                     else if (j == 5) {
@@ -182,7 +166,7 @@ class Generador {
                                             cn.setAula(au);
                                             cn.setDia("dissabte");
                                             cn.setHora(d);
-                                            if (compleixResDomini(c,cn,q)) cnaux.add(cn);   
+                                            if (horesiLimits(c,cn,q)) cnaux.add(cn);   
                                         }
                                     }
                                     else if (j == 6) {
@@ -191,20 +175,17 @@ class Generador {
                                             cn.setAula(au);
                                             cn.setDia("diumenge");
                                             cn.setHora(d);
-                                            if (compleixResDomini(c,cn,q)) cnaux.add(cn);
+                                            if (horesiLimits(c,cn,q)) cnaux.add(cn);
                                         }
                                     }
                                 }
                                 c.addClausula(cnaux);
-                            }
-                        }
-                    }                 
-                    clausules.add(c);
+                            }   
+                    }            
                 }
             }
-        }
-        return clausules;
-    }
+            
+  
     
     /**
      * 
@@ -234,27 +215,33 @@ class Generador {
         
     }
 
-    private boolean compleixResDomini(Clausula c, ClausulaNom cn, Quadricula q) {
-        if( !this.cjtRestGS.ComprovarRes(c, cn)) return false;   
+    private boolean horesiLimits(Clausula c, ClausulaNom cn, Quadricula q) {
+       /* if( !this.cjtRestGS.ComprovarRes(c, cn)) return false;   
         if (!cjtRgraula.ComprovarRes(c, cn.getAula())) return false;
         if (!cjtRass.ComprovarRes(c,cn)) return false;
-        if (!cjtRula.ComprovarRes(c,cn)) return false;
+        if (!cjtRula.ComprovarRes(c,cn)) return false;*/
         if (!suficientHoresSegui(c,cn,q)) return false;
         if (foraLimits (c,cn)) return false;
+        return true;
+    }
+     private boolean compleixResDomini(Clausula c, ClausulaNom cn,Element e) {
+        if (!c.compleixRestsAssignatura(cn)) return false;   
+        else if(!c.compleixRestsAula(cn)) return false;
+        else if(! c.compleixRestsGrupSessio(cn)) return false;
+        else if(!c.compleixRestsGrupoAula(cn)) return false;
+        else if(!c.compleixRestsSolapament(e)) return false;
         return true;
     }
     
     private Stack<ArrayList<Clausula>> backUp;
     
     public boolean generar(ArrayList<AulaTeo> aulesT, ArrayList<AulaLab> aulesL,
-            ArrayList<Assignatura> ass,RestriccioTemps dis, Quadricula q,
-            CjtRestGrupoAula cjtResGA,CjtRestAssignatura cjtRestAss,CjtRestGrupSessio cjtRestGS,
-            CjtRestSolapament cjtRestS,CjtRestriccioAula cjtRestAul ) {
-        inicialitzarCjtRestriccions(cjtResGA, cjtRestAss, cjtRestGS, cjtRestS,cjtRestAul);
-        ArrayList<Clausula> clau = inicialitzarClausules(aulesT, aulesL, ass, dis, q);
+            ArrayList<Assignatura> ass,RestriccioTemps dis, Quadricula q) {
+        //inicialitzarCjtRestriccions(cjtResGA, cjtRestAss, cjtRestGS, cjtRestS,cjtRestAul);
+        inicialitzarClausulesNom(aulesT, aulesL, dis, q);
         backUp = new Stack<ArrayList<Clausula>>();  		
 	long timeInMillis = System.currentTimeMillis();
-        boolean b = backtracking(clau, q,0);
+        boolean b = backtracking(this.clausules, q,0);
         long timeInMillis1 = System.currentTimeMillis();
         System.out.println("-------------Time in milis-------------");
         System.out.println(timeInMillis1-timeInMillis);
@@ -283,7 +270,7 @@ class Generador {
                     int hor = cn.getHora()+i;
                     String di = cn.getDia();
                     qu.afegirElement(di, hor, e);
-                    if (!propagaRest(clau, cn, c,hor,j)) esVal = false;
+                    if (!propagaRest(clau, cn, c,hor,j,e)) esVal = false;
                     ++i;
                 }
                 if (esVal) return backtracking(clau, qu,j+1);
@@ -330,7 +317,7 @@ class Generador {
     }
     
     private boolean propagaRest(ArrayList<Clausula> clau, ClausulaNom cn, 
-            Clausula c,int hor, int p){
+            Clausula c,int hor, int p,Element e){
         Stack<Clausula> stackclau  = new Stack<Clausula>();
         int j = 0;
         for (int i = p+1; i < clau.size(); ++i) {
@@ -340,7 +327,7 @@ class Generador {
             int u = 0;
             while ( u < cl.getClausula().size()) {
                 ClausulaNom cln = cl.getClausula().get(u);
-                if (conflicte(cn,c,cl,cln,hor)) cl.borrarElem(cln);//si hay conflictos borra el elemento 
+                if (conflicte(cn,c,cl,cln,hor,e)) cl.borrarElem(cln);//si hay conflictos borra el elemento 
                 else ++u;
             }
             if (cl.getClausula().isEmpty()) return false;
@@ -349,10 +336,11 @@ class Generador {
     }
     
     private boolean conflicte(ClausulaNom cn, Clausula c, Clausula cl, 
-            ClausulaNom cln, int hor) {
+            ClausulaNom cln, int hor,Element e) {
          if (solapamentTeoriaPractica (cn,c,cl,cln,hor)) return true;
          if (aulaRepetida(cn,c,cl,cln,hor)) return true;
-         if(!this.cjtRestS.ComprovarRes(cl, cln, c,hor,cn.getDia())) return true;
+         if (! compleixResDomini(cl,cln,e)) return true;
+         //if(!this.cjtRestS.ComprovarRes(cl, cln, c,hor,cn.getDia())) return true;
          //if (mateixNivell(cn,c,cl,cln,hor)) return true;
          return false;
     }

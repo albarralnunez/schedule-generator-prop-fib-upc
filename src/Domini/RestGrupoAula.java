@@ -166,30 +166,24 @@ public class RestGrupoAula extends Restriccio {
      * @param aula
      * @return
      */
-     public boolean compleixRes1(Clausula c, Aula au) {
+     public boolean compleixRes1(Aula au) {
         /*if (c.getAssignatura().getNom().equals(this.assignatura) &&
                 c.getGrup() == this.grup) {
             boolean b = this.aula.equals(cn.getAula().getNom());
             return (b ? true : false);
         }
         return true;*/
-        if(c.getAssignatura().getNom().equals(this.assignatura) && c.getGrup() == this.grup){
                 return au.getNom().equals(this.aula);
-        }
-        return true;
      }
-     public boolean compleixRes2(Clausula c, Aula au) {
+     public boolean compleixRes2(Aula au) {
         /*if (c.getAssignatura().getNom().equals(this.assignatura) &&
                 c.getGrup() == this.grup) {
             boolean b = this.aula.equals(cn.getAula().getNom());
             return (b ? true : false);
         }
         return true;*/
-        if(c.getAssignatura().getNom().equals(this.assignatura) && c.getGrup() == this.grup){
                 if(au.getNom().equals(this.aula)) return false;
                 else return true;
-        }
-        return true;
      }
      
     /**

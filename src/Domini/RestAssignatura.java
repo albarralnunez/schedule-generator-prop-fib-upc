@@ -129,45 +129,36 @@ public class RestAssignatura extends Restriccio {
         }
         return true;
     }
-    public boolean compleixRes6(Clausula c,ClausulaNom cn){
-        if(c.getAssignatura().getNom().equals(this.assignatura.getNom()) && c.getGrup() == this.grup){
+    public boolean compleixRes6(ClausulaNom cn, int duracio){
             if(this.hora != -1){
-               if(this.hora >= cn.getHora() && (this.hora < cn.getHora() + c.getDuracio())) return false;
+               if(this.hora >= cn.getHora() && (this.hora < cn.getHora() + duracio)) return false;
                else return true;
             }
-        }
+       
         return true;
     }
-    public boolean compleixRes7(Clausula c,ClausulaNom cn){
-        if(c.getAssignatura().getNom().equals(this.assignatura.getNom()) && c.getGrup() == this.grup){
+    public boolean compleixRes7(ClausulaNom cn){
             if(this.hora != -1){
                 /*if ((cn.getHora() > (this.hora+1)) && ((cn.getHora() + c.getDuracio()) > (this.hora+1))) return true;
                 else return false;*/
                 if ((cn.getHora() < (this.hora+1))) return false;
                 else return true;
             }
-        }
         return true;
     }
-    public boolean compleixRes8(Clausula c,ClausulaNom cn){
-        if(c.getAssignatura().getNom().equals(this.assignatura.getNom()) && c.getGrup() == this.grup){
+    public boolean compleixRes8(ClausulaNom cn,int duracio){
             if(this.hora != -1){
-                if ((cn.getHora() < this.hora) && ((cn.getHora() + c.getDuracio()) > this.hora)) return false;
+                if ((cn.getHora() < this.hora) && ((cn.getHora() + duracio) > this.hora)) return false;
                 if ((cn.getHora() >= this.hora)) return false;
                 else return true;
             }
-            
-        }
         return true;
     }
-    public boolean compleixRes9(Clausula c,ClausulaNom cn){
-         if(c.getAssignatura().getNom().equals(this.assignatura.getNom()) && c.getGrup() == this.grup){
+    public boolean compleixRes9(ClausulaNom cn){
             if(this.dia != null){
                 if(cn.getDia().equals(this.dia)) return false;
                 else return true;
             }
-            
-        }
         return true;
     }
     private int canviDiaInt(String dia){
@@ -181,64 +172,51 @@ public class RestAssignatura extends Restriccio {
         else if (dia.equals("diumenge"))d = 6;
         return d;
     }
-    public boolean compleixRes10(Clausula c,ClausulaNom cn){
-        if(c.getAssignatura().getNom().equals(this.assignatura.getNom()) && c.getGrup() == this.grup){
+    public boolean compleixRes10(ClausulaNom cn){
             if(this.dia != null){
                 int diaR = canviDiaInt(this.dia);
                 int diaCn = canviDiaInt(cn.getDia());
                 if(diaCn <= diaR) return false;
                 else return true;
             }
-            
-        }
         return true;
         
     }
-    public boolean compleixRes11(Clausula c,ClausulaNom cn){
-        if(c.getAssignatura().getNom().equals(this.assignatura.getNom()) && c.getGrup() == this.grup){
+    public boolean compleixRes11(ClausulaNom cn){
             if(this.dia != null){
                 int diaR = canviDiaInt(this.dia);
                 int diaCn = canviDiaInt(cn.getDia());
                 if(diaCn >= diaR) return false;
                 else return true;
             }
-            
-        }
         return true;
     }
-    public boolean compleixRes12(Clausula c,ClausulaNom cn){
-        if(c.getAssignatura().getNom().equals(this.assignatura.getNom()) && c.getGrup() == this.grup){
+    public boolean compleixRes12(ClausulaNom cn){
             if(this.dia.equals(cn.getDia()) && this.hora == cn.getHora()) return false;
             else return true;
-        }
-        return true;
         
     }
-    public boolean compleixRes13(Clausula c,ClausulaNom cn){
-        if(c.getAssignatura().getNom().equals(this.assignatura.getNom()) && c.getGrup() == this.grup){
+    public boolean compleixRes13(ClausulaNom cn){
             if (this.dia.equals(cn.getDia())) {
                     //if ((cn.getHora() > (this.hora+1)) && ((cn.getHora() + c.getDuracio()) > (this.hora+1))) return true;
                     //else return false;
                     if ((cn.getHora() < (this.hora+1))) return false;
                     else return true;
-                }
-                else if (canviDiaInt(cn.getDia()) < canviDiaInt(this.dia))return false;
-                else if (canviDiaInt(cn.getDia()) > canviDiaInt(this.dia))return true;
-        }
-        return true;
+            }
+            else if (canviDiaInt(cn.getDia()) < canviDiaInt(this.dia))return false;
+            else if (canviDiaInt(cn.getDia()) > canviDiaInt(this.dia))return true;
+            return true;
     }
-    public boolean compleixRes14(Clausula c,ClausulaNom cn){
-        if(c.getAssignatura().getNom().equals(this.assignatura.getNom()) && c.getGrup() == this.grup){
+    public boolean compleixRes14(ClausulaNom cn,int duracio){
             if (this.dia.equals(cn.getDia())) {
-                    if ((cn.getHora() < this.hora) && ((cn.getHora() + c.getDuracio()) > this.hora )) return false;
+                    if ((cn.getHora() < this.hora) && ((cn.getHora() + duracio) > this.hora )) return false;
                     if ((cn.getHora() >= this.hora)) return false;
                     else return true;
-                }
-                else if (canviDiaInt(cn.getDia()) < canviDiaInt(this.dia))return true;
-                else if (canviDiaInt(cn.getDia()) > canviDiaInt(this.dia))return false;
-            
-        }
-        return true;
+            }
+            else if (canviDiaInt(cn.getDia()) < canviDiaInt(this.dia))return true;
+            else if (canviDiaInt(cn.getDia()) > canviDiaInt(this.dia))return false;
+
+            return true;
         
     }
 }

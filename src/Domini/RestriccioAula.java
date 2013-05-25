@@ -109,11 +109,10 @@ class RestriccioAula extends Restriccio{
         return es_pot;
     }
 
-   public boolean compleixRes16(Clausula c, ClausulaNom cn) {
+   public boolean compleixRes16(ClausulaNom cn,int dur) {
         Aula aulaa = cn.getAula();
         int horaa = cn.getHora();
         String diaa = cn.getDia();
-        int dur = c.getDuracio();
         boolean compleix = true;
         if (this.aula.getNom().equals(aulaa.getNom())) { //Si hablan de la aula que esta restringida
             if (this.hora != null) { //Si este aula no puede usarse un dia a una hora concreta...
@@ -138,7 +137,7 @@ class RestriccioAula extends Restriccio{
         else if (dia.equals("diumenge"))d = 6;
         return d;
     }
-   public boolean compleixRes17(Clausula c, ClausulaNom cn) {
+   public boolean compleixRes17(ClausulaNom cn) {
         Aula aulaa = cn.getAula();
         String diaa = cn.getDia();
         if (this.aula.getNom().equals(aulaa.getNom())) { //Si hablan de la aula que esta restringida
@@ -158,13 +157,13 @@ class RestriccioAula extends Restriccio{
         return true;
     }
                 
-     public boolean compleixRes18(Clausula c, ClausulaNom cn) {
+     public boolean compleixRes18(ClausulaNom cn,int duracio) {
         Aula aulaa = cn.getAula();
         String diaa = cn.getDia();
         if (this.aula.getNom().equals(aulaa.getNom())) { //Si hablan de la aula que esta restringida
             if (this.hora != null) { //Si este aula no puede usarse un dia a una hora concreta...
                 if (this.dia.equals(diaa)) {
-                    if ((cn.getHora() < this.hora) && ((cn.getHora() + c.getDuracio()) > this.hora )) return false;
+                    if ((cn.getHora() < this.hora) && ((cn.getHora() + duracio) > this.hora )) return false;
                     if ((cn.getHora() >= this.hora)) return false;
                     else return true;
                 }

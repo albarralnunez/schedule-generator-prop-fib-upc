@@ -70,12 +70,12 @@ public class CjtRestGrupoAula extends CjtRestriccions{
         return false;
     }
 
-    boolean ComprovarRes(Clausula c, Aula au) {
+    boolean ComprovarRes(Aula au) {
         boolean b = true;
         for (RestGrupoAula rga : this.restGrupoAula) {
             if (!b) break;
-            if(rga.ObtenirId() == 1)b = rga.compleixRes1(c, au);
-            else if(rga.ObtenirId() == 2) b = rga.compleixRes2(c, au);
+            if(rga.ObtenirId() == 1)b = rga.compleixRes1(au);
+            else if(rga.ObtenirId() == 2) b = rga.compleixRes2(au);
         }
         return b;
     }
