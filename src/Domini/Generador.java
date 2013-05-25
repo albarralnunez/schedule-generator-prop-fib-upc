@@ -90,6 +90,8 @@ class Generador {
             ArrayList<AulaLab> aulesL, RestriccioTemps dis ,Quadricula q) {
         for (int i = 0; i < this.clausules.size(); ++i) {
             Clausula c = this.clausules.get(i);
+            ArrayList<ClausulaNom> l = new ArrayList();
+            c.setClausula(l);
             Assignatura a = c.getAssignatura();
             ArrayList<Aula> aulesPosT = new ArrayList<Aula>();
             ArrayList<Aula> aulesPosL = new ArrayList<Aula>();
