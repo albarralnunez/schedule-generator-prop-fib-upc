@@ -58,7 +58,7 @@ public class CtrDomini {
             cper.creaAssignatura(nomUnitat+"-"+nomAsg , params);
     }
     public void inicialitzarClausules(){
-        cgen.inicialitzarClausules();
+         cgen.inicialitzarClausules();
     }
     /**
      * 
@@ -381,7 +381,8 @@ public class CtrDomini {
             r.setGrup((Integer) params.get(1));
             r.setAula((String) params.get(2));
             r.setId((Integer) params.get(3));
-            if(r.esPotAfegir(cgen.getCjtResGA(), cgen.getCjtRestAul(), cgen.getCjtRestGS(),cgen.getQuad())) cgen.setResResGA(r);
+            boolean b = cgen.afegirRest(tipus,r);
+            cgen.setResResGA(r);
         }
         else if(tipus == 2){
             RestGrupSessio r = new RestGrupSessio();
@@ -390,7 +391,7 @@ public class CtrDomini {
             r.setDia((String) params.get(2));
             r.setHora((Integer) params.get(3));
             r.AssignarId((Integer) params.get(4));
-            cgen.setResRestGS(r);
+            cgen.afegirRest(tipus,r);
             
         }
         else if(tipus == 3){
@@ -411,7 +412,7 @@ public class CtrDomini {
                 r.setGrup(grup);
                 r.setHora(hora);
                 r.setId(id);
-                if(r.esPotAfegir(cgen.getCjtRestAss(),cgen.getCjtRestGS())) cgen.setResRestAss(r);
+                cgen.afegirRest(tipus, r);
            }
         }
         else if(tipus == 4){
@@ -432,7 +433,7 @@ public class CtrDomini {
                 r.setGrup(grup);
                 r.setDia(dia);
                 r.setId(id);
-                if(r.esPotAfegir(cgen.getCjtRestAss(),cgen.getCjtRestGS())) cgen.setResRestAss(r);
+                cgen.afegirRest(tipus, r);
            }
         }
         else if(tipus == 5){
@@ -459,7 +460,7 @@ public class CtrDomini {
                     r.setGrupPrincipal(grupP);
                     r.setGrupSolapament(grupS);
                 }
-                if(r.esPotAfegir(cgen.getCjtRestS())) cgen.setResRestS(r);
+                cgen.afegirRest(tipus, r);
             }
         }
         else if(tipus == 6) {
@@ -483,7 +484,7 @@ public class CtrDomini {
                 r.setDia((String)params.get(2));
                 r.setId((Integer) params.get(3));
                 
-                if(r.esPotAfegir(cgen.getCjtRestAul(),cgen.getCjtResGA(),cgen.getCjtRestGS())) cgen.setResRestAul(r);
+                cgen.afegirRest(tipus, r);
             }
             
         }
@@ -507,7 +508,7 @@ public class CtrDomini {
                 r.setDia(dia);
                 r.setHora(hora);
                 r.setId(id);
-                if(r.esPotAfegir(cgen.getCjtRestAss(),cgen.getCjtRestGS())) cgen.setResRestAss(r);
+                cgen.afegirRest(tipus, r);
            }
             
         }

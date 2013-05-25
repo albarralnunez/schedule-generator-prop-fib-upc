@@ -188,10 +188,13 @@ public class Clausula {
         else return true;
     }
     public void reduccioClausules(){
+        ArrayList<ClausulaNom> aux = new ArrayList();
         for(ClausulaNom cn: this.clausula){
-            if(!compleixResDomini(cn)) clausula.remove(cn);
+            if(compleixResDomini(cn)) {
+                aux.add(cn);
+            }
         }
-        
+        this.clausula = aux;
     }
 
 }

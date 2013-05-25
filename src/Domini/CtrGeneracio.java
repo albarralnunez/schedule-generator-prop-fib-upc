@@ -171,9 +171,9 @@ public class CtrGeneracio {
        this.cjtAulTeo = aulesT;
     }
     
-    public boolean generar(ArrayList<String>configuracioInicial) {
+    public boolean generar(ArrayList<String> configuracioInicial) {
         montaRestriccionsTemps(configuracioInicial);
-        return gen.generar(cjtAulTeo, cjtAulLab, cjtAs, resT, quad);
+        return gen.generar(quad);
     }
     
     /**
@@ -272,5 +272,9 @@ public class CtrGeneracio {
     }
     public void inicialitzarClausules(){
         gen.inicialitzarClausules(cjtAs);
+        gen.inicialitzarClausulesNom(cjtAulTeo, cjtAulLab,resT, quad);
+    }
+    public boolean afegirRest(int tipus, Restriccio r){
+        return gen.afegirRest(tipus,r);
     }
 }

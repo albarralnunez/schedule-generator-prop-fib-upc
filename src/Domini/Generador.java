@@ -86,7 +86,7 @@ class Generador {
      * @param q
      * @return Retorna una ArrayList de Clausula, on cada Clausula te el seu domini inicialitzat i acotat.
      */
-    private void inicialitzarClausulesNom(ArrayList<AulaTeo> aulesT, 
+    public void inicialitzarClausulesNom(ArrayList<AulaTeo> aulesT, 
             ArrayList<AulaLab> aulesL, RestriccioTemps dis ,Quadricula q) {
         for (int i = 0; i < this.clausules.size(); ++i) {
             Clausula c = this.clausules.get(i);
@@ -241,10 +241,8 @@ class Generador {
     }
     private Stack<ArrayList<Clausula>> backUp;
     
-    public boolean generar(ArrayList<AulaTeo> aulesT, ArrayList<AulaLab> aulesL,
-            ArrayList<Assignatura> ass,RestriccioTemps dis, Quadricula q) {
+    public boolean generar( Quadricula q) {
         //inicialitzarCjtRestriccions(cjtResGA, cjtRestAss, cjtRestGS, cjtRestS,cjtRestAul);
-        inicialitzarClausulesNom(aulesT, aulesL, dis, q);
         reduirClausulesNom();
         backUp = new Stack<ArrayList<Clausula>>();  		
 	long timeInMillis = System.currentTimeMillis();
@@ -383,6 +381,57 @@ class Generador {
                 ) return true;
         return false;
     }
-    
+    public boolean afegirRest(int tipus,Restriccio r){
+        if(tipus == 1){
+            RestGrupoAula rga = (RestGrupoAula) r;
+            for(Clausula c: this.clausules){
+                if(c.getAssignatura().getNom().equals(rga.getAssignatura()) && c.getGrup() == rga.getGrup()){
+                    c.getCjtRestGA().afegirRest(rga);
+                }
+            }
+        }
+        else if(tipus == 2){
+            RestGrupSessio rgs = (RestGrupSessio) r;
+            for(Clausula c: this.clausules) {
+                if(c.getAssignatura().getNom().equals(rgs.getAssignatura()) && c.getGrup() == rgs.getGrup()){
+                    c.getCjtRestGS().afegir_rest(rgs);
+                }
+            }
+        }
+        else if(tipus == 3 || tipus == 4 || tipus == 7){
+            RestAssignatura ra = (RestAssignatura) r;
+            for(Clausula c: this.clausules){
+                if(c.getAssignatura().getNom().equals(ra.getAssignatura().getNom()) && c.getGrup() == ra.getGrup()){
+                    c.getCjtRestAss().setRest(ra);
+                }
+            }
+        }
+        else if(tipus == 5){
+            RestSolapament rs = (RestSolapament) r;
+            for(Clausula c : this.clausules){
+                boolean combo1;
+                boolean combo2;
+                if(rs.getGrupPrincipal() == -1 & rs.getGrupSolapament() == -1){
+                    combo1 = rs.getAssignaturaPrincipal().getNom().equals(c.getAssignatura().getNom());
+                    combo2 = rs.getAssignaturaSolapament().getNom().equals(c.getAssignatura().getNom());
+                    if(combo1 || combo2)c.getCjtRestS().afegirRest(rs);
+                }
+                else{
+                    combo1 = rs.getAssignaturaPrincipal().getNom().equals(c.getAssignatura().getNom()) && rs.getGrupPrincipal() == c.getGrup();
+                    combo2 = rs.getAssignaturaSolapament().getNom().equals(c.getAssignatura().getNom()) && rs.getGrupSolapament() == c.getGrup();
+                    if(combo1 || combo2)c.getCjtRestS().afegirRest(rs);
+                }
+            }
+           
+        }
+        else if(tipus == 6){
+            RestriccioAula raula = (RestriccioAula) r;
+            for(Clausula c : this.clausules){
+                c.getCjtRestAula().afegir_rest(raula);
+            }
+            
+        }
+        return true;
+    }
     
 }
