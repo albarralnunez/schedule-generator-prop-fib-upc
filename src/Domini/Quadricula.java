@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author miquel
+ * @author Miquel Masriera
  */
 public class Quadricula implements Serializable {
     

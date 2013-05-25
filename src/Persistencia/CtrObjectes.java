@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author miquel.masriera
+ * @author Miquel Masriera
  *
  * TOTES ELS CLASSES QUE ES RELACIONIN AMB AQUESTA HAN DE SER SERIALITZABLES
  */

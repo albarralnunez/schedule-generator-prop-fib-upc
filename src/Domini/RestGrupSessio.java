@@ -7,7 +7,7 @@ package Domini;
 
 /**
  *
- * @author albertomarin
+ * @author Alberto Marin
  */
 
 //PONER UN ASSIG+GRUPO A UNA HORA

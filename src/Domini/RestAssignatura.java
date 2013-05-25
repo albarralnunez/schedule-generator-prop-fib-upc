@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Joan Pol
+ * @author Joan Pol Farre
  */
 public class RestAssignatura extends Restriccio {
        private Assignatura assignatura;

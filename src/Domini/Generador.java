@@ -9,9 +9,9 @@ import java.util.Calendar;
 import java.util.Stack;
 
 /**
- *
- * @author Daniel Albarral
- */
+* @author Danie Albarral
+* Anotacions Colaborador Joan Pol Farre
+*/
 class Generador {
 
     private CjtRestGrupoAula cjtRgraula;
