@@ -104,7 +104,11 @@ public class CjtRestSolapament extends CjtRestriccions{
                  boolean b1 = rs.getGrupPrincipal() == r.getGrupPrincipal();
                  boolean b2 = rs.getAssignaturaSolapament().getNom().equals(r.getAssignaturaSolapament().getNom());
                  boolean b3 = rs.getGrupSolapament() == r.getGrupSolapament();
-                 if(b && b1 && b2 && b3) return false;
+                 boolean b4 = rs.getAssignaturaPrincipal().getNom().equals(r.getAssignaturaSolapament().getNom());
+                 boolean b5 = rs.getGrupPrincipal() == r.getGrupSolapament();
+                 boolean b6 = rs.getAssignaturaSolapament().getNom().equals(r.getAssignaturaPrincipal().getNom());
+                 boolean b7 = rs.getGrupSolapament() == r.getGrupPrincipal();
+                 if((b && b1 && b2 && b3)||(b4 && b5 && b6 && b7)) return false;
          }
          return true;
      }
