@@ -197,25 +197,28 @@ public class RestSolapament extends Restriccio{
       return true;
     }
    public boolean CompleixRes(Clausula c, ClausulaNom cn, Clausula e, int hor,String dia){
-       Assignatura a1 = c.getAssignatura();
-       Assignatura a2 = e.getAssignatura();
-       int g1 = c.getGrup();
-       int g2 = e.getGrup();
-       boolean combinacio1 = false;
-       boolean combinacio2 = false;
-       if(this.grupPrincipal != -1 && this.grupSolapament != -1){
-            combinacio1 =(a1.getNom().equals(this.assignaturaPrincipal.getNom())) && (g1 == this.grupPrincipal) && (a2.getNom().equals(this.assignaturaSolapament.getNom())) && (g2 == this.grupSolapament);
-            combinacio2 = (a2.getNom().equals(this.assignaturaPrincipal.getNom())) && (g2 == this.grupPrincipal) && (a1.getNom().equals(this.assignaturaSolapament.getNom())) && (g1 == this.grupSolapament);
-       }
-       else {
-            combinacio1 =(a1.getNom().equals(this.assignaturaPrincipal.getNom())) && (a2.getNom().equals(this.assignaturaSolapament.getNom()));
-            combinacio2 = (a2.getNom().equals(this.assignaturaPrincipal.getNom())) &&(a1.getNom().equals(this.assignaturaSolapament.getNom()));  
-       }
-       if(combinacio1 || combinacio2) {
-           if(dia.equals(cn.getDia()) && (hor-c.getDuracio() < cn.getHora() && hor >= cn.getHora()))return false;
-           else return true;
-       }
-       return true;
+       if(!(c.getAssignatura().getNom().equals(e.getAssignatura().getNom()) && c.getGrup() == e.getGrup())){
+            Assignatura a1 = c.getAssignatura();
+            Assignatura a2 = e.getAssignatura();
+            int g1 = c.getGrup();
+            int g2 = e.getGrup();
+            boolean combinacio1 = false;
+            boolean combinacio2 = false;
+            if(this.grupPrincipal != -1 && this.grupSolapament != -1){
+                combinacio1 =(a1.getNom().equals(this.assignaturaPrincipal.getNom())) && (g1 == this.grupPrincipal) && (a2.getNom().equals(this.assignaturaSolapament.getNom())) && (g2 == this.grupSolapament);
+                combinacio2 = (a2.getNom().equals(this.assignaturaPrincipal.getNom())) && (g2 == this.grupPrincipal) && (a1.getNom().equals(this.assignaturaSolapament.getNom())) && (g1 == this.grupSolapament);
+            }
+            else {
+                combinacio1 =(a1.getNom().equals(this.assignaturaPrincipal.getNom())) && (a2.getNom().equals(this.assignaturaSolapament.getNom()));
+                combinacio2 = (a2.getNom().equals(this.assignaturaPrincipal.getNom())) &&(a1.getNom().equals(this.assignaturaSolapament.getNom()));  
+            }
+            if(combinacio1 || combinacio2) {
+                if(dia.equals(cn.getDia()) && (hor-c.getDuracio() < cn.getHora() && hor >= cn.getHora()))return false;
+                else return true;
+            }
+            return true;
+    }
+       else return true;
    }
    public boolean CompleixRess(String a, int g, Element e){
        boolean combinacio1 = false;

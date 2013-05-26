@@ -81,7 +81,7 @@ public class CtrPresentacio {
             System.out.println(" 14 - Una assig+grup no es pot impartir a la vegada que una altre temporalmente parlant"); 
             
             System.out.println(" 15 - inhabilitar una aula a un dia/hora");
-            System.out.println(" 16 - inhabilitar una aula abans de un dia/hora");
+            System.out.println(" 16 - inhabilitar una aula abans de un dia/hora, aquesta hora inclosa");
             System.out.println(" 17 - inhabilitar una aula despres de un dia/hora");
             
             System.out.println(" 18 - Tornar");
