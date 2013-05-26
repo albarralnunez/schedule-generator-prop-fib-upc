@@ -255,12 +255,15 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         return cd.aulaAssignadaALes(aula, dia, h, asg, grp);
     }
 
-    public boolean generar() {
-        ///////////////////////
+    public void InicialitzaGenerador(){
         cd.inicialitzaGenerador( aules );
         cd.inicialitzarClausules();
-        
         cd.inicialitzarClausulesNom();
+    }
+
+        
+    public boolean generar() {
+        ///////////////////////
         if ( cd.generar() ){
             cd.imprimeixHorari();
             return true;

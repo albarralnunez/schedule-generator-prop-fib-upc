@@ -234,6 +234,8 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         //EL ARRAYLIST aules tiene las aulas que van a usarse en la generación del horario
         cp.aulesSeleccionades(aules);
+        cp.InicialitzaGenerador();
+        
         cp.canviaPanel("PanelGeneracioRest");
     }//GEN-LAST:event_jButton5ActionPerformed
 
