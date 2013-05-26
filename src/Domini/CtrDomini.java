@@ -177,9 +177,7 @@ public class CtrDomini {
     /**
      * fara que s'inicialitzin la quadricula, les aules i les assignatures
      */
-    public void inicialitzaGenerador( ArrayList<String> aules ) {
-        
-        
+    public void inicialitzaGenerador( ArrayList<String> aules ) {    
         ArrayList<String> configuracioInicial =  cper.llegirConfiguracioHoraria("configuracioHoraria-"+nomUnitat);
         
         ArrayList<String> llistaAssignatures = cper.llistaAssigantures(nomUnitat);

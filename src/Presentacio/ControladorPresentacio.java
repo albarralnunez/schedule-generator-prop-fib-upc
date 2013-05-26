@@ -11,6 +11,7 @@
 package Presentacio;
 
 import Domini.CtrDomini;
+import static java.awt.image.ImageObserver.WIDTH;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 
@@ -224,10 +225,6 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         cd.afegirRestriccio(i, params);
     }
 
-    public boolean AfegirRestriccioGrupSessio(String ass, Integer grup, String dia, Integer hora, Integer opcio) {
-        return true;// cd.AfegirRestriccioGrupSessio(ass, grup, dia, hora, opcio);
-    }
-
     public ArrayList< String> llistaRest(int opcio) {
         return cd.llistaRest(opcio);
     }
@@ -261,7 +258,9 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     public boolean generar() {
         ///////////////////////
         cd.inicialitzaGenerador( aules );
-        ////////////////////////
+        cd.inicialitzarClausules();
+        
+        cd.inicialitzarClausulesNom();
         if ( cd.generar() ){
             cd.imprimeixHorari();
             return true;

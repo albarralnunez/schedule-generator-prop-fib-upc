@@ -218,22 +218,11 @@ class Generador {
     }
 
     private boolean horesiLimits(Clausula c, ClausulaNom cn, Quadricula q) {
-       /* if( !this.cjtRestGS.ComprovarRes(c, cn)) return false;   
-        if (!cjtRgraula.ComprovarRes(c, cn.getAula())) return false;
-        if (!cjtRass.ComprovarRes(c,cn)) return false;
-        if (!cjtRula.ComprovarRes(c,cn)) return false;*/
         if (!suficientHoresSegui(c,cn,q)) return false;
         if (foraLimits (c,cn)) return false;
         return true;
     }
-    /* private boolean compleixResDomini(Clausula c, ClausulaNom cn,Element e) {
-        if (!c.compleixRestsAssignatura(cn)) return false;   
-        else if(!c.compleixRestsAula(cn)) return false;
-        else if(! c.compleixRestsGrupSessio(cn)) return false;
-        else if(!c.compleixRestsGrupoAula(cn)) return false;
-        else if(!c.compleixRestsSolapament(e)) return false;
-        return true;
-    }*/
+
     private void reduirClausulesNom(){
         for(Clausula c : this.clausules){
             c.reduccioClausules();
@@ -242,13 +231,7 @@ class Generador {
     private Stack<ArrayList<Clausula>> backUp;
     
     public boolean generar( Quadricula q) {
-        //inicialitzarCjtRestriccions(cjtResGA, cjtRestAss, cjtRestGS, cjtRestS,cjtRestAul);
-        long timeInMillis11 = System.currentTimeMillis();
-        reduirClausulesNom();
-        long timeInMillis12 = System.currentTimeMillis();
-        System.out.println("-------------Time in milis--Ini-----------");
-        System.out.println(timeInMillis12-timeInMillis11);
-        System.out.println("-------------Time in milis-------------\n");
+        reduirClausulesNom();  
         backUp = new Stack<ArrayList<Clausula>>();  		
 	long timeInMillis = System.currentTimeMillis();
         boolean b = backtracking(this.clausules, q,0);
