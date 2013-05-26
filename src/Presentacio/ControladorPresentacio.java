@@ -109,6 +109,8 @@ public class ControladorPresentacio extends javax.swing.JFrame {
             pGenR.setVisible(true);
         }
         else if (nomPanel.equals("PanelVistaAules")){
+            pGenAul.reseteja();
+            pva.setHorariGenetar(true);////////////////////
             pva.setVisible(true);
         }
         
