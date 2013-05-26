@@ -288,6 +288,85 @@ public class CtrDomini {
         asg = new Assignatura( nom, nvl, numht, intersT, numhp, intersP, capt, capp, grupos );
         return asg;
     }
+    public boolean existeixRest(String nomUnitat){
+       return cper.existeixRest(nomUnitat);
+    }
+    public void montaRestriccions(String nomUnitat){
+        ArrayList<String> l = this.cper.llegirRestriccions(this.nomUnitat);
+        ArrayList laux;
+        for(int i = 0; i < l.size();++i){
+            laux = new ArrayList();
+            String aux = l.get(i);
+            String[] aux2 = aux.split("-");
+            int id = Integer.parseInt(aux2[0].toString());
+            int tipus=-1;
+            for(int j = 1;j< aux2.length;++j){
+                if(0<id && id <3){
+                    if(j ==1) tipus = 1;
+                    if(j ==2) {
+                        int p = Integer.parseInt(aux2[j].toString());
+                        laux.add(p);
+                    }
+                    else {
+                        laux.add(aux2[j].toString());
+                    }
+                }
+                else if(2<id && id <5){
+                    if(j ==1) tipus = 2;
+                    if(j ==2 || j ==4){
+                        int p = Integer.parseInt(aux2[j].toString());
+                        laux.add(p);
+                    }
+                    else laux.add(aux2[j].toString());
+                }
+                else if(4<id && id <8){
+                    if(j ==1) tipus = 3;
+                    if(j ==2 || j ==3){
+                        int p = Integer.parseInt(aux2[j].toString());
+                        laux.add(p);
+                    }
+                    else laux.add(aux2[j].toString());
+                    
+                }
+                else if(7<id && id <11){
+                    if(j ==1) tipus = 4;
+                    if(j ==2){
+                        int p = Integer.parseInt(aux2[j].toString());
+                        laux.add(p);
+                    }
+                    else laux.add(aux2[j].toString());
+                }
+                else if(10<id && id <14){
+                    if(j ==1) tipus = 7;
+                    if(j ==2 || j ==4){
+                        int p = Integer.parseInt(aux2[j].toString());
+                        laux.add(p);
+                    }
+                    else laux.add(aux2[j].toString());    
+                }
+                else if(id == 14){
+                    if(j ==1) tipus = 5;
+                    if(j ==2 || j ==4){
+                        int p = Integer.parseInt(aux2[j].toString());
+                        laux.add(p);
+                    }
+                    else laux.add(aux2[j].toString());
+                }
+                else if(14<id && id <18){
+                    if(j ==1) tipus = 6;
+                    if(j ==3){
+                        int p = Integer.parseInt(aux2[j].toString());
+                        laux.add(p);
+                    }
+                    else laux.add(aux2[j].toString());
+                }
+                
+            }
+            laux.add(id);
+            afegirRestriccio(tipus,laux);
+        }
+        
+    }
 
     /**
      * 
@@ -483,8 +562,8 @@ public class CtrDomini {
             if(trobat){
                 RestriccioAula r = new RestriccioAula();
                 r.setAula(a);
-                r.setHora((Integer)params.get(1));
-                r.setDia((String)params.get(2));
+                r.setHora((Integer)params.get(2));
+                r.setDia((String)params.get(1));
                 r.setId((Integer) params.get(3));
                 
                 cgen.afegirRest(tipus, r);
@@ -524,9 +603,9 @@ public class CtrDomini {
      * @param hora
      * @return 
      */
-    public boolean AfegirRestriccioGrupSessio( String nomA, int grup, String dia, int hora,int id ){
+    /*public boolean AfegirRestriccioGrupSessio( String nomA, int grup, String dia, int hora,int id ){
         return cgen.AfegirRestriccioGrupSessio( nomA, grup, dia, hora,id);
-    }
+    }*/
     /**
      * 
      * @param nom

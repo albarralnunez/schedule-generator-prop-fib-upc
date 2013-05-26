@@ -272,8 +272,8 @@ public class CtrPresentacio {
                     System.out.println("Introduir dia");
                     dia = s.next();
                     params.add(Aula);
-                    params.add(hora);
                     params.add(dia);
+                    params.add(hora);
                     params.add(opcio);
                     cd.afegirRestriccio(6,params);
                     System.out.println("Vols afegir-ne una altre?<y,n>");
@@ -284,6 +284,8 @@ public class CtrPresentacio {
         }  
     }
     private static void generarHorari(){
+        boolean a = cd.existeixRest(unitatDocent);
+        if(a) cd.montaRestriccions(unitatDocent);
         if ( cd.generar() ){
             cd.imprimeixHorari();
             

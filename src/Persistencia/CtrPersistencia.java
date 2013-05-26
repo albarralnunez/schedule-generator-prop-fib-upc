@@ -190,4 +190,10 @@ public class CtrPersistencia {
     public boolean existeixHorari( String nom ) {
         return co.existeix(nom);
     }
+    public ArrayList<String> llegirRestriccions(String nomUnitat) {
+        return ca.llegirArxiu("restriccions-" + nomUnitat);
+    }
+    public boolean existeixRest(String nomUnitat) {
+        return ca.existeix("restriccions-"+nomUnitat); //diu si existeix el arixu restriccions-nomUnitat
+    }
 }
