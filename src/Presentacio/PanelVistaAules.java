@@ -339,6 +339,9 @@ public class PanelVistaAules extends javax.swing.JPanel {
         }
         
         String nomAula = (String) comboBoxLlistaAules.getSelectedItem();
+        
+        boolean aulaAmbAssignacio = false;
+        
         for(int d = 0; d < 7; ++d){ // d = 7
             for(int h = 0; h < 24; ++h){ // h = 24
                 ArrayList<String> asg = cp.aulaAssignadaALes(nomAula, d, h);
@@ -346,10 +349,15 @@ public class PanelVistaAules extends javax.swing.JPanel {
                     if ( ! asg.get(0).equals("BUIDA") ){
                         int grp = Integer.parseInt( asg.get(2));
                         etiquetes[d][h].escriuEtiqueta( asg.get(1), grp );
+                        aulaAmbAssignacio = true;
                     }
                 }
             }
-        }    
+        }  
+        if( ! aulaAmbAssignacio ){
+            cp.mostraAvis( "Aquesta aula no te cap assignacio", "ERROR");
+            comboBoxLlistaAules.removeItem( comboBoxLlistaAules.getSelectedItem() );
+        }
     }//GEN-LAST:event_comboBoxLlistaAulesActionPerformed
     
     
