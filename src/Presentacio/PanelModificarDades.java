@@ -23,12 +23,15 @@ public class PanelModificarDades extends javax.swing.JPanel {
     ControladorPresentacio cp;
     Integer rest;
     Integer opcio;
+    boolean intervalsT;
+    boolean intervalsP;
 
     /** Creates new form PanelModificarDades */
     public PanelModificarDades(ControladorPresentacio cpr) {
         cp = cpr;
         rest = -1;
         opcio = -1;
+        intervalsT = intervalsP = false;
         initComponents();
         buttonGroup1.add(jRadioButton1);
         buttonGroup1.add(jRadioButton2);
@@ -38,11 +41,37 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jPanel7.setVisible(false);
         jPanel8.setVisible(false);
         
-        this.fieldNomAssignatura.setVisible(true);
+        this.fieldNomAssignatura1.setVisible(true);
         this.labelNomAssignatura.setVisible(true);
         this.comboBoxAssigs.setVisible(false);
         this.panellDadesAssignatura.setVisible(true);
         this.botoOK.setVisible(true);
+        
+        jLabel21.setVisible(false);
+            jLabel26.setVisible(false);
+            jLabel34.setVisible(false);
+            jLabel33.setVisible(false);
+            jLabel32.setVisible(false);
+            jLabel30.setVisible(false);
+            jSlider2.setVisible(false);
+            jSpinner10.setVisible(false);
+            jSpinner9.setVisible(false);
+            jSpinner8.setVisible(false);
+            jSpinner7.setVisible(false);
+            jSpinner6.setVisible(false);
+            
+        jLabel5.setVisible(false);
+            jLabel4.setVisible(false);
+            jLabel31.setVisible(false);
+            jLabel27.setVisible(false);
+            jLabel28.setVisible(false);
+            jLabel29.setVisible(false);
+            sliderT.setVisible(false);
+            jSpinner1.setVisible(false);
+            jSpinner2.setVisible(false);
+            jSpinner3.setVisible(false);
+            jSpinner4.setVisible(false);
+            jSpinner5.setVisible(false);
             
         this.setBounds(0, 0, 700, 550);
     }
@@ -66,7 +95,48 @@ public class PanelModificarDades extends javax.swing.JPanel {
         comboBoxOpcionsAssig = new javax.swing.JComboBox();
         panellDadesAssignatura = new javax.swing.JLayeredPane();
         labelNomAssignatura = new javax.swing.JLabel();
-        fieldNomAssignatura = new javax.swing.JTextField();
+        labelNomAssignatura1 = new javax.swing.JLabel();
+        spinnerHoresT = new javax.swing.JSpinner();
+        labelNomAssignatura2 = new javax.swing.JLabel();
+        spinnerNivell1 = new javax.swing.JSpinner();
+        labelOcupacioT = new javax.swing.JLabel();
+        spinnerHoresP = new javax.swing.JSpinner();
+        labelNomAssignatura4 = new javax.swing.JLabel();
+        fieldNomAssignatura1 = new javax.swing.JTextField();
+        labelGrups = new javax.swing.JLabel();
+        numGrupsTeoria = new javax.swing.JTextField();
+        labelGrups1 = new javax.swing.JLabel();
+        numSubgrups = new javax.swing.JTextField();
+        labelOcupacioT1 = new javax.swing.JLabel();
+        labelGrups2 = new javax.swing.JLabel();
+        botoIntervalsP = new javax.swing.JButton();
+        comboBoxOcupacioTeoria = new javax.swing.JComboBox();
+        sliderT = new javax.swing.JSlider();
+        jLabel4 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        jSpinner2 = new javax.swing.JSpinner();
+        jSpinner3 = new javax.swing.JSpinner();
+        jSpinner4 = new javax.swing.JSpinner();
+        jSpinner5 = new javax.swing.JSpinner();
+        jSlider2 = new javax.swing.JSlider();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jSpinner6 = new javax.swing.JSpinner();
+        jSpinner7 = new javax.swing.JSpinner();
+        jSpinner8 = new javax.swing.JSpinner();
+        jSpinner9 = new javax.swing.JSpinner();
+        jSpinner10 = new javax.swing.JSpinner();
+        jLabel26 = new javax.swing.JLabel();
+        ocupacioSubgrups = new javax.swing.JComboBox();
+        botoIntervalsT = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
         comboBoxAssigs = new javax.swing.JComboBox();
         botoOK = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -160,11 +230,209 @@ public class PanelModificarDades extends javax.swing.JPanel {
         });
 
         labelNomAssignatura.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        labelNomAssignatura.setText("nom de l' assignatura");
-        labelNomAssignatura.setBounds(30, 10, 135, 15);
+        labelNomAssignatura.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelNomAssignatura.setText("hores de teoria");
+        labelNomAssignatura.setBounds(20, 80, 110, 20);
         panellDadesAssignatura.add(labelNomAssignatura, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        fieldNomAssignatura.setBounds(190, 10, 110, 20);
-        panellDadesAssignatura.add(fieldNomAssignatura, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        labelNomAssignatura1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelNomAssignatura1.setText("nom de l' assignatura");
+        labelNomAssignatura1.setBounds(30, 10, 135, 15);
+        panellDadesAssignatura.add(labelNomAssignatura1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        spinnerHoresT.setBounds(130, 80, 40, 20);
+        panellDadesAssignatura.add(spinnerHoresT, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        labelNomAssignatura2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelNomAssignatura2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelNomAssignatura2.setText("nivell");
+        labelNomAssignatura2.setBounds(30, 40, 135, 15);
+        panellDadesAssignatura.add(labelNomAssignatura2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        spinnerNivell1.setBounds(190, 40, 40, 20);
+        panellDadesAssignatura.add(spinnerNivell1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        labelOcupacioT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelOcupacioT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelOcupacioT.setText("ocupació");
+        labelOcupacioT.setBounds(200, 320, 70, 20);
+        panellDadesAssignatura.add(labelOcupacioT, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        spinnerHoresP.setBounds(140, 200, 40, 20);
+        panellDadesAssignatura.add(spinnerHoresP, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        labelNomAssignatura4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelNomAssignatura4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelNomAssignatura4.setText("hores de practica");
+        labelNomAssignatura4.setBounds(20, 200, 110, 15);
+        panellDadesAssignatura.add(labelNomAssignatura4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        fieldNomAssignatura1.setBounds(190, 10, 110, 20);
+        panellDadesAssignatura.add(fieldNomAssignatura1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        labelGrups.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelGrups.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelGrups.setText("Grups de Teoria");
+        labelGrups.setBounds(20, 320, 110, 20);
+        panellDadesAssignatura.add(labelGrups, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        numGrupsTeoria.setBounds(140, 320, 50, 20);
+        panellDadesAssignatura.add(numGrupsTeoria, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        labelGrups1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelGrups1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelGrups1.setText("Grup de Teoria");
+        labelGrups1.setBounds(20, 370, 110, 20);
+        panellDadesAssignatura.add(labelGrups1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        numSubgrups.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numSubgrupsActionPerformed(evt);
+            }
+        });
+        numSubgrups.setBounds(140, 360, 50, 20);
+        panellDadesAssignatura.add(numSubgrups, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        labelOcupacioT1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelOcupacioT1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelOcupacioT1.setText("ocupació");
+        labelOcupacioT1.setBounds(200, 360, 70, 20);
+        panellDadesAssignatura.add(labelOcupacioT1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        labelGrups2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelGrups2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelGrups2.setText("Subgrups per");
+        labelGrups2.setBounds(20, 350, 110, 20);
+        panellDadesAssignatura.add(labelGrups2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        botoIntervalsP.setText("Definir Intervals");
+        botoIntervalsP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoIntervalsPActionPerformed(evt);
+            }
+        });
+        botoIntervalsP.setBounds(200, 200, 130, 23);
+        panellDadesAssignatura.add(botoIntervalsP, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        comboBoxOcupacioTeoria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10", "20", "30", "40", "50", "60", "70", "80", "90", "100", "150", "200" }));
+        comboBoxOcupacioTeoria.setBounds(280, 320, 60, 20);
+        panellDadesAssignatura.add(comboBoxOcupacioTeoria, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        sliderT.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        sliderT.setMaximum(5);
+        sliderT.setMinimum(2);
+        sliderT.setMinorTickSpacing(1);
+        sliderT.setPaintLabels(true);
+        sliderT.setPaintTicks(true);
+        sliderT.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                sliderTStateChanged(evt);
+            }
+        });
+        sliderT.setBounds(130, 110, 200, 20);
+        panellDadesAssignatura.add(sliderT, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("hores per interval");
+        jLabel4.setBounds(10, 160, 110, 20);
+        panellDadesAssignatura.add(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jSpinner1.setBounds(130, 160, 29, 20);
+        panellDadesAssignatura.add(jSpinner1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jSpinner2.setBounds(170, 160, 29, 20);
+        panellDadesAssignatura.add(jSpinner2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jSpinner3.setBounds(210, 160, 29, 20);
+        panellDadesAssignatura.add(jSpinner3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jSpinner4.setBounds(250, 160, 29, 20);
+        panellDadesAssignatura.add(jSpinner4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jSpinner5.setBounds(290, 160, 29, 20);
+        panellDadesAssignatura.add(jSpinner5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jSlider2.setMaximum(5);
+        jSlider2.setMinimum(2);
+        jSlider2.setMinorTickSpacing(1);
+        jSlider2.setPaintLabels(true);
+        jSlider2.setPaintTicks(true);
+        jSlider2.setSnapToTicks(true);
+        jSlider2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSlider2StateChanged(evt);
+            }
+        });
+        jSlider2.setBounds(130, 230, 200, 26);
+        panellDadesAssignatura.add(jSlider2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("nombre d'intervals");
+        jLabel5.setBounds(10, 110, 110, 14);
+        panellDadesAssignatura.add(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("nombre d'intervals");
+        jLabel21.setBounds(10, 230, 110, 14);
+        panellDadesAssignatura.add(jLabel21, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jSpinner6.setBounds(300, 280, 29, 20);
+        panellDadesAssignatura.add(jSpinner6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jSpinner7.setBounds(260, 280, 29, 20);
+        panellDadesAssignatura.add(jSpinner7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jSpinner8.setBounds(220, 280, 29, 20);
+        panellDadesAssignatura.add(jSpinner8, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jSpinner9.setBounds(180, 280, 29, 20);
+        panellDadesAssignatura.add(jSpinner9, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jSpinner10.setBounds(140, 280, 29, 20);
+        panellDadesAssignatura.add(jSpinner10, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setText("hores per interval");
+        jLabel26.setBounds(10, 280, 110, 20);
+        panellDadesAssignatura.add(jLabel26, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        ocupacioSubgrups.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10", "20", "30", "40", "50" }));
+        ocupacioSubgrups.setBounds(280, 360, 60, 20);
+        panellDadesAssignatura.add(ocupacioSubgrups, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        botoIntervalsT.setText("Definir intervals");
+        botoIntervalsT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoIntervalsTActionPerformed(evt);
+            }
+        });
+        botoIntervalsT.setBounds(200, 80, 130, 23);
+        panellDadesAssignatura.add(botoIntervalsT, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel27.setText("3");
+        jLabel27.setBounds(190, 140, 20, 14);
+        panellDadesAssignatura.add(jLabel27, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setText("4");
+        jLabel28.setBounds(250, 140, 20, 14);
+        panellDadesAssignatura.add(jLabel28, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel29.setText("5");
+        jLabel29.setBounds(310, 140, 20, 14);
+        panellDadesAssignatura.add(jLabel29, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel30.setText("3");
+        jLabel30.setBounds(190, 260, 20, 14);
+        panellDadesAssignatura.add(jLabel30, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel31.setText("2");
+        jLabel31.setBounds(130, 140, 20, 14);
+        panellDadesAssignatura.add(jLabel31, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel32.setText("4");
+        jLabel32.setBounds(250, 260, 20, 14);
+        panellDadesAssignatura.add(jLabel32, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel33.setText("5");
+        jLabel33.setBounds(310, 260, 20, 14);
+        panellDadesAssignatura.add(jLabel33, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel34.setText("2");
+        jLabel34.setBounds(130, 260, 20, 14);
+        panellDadesAssignatura.add(jLabel34, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         botoOK.setText("OK");
         botoOK.addActionListener(new java.awt.event.ActionListener() {
@@ -598,7 +866,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel23)
                         .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(jButton14)
                 .addContainerGap())
         );
@@ -672,7 +940,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton13)
                 .addContainerGap())
         );
@@ -735,7 +1003,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(3, 3, 3))
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -745,7 +1013,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -789,8 +1057,8 @@ public class PanelModificarDades extends javax.swing.JPanel {
     private void comboBoxOpcionsAssigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxOpcionsAssigActionPerformed
         
         if( ( (String) comboBoxOpcionsAssig.getSelectedItem() ).equals("CREAR")  ) {
-            this.fieldNomAssignatura.setVisible(true);
-            this.labelNomAssignatura.setVisible(true);
+            this.fieldNomAssignatura1.setVisible(true);
+            this.labelNomAssignatura1.setVisible(true);
             this.comboBoxAssigs.setVisible(false);
             this.panellDadesAssignatura.setVisible(true);
         }
@@ -800,8 +1068,8 @@ public class PanelModificarDades extends javax.swing.JPanel {
             this.panellDadesAssignatura.setVisible(false);
         }
         else if( ( (String) comboBoxOpcionsAssig.getSelectedItem() ).equals("MODIFICAR")  ) {
-            this.fieldNomAssignatura.setVisible(false);
-            this.labelNomAssignatura.setVisible(false);
+            this.labelNomAssignatura1.setVisible(false);
+            this.fieldNomAssignatura1.setVisible(false);
             this.panellDadesAssignatura.setVisible(true);
             this.comboBoxAssigs.setVisible(true);
         }
@@ -1263,7 +1531,17 @@ public class PanelModificarDades extends javax.swing.JPanel {
         System.out.println(opcio); 
         
         if( opcio.equals("CREAR") ){
+            String nomA = this.fieldNomAssignatura1.getText();
+            if( cp.existeixAsignatura( nomA ) ){
+                cp.mostraAvis("Aquesta assignatua ja existeix", "ERROR");
+            }
+            if( nomA == null || nomA.contains(" ") || nomA.equals("") ){
+                cp.mostraAvis("El nom de la unitat docent ha de ser \nuna cadena de carácters sense espais en blanc.", "ERROR");
+            }
             
+            boolean b = intentaCrearAssignatura(nomA);
+            if(b) inicialitza();
+                        
         }
         else if ( opcio.equals("ESBORRAR")){
             String nomAsg = (String) this.comboBoxAssigs.getSelectedItem();
@@ -1272,17 +1550,283 @@ public class PanelModificarDades extends javax.swing.JPanel {
             }
         }
         else if( opcio.equals("MODIFICAR") ){
-            
+            String nomAsg = (String) this.comboBoxAssigs.getSelectedItem();
+            boolean b = intentaCrearAssignatura(nomAsg);
+            if(b) inicialitza();
         }
     }//GEN-LAST:event_botoOKActionPerformed
 
+    private void botoIntervalsPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoIntervalsPActionPerformed
+        if( ! intervalsP){ // estava desactivalt
+            intervalsP = true;
+            jLabel21.setVisible(true);
+            jLabel26.setVisible(true);
+            jLabel34.setVisible(true);
+            jLabel33.setVisible(true);
+            jLabel32.setVisible(true);
+            jLabel30.setVisible(true);
+            jSlider2.setVisible(true);
+            jSpinner10.setVisible(true);
+            jSpinner9.setVisible(true);
+            jSpinner8.setVisible(true);
+            jSpinner7.setVisible(true);
+            jSpinner6.setVisible(true);
+        }
+        else {
+            intervalsP = false;
+            jLabel21.setVisible(false);
+            jLabel26.setVisible(false);
+            jLabel34.setVisible(false);
+            jLabel33.setVisible(false);
+            jLabel32.setVisible(false);
+            jLabel30.setVisible(false);
+            jSlider2.setVisible(false);
+            jSpinner10.setVisible(false);
+            jSpinner9.setVisible(false);
+            jSpinner8.setVisible(false);
+            jSpinner7.setVisible(false);
+            jSpinner6.setVisible(false);
+        }
+    }//GEN-LAST:event_botoIntervalsPActionPerformed
+
+    private void botoIntervalsTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoIntervalsTActionPerformed
+        
+        if( ! intervalsT){ // estava desactivalt
+            intervalsT = true;
+            jLabel5.setVisible(true);
+            jLabel4.setVisible(true);
+            jLabel31.setVisible(true);
+            jLabel27.setVisible(true);
+            jLabel28.setVisible(true);
+            jLabel29.setVisible(true);
+            sliderT.setVisible(true);
+            jSpinner1.setVisible(true);
+            jSpinner2.setVisible(true);
+            jSpinner3.setVisible(true);
+            jSpinner4.setVisible(true);
+            jSpinner5.setVisible(true);
+        }
+        else {
+            intervalsT = false;
+            jLabel5.setVisible(false);
+            jLabel4.setVisible(false);
+            jLabel31.setVisible(false);
+            jLabel27.setVisible(false);
+            jLabel28.setVisible(false);
+            jLabel29.setVisible(false);
+            sliderT.setVisible(false);
+            jSpinner1.setVisible(false);
+            jSpinner2.setVisible(false);
+            jSpinner3.setVisible(false);
+            jSpinner4.setVisible(false);
+            jSpinner5.setVisible(false);
+        }
+    }//GEN-LAST:event_botoIntervalsTActionPerformed
+
+    private void sliderTStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderTStateChanged
+        int numInt = sliderT.getValue();
+        
+        if(numInt == 2){
+            jSpinner3.setVisible(false);
+            jSpinner4.setVisible(false);
+            jSpinner5.setVisible(false);
+        }
+        else if( numInt == 3){
+            jSpinner4.setVisible(false);
+            jSpinner5.setVisible(false);
+        }
+        else if( numInt == 4){
+            jSpinner5.setVisible(false);
+        }
+    }//GEN-LAST:event_sliderTStateChanged
+
+    private void numSubgrupsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numSubgrupsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numSubgrupsActionPerformed
+
+    private void jSlider2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider2StateChanged
+         int numInt = jSlider2.getValue();
+        
+        if(numInt == 2){
+            jSpinner8.setVisible(false);
+            jSpinner7.setVisible(false);
+            jSpinner6.setVisible(false);
+        }
+        else if( numInt == 3){
+            jSpinner7.setVisible(false);
+            jSpinner6.setVisible(false);
+        }
+        else if( numInt == 4){
+            jSpinner6.setVisible(false);
+        }
+    }//GEN-LAST:event_jSlider2StateChanged
+
+    
+    private boolean intentaCrearAssignatura(String nomAsg) {
+        int nvl = (Integer) spinnerNivell1.getValue();
+        if( nvl < 0 ) {
+            cp.mostraAvis( "nivell incorrecte", "ERROR");
+            return false;
+        }
+        int ht = (Integer) spinnerHoresT.getValue();
+        int hp = (Integer) spinnerHoresP.getValue();
+        
+         if( (ht < 1) || (hp < 0)) {
+            cp.mostraAvis( "el nombre d'hores ha de ser un nombre major que 0", "ERROR");
+            return false;
+        }
+         
+         ArrayList<Integer> intsT = new ArrayList<Integer>();
+         if( intervalsT ){
+             int numintT = sliderT.getValue();
+             
+             int itv1 = (Integer) jSpinner1.getValue();
+             int itv2 = (Integer) jSpinner2.getValue();
+             int itv3 = (Integer) jSpinner3.getValue();
+             int itv4 = (Integer) jSpinner4.getValue();
+             int itv5 = (Integer) jSpinner5.getValue();
+             
+             boolean interror = false;
+             if(numintT == 2){
+                if( (itv1+itv2) != ht  ) interror = true;
+                else {
+                    intsT.add(itv1);
+                    intsT.add(itv2);
+                }
+             }
+            else if( numintT == 3){
+                if( (itv1+itv2+itv3) != ht  ) interror = true;
+                else {
+                    intsT.add(itv1);
+                    intsT.add(itv2);
+                    intsT.add(itv3);
+                }
+            }
+            else if( numintT == 4){
+                if( (itv1+itv2+itv3+itv4) != ht  ) interror = true;
+                else {
+                    intsT.add(itv1);
+                    intsT.add(itv2);
+                    intsT.add(itv3);
+                    intsT.add(itv4);
+                }
+            }
+            else if( numintT == 5){
+                if( (itv1+itv2+itv3+itv4+itv5) != ht  ) interror = true;
+                else {
+                    intsT.add(itv1);
+                    intsT.add(itv2);
+                    intsT.add(itv3);
+                    intsT.add(itv4);
+                    intsT.add(itv5);
+                }
+           } 
+           if(interror){
+               cp.mostraAvis("intervals de Teoria Erronis", "ERROR");
+           }
+           int a =0;
+         }
+         else{
+             intsT.add( ht );
+         }
+         
+         //////////////////////
+         ArrayList<Integer> intsP = new ArrayList<Integer>();
+         if( intervalsP ){
+             int numintP = jSlider2.getValue();
+             
+             int itv1 = (Integer) jSpinner10.getValue();
+             int itv2 = (Integer) jSpinner9.getValue();
+             int itv3 = (Integer) jSpinner8.getValue();
+             int itv4 = (Integer) jSpinner7.getValue();
+             int itv5 = (Integer) jSpinner6.getValue();
+             
+             boolean interror = false;
+             if(numintP == 2){
+                if( (itv1+itv2) != hp  ) interror = true;
+                else {
+                    intsP.add(itv1);
+                    intsP.add(itv2);
+                }
+             }
+            else if( numintP == 3){
+                if( (itv1+itv2+itv3) != hp  ) interror = true;
+                else {
+                    intsP.add(itv1);
+                    intsP.add(itv2);
+                    intsP.add(itv3);
+                }
+            }
+            else if( numintP == 4){
+                if( (itv1+itv2+itv3+itv4) != hp  ) interror = true;
+                else {
+                    intsP.add(itv1);
+                    intsP.add(itv2);
+                    intsP.add(itv3);
+                    intsP.add(itv4);
+                }
+            }
+            else if( numintP == 5){
+                if( (itv1+itv2+itv3+itv4+itv5) != hp  ) interror = true;
+                else {
+                    intsP.add(itv1);
+                    intsP.add(itv2);
+                    intsP.add(itv3);
+                    intsP.add(itv4);
+                    intsP.add(itv5);
+                }
+           } 
+           if(interror){
+               cp.mostraAvis("intervals de practica Erronis", "ERROR");
+           }
+           int a =0;
+         }
+         else{
+             intsP.add( hp );
+         }
+         //////////////////
+         
+         String numgt = numGrupsTeoria.getText();
+         if( numgt == null ) return false;
+         int ngt = Integer.parseInt( numgt );
+         if(ngt < 1) {
+             cp.mostraAvis( "el nombre de grups de teoria ha de ser major que 0", "ERROR");
+             return false;
+         }
+         String numgp = numSubgrups.getText();
+         if( numgp == null ){
+             cp.mostraAvis( "el nombre de subgrups ha de ser major o igual a 0", "ERROR");
+             return false;
+         }
+         int ngp = Integer.parseInt( numgp );
+         if(ngp < 0) {
+             cp.mostraAvis( "el nombre subgrups ha de ser major o igual a 0", "ERROR");
+             return false;
+         }
+         
+         ArrayList<Integer> grups = new ArrayList();
+            for(int i = 0; i < ngt; ++i){
+                for(int j = 0; j < ngp+1; ++j) grups.add((i+1)*10+j);
+            }
+            
+            int capT = Integer.parseInt((String) comboBoxOcupacioTeoria.getSelectedItem());
+            int capL = Integer.parseInt((String) ocupacioSubgrups.getSelectedItem());
+            
+            cp.creaAssignatura( nomAsg, nvl , ht, intsT, hp, intsP,
+            capT ,capL, grups);
+
+        return true;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botoIntervalsP;
+    private javax.swing.JButton botoIntervalsT;
     private javax.swing.JButton botoOK;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox comboBoxAssigs;
+    private javax.swing.JComboBox comboBoxOcupacioTeoria;
     private javax.swing.JComboBox comboBoxOpcionsAssig;
-    private javax.swing.JTextField fieldNomAssignatura;
+    private javax.swing.JTextField fieldNomAssignatura1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -1317,11 +1861,23 @@ public class PanelModificarDades extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1343,6 +1899,17 @@ public class PanelModificarDades extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSlider jSlider2;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner jSpinner10;
+    private javax.swing.JSpinner jSpinner2;
+    private javax.swing.JSpinner jSpinner3;
+    private javax.swing.JSpinner jSpinner4;
+    private javax.swing.JSpinner jSpinner5;
+    private javax.swing.JSpinner jSpinner6;
+    private javax.swing.JSpinner jSpinner7;
+    private javax.swing.JSpinner jSpinner8;
+    private javax.swing.JSpinner jSpinner9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
@@ -1355,9 +1922,24 @@ public class PanelModificarDades extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JLabel labelGrups;
+    private javax.swing.JLabel labelGrups1;
+    private javax.swing.JLabel labelGrups2;
     private javax.swing.JLabel labelNomAssignatura;
+    private javax.swing.JLabel labelNomAssignatura1;
+    private javax.swing.JLabel labelNomAssignatura2;
+    private javax.swing.JLabel labelNomAssignatura4;
+    private javax.swing.JLabel labelOcupacioT;
+    private javax.swing.JLabel labelOcupacioT1;
     private javax.swing.JTextArea llistaAssignatures;
+    private javax.swing.JTextField numGrupsTeoria;
+    private javax.swing.JTextField numSubgrups;
+    private javax.swing.JComboBox ocupacioSubgrups;
     private javax.swing.JLayeredPane panellDadesAssignatura;
+    private javax.swing.JSlider sliderT;
+    private javax.swing.JSpinner spinnerHoresP;
+    private javax.swing.JSpinner spinnerHoresT;
+    private javax.swing.JSpinner spinnerNivell1;
     // End of variables declaration//GEN-END:variables
 
     public void inicialitza() {
@@ -1373,5 +1955,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
         }
        this.llistaAssignatures.setText(totesAssig);
     }
+
+    
 
 }

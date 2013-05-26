@@ -439,11 +439,11 @@ class Generador {
 
     private boolean solapamentAssignaturaHora(ClausulaNom cn, Clausula c, 
             Clausula cl, ClausulaNom cln, int hor) {
-        if (    c.getAssignatura().equals(cl.getAssignatura()) &&
-                cn.getDia().equals(cln.getDia()) &&
-                hor-cl.getDuracio() < cln.getHora() && 
-                hor >= cln.getHora() &&
-                c.getGrup() == cl.getGrup()) return true;
+            boolean b = c.getAssignatura().equals(cl.getAssignatura());
+            boolean b2 = cn.getDia().equals(cln.getDia());
+            boolean b3 = hor-cl.getDuracio() < cln.getHora() && hor >= cln.getHora();
+            boolean b4 = (c.getGrup().equals(cl.getGrup()));
+        if (    b && b2 && b3 && b4) return true;
         return false;
     }
     

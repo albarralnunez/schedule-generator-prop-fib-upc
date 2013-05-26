@@ -109,7 +109,7 @@ class RestriccioAula extends Restriccio{
         return es_pot;
     }
 
-   public boolean compleixRes16(ClausulaNom cn,int dur) {
+   public boolean compleixRes15(ClausulaNom cn,int dur) {
         Aula aulaa = cn.getAula();
         int horaa = cn.getHora();
         String diaa = cn.getDia();
@@ -137,7 +137,7 @@ class RestriccioAula extends Restriccio{
         else if (dia.equals("diumenge"))d = 6;
         return d;
     }
-   public boolean compleixRes17(ClausulaNom cn) {
+   public boolean compleixRes16(ClausulaNom cn) {
         Aula aulaa = cn.getAula();
         String diaa = cn.getDia();
         if (this.aula.getNom().equals(aulaa.getNom())) { //Si hablan de la aula que esta restringida
@@ -157,7 +157,7 @@ class RestriccioAula extends Restriccio{
         return true;
     }
                 
-     public boolean compleixRes18(ClausulaNom cn,int duracio) {
+     public boolean compleixRes17(ClausulaNom cn,int duracio) {
         Aula aulaa = cn.getAula();
         String diaa = cn.getDia();
         if (this.aula.getNom().equals(aulaa.getNom())) { //Si hablan de la aula que esta restringida

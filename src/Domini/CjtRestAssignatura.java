@@ -124,15 +124,15 @@ public class CjtRestAssignatura extends CjtRestriccions {
             if (!b) {
                 break;
             }
-            if(rga.ObtenirId() == 6) b = rga.compleixRes6(cn,duracio);
-            else if(rga.ObtenirId() == 7) b = rga.compleixRes7(cn);
-            else if(rga.ObtenirId() == 8) b = rga.compleixRes8(cn,duracio);
+            if(rga.ObtenirId() == 5) b = rga.compleixRes5(cn,duracio);
+            else if(rga.ObtenirId() == 6) b = rga.compleixRes6(cn);
+            else if(rga.ObtenirId() == 7) b = rga.compleixRes7(cn,duracio);
+            else if(rga.ObtenirId() == 8) b = rga.compleixRes8(cn);
             else if(rga.ObtenirId() == 9) b = rga.compleixRes9(cn);
             else if(rga.ObtenirId() == 10) b = rga.compleixRes10(cn);
             else if(rga.ObtenirId() == 11) b = rga.compleixRes11(cn);
             else if(rga.ObtenirId() == 12) b = rga.compleixRes12(cn);
-            else if(rga.ObtenirId() == 13) b = rga.compleixRes13(cn);
-            else if(rga.ObtenirId() == 14) b = rga.compleixRes14(cn,duracio);
+            else if(rga.ObtenirId() == 13) b = rga.compleixRes13(cn,duracio);
         }
         return b;
     }
