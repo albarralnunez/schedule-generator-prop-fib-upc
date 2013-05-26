@@ -92,6 +92,7 @@ public class PanelVistaAules extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         comboBoxLlistaAules = new javax.swing.JComboBox();
         jLayeredPane2 = new javax.swing.JLayeredPane();
+        jLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(700, 550));
 
@@ -104,25 +105,25 @@ public class PanelVistaAules extends javax.swing.JPanel {
         jLabel32.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel32.setText("23");
-        jLabel32.setBounds(140, 530, 40, 22);
+        jLabel32.setBounds(140, 526, 40, 22);
         jLayeredPane1.add(jLabel32, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel31.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel31.setText("22");
-        jLabel31.setBounds(140, 510, 40, 22);
+        jLabel31.setBounds(140, 504, 40, 22);
         jLayeredPane1.add(jLabel31, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel30.setText("21");
-        jLabel30.setBounds(140, 490, 40, 22);
+        jLabel30.setBounds(140, 484, 40, 22);
         jLayeredPane1.add(jLabel30, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel29.setText("20");
-        jLabel29.setBounds(140, 460, 40, 22);
+        jLabel29.setBounds(140, 462, 40, 22);
         jLayeredPane1.add(jLabel29, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -134,19 +135,19 @@ public class PanelVistaAules extends javax.swing.JPanel {
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel27.setText("18");
-        jLabel27.setBounds(140, 420, 40, 22);
+        jLabel27.setBounds(140, 418, 40, 22);
         jLayeredPane1.add(jLabel27, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setText("17");
-        jLabel26.setBounds(140, 400, 40, 22);
+        jLabel26.setBounds(140, 396, 40, 22);
         jLayeredPane1.add(jLabel26, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel25.setText("16");
-        jLabel25.setBounds(140, 380, 40, 22);
+        jLabel25.setBounds(140, 372, 40, 22);
         jLayeredPane1.add(jLabel25, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -158,25 +159,25 @@ public class PanelVistaAules extends javax.swing.JPanel {
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel23.setText("14");
-        jLabel23.setBounds(140, 330, 40, 22);
+        jLabel23.setBounds(140, 328, 40, 22);
         jLayeredPane1.add(jLabel23, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setText("13");
-        jLabel22.setBounds(140, 310, 40, 22);
+        jLabel22.setBounds(140, 306, 40, 22);
         jLayeredPane1.add(jLabel22, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setText("12");
-        jLabel21.setBounds(140, 290, 40, 22);
+        jLabel21.setBounds(140, 284, 40, 22);
         jLayeredPane1.add(jLabel21, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setText("11");
-        jLabel20.setBounds(140, 270, 40, 22);
+        jLabel20.setBounds(140, 262, 40, 22);
         jLayeredPane1.add(jLabel20, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -188,25 +189,25 @@ public class PanelVistaAules extends javax.swing.JPanel {
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("9");
-        jLabel18.setBounds(140, 220, 40, 22);
+        jLabel18.setBounds(140, 218, 40, 22);
         jLayeredPane1.add(jLabel18, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("8");
-        jLabel17.setBounds(140, 200, 40, 22);
+        jLabel17.setBounds(140, 196, 40, 22);
         jLayeredPane1.add(jLabel17, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("7");
-        jLabel16.setBounds(140, 180, 40, 22);
+        jLabel16.setBounds(140, 174, 40, 22);
         jLayeredPane1.add(jLabel16, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("6");
-        jLabel15.setBounds(140, 160, 40, 22);
+        jLabel15.setBounds(140, 152, 40, 22);
         jLayeredPane1.add(jLabel15, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -218,31 +219,31 @@ public class PanelVistaAules extends javax.swing.JPanel {
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("4");
-        jLabel13.setBounds(140, 110, 40, 22);
+        jLabel13.setBounds(140, 108, 40, 22);
         jLayeredPane1.add(jLabel13, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("3");
-        jLabel12.setBounds(140, 90, 40, 22);
+        jLabel12.setBounds(140, 86, 40, 22);
         jLayeredPane1.add(jLabel12, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("2");
-        jLabel11.setBounds(140, 70, 40, 22);
+        jLabel11.setBounds(140, 64, 40, 22);
         jLayeredPane1.add(jLabel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("1");
-        jLabel9.setBounds(140, 50, 40, 22);
+        jLabel9.setBounds(140, 42, 40, 22);
         jLayeredPane1.add(jLabel9, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("DILLUNS");
-        jLabel3.setBounds(180, 0, 75, 20);
+        jLabel3.setBounds(175, 0, 75, 20);
         jLayeredPane1.add(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -266,7 +267,7 @@ public class PanelVistaAules extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("DIVENDRES");
-        jLabel7.setBounds(480, 0, 75, 20);
+        jLabel7.setBounds(470, 0, 75, 20);
         jLayeredPane1.add(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -278,29 +279,40 @@ public class PanelVistaAules extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("DIUMENGE");
-        jLabel8.setBounds(630, 0, 75, 20);
+        jLabel8.setBounds(620, 0, 75, 20);
         jLayeredPane1.add(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jButton1.setText("jButton1");
-        jButton1.setBounds(30, 180, 73, 23);
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton1.setText("<html><div style=text-align: center>  Vista Per</n> Hores </html>");
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setBounds(20, 230, 100, 35);
         jLayeredPane1.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jButton2.setText("jButton2");
-        jButton2.setBounds(30, 240, 73, 23);
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.setText("<html><div style=text-align: center> Tornar al</br> menu </html>");
+        jButton2.setActionCommand("");
+        jButton2.setBounds(20, 320, 100, 35);
         jLayeredPane1.add(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        comboBoxLlistaAules.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         comboBoxLlistaAules.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
         comboBoxLlistaAules.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxLlistaAulesActionPerformed(evt);
             }
         });
-        comboBoxLlistaAules.setBounds(30, 130, 70, 20);
+        comboBoxLlistaAules.setBounds(20, 150, 100, 33);
         jLayeredPane1.add(comboBoxLlistaAules, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLayeredPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLayeredPane2.setBounds(172, 20, 525, 528);
         jLayeredPane1.add(jLayeredPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Selecciona aula");
+        jLabel1.setBounds(20, 130, 100, 15);
+        jLayeredPane1.add(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -335,7 +347,6 @@ public class PanelVistaAules extends javax.swing.JPanel {
                         int grp = Integer.parseInt( asg.get(2));
                         etiquetes[d][h].escriuEtiqueta( asg.get(1), grp );
                     }
-                    //else //etiquetes[d][h].escriuEtiqueta( "N", -1);
                 }
             }
         }    
@@ -349,6 +360,7 @@ public class PanelVistaAules extends javax.swing.JPanel {
     private javax.swing.JComboBox comboBoxLlistaAules;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

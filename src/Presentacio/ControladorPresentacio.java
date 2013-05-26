@@ -260,7 +260,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
 
     public boolean generar() {
         ///////////////////////
-        cd.inicialitzaGenerador();
+        cd.inicialitzaGenerador( aules );
         ////////////////////////
         if ( cd.generar() ){
             cd.imprimeixHorari();

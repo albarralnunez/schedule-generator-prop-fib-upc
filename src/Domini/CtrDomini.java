@@ -116,25 +116,6 @@ public class CtrDomini {
             if (teoria == 1) cper.creaAulaTeo(nomUnitat+"-"+nomAula , params);
             else cper.creaAulaLab(nomUnitat+"-"+nomAula , params);
     }
-    /**
-     * TODO:TEMPORAL!
-     * Escriu un Aula per terminal  
-     * @param nomAula 
-     
-    public void printAula( String nomAula){
-        ArrayList<String> atributs = cper.llegirAula(nomUnitat+"-"+nomAula);
-        int t = Integer.parseInt(atributs.get(0));
-        String n = atributs.get (1);
-        int c = Integer.parseInt (atributs.get(2));
-        int b = Integer.parseInt (atributs.get(3));
-        if (t == 1) System.out.println("\nl'aula es de teoria");
-        else System.out.println("\nl'aula es de laboratori");
-        System.out.println("els valors actuals de "+n+" son \n capacitat="+c);
-        if (t==1 && b==1) System.out.println(" te projector\n");
-        if (t==1 && b==0) System.out.println(" no te projector\n");
-        if (t==0 && b==1) System.out.println(" te material\n");
-        if (t==0 && b==0) System.out.println(" no te material\n");
-    }*/
     
     /**
      * 
@@ -191,7 +172,7 @@ public class CtrDomini {
     /**
      * fara que s'inicialitzin la quadricula, les aules i les assignatures
      */
-    public void inicialitzaGenerador() {
+    public void inicialitzaGenerador( ArrayList<String> aules ) {
         
         
         ArrayList<String> configuracioInicial =  cper.llegirConfiguracioHoraria("configuracioHoraria-"+nomUnitat);
@@ -204,32 +185,30 @@ public class CtrDomini {
             assignatures.add( montaAssignatura( nomAsg ) );
             String prova = "";
         }
-
-        ArrayList<String> auesLab = cper.llistaAulesLab(nomUnitat);
+        
+        
         ArrayList<AulaLab> aLab = new ArrayList<AulaLab>();
-        for(String nom : auesLab){
-           nom = nom.replace("aula-lab-" +nomUnitat+"-", "");
-           nom = nom.replace(".txt", "");
+        for(String nom : aules){
            ArrayList<String> atributs = llegirAulaLab(nom);
-           boolean b = false;
-           if (Integer.parseInt (atributs.get(3)) == 1) b = true;
-           AulaLab a = new AulaLab(nom,Integer.parseInt (atributs.get(2)),b);
-           aLab.add(a);
+           if( ! atributs.isEmpty() ){
+                boolean b = false;
+                if (Integer.parseInt (atributs.get(3)) == 1) b = true;
+                AulaLab a = new AulaLab(nom,Integer.parseInt (atributs.get(2)),b);
+                aLab.add(a);
+           }
         }
         
-        ArrayList llistAules = cper.llistaAulesTeo(nomUnitat);
         ArrayList<AulaTeo> aTeo = new ArrayList<AulaTeo>();
-        for (int i = 0; i < llistAules.size(); ++i) {
-           Object nomO = llistAules.get(i);
+        for (int i = 0; i < aules.size(); ++i) {
+           Object nomO = aules.get(i);
            String nom = nomO.toString();
-           nom = nom.replace("aula-teo-"+nomUnitat+"-", "");
-           nom = nom.replace(".txt", "");
            ArrayList<String> atributs = llegirAulaTeo(nom);
-           boolean b;
-           if (Integer.parseInt (atributs.get(3)) == 1) b = true;
-           else b = false;
-           AulaTeo a = new AulaTeo(nom,Integer.parseInt (atributs.get(2)),b);
-           aTeo.add(a);
+           if( ! atributs.isEmpty()){
+                boolean b = false;
+                if (Integer.parseInt (atributs.get(3)) == 1) b = true;
+                AulaTeo a = new AulaTeo(nom,Integer.parseInt (atributs.get(2)),b);
+                aTeo.add(a);
+           }
         }
         
         cgen.inicialitzarGenerador(configuracioInicial, assignatures, aLab, aTeo); 
@@ -795,37 +774,6 @@ public class CtrDomini {
         return true;
     }
     
-    /*
-    public ArrayList aulaAssignadaALes(String aula, int dia, int h){
-        ArrayList res = new ArrayList();
-        Quadricula q = cgen.getQuad();
-        String d = "dilluns";
-        if ( dia == 1) d = "dimarts";
-        else if (dia == 2) d = "dimecres";
-        else if (dia == 3) d = "dijous";
-        else if (dia == 4) d = "divendres";
-        else if (dia == 5) d = "dissabte";
-        else if (dia == 6) d = "diumenge";
-        CjtElements cje = q.getElementsPosicio(d, h);
-        //boolean b = false;
-        String asg = "";
-        int grp = -1;
-        if ( cje.isValid() ){
-            int nume = cje.numeroElements();
-            for( int i = 0; (0 < nume) ; ++i){   // && b == false
-                if( cje.getElementPosicio(i).getAula().getNom().equals(aula)){
-                    //b=true;
-                    asg = cje.getElementPosicio(i).getAssignatura().getNom();
-                    grp = cje.getElementPosicio(i).getGrupo();
-                }
-            }
-        }
-        //res.add(b);
-        res.add(asg);
-        res.add(grp);
-        return res;
-    }*/
-
     public boolean aulaAssignadaALes(String aula, int dia, int h, String asg, int grp){
         
         Quadricula q = cgen.getQuad();
