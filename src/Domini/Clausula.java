@@ -178,7 +178,7 @@ public class Clausula {
     }
     public boolean compleixRestsSolapament(Clausula c, ClausulaNom cn, Clausula e,int h,String dia){
         //return this.cjtRestS.ComprovarRess(this.assignatura.getNom(), this.grup, e);
-        return this.cjtRestS.ComprovarRes(c, cn, c, h, dia);
+        return this.cjtRestS.ComprovarRes(c, cn, e, h, dia);
     }
     private boolean compleixResDomini(ClausulaNom cn){
         if(!compleixRestsAssignatura(cn)) return false;
