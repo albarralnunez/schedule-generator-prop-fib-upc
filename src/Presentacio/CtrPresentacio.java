@@ -57,35 +57,34 @@ public class CtrPresentacio {
     
     private static void definirRes(){
         int opcio = 0;
-        while( opcio != 19 ) {
+        while( opcio != 18 ) {
             System.out.println(" OPCIONS ");
             
             System.out.println(" 1 - Restringir un grup de una assignatura a una aula");
             System.out.println(" 2 - Restringir que un grup de una assignatura no pugui anar a una aula");
             
-            System.out.println(" 3 - Restringir un grup de una assignatura a impartir-se en un dia i a una hora"); 
-            System.out.println(" 4 - Restringir un grup de una assignatura per a que nomes s'imparteixi abans de un dia i hora");
-            System.out.println(" 5 - Restringir un grup de una assignatura per a que nomes s'imparteixi despres de un dia i hora");
+            System.out.println(" 3 - Restringir un grup de una assignatura per a que nomes s'imparteixi abans de un dia i hora");
+            System.out.println(" 4 - Restringir un grup de una assignatura per a que nomes s'imparteixi despres de un dia i hora");
             
-            System.out.println(" 6 - Restringir una hora en la que no es pugui impartir un grup de una assignatura"); 
-            System.out.println(" 7 - Restringir una hora en la que a partir d'aquesta no es pugui impartir un grup de una assignatura en una hora igual o anterior a la definida");
-            System.out.println(" 8 - Restringir una hora en la que a partir d'aquesta no es pugui impartir un grup de una assignatura en una hora igual o posterior a la definida");
+            System.out.println(" 5 - Restringir una hora en la que no es pugui impartir un grup de una assignatura"); 
+            System.out.println(" 6 - Restringir una hora en la que a partir d'aquesta no es pugui impartir un grup de una assignatura en una hora igual o anterior a la definida");
+            System.out.println(" 7 - Restringir una hora en la que a partir d'aquesta no es pugui impartir un grup de una assignatura en una hora igual o posterior a la definida");
             
-            System.out.println(" 9 - Restringir un dia per a que no es pugui impartir una assig+grup");
-            System.out.println(" 10 - Restringir un dia per a que a partir d'aquest no es pugui impartir una assig+grup en un dia igual o anterior definit");
-            System.out.println(" 11 - Restringir un dia per a que a partir d'aquest no es pugui impartir una assig+grup en un dia igual o posterior al definit");
+            System.out.println(" 8 - Restringir un dia per a que no es pugui impartir una assig+grup");
+            System.out.println(" 9 - Restringir un dia per a que a partir d'aquest no es pugui impartir una assig+grup en un dia igual o anterior definit");
+            System.out.println(" 10 - Restringir un dia per a que a partir d'aquest no es pugui impartir una assig+grup en un dia igual o posterior al definit");
             
-            System.out.println(" 12 - Restringir que no es pugui impartir un grup de una assignatura en un dia i una hora");
-            System.out.println(" 13 - Restringir un dia i hora per a que a partir d'aquest no es pugui impartir una assig+grup en un dia i hora igual o anterior definit");
-            System.out.println(" 14 - Restringir un dia i hora per a que a partir d'aquest no es pugui impartir una assig+grup en un dia i hora igual o posterior al definit");
+            System.out.println(" 11 - Restringir que no es pugui impartir un grup de una assignatura en un dia i una hora");
+            System.out.println(" 12 - Restringir un dia i hora per a que a partir d'aquest no es pugui impartir una assig+grup en un dia i hora igual o anterior definit");
+            System.out.println(" 13 - Restringir un dia i hora per a que a partir d'aquest no es pugui impartir una assig+grup en un dia i hora igual o posterior al definit");
 
-            System.out.println(" 15 - Una assig+grup no es pot impartir a la vegada que una altre temporalmente parlant"); 
+            System.out.println(" 14 - Una assig+grup no es pot impartir a la vegada que una altre temporalmente parlant"); 
             
-            System.out.println(" 16 - inhabilitar una aula a un dia/hora");
-            System.out.println(" 17 - inhabilitar una aula abans de un dia/hora");
-            System.out.println(" 18 - inhabilitar una aula despres de un dia/hora");
+            System.out.println(" 15 - inhabilitar una aula a un dia/hora");
+            System.out.println(" 16 - inhabilitar una aula abans de un dia/hora");
+            System.out.println(" 17 - inhabilitar una aula despres de un dia/hora");
             
-            System.out.println(" 19 - Tornar");
+            System.out.println(" 18 - Tornar");
             opcio = s.nextInt();
             
             if( 0<opcio && opcio <3 ){
@@ -113,7 +112,7 @@ public class CtrPresentacio {
                     if(rep.equals("n")) repetir = false;
                }
             }
-            else if(2<opcio && opcio<6 ){
+            else if(2<opcio && opcio<5 ){
                 boolean repetir = true;
                 String rep;
                 ArrayList params;
@@ -140,7 +139,7 @@ public class CtrPresentacio {
                     if(rep.equals("n")) repetir = false;
                }
             }
-            else if(5<opcio && opcio <9 ){
+            else if(4<opcio && opcio <8 ){
                 boolean repetir = true;
                 String assignatura;
                 Integer grup;
@@ -165,7 +164,7 @@ public class CtrPresentacio {
                     if(rep.equals("n")) repetir = false;
                }   
             }
-            else if(8<opcio && opcio < 12 ){
+            else if(7<opcio && opcio < 11 ){
                 boolean repetir = true;
                 String assignatura;
                 Integer grup;
@@ -191,7 +190,7 @@ public class CtrPresentacio {
                }
                 
             }
-            else if(11<opcio && opcio < 15 ){
+            else if(10<opcio && opcio < 14 ){
                 boolean repetir = true;
                 String assignatura;
                 Integer grup;
@@ -221,7 +220,7 @@ public class CtrPresentacio {
                }
                 
             }
-            else if(opcio == 15 ){
+            else if(opcio == 14 ){
                 boolean repetir = true;
                 String assignaturaP;
                 Integer grupP =null;
@@ -257,7 +256,7 @@ public class CtrPresentacio {
                }
                 
             }
-            else if(15<opcio && opcio<19 ){
+            else if(14<opcio && opcio<18 ){
                 boolean repetir = true;
                 String Aula;
                 Integer hora;

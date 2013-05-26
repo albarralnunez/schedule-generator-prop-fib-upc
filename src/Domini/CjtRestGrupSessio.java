@@ -93,9 +93,8 @@ public class CjtRestGrupSessio extends CjtRestriccions{
         boolean b = true;
         for( RestGrupSessio gs : restriccionsGrupSesio){
             if(!b) break;
-            if(gs.ObtenirId() == 3) b = gs.CompleixRes3(cn);
-            else if(gs.ObtenirId() == 4) b= gs.CompleixRes4(cn,duracio);
-            else if(gs.ObtenirId() == 5) b= gs.CompleixRes5(cn);
+            else if(gs.ObtenirId() == 3) b= gs.CompleixRes3(cn,duracio);
+            else if(gs.ObtenirId() == 4) b= gs.CompleixRes4(cn);
         }
         return b;
     }

@@ -114,12 +114,8 @@ public class RestGrupSessio extends Restriccio{
         }
         return compleix;
     }*/
-    public boolean CompleixRes3(ClausulaNom cn) {
-            if(cn.getHora() == this.horaInici && canviStringIntDia(cn.getDia()) == this.dia) return true;
-            else return false;
-        
-    }
-    public boolean CompleixRes4(ClausulaNom cn,int duracio) {
+    
+    public boolean CompleixRes3(ClausulaNom cn,int duracio) {
             if (this.canviIntStringDia().equals(cn.getDia())) {
                 if ((cn.getHora() < this.horaInici) && ((cn.getHora() + duracio) > this.horaInici )) return false;
                 if ((cn.getHora() >= this.horaInici)) return false;
@@ -129,7 +125,7 @@ public class RestGrupSessio extends Restriccio{
             else if (canviDiaInt(cn.getDia()) > this.dia)return false;
             return true;
    }
-    public boolean CompleixRes5(ClausulaNom cn) {
+    public boolean CompleixRes4(ClausulaNom cn) {
             if (this.canviIntStringDia().equals(cn.getDia())) {
                 if ((cn.getHora() < (this.horaInici+1))) return false;
                 else return true;
