@@ -69,7 +69,6 @@ public class CtrDisc {
                 llista.add(llistaArxius[i]);
             }
         }
-
         return llista;
     }
 
