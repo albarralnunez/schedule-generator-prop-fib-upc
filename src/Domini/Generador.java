@@ -267,10 +267,11 @@ class Generador {
                 boolean esVal = true;
                 int i = 0;
                 ArrayList<Clausula> auxc = new ArrayList<Clausula>();
-                for (Clausula caa : clau) {
-                    Clausula aux = new Clausula(caa);
+                for (int u = 0; u < clau.size();++u) {
+                    Clausula aux = new Clausula(clau.get(j));
                     auxc.add(aux);
                 }
+                backUp.push(auxc);
                 while (i < duracio && esVal) {
                     int hor = cn.getHora()+i;
                     String di = cn.getDia();
@@ -280,7 +281,8 @@ class Generador {
                 }
                 if (esVal) return backtracking(clau, qu,j+1);
                 else {
-                    clau = auxc;
+                    clau = backUp.pop();
+                    //clau = auxc;
                     while (i >= 0){
                        int hor = cn.getHora() + i;
                        String di = cn.getDia();
