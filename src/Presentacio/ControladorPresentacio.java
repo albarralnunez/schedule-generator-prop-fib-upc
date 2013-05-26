@@ -264,6 +264,8 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         
     public boolean generar() {
         ///////////////////////
+        boolean a = cd.existeixRest(unitatDocent);
+        if(a) cd.montaRestriccions(unitatDocent);
         if ( cd.generar() ){
             cd.imprimeixHorari();
             return true;
