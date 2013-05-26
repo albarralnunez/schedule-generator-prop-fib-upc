@@ -926,4 +926,8 @@ public class CtrDomini {
         return resultat;
     }
 
+    public ArrayList<String> carregaLlistaHoraris() {
+       return cper.getLlistaHoraris( nomUnitat);
+    }
+
 }

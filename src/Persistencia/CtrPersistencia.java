@@ -198,4 +198,9 @@ public class CtrPersistencia {
     public boolean existeixRest(String nomUnitat) {
         return ca.existeix("restriccions-"+nomUnitat); //diu si existeix el arixu restriccions-nomUnitat
     }
+
+    public ArrayList<String> getLlistaHoraris(String nomUnitat) {
+        return cdisc.llistaDirectori("horari-"+nomUnitat);
+        
+    }
 }

@@ -103,6 +103,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         }
         else if (nomPanel.equals("PanelVeureHoraris")) {
             pVeuH.setNomUnitatDocent(unitatDocent);
+            pVeuH.carregaLlistaHoraris();
             pVeuH.setVisible(true);
         }
         else if (nomPanel.equals("PanelGeneracioRest")) {
@@ -282,6 +283,10 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     boolean guardar(String nomH) {
         if(  nomH == null )return false;
         return cd.guardaHorari(nomH);
+    }
+
+    ArrayList<String> carregaLlistaHoraris() {
+        return cd.carregaLlistaHoraris();
     }
 
     

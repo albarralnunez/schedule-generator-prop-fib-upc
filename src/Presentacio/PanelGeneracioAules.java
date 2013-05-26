@@ -179,10 +179,7 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
         jList1.setModel(listModel);
         ArrayList<String> Aules = cp.llistaAules();
         for (String aul : Aules) {
-            aul = aul.substring(0, aul.length()-4); //QUITAMOS EL .txt
-            //aul = aul.substring(9, aul.length()); //QUITAMOS EL aula-lab- ó aula-teo-
-            //String unitatDocent = cp.getNomUnitatDocent();
-            //aul = aul.substring(unitatDocent.length()+1, aul.length()); //QUITAMOS EL FIB-
+            aul = aul.substring(0, aul.length()-4); 
             listModel.addElement(aul);
         }
         jButton1.setEnabled(true);
