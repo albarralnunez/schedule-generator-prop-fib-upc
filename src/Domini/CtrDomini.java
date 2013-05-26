@@ -60,6 +60,9 @@ public class CtrDomini {
     public void inicialitzarClausules(){
          cgen.inicialitzarClausules();
     }
+    public void inicialitzarClausulesNom(){
+        cgen.inicialitzarClausulesNom();
+    }
     /**
      * 
      * @param nomAsg
@@ -290,9 +293,9 @@ public class CtrDomini {
      * 
      */
     public boolean generar( ) {
-        ArrayList<String> configuracioInicial = 
-                cper.llegirConfiguracioHoraria("configuracioHoraria-"+nomUnitat);
+        ArrayList<String> configuracioInicial = cper.llegirConfiguracioHoraria("configuracioHoraria-"+nomUnitat);
         return cgen.generar(configuracioInicial);
+        
     }
     
     

@@ -151,9 +151,12 @@ public class RestAssignatura extends Restriccio {
     }
     public boolean compleixRes7(ClausulaNom cn,int duracio){
             if(this.hora != -1){
-                if ((cn.getHora() < this.hora) && ((cn.getHora() + duracio) > this.hora)) return false;
-                if ((cn.getHora() >= this.hora)) return false;
-                else return true;
+                //if ((cn.getHora() < this.hora) && ((cn.getHora() + duracio) > this.hora)) return false;
+                //if ((cn.getHora() >= this.hora)) return false;
+                //else return true;
+                if(cn.getHora()>= this.hora) return false;
+                else if(cn.getHora() + duracio > this.hora) return false;
+                else if(cn.getHora() + duracio <= this.hora)return true;
             }
         return true;
     }
