@@ -306,8 +306,7 @@ public class CtrPresentacio {
     
     
     private static void generar() {
-        
-       cd.inicialitzaGenerador(); // inicialitza quadricula, aules i assignatures
+       //cd.inicialitzaGenerador(); // inicialitza quadricula, aules i assignatures
        cd.inicialitzarClausules(); //Clausules
        cd.inicialitzarClausulesNom();//CLausulesNOM
        int opcio = 0;

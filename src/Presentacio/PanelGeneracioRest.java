@@ -66,7 +66,7 @@ public class PanelGeneracioRest extends javax.swing.JPanel {
         jButton10 = new javax.swing.JButton();
 
         jLabel1.setText("RESTRICCIONS DISPONIBLES:");
-        jLabel1.setBounds(20, 10, 210, 15);
+        jLabel1.setBounds(20, 10, 210, 14);
         jLayeredPane1.add(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jSeparator1.setBounds(0, 440, 180, 30);
         jLayeredPane1.add(jSeparator1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -76,19 +76,19 @@ public class PanelGeneracioRest extends javax.swing.JPanel {
         jLayeredPane1.add(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel3.setText("1. Restringir un grup a una aula");
-        jLabel3.setBounds(0, 40, 230, 15);
+        jLabel3.setBounds(0, 40, 230, 14);
         jLayeredPane1.add(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel4.setText("2. Restringir un grup a un dia i hora");
-        jLabel4.setBounds(0, 100, 270, 15);
+        jLabel4.setBounds(0, 100, 270, 14);
         jLayeredPane1.add(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel5.setText("3. Restringir una assig+grup a una hora");
-        jLabel5.setBounds(0, 170, 300, 15);
+        jLabel5.setBounds(0, 170, 300, 14);
         jLayeredPane1.add(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel6.setText("4. Restringir una assig+grup en un día");
-        jLabel6.setBounds(0, 240, 300, 15);
+        jLabel6.setBounds(0, 240, 300, 14);
         jLayeredPane1.add(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel7.setText("5. Dues assig+grup no poden cursarse a la vegada");
@@ -96,31 +96,31 @@ public class PanelGeneracioRest extends javax.swing.JPanel {
         jLayeredPane1.add(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.setBounds(20, 60, 120, 24);
+        jComboBox1.setBounds(20, 60, 120, 20);
         jLayeredPane1.add(jComboBox1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox2.setBounds(20, 130, 120, 24);
+        jComboBox2.setBounds(20, 130, 120, 20);
         jLayeredPane1.add(jComboBox2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox3.setBounds(20, 200, 120, 24);
+        jComboBox3.setBounds(20, 200, 120, 20);
         jLayeredPane1.add(jComboBox3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox4.setBounds(20, 270, 120, 24);
+        jComboBox4.setBounds(20, 270, 120, 20);
         jLayeredPane1.add(jComboBox4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox5.setBounds(20, 330, 120, 24);
+        jComboBox5.setBounds(20, 330, 120, 20);
         jLayeredPane1.add(jComboBox5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox6.setBounds(20, 400, 120, 24);
+        jComboBox6.setBounds(20, 400, 120, 20);
         jLayeredPane1.add(jComboBox6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel8.setText("RESTRICCIONS ESCOLLIDES:");
-        jLabel8.setBounds(390, 50, 210, 15);
+        jLabel8.setBounds(390, 50, 210, 14);
         jLayeredPane1.add(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jList1.setModel(new javax.swing.AbstractListModel() {
@@ -139,11 +139,16 @@ public class PanelGeneracioRest extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jButton1.setBounds(390, 350, 79, 25);
+        jButton1.setBounds(390, 350, 63, 23);
         jLayeredPane1.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton2.setText("GENERAR");
-        jButton2.setBounds(520, 420, 120, 50);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jButton2.setBounds(520, 440, 120, 30);
         jLayeredPane1.add(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -157,7 +162,7 @@ public class PanelGeneracioRest extends javax.swing.JPanel {
                 jButton4ActionPerformed(evt);
             }
         });
-        jButton4.setBounds(20, 450, 91, 25);
+        jButton4.setBounds(20, 450, 73, 23);
         jLayeredPane1.add(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jSeparator2.setBounds(0, 30, 180, 20);
         jLayeredPane1.add(jSeparator2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -225,6 +230,13 @@ public class PanelGeneracioRest extends javax.swing.JPanel {
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         cp.canviaPanel("PanelGeneracioAules");
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if( cp.generar() ){
+            cp.canviaPanel("PanelVistaAules");
+        }
+        else cp.mostraAvis("no s'ha pogut generar cap horari amb aquesta configuracio", "ERROR");
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
