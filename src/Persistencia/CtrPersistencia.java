@@ -110,8 +110,10 @@ public class CtrPersistencia {
      * @return Llegeix un Aula
      */
     public ArrayList<String> llegirAula(String nomAula) {
-            return ca.llegirArxiu( nomAula);
-
+            ArrayList<String> a = new ArrayList<String>(); 
+            if( ca.existeix(nomAula) )
+                a =  ca.llegirArxiu( nomAula);
+            return a;
     }
     
     public ArrayList<String> llegirAulaTeo (String nomAula) {

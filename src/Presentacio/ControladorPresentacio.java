@@ -30,6 +30,9 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     PanelGeneracioAules pGenAul;
     PanelVeureHoraris pVeuH;
     PanelGeneracioRest pGenR;
+    PanelVistaAules pva;
+    
+    ArrayList<String> aules;
 
     public ControladorPresentacio() {
         initComponents();
@@ -43,6 +46,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         pGenAul = new PanelGeneracioAules(this);
         pVeuH = new PanelVeureHoraris(this);
         pGenR= new PanelGeneracioRest(this);
+        pva = new PanelVistaAules(this);
         
         this.Layered.add(pLogin);
         this.Layered.add(pMenup);
@@ -52,6 +56,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         this.Layered.add(pGenAul);
         this.Layered.add(pVeuH);
         this.Layered.add(pGenR);
+        this.Layered.add(pva);
         canviaPanel("login");
     }
     
@@ -73,6 +78,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         pGenAul.setVisible(false);
         pVeuH.setVisible(false);
         pGenR.setVisible(false);
+        pva.setVisible(false);
 
         if(nomPanel.equals("login")) pLogin.setVisible(true);
         else if(nomPanel.equals("menuPrincipal")) {
@@ -100,6 +106,9 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         }
         else if (nomPanel.equals("PanelGeneracioRest")) {
             pGenR.setVisible(true);
+        }
+        else if (nomPanel.equals("PanelVistaAules")){
+            pva.setVisible(true);
         }
         
     }
@@ -149,7 +158,6 @@ public class ControladorPresentacio extends javax.swing.JFrame {
 
     public ArrayList<String> llistaAssignatures() {
         return cd.llistaAssignatures();
-        
     }
 
     public ArrayList<String> llistaAules() {
@@ -216,9 +224,15 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         cd.afegirRestriccio(i, params);
     }
 
+
     /*public boolean AfegirRestriccioGrupSessio(String ass, Integer grup, String dia, Integer hora, Integer opcio) {
         return cd.AfegirRestriccioGrupSessio(ass, grup, dia, hora, opcio);
     }*/
+
+    public boolean AfegirRestriccioGrupSessio(String ass, Integer grup, String dia, Integer hora, Integer opcio) {
+        return true;// cd.AfegirRestriccioGrupSessio(ass, grup, dia, hora, opcio);
+    }
+>>>>>>> c70b06fac5f6068b02cde1e7a4c0800a1dba9b9d
 
     public ArrayList< String> llistaRest(int opcio) {
         return cd.llistaRest(opcio);
@@ -237,8 +251,34 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         return cd.existeixAssignatura(nomAsg);
     }
 
-    void creaAssignatura(String nomAsg, int nvl, int ht, ArrayList<Integer> intsT, int hp, ArrayList<Integer> intsP, int capT, int capL, ArrayList<Integer> grups) {
+    public void creaAssignatura(String nomAsg, int nvl, int ht, ArrayList<Integer> intsT, int hp, ArrayList<Integer> intsP, int capT, int capL, ArrayList<Integer> grups) {
         cd.creaAssignatura(nomAsg, nvl, ht, intsT, hp, intsP, capT, capL, grups);
     }
+    
+    public void aulesSeleccionades( ArrayList<String> as){
+        aules = as;
+        pva.posaConjuntAules(as);
+    }
+    
+    public boolean aulaAssignadaALes(String aula, int dia, int h, String asg, int grp){
+        return cd.aulaAssignadaALes(aula, dia, h, asg, grp);
+    }
+
+    public boolean generar() {
+        ///////////////////////
+        cd.inicialitzaGenerador( aules );
+        ////////////////////////
+        if ( cd.generar() ){
+            cd.imprimeixHorari();
+            return true;
+        }
+        return false;  
+    }
+
+    ArrayList<String> aulaAssignadaALes(String nomAula, int d, int h) {
+        return cd.aulaAssignadaALes(nomAula, d, h);
+    }
+
+    
 
 }

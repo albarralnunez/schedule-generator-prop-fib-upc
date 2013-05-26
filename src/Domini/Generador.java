@@ -243,12 +243,17 @@ class Generador {
     
     public boolean generar( Quadricula q) {
         //inicialitzarCjtRestriccions(cjtResGA, cjtRestAss, cjtRestGS, cjtRestS,cjtRestAul);
+        long timeInMillis11 = System.currentTimeMillis();
         reduirClausulesNom();
+        long timeInMillis12 = System.currentTimeMillis();
+        System.out.println("-------------Time in milis--Ini-----------");
+        System.out.println(timeInMillis12-timeInMillis11);
+        System.out.println("-------------Time in milis-------------\n");
         backUp = new Stack<ArrayList<Clausula>>();  		
 	long timeInMillis = System.currentTimeMillis();
         boolean b = backtracking(this.clausules, q,0);
         long timeInMillis1 = System.currentTimeMillis();
-        System.out.println("-------------Time in milis-------------");
+        System.out.println("-------------Time in milis-B------------");
         System.out.println(timeInMillis1-timeInMillis);
         System.out.println("-------------Time in milis-------------\n");
         return b;
@@ -267,10 +272,11 @@ class Generador {
                 boolean esVal = true;
                 int i = 0;
                 ArrayList<Clausula> auxc = new ArrayList<Clausula>();
-                for (Clausula caa : clau) {
-                    Clausula aux = new Clausula(caa);
+                for (int u = j+1; u < clau.size(); ++u) {
+                    Clausula aux = new Clausula(clau.get(u));
                     auxc.add(aux);
                 }
+                //backUp.push(auxc);
                 while (i < duracio && esVal) {
                     int hor = cn.getHora()+i;
                     String di = cn.getDia();
@@ -278,9 +284,18 @@ class Generador {
                     if (!propagaRest(clau, cn, c,hor,j)) esVal = false;
                     ++i;
                 }
-                if (esVal) return backtracking(clau, qu,j+1);
+                if (esVal)  {
+                    if (backtracking(clau, qu,j+1)) return true;
+                    else return false;//clau = backUp.pop();
+                }
                 else {
-                    clau = auxc;
+                    //clau = backUp.pop();
+                    int p = 0;
+                    for (int u = j+1; u < clau.size();++u) {
+                        clau.remove(u);
+                        clau.add(u, auxc.get(p));
+                        ++p;
+                    }
                     while (i >= 0){
                        int hor = cn.getHora() + i;
                        String di = cn.getDia();
@@ -348,20 +363,32 @@ class Generador {
          if(!c.compleixRestsSolapament(cl,cln,c,hor,dia)) return true;
          //if (mateixNivell(cn,c,cl,cln,hor)) return true;
          if (solapamentAssignaturaHora(cn,c,cl,cln,hor)) return true;
+         if (solapamentAssigGrupDia(cn,c,cl,cln,hor)) return true;
          return false;
     }
     
     private boolean solapamentTeoriaPractica (ClausulaNom cn, Clausula c, 
             Clausula cl,ClausulaNom cln, int hor) {
+            int grc = c.getGrup();
+            int grcl = cl.getGrup();
         if (    c.getAssignatura().equals(cl.getAssignatura()) &&
                 cn.getDia().equals(cln.getDia()) &&
                 hor-cl.getDuracio() < cln.getHora() && 
                 hor >= cln.getHora() &&
-                c.getGrup()%10 != cl.getGrup()%10 &&
-                c.getGrup()/10 == cl.getGrup()/10) return true;
+                grc%10 != grcl%10 && grc/10 == grcl/10) return true;
         return false;
     }
 
+        private boolean solapamentAssigGrupDia (ClausulaNom cn, Clausula c, 
+            Clausula cl,ClausulaNom cln, int hor) {
+            int grc = c.getGrup();
+            int grcl = cl.getGrup();
+        if (    c.getAssignatura().equals(cl.getAssignatura()) &&
+                cn.getDia().equals(cln.getDia()) &&
+                grc == grcl) return true;
+        return false;
+    }
+        
     private boolean aulaRepetida(ClausulaNom cn, Clausula c, Clausula cl, 
             ClausulaNom cln, int hor) {
         if (    cn.getDia().equals(cln.getDia()) &&
@@ -374,14 +401,18 @@ class Generador {
 
     private boolean mateixNivell(ClausulaNom cn, Clausula c, Clausula cl, 
             ClausulaNom cln, int hor) {
-                if (    cn.getDia().equals(cln.getDia()) &&
+       int grc = c.getGrup();
+       int grcl = cl.getGrup();
+       if (    cn.getDia().equals(cln.getDia()) &&
                 hor-cl.getDuracio() < cln.getHora() && 
                 hor >= cln.getHora() &&
-                !c.getAssignatura().equals(cl.getAssignatura()) &&          
-                c.getAssignatura().getNivell() == cl.getAssignatura().getNivell()
-                ) return true;
+                !c.getAssignatura().getNom().equals(cl.getAssignatura().getNom()) &&          
+                c.getAssignatura().getNivell() == cl.getAssignatura().getNivell() &&
+                grc == grcl) return true;
         return false;
     }
+    
+    
     public boolean afegirRest(int tipus,Restriccio r){
         if(tipus == 1){
             RestGrupoAula rga = (RestGrupoAula) r;

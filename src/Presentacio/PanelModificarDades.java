@@ -1381,12 +1381,6 @@ public class PanelModificarDades extends javax.swing.JPanel {
 
 
 
-
-
-
-
-
-
         }
 
 
