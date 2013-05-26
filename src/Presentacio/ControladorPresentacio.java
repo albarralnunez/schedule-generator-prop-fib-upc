@@ -225,7 +225,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     }
 
     public boolean AfegirRestriccioGrupSessio(String ass, Integer grup, String dia, Integer hora, Integer opcio) {
-        return cd.AfegirRestriccioGrupSessio(ass, grup, dia, hora, opcio);
+        return true;// cd.AfegirRestriccioGrupSessio(ass, grup, dia, hora, opcio);
     }
 
     public ArrayList< String> llistaRest(int opcio) {
