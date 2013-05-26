@@ -452,8 +452,8 @@ public class CtrDomini {
             r.setGrup((Integer) params.get(1));
             r.setAula((String) params.get(2));
             r.setId((Integer) params.get(3));
-            boolean b = cgen.afegirRest(tipus,r);
-            cgen.setResResGA(r);
+            cgen.afegirRest(tipus,r);
+           
         }
         else if(tipus == 2){
             RestGrupSessio r = new RestGrupSessio();
@@ -554,8 +554,8 @@ public class CtrDomini {
                 r.setHora((Integer)params.get(2));
                 r.setDia((String)params.get(1));
                 r.setId((Integer) params.get(3));
-                
-                cgen.afegirRest(tipus, r);
+                boolean b = this.cgen.getQuad().getElementsPosicio(r.getDia(), r.getHora()).isValid();
+                if(b)cgen.afegirRest(tipus, r);
             }
             
         }

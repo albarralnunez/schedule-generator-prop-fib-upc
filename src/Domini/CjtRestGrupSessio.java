@@ -54,7 +54,7 @@ public class CjtRestGrupSessio extends CjtRestriccions{
      * @param r Es la restriccio de RestGrupSessio
      */
     public void afegir_rest(RestGrupSessio r) {
-        restriccionsGrupSesio.add(r);
+        if(esValid(r))restriccionsGrupSesio.add(r);
     }
     /**@pre: La restricció a borrar ha estat verificada per la clase RestGrupSessio
      * @post: Queda borrada la restriccio a l'arraylist restriccionsGrupSesio
@@ -98,5 +98,13 @@ public class CjtRestGrupSessio extends CjtRestriccions{
         }
         return b;
     }
-
+    
+    private boolean esValid(RestGrupSessio r){
+        for(RestGrupSessio rs : this.restriccionsGrupSesio){
+            if(rs.ObtenirId()==r.ObtenirId()){
+                if(rs.getAssignatura().equals(r.getAssignatura()) && rs.getGrup().equals(r.getGrup()) && rs.getDia()==r.getDia() && rs.getHora().equals(r.getHora()) ) return false;
+            }
+        }
+        return true;
+    }
 }

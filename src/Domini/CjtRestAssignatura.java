@@ -82,7 +82,7 @@ public class CjtRestAssignatura extends CjtRestriccions {
      * @param r Es la restriccio de RestriccioAUla
      */
     public void setRest(RestAssignatura r) {
-        restsAssignatura.add(r);
+        if(esValid(r))restsAssignatura.add(r);
     }
 
     /**
@@ -135,5 +135,19 @@ public class CjtRestAssignatura extends CjtRestriccions {
             else if(rga.ObtenirId() == 13) b = rga.compleixRes13(cn,duracio);
         }
         return b;
+    }
+    private boolean esValid(RestAssignatura r){
+        for(RestAssignatura ra: this.restsAssignatura){
+            if(ra.ObtenirId() == r.ObtenirId()){
+                if(ra.getAssignatura() == r.getAssignatura() && ra.getGrup() == r.getGrup() && ra.getHora() == r.getHora()){
+                    if(ra.getDia() == null && r.getDia()== null) return false;
+                    else if(ra.getDia() != null && r.getDia() != null){
+                        if(ra.getDia().equals(r.getDia())) return false;
+                    }
+                }
+            
+            }
+        }
+        return true;
     }
 }
