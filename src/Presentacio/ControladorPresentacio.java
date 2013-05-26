@@ -277,6 +277,11 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         return cd.aulaAssignadaALes(nomAula, d, h);
     }
 
+    boolean guardar(String nomH) {
+        if(  nomH == null )return false;
+        return cd.guardaHorari(nomH);
+    }
+
     
 
 }
