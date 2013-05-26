@@ -300,6 +300,7 @@ public class CtrDomini {
             String[] aux2 = aux.split("-");
             int id = Integer.parseInt(aux2[0].toString());
             int tipus=-1;
+            String nivell = null;
             for(int j = 1;j< aux2.length;++j){
                 if(0<id && id <3){
                     if(j ==1) tipus = 1;
@@ -345,12 +346,23 @@ public class CtrDomini {
                     else laux.add(aux2[j].toString());    
                 }
                 else if(id == 14){
-                    if(j ==1) tipus = 5;
-                    if(j ==2 || j ==4){
-                        int p = Integer.parseInt(aux2[j].toString());
-                        laux.add(p);
+                    if(j ==1) {
+                        tipus = 5;
+                        nivell = aux2[j].toString();
                     }
-                    else laux.add(aux2[j].toString());
+                    else{
+                        if(nivell.equals("assignatura")){
+                        laux.add(aux2[j].toString());
+                        }
+                        else if(nivell.equals("grup")){
+                            if(j ==4 || j ==5){
+                                int p = Integer.parseInt(aux2[j].toString());
+                                laux.add(p);
+                             }
+                            else laux.add(aux2[j].toString());
+                       }
+                       else {id = -1; j = aux2.length;}
+                   }
                 }
                 else if(14<id && id <18){
                     if(j ==1) tipus = 6;
@@ -362,8 +374,8 @@ public class CtrDomini {
                 }
                 
             }
-            laux.add(id);
-            afegirRestriccio(tipus,laux);
+            if(0<id && id != 14)laux.add(id);
+            if(0<id && id<18)afegirRestriccio(tipus,laux);
         }
         
     }
