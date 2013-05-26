@@ -295,6 +295,7 @@ public class CtrPresentacio {
                 boolean b = cd.guardaHorari( nom );
                 if( ! b ) System.out.println("aquest nom ja existeix");
             }
+            cd.inicialitzarClausulesNom();
             
         }    
         else System.out.println("\n NO S'HA POGUT GENERAR CAP HORARI");
@@ -307,7 +308,8 @@ public class CtrPresentacio {
     private static void generar() {
         
        cd.inicialitzaGenerador(); // inicialitza quadricula, aules i assignatures
-       cd.inicialitzarClausules(); //Clausules+clausulesNom<<
+       cd.inicialitzarClausules(); //Clausules
+       cd.inicialitzarClausulesNom();//CLausulesNOM
        int opcio = 0;
         while( opcio != 3 ) {
             System.out.println(" OPCIONS ");

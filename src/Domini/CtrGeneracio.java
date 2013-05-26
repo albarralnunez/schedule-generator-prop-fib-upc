@@ -272,6 +272,8 @@ public class CtrGeneracio {
     }
     public void inicialitzarClausules(){
         gen.inicialitzarClausules(cjtAs);
+    }
+    public void inicialitzarClausulesNom(){
         gen.inicialitzarClausulesNom(cjtAulTeo, cjtAulLab,resT, quad);
     }
     public boolean afegirRest(int tipus, Restriccio r){
