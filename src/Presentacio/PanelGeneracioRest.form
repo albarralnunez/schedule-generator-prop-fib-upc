@@ -269,9 +269,12 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="GENERAR"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
-              <JLayeredPaneConstraints x="520" y="420" width="120" height="50" layer="0" position="-1"/>
+              <JLayeredPaneConstraints x="520" y="440" width="120" height="30" layer="0" position="-1"/>
             </Constraint>
           </Constraints>
         </Component>

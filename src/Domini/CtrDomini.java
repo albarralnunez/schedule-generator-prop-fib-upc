@@ -794,4 +794,93 @@ public class CtrDomini {
         cper.carregaHorari("horari-"+nomUnitat+"-"+nomHorari);
         return true;
     }
+    
+    /*
+    public ArrayList aulaAssignadaALes(String aula, int dia, int h){
+        ArrayList res = new ArrayList();
+        Quadricula q = cgen.getQuad();
+        String d = "dilluns";
+        if ( dia == 1) d = "dimarts";
+        else if (dia == 2) d = "dimecres";
+        else if (dia == 3) d = "dijous";
+        else if (dia == 4) d = "divendres";
+        else if (dia == 5) d = "dissabte";
+        else if (dia == 6) d = "diumenge";
+        CjtElements cje = q.getElementsPosicio(d, h);
+        //boolean b = false;
+        String asg = "";
+        int grp = -1;
+        if ( cje.isValid() ){
+            int nume = cje.numeroElements();
+            for( int i = 0; (0 < nume) ; ++i){   // && b == false
+                if( cje.getElementPosicio(i).getAula().getNom().equals(aula)){
+                    //b=true;
+                    asg = cje.getElementPosicio(i).getAssignatura().getNom();
+                    grp = cje.getElementPosicio(i).getGrupo();
+                }
+            }
+        }
+        //res.add(b);
+        res.add(asg);
+        res.add(grp);
+        return res;
+    }*/
+
+    public boolean aulaAssignadaALes(String aula, int dia, int h, String asg, int grp){
+        
+        Quadricula q = cgen.getQuad();
+        String d = "dilluns";
+        if ( dia == 1) d = "dimarts";
+        else if (dia == 2) d = "dimecres";
+        else if (dia == 3) d = "dijous";
+        else if (dia == 4) d = "divendres";
+        else if (dia == 5) d = "dissabte";
+        else if (dia == 6) d = "diumenge";
+        CjtElements cje = q.getElementsPosicio(d, h);
+
+        if ( cje.isValid() ){
+            int nume = cje.numeroElements();
+            for( int i = 0; 0 < nume ; ++i){
+                if( cje.getElementPosicio(i).getAula().getNom().equals(aula) ){
+                    asg = cje.getElementPosicio(i).getAssignatura().getNom();
+                    grp = cje.getElementPosicio(i).getGrupo();
+                    
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public ArrayList<String> aulaAssignadaALes(String nomAula, int d, int h) {
+        ArrayList<String> resultat = new ArrayList<String>();
+        
+        Quadricula q = cgen.getQuad();
+        String dia = "dilluns";
+        if ( d == 1) dia = "dimarts";
+        else if (d == 2) dia = "dimecres";
+        else if (d == 3) dia = "dijous";
+        else if (d == 4) dia = "divendres";
+        else if (d == 5) dia = "dissabte";
+        else if (d == 6) dia = "diumenge";
+        
+        CjtElements cje = q.getElementsPosicio(dia, h);
+        if( cje.isValid() ){
+            int ne = cje.numeroElements();
+            for( int i = 0; i < ne; ++i){
+                String na = cje.getElementPosicio(i).getAula().getNom();
+                if( na.equals(nomAula)){
+                    resultat.add("S");
+                    String asg = cje.getElementPosicio(i).getAssignatura().getNom();
+                    String grp = String.valueOf(cje.getElementPosicio(i).getGrupo());
+                    resultat.add(asg);
+                    resultat.add(grp);
+                }
+            }
+        }
+        else resultat.add("BUIDA");
+        
+        return resultat;
+    }
+
 }
