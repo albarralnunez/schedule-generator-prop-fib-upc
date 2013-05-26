@@ -32,6 +32,8 @@ public class PanelVistaAules extends javax.swing.JPanel {
                 etiquetes[d][h].setBounds(d*75, h*22, 75, 22);
             }
         }
+        nomHorari.setVisible(false);
+        botoOK.setVisible(false);
     }
     
     /**
@@ -93,6 +95,9 @@ public class PanelVistaAules extends javax.swing.JPanel {
         comboBoxLlistaAules = new javax.swing.JComboBox();
         jLayeredPane2 = new javax.swing.JLayeredPane();
         jLabel1 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        nomHorari = new javax.swing.JTextField();
+        botoOK = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(700, 550));
 
@@ -291,6 +296,11 @@ public class PanelVistaAules extends javax.swing.JPanel {
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("<html><div style=text-align: center> Tornar al</br> menu </html>");
         jButton2.setActionCommand("");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jButton2.setBounds(20, 320, 100, 35);
         jLayeredPane1.add(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -313,6 +323,26 @@ public class PanelVistaAules extends javax.swing.JPanel {
         jLabel1.setText("Selecciona aula");
         jLabel1.setBounds(20, 130, 100, 15);
         jLayeredPane1.add(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jButton3.setText("guardar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jButton3.setBounds(20, 400, 100, 23);
+        jLayeredPane1.add(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        nomHorari.setBounds(20, 440, 100, 20);
+        jLayeredPane1.add(nomHorari, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        botoOK.setText("OK");
+        botoOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoOKActionPerformed(evt);
+            }
+        });
+        botoOK.setBounds(40, 473, 50, 20);
+        jLayeredPane1.add(botoOK, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -359,15 +389,39 @@ public class PanelVistaAules extends javax.swing.JPanel {
             comboBoxLlistaAules.removeItem( comboBoxLlistaAules.getSelectedItem() );
         }
     }//GEN-LAST:event_comboBoxLlistaAulesActionPerformed
-    
-    
-    
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        for(int d = 0; d < 7; ++d){ // d = 7
+            for(int h = 0; h < 24; ++h){ // h = 24
+                etiquetes[d][h].escriuEtiquetaEnBlanc();
+            }
+        }
+        nomHorari.setVisible(false);
+        botoOK.setVisible(false);
+        cp.canviaPanel("menuPrincipal");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        nomHorari.setVisible(true);
+        botoOK.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void botoOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoOKActionPerformed
+        String nom = nomHorari.getText();
+        System.out.println(nom);
+        if ( ! cp.guardar(nom) ){
+            cp.mostraAvis("nom no valid", "ERROR");
+        }
+        else cp.mostraAvis("s ha guardat", "INFORMATION");
+    }//GEN-LAST:event_botoOKActionPerformed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botoOK;
     private javax.swing.JComboBox comboBoxLlistaAules;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -402,6 +456,7 @@ public class PanelVistaAules extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;
+    private javax.swing.JTextField nomHorari;
     // End of variables declaration//GEN-END:variables
 
     private class Etiqueta extends javax.swing.JPanel {
