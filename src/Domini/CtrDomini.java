@@ -177,15 +177,17 @@ public class CtrDomini {
     /**
      * fara que s'inicialitzin la quadricula, les aules i les assignatures
      */
-    public void inicialitzaGenerador( ArrayList<String> aules ) {    
+    public void inicialitzaGenerador( ArrayList<String> aules, ArrayList<String> assig ) {
+
         ArrayList<String> configuracioInicial =  cper.llegirConfiguracioHoraria("configuracioHoraria-"+nomUnitat);
         
-        ArrayList<String> llistaAssignatures = cper.llistaAssigantures(nomUnitat);
-        int numAsg = llistaAssignatures.size();
-        ArrayList<Assignatura> assignatures = new ArrayList<Assignatura>(numAsg);
-        for( int i = 0; i < numAsg ; ++i){
-            String nomAsg = llistaAssignatures.get(i);
-            assignatures.add( montaAssignatura( nomAsg ) );
+        //ArrayList<String> llistaAssignatures = cper.llistaAssigantures(nomUnitat);
+        //int numAsg = llistaAssignatures.size();
+        int numAssig = assig.size();
+        ArrayList<Assignatura> assignatures = new ArrayList<Assignatura>(numAssig);
+        for( int i = 0; i < numAssig ; ++i){
+            //String nomAsg = llistaAssignatures.get(i);
+            assignatures.add( montaAssignatura( assig.get(i) ) );
             String prova = "";
         }
         
