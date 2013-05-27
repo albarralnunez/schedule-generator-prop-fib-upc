@@ -56,8 +56,7 @@ public class CjtRestGrupoAula extends CjtRestriccions{
      * @param r Es la restriccio de RestGrupoAula
      */
     public void afegirRest(RestGrupoAula r) {
-        
-        restGrupoAula.add(r);
+       if(esValid(r)) restGrupoAula.add(r);
     }
 
     /**@pre: La restricció a borrar ha estat verificada per la clase RestGrupoAula
@@ -90,16 +89,14 @@ public class CjtRestGrupoAula extends CjtRestriccions{
         }
         return b;
     }
-    /* boolean ComprovarRes2(Clausula c, ClausulaNom cn) {
-        boolean b = true;
-        for (RestGrupoAula rga : this.restGrupoAula) {
-            if (!b) break;
-            if(rga.ObtenirId() == 1)b = rga.compleixRes1(c, cn);
-            else if(rga.ObtenirId() == 2) b = rga.compleixRes2(c, cn);
+    
+private boolean esValid(RestGrupoAula r){
+    for(RestGrupoAula rga: this.restGrupoAula){
+        if(rga.ObtenirId() == r.ObtenirId()){
+            if(rga.getAssignatura().equals(r.getAssignatura()) && rga.getGrup().equals(r.getGrup()) && rga.getAula().equals(r.getAula())) return false;
         }
-        return b;
-    }*/
-
-
+    }
+    return true;
+}
 
 }

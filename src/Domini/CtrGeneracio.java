@@ -16,12 +16,6 @@ public class CtrGeneracio {
     private ArrayList<AulaLab> cjtAulLab;
     private ArrayList<AulaTeo> cjtAulTeo;
     private ArrayList<Assignatura> cjtAs;
-    private CjtRestriccions cjtRes;
-    private CjtRestGrupoAula cjtResGA;
-    private CjtRestAssignatura cjtRestAss;
-    private CjtRestGrupSessio cjtRestGS;
-    private CjtRestSolapament cjtRestS;
-    private CjtRestriccioAula cjtRestAul;
     private String nomUnitat;
     private Quadricula quad;
     private Generador gen;
@@ -38,12 +32,6 @@ public class CtrGeneracio {
         cjtAulLab = new ArrayList<AulaLab>();
         cjtAulTeo = new ArrayList<AulaTeo>();
         cjtAs= new ArrayList<Assignatura>();
-        cjtRes = new CjtRestriccions();
-        cjtResGA = new CjtRestGrupoAula();
-        cjtRestAss = new CjtRestAssignatura();
-        cjtRestGS = new CjtRestGrupSessio();
-        cjtRestS = new CjtRestSolapament();
-        cjtRestAul = new CjtRestriccioAula();
         gen = new Generador();
        // cper = new CtrPersistencia();
         
@@ -82,30 +70,6 @@ public class CtrGeneracio {
         this.cjtAs = cjtAs;
     }
 
-    public CjtRestGrupoAula getCjtResGA() {
-        return cjtResGA;
-    }
-
-    public void setCjtResGA(CjtRestGrupoAula cjtResGA) {
-        this.cjtResGA = cjtResGA;
-    }
-   
-    public void setResResGA(RestGrupoAula r){
-        cjtResGA.afegirRest(r);
-    }
-    public void setResRestAul(RestriccioAula r){
-        cjtRestAul.afegir_rest(r);
-    }
-    public void setResRestAss(RestAssignatura r){
-        cjtRestAss.setRest(r);
-    }
-    public void setResRestS(RestSolapament r){
-        cjtRestS.afegirRest(r);
-    }
-    public void setResRestGS(RestGrupSessio r){
-        this.cjtRestGS.afegir_rest(r);
-    }
-
     public String getNomUnitat() {
         return nomUnitat;
     }
@@ -129,39 +93,6 @@ public class CtrGeneracio {
     public void setGen(Generador gen) {
         this.gen = gen;
     }
-
-    public CjtRestAssignatura getCjtRestAss() {
-        return cjtRestAss;
-    }
-
-    public CjtRestGrupSessio getCjtRestGS() {
-        return cjtRestGS;
-    }
-
-    public CjtRestSolapament getCjtRestS() {
-        return cjtRestS;
-    }
-
-    public CjtRestriccioAula getCjtRestAul() {
-        return cjtRestAul;
-    }
-
-    public void setCjtRestAss(CjtRestAssignatura cjtRestAss) {
-        this.cjtRestAss = cjtRestAss;
-    }
-
-    public void setCjtRestGS(CjtRestGrupSessio cjtRestGS) {
-        this.cjtRestGS = cjtRestGS;
-    }
-
-    public void setCjtRestS(CjtRestSolapament cjtRestS) {
-        this.cjtRestS = cjtRestS;
-    }
-
-    public void setCjtRestAul(CjtRestriccioAula cjtRestAul) {
-        this.cjtRestAul = cjtRestAul;
-    }
-    
     
     public void inicialitzarGenerador(ArrayList<String> confHoraria, ArrayList<Assignatura> assignatures, ArrayList<AulaLab> aulesL, 
        ArrayList<AulaTeo> aulesT ){

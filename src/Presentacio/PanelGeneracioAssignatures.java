@@ -56,6 +56,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,7 +96,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jButton1.setBounds(160, 270, 100, 25);
+        jButton1.setBounds(160, 230, 100, 25);
         jLayeredPane1.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton2.setText("Editar...");
@@ -105,7 +106,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        jButton2.setBounds(160, 300, 100, 25);
+        jButton2.setBounds(160, 260, 100, 25);
         jLayeredPane1.add(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton3.setText("Següent");
@@ -134,6 +135,15 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
         });
         jButton5.setBounds(160, 360, 30, 30);
         jLayeredPane1.add(jButton5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jButton6.setText("Select All");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jButton6.setBounds(160, 300, 99, 25);
+        jLayeredPane1.add(jButton6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -237,8 +247,18 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
         for (int i = 0; i < assignatures.size(); ++i) {
             System.out.println(""+assignatures.get(i));
         } //EN ESTE ARRAYLIST ESTAN LAS ASSIG CON LAS QUE SE GENERARA EL HORARIO
+
+        cp.assigSeleccionades(assignatures);
+
+
+
         cp.canviaPanel("PanelGeneracioAules");
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+      int end = jList1.getModel().getSize() - 1;
+      if (end >= 0) jList1.setSelectionInterval(0, end);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -247,6 +267,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JList jList1;

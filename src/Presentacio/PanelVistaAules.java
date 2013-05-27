@@ -15,39 +15,45 @@ public class PanelVistaAules extends javax.swing.JPanel {
 
     ControladorPresentacio cp;
     Etiqueta etiquetes[][];
+    boolean horarigenerat;
+
     /**
      * Creates new form PanelVistaAules
      */
-    public PanelVistaAules( ControladorPresentacio cpres ) {
+    public PanelVistaAules(ControladorPresentacio cpres) {
         cp = cpres;
+        horarigenerat = false;
         initComponents();
         this.setBounds(0, 0, 700, 550);
-        
+
         etiquetes = new Etiqueta[7][24];
-        
-        for(int d = 0; d < 7; ++d){ // d = 7
-            for(int h = 0; h < 24; ++h){ // h = 24
+
+        for (int d = 0; d < 7; ++d) { // d = 7
+            for (int h = 0; h < 24; ++h) { // h = 24
                 etiquetes[d][h] = new Etiqueta(d, h);
-                this.jLayeredPane2.add( etiquetes[d][h]);
-                etiquetes[d][h].setBounds(d*75, h*22, 75, 22);
+                this.jLayeredPane2.add(etiquetes[d][h]);
+                etiquetes[d][h].setBounds(d * 75, h * 22, 75, 22);
             }
         }
         nomHorari.setVisible(false);
         botoOK.setVisible(false);
     }
-    
+
     /**
-     *posa en el comboBox el cnjunt d aules que s ha fet servir per 
-     * generar l horari
+     * posa en el comboBox el cnjunt d aules que s ha fet servir per generar l
+     * horari
      */
-    public void posaConjuntAules( ArrayList<String> cja){
-        for( String a : cja){
+    public void posaConjuntAules(ArrayList<String> cja) {
+        comboBoxLlistaAules.removeAllItems();
+        for (String a : cja) {
             String b = a;
             comboBoxLlistaAules.addItem(a);
         }
     }
-    
-    
+
+    public void setHorariGenetar(boolean b) {
+        horarigenerat = b;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -362,40 +368,43 @@ public class PanelVistaAules extends javax.swing.JPanel {
 
     private void comboBoxLlistaAulesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxLlistaAulesActionPerformed
         //reinicia
-        for(int d = 0; d < 7; ++d){ // d = 7
-            for(int h = 0; h < 24; ++h){ // h = 24
-                etiquetes[d][h].escriuEtiquetaEnBlanc();
+        if (horarigenerat) {
+            for (int d = 0; d < 7; ++d) { // d = 7
+                for (int h = 0; h < 24; ++h) { // h = 24
+                    etiquetes[d][h].escriuEtiquetaEnBlanc();
+                }
             }
-        }
-        
-        String nomAula = (String) comboBoxLlistaAules.getSelectedItem();
-        
-        boolean aulaAmbAssignacio = false;
-        
-        for(int d = 0; d < 7; ++d){ // d = 7
-            for(int h = 0; h < 24; ++h){ // h = 24
-                ArrayList<String> asg = cp.aulaAssignadaALes(nomAula, d, h);
-                if( !( asg.isEmpty() ) ){
-                    if ( ! asg.get(0).equals("BUIDA") ){
-                        int grp = Integer.parseInt( asg.get(2));
-                        etiquetes[d][h].escriuEtiqueta( asg.get(1), grp );
-                        aulaAmbAssignacio = true;
+            
+            boolean aulaAmbAssignacio = false;
+            String nomAula = (String) comboBoxLlistaAules.getSelectedItem();
+
+            for (int d = 0; d < 7; ++d) { // d = 7
+                for (int h = 0; h < 24; ++h) { // h = 24
+                    ArrayList<String> asg = cp.aulaAssignadaALes(nomAula, d, h);
+                    if (!(asg.isEmpty())) {
+                        if (!asg.get(0).equals("BUIDA")) {
+                            int grp = Integer.parseInt(asg.get(2));
+                            etiquetes[d][h].escriuEtiqueta(asg.get(1), grp);
+                            aulaAmbAssignacio = true;
+                        }
                     }
                 }
             }
-        }  
-        if( ! aulaAmbAssignacio ){
-            cp.mostraAvis( "Aquesta aula no te cap assignacio", "ERROR");
-            comboBoxLlistaAules.removeItem( comboBoxLlistaAules.getSelectedItem() );
+            if (!aulaAmbAssignacio) {
+                cp.mostraAvis("Aquesta aula no te cap assignacio", "ERROR");
+                comboBoxLlistaAules.removeItem(comboBoxLlistaAules.getSelectedItem());
+            }
         }
     }//GEN-LAST:event_comboBoxLlistaAulesActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        for(int d = 0; d < 7; ++d){ // d = 7
-            for(int h = 0; h < 24; ++h){ // h = 24
+        for (int d = 0; d < 7; ++d) { // d = 7
+            for (int h = 0; h < 24; ++h) { // h = 24
                 etiquetes[d][h].escriuEtiquetaEnBlanc();
             }
         }
+        horarigenerat = false;
+        comboBoxLlistaAules.removeAllItems();
         nomHorari.setVisible(false);
         botoOK.setVisible(false);
         cp.canviaPanel("menuPrincipal");
@@ -409,13 +418,12 @@ public class PanelVistaAules extends javax.swing.JPanel {
     private void botoOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoOKActionPerformed
         String nom = nomHorari.getText();
         System.out.println(nom);
-        if ( ! cp.guardar(nom) ){
+        if (!cp.guardar(nom)) {
             cp.mostraAvis("nom no valid", "ERROR");
+        } else {
+            cp.mostraAvis("s ha guardat", "INFORMATION");
         }
-        else cp.mostraAvis("s ha guardat", "INFORMATION");
     }//GEN-LAST:event_botoOKActionPerformed
-    
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botoOK;
     private javax.swing.JComboBox comboBoxLlistaAules;
@@ -460,46 +468,41 @@ public class PanelVistaAules extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private class Etiqueta extends javax.swing.JPanel {
-    
-    private int dia;
-    private int hora;
-    private javax.swing.JLabel etiqueta;
-    
-    public Etiqueta(int d, int h){ 
-        dia = d;
-        hora = h;
-        etiqueta = new javax.swing.JLabel();
-        
-        setBackground( new java.awt.Color( 255, 255, 255 ) );
-        setBorder( javax.swing.BorderFactory.createLineBorder(Color.BLACK) );
-        initComponents();
-        this.add(etiqueta);
-        etiqueta.setBounds(5, 5, 65, 15);
-    }
- 
-    public void escriuEtiqueta(String nom, int grup){
-        etiqueta.setText(nom+" "+grup);
-    }
-    
-    
-    
-    private void initComponents() {
-        
-         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap( 0, 400, Short.MAX_VALUE )
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap( 0, 300, Short.MAX_VALUE)
-        );
-    }
+
+        private int dia;
+        private int hora;
+        private javax.swing.JLabel etiqueta;
+
+        public Etiqueta(int d, int h) {
+            dia = d;
+            hora = h;
+            etiqueta = new javax.swing.JLabel();
+
+            setBackground(new java.awt.Color(255, 255, 255));
+            setBorder(javax.swing.BorderFactory.createLineBorder(Color.BLACK));
+            initComponents();
+            this.add(etiqueta);
+            etiqueta.setBounds(5, 5, 65, 15);
+        }
+
+        public void escriuEtiqueta(String nom, int grup) {
+            etiqueta.setText(nom + " " + grup);
+        }
+
+        private void initComponents() {
+
+            javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+            this.setLayout(layout);
+            layout.setHorizontalGroup(
+                    layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGap(0, 400, Short.MAX_VALUE));
+            layout.setVerticalGroup(
+                    layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGap(0, 300, Short.MAX_VALUE));
+        }
 
         private void escriuEtiquetaEnBlanc() {
             etiqueta.setText("");
         }
     }
-
 }

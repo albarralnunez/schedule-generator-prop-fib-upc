@@ -54,16 +54,16 @@ public class Assignatura implements Serializable{
     }
 
     /**
-     *
-     * @param nm
-     * @param niv
-     * @param ht
-     * @param inteT
-     * @param hp
-     * @param inteP
-     * @param capT
-     * @param capP
-     * @param grups
+     * Creadora
+     * @param nm A Nom de l'assigantura
+     * @param niv Nivell de l'assigantura
+     * @param ht Hores de teoria de l'assigantura
+     * @param inteT Array amb els intervals de Teoria de l'assignatura
+     * @param hp Hores de practica de l'assigantura
+     * @param inteP Array amb els intervals de Laboratori de l'assigantura
+     * @param capT Capacitat dels grups de teoria
+     * @param capP Capacitat dels grups de practica
+     * @param grups Array amb tots els grups de l'assignatura
      */
     public Assignatura(String nm, int niv, int ht, ArrayList<Integer> inteT, int hp,
             ArrayList<Integer> inteP, int capT, int capP, ArrayList<Integer> grups) {
@@ -81,31 +81,31 @@ public class Assignatura implements Serializable{
     }
 
     /**
-     *
-     * @return
+     * Consultora si necesita material.
+     * @return Retorna fals si no necesita material y true si el necesita
      */
     public boolean necesitaMaterial() {
         return material;
     }
 
     /**
-     *
-     * @param material
+     * Seter de material
+     * @param material Si necesita materia l'assigantura
      */
     public void setMaterial(boolean material) {
         this.material = material;
     }
 
     /**
-     *
-     * @return
+     * Retorna si l'assigantura necesita projector
+     * @return Retrona true si el necesita, false en cas contrari
      */
     public boolean necesitaProjector() {
         return projector;
     }
 
     /**
-     *
+     * eter de projecotr
      * @param projector
      */
     public void setProjector(boolean projector) {
@@ -114,7 +114,7 @@ public class Assignatura implements Serializable{
 
     /**
      *
-     * @return
+     * @return Retorna el nom de l'assigantura
      */
     public String getNom() {
         return nom;
@@ -122,7 +122,7 @@ public class Assignatura implements Serializable{
 
     /**
      *
-     * @param nom
+     * @param nom Nom de l'assignatura
      */
     public void setNom(String nom) {
         this.nom = nom;
@@ -162,7 +162,7 @@ public class Assignatura implements Serializable{
 
     /**
      *
-     * @return
+     * @return nivell de l'assignatura
      */
     public int getNivell() {
         return nivel;
@@ -177,31 +177,31 @@ public class Assignatura implements Serializable{
     }
 
     /**
-     *
-     * @return
+     * 
+     * @return Capacitat dels grups de Teoria
      */
     public int getCapacitatTeo() {
         return capacitatTeo;
     }
 
     /**
-     *
-     * @param capt
+     * 
+     * @param capt A Capacitat dels gurps de teoria
      */
     public void setCapacitatTeo(int capt) {
         capacitatTeo = capt;
     }
 
     /**
-     *
-     * @return
+     * 
+     * @return Retorna la capacitat dels grups de laboratori
      */
     public int getCapacitatLab() {
         return capacitatLab;
     }
 
     /**
-     *
+     * Inicialitzador de la capacitat de laboratori
      * @param capl
      */
     public void setCapacitatLab(int capl) {
@@ -209,16 +209,16 @@ public class Assignatura implements Serializable{
     }
 
     /**
-     *
-     * @return
+     * 
+     * @return Retorna un array amb els intervals de teoria de l'assigantura
      */
     public ArrayList<Integer> getIntervalsT() {
         return intervalsT;
     }
 
     /**
-     *
-     * @param it
+     * Inicializador dels intervals de teoria
+     * @param it Arraay amb els intervals de teoria de l'assignatura
      */
     public void setIntervalsT(ArrayList<Integer> it) {
         intervalsT = it;
@@ -226,43 +226,47 @@ public class Assignatura implements Serializable{
 
     /**
      *
-     * @return
+     * @return Array amb els intervals de laboratori de l'assignatura
      */
     public ArrayList<Integer> getIntervalsP() {
         return intervalsP;
     }
 
     /**
-     *
-     * @param ip
+     * Iniclitzador dels intervals de Laboratori
+     * @param ip Array amb els intervals de laboratori de l'assignatura
      */
     public void setIntervalsP(ArrayList<Integer> ip) {
         intervalsP = ip;
     }
 
     /**
-     *
-     * @return
+     * 
+     * @return Retorna un array amb els grups de l'assignatura
      */
     public ArrayList<Integer> getGrups() {
         return grups;
     }
 
     /**
-     *
-     * @param grupos
+     * Afegeix un conjunt de grups a l'assignatura
+     * @param grupos Array de grups que es volen afegir
      */
     public void setGrups(ArrayList<Integer> grupos) {
         this.grups.addAll(grupos);
     }
-
+    
+    /**
+     * Inicialitzador de grups
+     * @param grupos Array de grups de l'assigantura
+     */
     public void setGrupss(ArrayList<Integer> grupos) {
         this.grups = grupos;
     }
     
     /**
-     * 
-     * @param grupo 
+     * Afegeix un grupo a l'assignatura
+     * @param grupo Numero del grupo que se quiere añadir
      */
     public void addGrup(Integer grupo) {
         grups.add(grupo);

@@ -19,12 +19,15 @@ class RestriccioAula extends Restriccio{
     private String dia;
 
     //Constructora por defecto:
+    /**
+     * Constructora per defecte
+     */
     public RestriccioAula() {
         super (5); //ID PROVISIONAL
     }
 
     /**
-     * @pre: Si hora es null => Tot el dia.
+     * Constructora que s'inicialitza amb els parametres introduits 
      *
      * @param aula Es l'aula que no podra ser usada.
      * @param hora l'hora en que l'aula que no podra ser usada.
@@ -36,7 +39,11 @@ class RestriccioAula extends Restriccio{
         this.hora = hora;
         this.dia = dia;
     }
-
+    /**
+     * Constructora que s'inicialitza amb els parametres introduits 
+     * @param aula Es l'aula que no podra ser usada
+     * @param dia el dia en que l'aula no podra ser usada
+     */
     public RestriccioAula(Aula aula, String dia) { //UNA AULA NO PODRA ESTAR UNA DIA ENTERO.
         super(1003);
         this.aula = aula;
@@ -45,70 +52,74 @@ class RestriccioAula extends Restriccio{
     }
 
     //Getters y Setters
+    /**
+     * Retorna l'aula que no pot ser usada
+     * @return Aula Aula que no pot ser usada
+     */
     public Aula getAula() {
         return aula;
     }
-
+    /**
+     * Afegir la Aula que s'ha de restringir
+     * @param aula Aula que s'ha de restringir
+     */
     public void setAula(Aula aula) {
         this.aula = aula;
     }
-
+    /**
+     * Obtenir la hora que no es pot utilitzar la hora
+     * @return Hora que no es pot utilitzar la aula
+     */
     public int getHora() {
         return hora;
     }
-
+    /**
+     * Afegir la hora que no es pot utilitzar la aula
+     * @param hora Hora en la qual no es pot usar la aula
+     */
     public void setHora(int hora) {
         this.hora = hora;
     }
-
+    /**
+     * Obtenir el dia que no es pot utilitzar la aula
+     * @return Dia en el que no es pot usar la aula
+     */
     public String getDia() {
         return dia;
     }
-
+    /**
+     * Afegir el dia en que no es pot utilitzar la aula
+     * @param dia Dia que no es pot utilitzar la aula
+     */
     public void setDia(String dia) {
         this.dia = dia;
     }
+    /**
+     * Obtenir el identificador de la restriccio
+     * @return int Tipus de restriccio 
+     */
     public int getId() {
         return id;
     }
-
+    /**
+     * Afegir id a la Restriccio
+     * @param id Tipus de restriccio
+     */
     public void setId(int id) {
         this.id = id;
     }
     @Override
+    /**
+     * 
+     */
     public boolean CompleixRes() {return false;}
 
-    /**
-     *
-     * @param cjtRestriccioAula Conjunt al que afeigir la noestra restriccio y en el que es poden produir incoherencies.
-     * @param CjtRestGrupoAula Conjunto que puede producir incoherencias con nuestra restriccion.
-     * @param CjtRestGrupoSesion Conjunto que puede producir incoherencias con nuestra restriccion.
-     * @return true si es pot afeigir al conjunt de restriccions del tipus o false si no es pot perque provoca alguna incoherencia.
+      /**
+      * Comprova si la ClausulaNom cn compleix la restriccio del tipus 15
+      * @param cn És la ClausulaNom ha comprobar
+      * @param duracio És la duracio de la Clausula de cn
+      * @return boolean que indica si cn compleix la restriccio o no
      */
-
-    public boolean esPotAfegir(CjtRestriccioAula cjtRestAula, CjtRestGrupoAula cjtRestGrupoAula, CjtRestGrupSessio cjtRestGrupSesio) {
-        boolean es_pot = true; //Solo sera false cuando se produzca alguna incoherencia!
-        //Si un grupo esta obligado a estar en una aula que es la que esta prohibida usarse un dia/hora... Y ese grupo debe hacer clase
-        //En esa aula en las horas en que esta prohibida ==> SE PRODUCE INCOHERENCIA!
-        
-        ArrayList<RestGrupoAula> r;
-        r = cjtRestGrupoAula.getRestGrupoAula();
-        for (RestGrupoAula r1: r) { //Para cada restriccion Grupo-Aula
-            if (r1.getAula().equals(this.aula.getNom())) { //Si a un assig+grupo le fuerzan ir a una aula
-                Integer grupo = r1.getGrup(); //Grupo forzado.
-                String ass = r1.getAssignatura(); //Assignatura forzada.
-                ArrayList<RestGrupSessio> rgs;
-                rgs = cjtRestGrupSesio.getRestriccionsGrupSesio();
-                for (RestGrupSessio r2 : rgs) { //Para cada restriccion que diga que un assig+grupo que debia ir a un dia/hora.
-                    if (r2.getGrup() == grupo && r2.getAssignatura().equals(ass)) { //Si se trata del assig+grupo que debia ir a nuestra aula de la restriccion.
-                        if (r2.getHora() == this.hora) es_pot = false;
-                    }
-                }
-            }
-        }
-        return es_pot;
-    }
-
    public boolean compleixRes15(ClausulaNom cn,int dur) {
         Aula aulaa = cn.getAula();
         int horaa = cn.getHora();
@@ -126,6 +137,11 @@ class RestriccioAula extends Restriccio{
         }
         return compleix;
     }
+   /**
+    * Canvia el valor del String dia per un valor equivalent del tipus int 
+    * @param dia EL dia a canviar
+    * @return El valor de string en format int
+    */
    private int canviDiaInt(String dia){
         int d = -1;
         if ( dia.equals("dilluns") ) d = 0;
@@ -137,6 +153,12 @@ class RestriccioAula extends Restriccio{
         else if (dia.equals("diumenge"))d = 6;
         return d;
     }
+   /**
+     * Comprova si la ClausulaNom cn compleix la restriccio del tipus 16
+      * @param cn És la ClausulaNom ha comprobar
+      * @param duracio És la duracio de la Clausula de cn
+      * @return boolean que indica si cn compleix la restriccio o no
+    */
    public boolean compleixRes16(ClausulaNom cn) {
         Aula aulaa = cn.getAula();
         String diaa = cn.getDia();
@@ -156,7 +178,12 @@ class RestriccioAula extends Restriccio{
         }
         return true;
     }
-                
+     /**
+      * Comprova si la ClausulaNom cn compleix la restriccio del tipus 17
+      * @param cn És la ClausulaNom ha comprobar
+      * @param duracio És la duracio de la Clausula de cn
+      * @return boolean que indica si cn compleix la restriccio o no
+      */           
      public boolean compleixRes17(ClausulaNom cn,int duracio) {
         Aula aulaa = cn.getAula();
         String diaa = cn.getDia();

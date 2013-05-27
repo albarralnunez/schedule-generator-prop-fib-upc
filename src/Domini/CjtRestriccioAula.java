@@ -53,7 +53,7 @@ public class CjtRestriccioAula extends CjtRestriccions{
      * @param r Es la restriccio de RestriccioAUla
      */
     public void afegir_rest(RestriccioAula r) {
-        restriccionsAula.add(r);
+        if(esValid(r))restriccionsAula.add(r);
     }
     /**@pre: La restricció a borrar ha estat verificada per la clase RestriccioAula
      * @post: Queda borrada la restriccio a l'arraylist restriccions_aula
@@ -90,6 +90,13 @@ public class CjtRestriccioAula extends CjtRestriccions{
     boolean conteRestriccio(RestriccioAula r){
         return restriccionsAula.contains(r);
     }
-
+    private boolean esValid(RestriccioAula r){
+        for(RestriccioAula ra : this.restriccionsAula){
+            if(r.ObtenirId() == ra.ObtenirId()){
+                if(r.getAula().getNom().equals(ra.getAula().getNom()) && r.getHora() == ra.getHora() && r.getDia().equals(ra.getDia())) return false;
+            }
+        }
+        return true;
+    }
 
 }

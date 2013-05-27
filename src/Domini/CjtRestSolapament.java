@@ -54,7 +54,7 @@ public class CjtRestSolapament extends CjtRestriccions{
      * @param r Es la restriccio de RestSolapament
      */
     public void afegirRest(RestSolapament r) {
-        restriccionsSolapament.add(r);
+        if(esValid(r))restriccionsSolapament.add(r);
     }
 
     /**@pre: La restricció a borrar ha estat verificada per la clase RestSolapament
@@ -98,5 +98,19 @@ public class CjtRestSolapament extends CjtRestriccions{
         return b;
         
    }*/
-
+     private boolean esValid(RestSolapament r){
+         for(RestSolapament rs : this.restriccionsSolapament){
+                 boolean b =rs.getAssignaturaPrincipal().getNom().equals(r.getAssignaturaPrincipal().getNom());
+                 boolean b1 = rs.getGrupPrincipal() == r.getGrupPrincipal();
+                 boolean b2 = rs.getAssignaturaSolapament().getNom().equals(r.getAssignaturaSolapament().getNom());
+                 boolean b3 = rs.getGrupSolapament() == r.getGrupSolapament();
+                 boolean b4 = rs.getAssignaturaPrincipal().getNom().equals(r.getAssignaturaSolapament().getNom());
+                 boolean b5 = rs.getGrupPrincipal() == r.getGrupSolapament();
+                 boolean b6 = rs.getAssignaturaSolapament().getNom().equals(r.getAssignaturaPrincipal().getNom());
+                 boolean b7 = rs.getGrupSolapament() == r.getGrupPrincipal();
+                 if((b && b1 && b2 && b3)||(b4 && b5 && b6 && b7)) return false;
+         }
+         return true;
+     }
 }
+

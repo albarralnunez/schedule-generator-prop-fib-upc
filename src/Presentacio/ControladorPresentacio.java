@@ -34,6 +34,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     PanelVistaAules pva;
     
     ArrayList<String> aules;
+    ArrayList<String> assignatures;
 
     public ControladorPresentacio() {
         initComponents();
@@ -103,12 +104,15 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         }
         else if (nomPanel.equals("PanelVeureHoraris")) {
             pVeuH.setNomUnitatDocent(unitatDocent);
+            pVeuH.carregaLlistaHoraris();
             pVeuH.setVisible(true);
         }
         else if (nomPanel.equals("PanelGeneracioRest")) {
             pGenR.setVisible(true);
         }
         else if (nomPanel.equals("PanelVistaAules")){
+            pGenAul.reseteja();
+            pva.setHorariGenetar(true);////////////////////
             pva.setVisible(true);
         }
         
@@ -225,9 +229,9 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         cd.afegirRestriccio(i, params);
     }
 
-    public ArrayList< String> llistaRest(int opcio) {
+    /*public ArrayList< String> llistaRest(int opcio) {
         return cd.llistaRest(opcio);
-    }
+    }*/
 
     public boolean esborrarAssignatura(String nomAsg) {
          if ( ! cd.esborraAssignatura(nomAsg)){
@@ -256,7 +260,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     }
 
     public void InicialitzaGenerador(){
-        cd.inicialitzaGenerador( aules );
+        cd.inicialitzaGenerador(aules, assignatures);
         cd.inicialitzarClausules();
         cd.inicialitzarClausulesNom();
     }
@@ -264,8 +268,8 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         
     public boolean generar() {
         ///////////////////////
-        boolean a = cd.existeixRest(unitatDocent);
-        if(a) cd.montaRestriccions(unitatDocent);
+        //boolean a = cd.existeixRest(unitatDocent);
+        //if(a) cd.montaRestriccions(unitatDocent);
         if ( cd.generar() ){
             cd.imprimeixHorari();
             return true;
@@ -281,6 +285,39 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         if(  nomH == null )return false;
         return cd.guardaHorari(nomH);
     }
+
+    ArrayList<String> carregaLlistaHoraris() {
+        return cd.carregaLlistaHoraris();
+    }
+
+    public void carregaHorari(String nomhorari) {
+        boolean b = cd.carregarHorari(nomhorari);
+        ArrayList<String> auls = cd.llistaAules();
+        String nomun = cd.nomUnitatDocent();
+        System.out.println(nomun);
+        ArrayList<String> aulesnom = new ArrayList<String>();
+        for( String au : auls){
+            au = au.replace("aula-lab-"+nomun+"-", "");
+            au = au.replace("aula-teo-"+nomun+"-", "");
+            au = au.replace(".txt", "");
+            aulesnom.add(au);
+        }
+        pva.posaConjuntAules(aulesnom);
+        
+        canviaPanel("PanelVistaAules");
+    }
+
+    public void assigSeleccionades(ArrayList<String> ass) {
+        assignatures = ass;
+
+    }
+
+    public void carregarRestTxt(String nomUnitatDocent) {
+        boolean a = cd.existeixRest(unitatDocent);
+        if(a) cd.montaRestriccions(unitatDocent);
+        else mostraAvis("No s'han pogut carregar les restriccions", "ERROR");
+    }
+
 
     
 

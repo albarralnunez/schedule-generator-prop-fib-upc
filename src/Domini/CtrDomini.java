@@ -177,15 +177,17 @@ public class CtrDomini {
     /**
      * fara que s'inicialitzin la quadricula, les aules i les assignatures
      */
-    public void inicialitzaGenerador( ArrayList<String> aules ) {    
+    public void inicialitzaGenerador( ArrayList<String> aules, ArrayList<String> assig ) {
+
         ArrayList<String> configuracioInicial =  cper.llegirConfiguracioHoraria("configuracioHoraria-"+nomUnitat);
         
-        ArrayList<String> llistaAssignatures = cper.llistaAssigantures(nomUnitat);
-        int numAsg = llistaAssignatures.size();
-        ArrayList<Assignatura> assignatures = new ArrayList<Assignatura>(numAsg);
-        for( int i = 0; i < numAsg ; ++i){
-            String nomAsg = llistaAssignatures.get(i);
-            assignatures.add( montaAssignatura( nomAsg ) );
+        //ArrayList<String> llistaAssignatures = cper.llistaAssigantures(nomUnitat);
+        //int numAsg = llistaAssignatures.size();
+        int numAssig = assig.size();
+        ArrayList<Assignatura> assignatures = new ArrayList<Assignatura>(numAssig);
+        for( int i = 0; i < numAssig ; ++i){
+            //String nomAsg = llistaAssignatures.get(i);
+            assignatures.add( montaAssignatura( assig.get(i) ) );
             String prova = "";
         }
         
@@ -277,7 +279,7 @@ public class CtrDomini {
             String[] aux2 = aux.split("-");
             int id = Integer.parseInt(aux2[0].toString());
             int tipus=-1;
-            String nivell = null;
+            String nivell = "bb";
             for(int j = 1;j< aux2.length;++j){
                 if(0<id && id <3){
                     if(j ==1) tipus = 1;
@@ -452,8 +454,8 @@ public class CtrDomini {
             r.setGrup((Integer) params.get(1));
             r.setAula((String) params.get(2));
             r.setId((Integer) params.get(3));
-            boolean b = cgen.afegirRest(tipus,r);
-            cgen.setResResGA(r);
+            cgen.afegirRest(tipus,r);
+           
         }
         else if(tipus == 2){
             RestGrupSessio r = new RestGrupSessio();
@@ -554,8 +556,8 @@ public class CtrDomini {
                 r.setHora((Integer)params.get(2));
                 r.setDia((String)params.get(1));
                 r.setId((Integer) params.get(3));
-                
-                cgen.afegirRest(tipus, r);
+                boolean b = this.cgen.getQuad().getElementsPosicio(r.getDia(), r.getHora()).isValid();
+                if(b)cgen.afegirRest(tipus, r);
             }
             
         }
@@ -616,6 +618,7 @@ public class CtrDomini {
      * @param tipus
      * @return 
      */
+    /*
     public ArrayList<String> llistaRest(int tipus){
         ArrayList<String> l = new ArrayList();
         if(0<tipus && tipus <3){
@@ -710,13 +713,13 @@ public class CtrDomini {
             }
         }
         return l;
-    }
+    }*/
     /**
      * 
      * @param tipus
      * @param params 
      */
-    public void modificarRest(int tipus,ArrayList params){
+    /*public void modificarRest(int tipus,ArrayList params){
         switch (tipus) {
             case 1: 
                     RestGrupoAula r; 
@@ -818,14 +821,14 @@ public class CtrDomini {
                     }    
                      break;
         }
-    }
+    }*/
     
     /**
      * 
      * @param tipus
      * @param numRest 
      */
-    public void esborraRest(int tipus,int numRest){
+    /*public void esborraRest(int tipus,int numRest){
         switch (tipus){
             case 1: case 2:
                     cgen.getCjtResGA().remove(numRest);
@@ -850,7 +853,7 @@ public class CtrDomini {
                     break;
        }
         
-    }
+    }*/
 
     public boolean existeixConfiguracioHoraria() {
         return cper.existeixConfiguracioHoraria(nomUnitat);
@@ -862,10 +865,9 @@ public class CtrDomini {
     }
     
     public boolean carregarHorari( String nomHorari){
-        if( ! cper.existeixHorari(  "horari-"+nomUnitat+"-"+nomHorari ) ) 
-            return false;
-        
-        cper.carregaHorari("horari-"+nomUnitat+"-"+nomHorari);
+        System.out.println("ctrDomini horari "+nomHorari);
+        Quadricula qua = cper.carregaHorari(nomHorari);
+        cgen.setQuad(qua);
         return true;
     }
     
@@ -924,6 +926,14 @@ public class CtrDomini {
         else resultat.add("BUIDA");
         
         return resultat;
+    }
+
+    public ArrayList<String> carregaLlistaHoraris() {
+       return cper.getLlistaHoraris( nomUnitat);
+    }
+
+    public String nomUnitatDocent() {
+        return this.nomUnitat;
     }
 
 }

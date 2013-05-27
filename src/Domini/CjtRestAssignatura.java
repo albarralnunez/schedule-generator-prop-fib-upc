@@ -15,11 +15,14 @@ public class CjtRestAssignatura extends CjtRestriccions {
     private ArrayList<RestAssignatura> restsAssignatura;
 
     /**
-     *
+     * Creadora por defecto
      */
     public CjtRestAssignatura() {
         restsAssignatura = new ArrayList();
     }
+    /*
+     * Creadora por defecto
+     */
     public CjtRestAssignatura(CjtRestAssignatura cjt){
         restsAssignatura = new ArrayList();
         for(int i = 0; i < cjt.size();++i){
@@ -35,7 +38,7 @@ public class CjtRestAssignatura extends CjtRestriccions {
     }
     /**
      *
-     * @return
+     * @return totes les restriccions d'assigantura
      */
     public ArrayList<RestAssignatura> getRestsAssignatura() {
         return this.restsAssignatura;
@@ -43,7 +46,7 @@ public class CjtRestAssignatura extends CjtRestriccions {
 
     /**
      *
-     * @param restsAssignatura
+     * @param restsAssignatura Llista de restriccions d'assigantura
      */
     public void setRestsAssignatura(ArrayList<RestAssignatura> restsAssignatura) {
         this.restsAssignatura = restsAssignatura;
@@ -51,7 +54,7 @@ public class CjtRestAssignatura extends CjtRestriccions {
 
     /**
      *
-     * @return
+     * @return Retorna el nombre de Restriccions
      */
     public int size() {
         return restsAssignatura.size();
@@ -59,7 +62,7 @@ public class CjtRestAssignatura extends CjtRestriccions {
 
     /**
      *
-     * @param i
+     * @param i 
      * @return
      */
     public RestAssignatura get(int i) {
@@ -68,7 +71,7 @@ public class CjtRestAssignatura extends CjtRestriccions {
 
     /**
      *
-     * @param index
+     * @param index 
      */
     public void remove(int index) {
         restsAssignatura.remove(index);
@@ -82,7 +85,7 @@ public class CjtRestAssignatura extends CjtRestriccions {
      * @param r Es la restriccio de RestriccioAUla
      */
     public void setRest(RestAssignatura r) {
-        restsAssignatura.add(r);
+        if(esValid(r))restsAssignatura.add(r);
     }
 
     /**
@@ -114,9 +117,9 @@ public class CjtRestAssignatura extends CjtRestriccions {
 
     /**
      *
-     * @param c
-     * @param cn
-     * @return
+     * @param c Clausula amb l'inforamcio de l'assignatura que es vol afegir
+     * @param cn Part del domini amb l'informacio que es vol afegir
+     * @return Retorna true en cas que es compleix totes les restriccions, en cas contari false
      */
     boolean ComprovarRes(ClausulaNom cn, int duracio) {
         boolean b = true;
@@ -135,5 +138,19 @@ public class CjtRestAssignatura extends CjtRestriccions {
             else if(rga.ObtenirId() == 13) b = rga.compleixRes13(cn,duracio);
         }
         return b;
+    }
+    private boolean esValid(RestAssignatura r){
+        for(RestAssignatura ra: this.restsAssignatura){
+            if(ra.ObtenirId() == r.ObtenirId()){
+                if(ra.getAssignatura() == r.getAssignatura() && ra.getGrup() == r.getGrup() && ra.getHora() == r.getHora()){
+                    if(ra.getDia() == null && r.getDia()== null) return false;
+                    else if(ra.getDia() != null && r.getDia() != null){
+                        if(ra.getDia().equals(r.getDia())) return false;
+                    }
+                }
+            
+            }
+        }
+        return true;
     }
 }
