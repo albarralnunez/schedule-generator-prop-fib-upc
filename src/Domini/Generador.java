@@ -16,23 +16,30 @@ class Generador {
 
     private ArrayList<Clausula> clausules;
     
+    /**
+     * Creadora 
+     * @param c A Conjunt de clausules.
+     */
     public Generador(ArrayList<Clausula> c) {
         this.clausules = c;
     }
    
+    /**
+     * Creadora per defecte.
+     */
     public Generador() {
         this.clausules = new ArrayList();
     }
     
     /**
      * Retorna un subset de les aules de Laboratori amb capacitat major de x
-     * @param x
-     * @param a
+     * @param x  A capacitat maxima.
+     * @param a A Total d'aules del problema.
      * @return Retorna un ArrayList d'aula, tots els elements tenen capacitat major d'x.
      */
-    public ArrayList<Aula> cjtCapacitatMajorDeL (int x,ArrayList<AulaLab> a){
+    private ArrayList<Aula> cjtCapacitatMajorDeL (int x,ArrayList<AulaLab> a){
          ArrayList<Aula> listaRefactor= new  ArrayList<Aula>();
-        for (AulaLab au: a) {
+        for (Aula au: a) {
             if (au.capacitatMajorDe(x)) listaRefactor.add(au);
         }
         return listaRefactor;
@@ -40,17 +47,18 @@ class Generador {
     
      /**
      * Retorna un subset de les aules de Teoria amb capacitat major de x
-     * @param x
+     * @param x Capacitat maxima.
      * @param a
      * @return Retorna un ArrayList d'aula, tots els elements tenen capacitat major d'x.
      */
      public ArrayList<Aula> cjtCapacitatMajorDeT (int x,ArrayList<AulaTeo> a){
          ArrayList<Aula> listaRefactor= new  ArrayList<Aula>();
-        for (AulaTeo au: a) {
+        for (Aula au: a) {
             if (au.capacitatMajorDe(x)) listaRefactor.add(au);
         }
         return listaRefactor;
     }   
+     
      public void inicialitzarClausules(ArrayList<Assignatura> ass){
         ArrayList<Clausula> clausules = new ArrayList();
         for (int i = 0; i < ass.size(); ++i) {
