@@ -38,6 +38,7 @@ public class PanelVeureHoraris extends javax.swing.JPanel {
         DefaultListModel listModel = new DefaultListModel();
         jList1.setModel(listModel);
         for (String h : llistaHoraris) {
+            h = h.replace( ".o", "" );
             listModel.addElement(h);
         }
     }
@@ -55,7 +56,7 @@ public class PanelVeureHoraris extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
-        jButton1 = new javax.swing.JButton();
+        botoVeure = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
@@ -79,14 +80,14 @@ public class PanelVeureHoraris extends javax.swing.JPanel {
         jScrollPane1.setBounds(80, 160, 340, 290);
         jLayeredPane1.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jButton1.setText("Veure");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botoVeure.setText("Veure");
+        botoVeure.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botoVeureActionPerformed(evt);
             }
         });
-        jButton1.setBounds(500, 280, 100, 30);
-        jLayeredPane1.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        botoVeure.setBounds(500, 280, 100, 30);
+        jLayeredPane1.add(botoVeure, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton2.setText("Tornar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -135,11 +136,15 @@ public class PanelVeureHoraris extends javax.swing.JPanel {
         jList1.removeAll();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botoVeureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoVeureActionPerformed
         Object[] cadena = jList1.getSelectedValues();
         int h = cadena.length;
         if (h == 0) cp.mostraAvis("Seleccioni l'horari que vol veure", "WARNING");
-    }//GEN-LAST:event_jButton1ActionPerformed
+        else{
+            String nomhorari = (String) jList1.getSelectedValue();
+            cp.carregaHorari(nomhorari);
+        }
+    }//GEN-LAST:event_botoVeureActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         //ESBORRAR
@@ -147,7 +152,7 @@ public class PanelVeureHoraris extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton botoVeure;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
