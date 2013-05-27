@@ -279,7 +279,7 @@ public class CtrDomini {
             String[] aux2 = aux.split("-");
             int id = Integer.parseInt(aux2[0].toString());
             int tipus=-1;
-            String nivell = null;
+            String nivell = "bb";
             for(int j = 1;j< aux2.length;++j){
                 if(0<id && id <3){
                     if(j ==1) tipus = 1;
