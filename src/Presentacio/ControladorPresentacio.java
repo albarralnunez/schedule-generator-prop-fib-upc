@@ -228,9 +228,9 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         cd.afegirRestriccio(i, params);
     }
 
-    public ArrayList< String> llistaRest(int opcio) {
+    /*public ArrayList< String> llistaRest(int opcio) {
         return cd.llistaRest(opcio);
-    }
+    }*/
 
     public boolean esborrarAssignatura(String nomAsg) {
          if ( ! cd.esborraAssignatura(nomAsg)){

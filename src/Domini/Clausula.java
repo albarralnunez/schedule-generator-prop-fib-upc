@@ -30,6 +30,9 @@ public class Clausula {
     }
 
     //Constructora
+    /**
+     * Constructora por defecto
+     */
     public Clausula() {
         cjtRestAss = new CjtRestAssignatura();
         cjtRestGS = new CjtRestGrupSessio();

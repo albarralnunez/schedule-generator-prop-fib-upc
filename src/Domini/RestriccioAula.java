@@ -19,6 +19,9 @@ class RestriccioAula extends Restriccio{
     private String dia;
 
     //Constructora por defecto:
+    /**
+     * Constructora por defecto
+     */
     public RestriccioAula() {
         super (5); //ID PROVISIONAL
     }

@@ -1366,7 +1366,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
             else if ((cadena[0].toString().equals("14. Restringir un aula a no utilitzar-se abans d'un dia/hora."))) opcio = 14;
             else if ((cadena[0].toString().equals("15. Restringir un aula a no utilitzar-se després d'un dia/hora."))) opcio = 15;
 
-            ArrayList<String> llista = cp.llistaRest(opcio);
+            /*ArrayList<String> llista = cp.llistaRest(opcio);
             if (!llista.isEmpty()) {
                 int i;
                 System.out.println(""+llista.get(0));
@@ -1377,7 +1377,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                             if (llista.get(i).toString().length() > 1) jComboBox3.addItem(llista.get(i));
                         }
                 }
-            } else cp.mostraAvis("LLISTA BUIDA", "ERROR");
+            } else cp.mostraAvis("LLISTA BUIDA", "ERROR");*/
 
 
 
