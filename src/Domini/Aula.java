@@ -46,7 +46,7 @@ public class Aula implements Serializable{
 
     /**
      *
-     * @param nom
+     * @param nom Nom de l'assignatura
      */
     public void setNom(String nom) {
         this.nom = nom;
@@ -54,7 +54,7 @@ public class Aula implements Serializable{
 
     /**
      *
-     * @param capacitat
+     * @param capacitat Capacitat de l'aula
      */
     public void setCapacitat(int capacitat) {
         this.capacitat = capacitat;

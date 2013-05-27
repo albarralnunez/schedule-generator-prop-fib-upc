@@ -89,16 +89,7 @@ public class CjtRestGrupoAula extends CjtRestriccions{
         }
         return b;
     }
-    /* boolean ComprovarRes2(Clausula c, ClausulaNom cn) {
-        boolean b = true;
-        for (RestGrupoAula rga : this.restGrupoAula) {
-            if (!b) break;
-            if(rga.ObtenirId() == 1)b = rga.compleixRes1(c, cn);
-            else if(rga.ObtenirId() == 2) b = rga.compleixRes2(c, cn);
-        }
-        return b;
-    }*/
-
+    
 private boolean esValid(RestGrupoAula r){
     for(RestGrupoAula rga: this.restGrupoAula){
         if(rga.ObtenirId() == r.ObtenirId()){

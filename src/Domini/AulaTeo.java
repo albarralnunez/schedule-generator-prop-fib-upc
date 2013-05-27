@@ -20,6 +20,9 @@ public class AulaTeo extends Aula {
         this.projector = projector;
     }
 
+    /**
+     * Creadora per defecte
+     */
     public AulaTeo() {
         super();
         this.projector = false; //La creadora por defecto pone projector a false;
@@ -35,7 +38,7 @@ public class AulaTeo extends Aula {
 
     /**
      *
-     * @param projector.
+     * @param projector. Si l'aula disposa de projector
      */
     public void setProjector(boolean projector) {
         this.projector = projector;

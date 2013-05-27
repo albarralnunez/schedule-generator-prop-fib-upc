@@ -17,10 +17,11 @@ public class CjtElements implements Serializable {
      * valid diu si aquell conjunt es valid
      */
     private boolean valid;
+    
     private ArrayList<Element> assignacions;
 
     /**
-     *
+     * Creadora 
      */
     public CjtElements() {
         valid = false;
@@ -28,16 +29,16 @@ public class CjtElements implements Serializable {
     }
 
     /**
-     *
-     * @param e
+     * Afegeix un element.
+     * @param e A element que volem afegir
      */
     public void afegirElement(Element e) {
         assignacions.add(e);
     }
 
     /**
-     *
-     * @return
+     * 
+     * @return Retorna si el conjunt d'elements es valid
      */
     public boolean isValid() {
         return valid;
@@ -45,7 +46,7 @@ public class CjtElements implements Serializable {
 
     /**
      *
-     * @param valid
+     * @param valid True si el conjunt es valid false si no ho es
      */
     public void setValid(boolean valid) {
         this.valid = valid;
@@ -53,7 +54,7 @@ public class CjtElements implements Serializable {
 
     /**
      *
-     * @return
+     * @return Retorna totes les assignacions que s'han fet
      */
     public ArrayList<Element> getAssignacions() {
         return assignacions;
@@ -61,8 +62,8 @@ public class CjtElements implements Serializable {
 
     /**
      *
-     * @param pos
-     * @return
+     * @param pos enter, representa una posicio del conjunt d'elements
+     * @return Retorna l'element que hi ha a la posicio pos.
      */
     public Element getElementPosicio(int pos) {
         return assignacions.get(pos);
@@ -70,89 +71,19 @@ public class CjtElements implements Serializable {
 
     /**
      *
-     * @return
+     * @return Retorna el numero d'elements del conjutn
      */
     public int numeroElements() {
         return assignacions.size();
     }
 
-    /**
-     *
-     * @param e
-     * @return
-     */
-    public boolean aulaRepetida(Element e) {
-        for (int i = 0; i < assignacions.size(); ++i) {
-            if (assignacions.get(i).getAula().equals(e.getAula())) { // si es la misma aula
-                if (!assignacions.get(i).equals(e)) { // y no es el mismo elemtno
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
 
     /**
-     *
-     * @param e
-     * @return
+     * 
+     * @param e Element que es vol borrar
+     * @return Retorna true si s'ha pogut borra l'element false en cas contari
      */
-    public boolean solapamentTeoriaPractica(Element e) {
-        boolean grupTeoria = false;
-        if ((e.getGrupo() % 10) == 0) {
-            grupTeoria = true;
-        }
-        for (int i = 0; i < assignacions.size(); ++i) {
-            if (assignacions.get(i).getAssignatura().equals(e.getAssignatura())) { // si es la mateixa assignatura
-                if (assignacions.get(i).getGrupo() != e.getGrupo()) { // i no el mateix element
-                    int grup = assignacions.get(i).getGrupo();
-                    if (grupTeoria) {
-                        if (grup % 10 != 0) {
-                            return true;
-                        }
-                    } else {
-                        if (grup % 10 == 0) {
-
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
-    /**
-     *
-     * @param e
-     */
-    void borrarElement(Element e) {
-        assignacions.remove(e);
-    }
-
-    /**
-     *
-     * @param e
-     * @return
-     */
-    boolean solapamentNivell(Element e) {
-        for (int i = 0; i < assignacions.size(); ++i) {
-            if (assignacions.get(i).getAssignatura().getNivell()
-                    == e.getAssignatura().getNivell()) { // mateix nivell
-                if (!assignacions.get(i).equals(e)) { // i no mateix element
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
-    /**
-     *
-     * @param e
-     * @return
-     */
-    boolean solapamentAssGrupHora(Element e) {
-        return true;
+    boolean borrarElement(Element e) {
+        return assignacions.remove(e);
     }
 }

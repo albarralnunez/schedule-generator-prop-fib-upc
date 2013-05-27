@@ -21,7 +21,7 @@ public class AulaLab extends Aula {
     }
 
     /**
-     *
+     * Creadora per defecte
      */
     public AulaLab() {
         super();
@@ -38,7 +38,7 @@ public class AulaLab extends Aula {
 
     /**
      *
-     * @param mar A material
+     * @param mar Si disposa de material l'aula
      */
     public void setMaterial(boolean material) {
         this.material = material;
