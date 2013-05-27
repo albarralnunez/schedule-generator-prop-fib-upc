@@ -343,7 +343,7 @@ public class CtrPresentacio {
             
             if(opcio == 1) opcionsAsignatures();
             else if(opcio == 2) opcionsAules();
-            else if(opcio == 3) opcionsRestriccions();
+            //else if(opcio == 3) opcionsRestriccions();
         }
     }
     
@@ -448,7 +448,7 @@ public class CtrPresentacio {
      * 
      * @param opcio 
      */
-    private static void modificarRest(int opcio){
+    /*private static void modificarRest(int opcio){
         ArrayList<String> llista = cd.llistaRest(opcio);
                 if(!llista.isEmpty()){
                     ArrayList<Integer> posicio = new ArrayList();
@@ -653,8 +653,8 @@ public class CtrPresentacio {
         System.out.println("");     
         
     }
-    
-    private static void modRest(int decisio){
+    */
+    /*private static void modRest(int decisio){
        int opcio = 0;
         while( opcio != 19 ) {
             opcio = 0;
@@ -668,8 +668,8 @@ public class CtrPresentacio {
             System.out.println(" 4 - Restringir un grup de una assignatura per a que nomes s'imparteixi abans de un dia i hora");
             System.out.println(" 5 - Restringir un grup de una assignatura per a que nomes s'imparteixi despres de un dia i hora");
             
-            System.out.println(" 6 - Restringir una hora en la que no es pugui impartir una asignatura+grup"); /*OK*/ //
-            System.out.println(" 7 - Restringir una hora en la que a partir d'aquesta no es pugui impartir una asignatura+grup en una hora igual o anterior a la definida");
+            System.out.println(" 6 - Restringir una hora en la que no es pugui impartir una asignatura+grup"); /*OK*/ //*/
+            /*System.out.println(" 7 - Restringir una hora en la que a partir d'aquesta no es pugui impartir una asignatura+grup en una hora igual o anterior a la definida");
             System.out.println(" 8 - Restringir una hora en la que a partir d'aquesta no es pugui impartir una asignatura+grup en una hora igual o posterior a la definida");
             
             System.out.println(" 9 - Restringir un dia per a que no es pugui impartir una assig+grup");//
@@ -680,10 +680,10 @@ public class CtrPresentacio {
             System.out.println(" 13 - Restringir un dia per a que a partir d'aquest no es pugui impartir una assig+grup en un dia igual o anterior definit");
             System.out.println(" 14 - Restringir un dia per a que a partir d'aquest no es pugui impartir una assig+grup en un dia igual o posterior al definit");
 
-            System.out.println(" 15 - Una assig+grup no es pot impartir a la vegada que una altre temporalmente parlant"); /*OK*/
+            System.out.println(" 15 - Una assig+grup no es pot impartir a la vegada que una altre temporalmente parlant"); /*OK */
             
-            System.out.println(" 16 - inhabilitar una aula a un dia/hora");/*OK*/
-            System.out.println(" 17 - inhabilitar una aula abans de un dia/hora");
+            /*System.out.println(" 16 - inhabilitar una aula a un dia/hora");/*OK*/
+           /* System.out.println(" 17 - inhabilitar una aula abans de un dia/hora");
             System.out.println(" 18 - inhabilitar una aula despres de un dia/hora");
             
             System.out.println(" 19 - Tornar");
@@ -699,8 +699,8 @@ public class CtrPresentacio {
     }
         
     }
-    
-    private static void llistar(){
+    */
+    /*private static void llistar(){
         System.out.println(" Llistat ");
         for(int i = 1; i <=18; ++i) {
             ArrayList<String> llista = cd.llistaRest(i);
@@ -730,8 +730,8 @@ public class CtrPresentacio {
         }
  
 
-    }
-    private static void opcionsRestriccions(){ 
+    }*/
+   /* private static void opcionsRestriccions(){ 
         int opcio = 0;
         while( opcio != 4 ) {
             System.out.println(" OPCIONS ");
@@ -743,7 +743,7 @@ public class CtrPresentacio {
             if(opcio == 3) llistar();
         }
         
-    }
+    }*/
     
     private static ArrayList<Integer> definirIntervalsHores( int numHores ){
         ArrayList<Integer> intervals = new ArrayList<Integer>();

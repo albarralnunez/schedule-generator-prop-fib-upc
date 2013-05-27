@@ -616,6 +616,7 @@ public class CtrDomini {
      * @param tipus
      * @return 
      */
+    /*
     public ArrayList<String> llistaRest(int tipus){
         ArrayList<String> l = new ArrayList();
         if(0<tipus && tipus <3){
@@ -710,13 +711,13 @@ public class CtrDomini {
             }
         }
         return l;
-    }
+    }*/
     /**
      * 
      * @param tipus
      * @param params 
      */
-    public void modificarRest(int tipus,ArrayList params){
+    /*public void modificarRest(int tipus,ArrayList params){
         switch (tipus) {
             case 1: 
                     RestGrupoAula r; 
@@ -818,14 +819,14 @@ public class CtrDomini {
                     }    
                      break;
         }
-    }
+    }*/
     
     /**
      * 
      * @param tipus
      * @param numRest 
      */
-    public void esborraRest(int tipus,int numRest){
+    /*public void esborraRest(int tipus,int numRest){
         switch (tipus){
             case 1: case 2:
                     cgen.getCjtResGA().remove(numRest);
@@ -850,7 +851,7 @@ public class CtrDomini {
                     break;
        }
         
-    }
+    }*/
 
     public boolean existeixConfiguracioHoraria() {
         return cper.existeixConfiguracioHoraria(nomUnitat);
