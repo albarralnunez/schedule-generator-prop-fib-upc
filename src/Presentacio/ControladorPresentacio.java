@@ -289,6 +289,23 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         return cd.carregaLlistaHoraris();
     }
 
+    public void carregaHorari(String nomhorari) {
+        boolean b = cd.carregarHorari(nomhorari);
+        ArrayList<String> auls = cd.llistaAules();
+        String nomun = cd.nomUnitatDocent();
+        System.out.println(nomun);
+        ArrayList<String> aulesnom = new ArrayList<String>();
+        for( String au : auls){
+            au = au.replace("aula-lab-"+nomun+"-", "");
+            au = au.replace("aula-teo-"+nomun+"-", "");
+            au = au.replace(".txt", "");
+            aulesnom.add(au);
+        }
+        pva.posaConjuntAules(aulesnom);
+        
+        canviaPanel("PanelVistaAules");
+    }
+
     
 
 }

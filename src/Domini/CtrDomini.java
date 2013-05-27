@@ -862,10 +862,9 @@ public class CtrDomini {
     }
     
     public boolean carregarHorari( String nomHorari){
-        if( ! cper.existeixHorari(  "horari-"+nomUnitat+"-"+nomHorari ) ) 
-            return false;
-        
-        cper.carregaHorari("horari-"+nomUnitat+"-"+nomHorari);
+        System.out.println("ctrDomini horari "+nomHorari);
+        Quadricula qua = cper.carregaHorari(nomHorari);
+        cgen.setQuad(qua);
         return true;
     }
     
@@ -928,6 +927,10 @@ public class CtrDomini {
 
     public ArrayList<String> carregaLlistaHoraris() {
        return cper.getLlistaHoraris( nomUnitat);
+    }
+
+    public String nomUnitatDocent() {
+        return this.nomUnitat;
     }
 
 }
