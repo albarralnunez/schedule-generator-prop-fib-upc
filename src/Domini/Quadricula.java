@@ -13,11 +13,21 @@ import java.io.Serializable;
 public class Quadricula implements Serializable {
     
     private CjtElements quadricula[][];
-
+    
+    /**
+     * Obtenir la quadricula
+     * @return Retorna la quadricula
+     */
     public CjtElements[][] getQuadricula() {
         return quadricula;
     }
     
+    /**
+     * Afegeix un element a la quadricula
+     * @param dia Dia en el que s'afagira l'element
+     * @param hora Hora en que s'afegira l'element
+     * @param e Element que es vol afegir
+     */
     public void afegirElement(String dia, int hora, Element e) {
         int i;
         if (dia.equals("dilluns")) i = 0;
@@ -30,7 +40,12 @@ public class Quadricula implements Serializable {
         quadricula[i][hora].afegirElement(e);
     }
   
-    
+    /**
+     * Obtenir els elements de un dia i una hora
+     * @param dia Dia del que volem obtenir els elements
+     * @param hora Hora de la qual volem obtenir els elements
+     * @return 
+     */
       public CjtElements getElementsPosicio(String dia, int hora){
         int i;
         if (dia.equals("dilluns")) i = 0;
@@ -42,7 +57,12 @@ public class Quadricula implements Serializable {
         else i = 6;
         return quadricula[i][hora];
       }
-      
+    /**
+     * Borra un element de un dia i una hora
+     * @param dia Dia del que volem borrar el element
+     * @param hora Hora en la que volem borrar el element
+     * @param e Element que volem borrar
+     */
     public void borrarElement(String dia, int hora, Element e) {
 
         int i;
@@ -56,7 +76,9 @@ public class Quadricula implements Serializable {
         quadricula[i][hora].borrarElement(e);
 
     }
-    
+    /**
+     * Constructora per defecte
+     */
     public Quadricula(){
         quadricula = new CjtElements[7][24];
         for(int i=0; i < 7; ++i) {
@@ -65,63 +87,14 @@ public class Quadricula implements Serializable {
             }
         }
     }
-    
+    /**
+     * Valida la posicio fila columna de la quadricula
+     * @param fila Fila que volem validar
+     * @param columna Columna que volem validar
+     */
     public void validar( int fila, int columna){
         quadricula[fila][columna].setValid(true);
         
     }
-    public int ultimaHoraValida(String dia){
-        int hora = -1;
-        int i;
-        if (dia.equals("dilluns")) i = 0;
-        else if (dia.equals("dimarts")) i = 1;
-        else if (dia.equals("dimecres")) i = 2;
-        else if (dia.equals("dijous")) i = 3;
-        else if (dia.equals("divendres")) i = 4;
-        else if (dia.equals("dissabte")) i = 5;
-        else i = 6;
-        for(int j = 0; j < 24;++i){
-            if(quadricula[i][j].isValid()) hora = j;
-        }
-        return hora;
-   }
-   public String ultimDiaValid(){
-       int dia = -1;
-       boolean valid;
-       for(int i = 0; i < 7;++i){
-           valid = false;
-           for(int j = 0; j < 24 && !valid; ++j){
-               valid = quadricula[i][j].isValid();
-           }
-           if(valid) dia = i;
-       }
-       String ret = null;
-       switch(dia){
-           case 0:
-                    ret = "dilluns";
-                    break;
-           case 1:
-                    ret = "dimarts";
-                    break;
-           case 2:
-                    ret = "dimecres";
-                    break;
-           case 3:
-                    ret = "dijous";
-                    break;
-           case 4:
-                    ret = "divendres";
-                    break;
-           case 5:
-                    ret = "dissabte";
-                    break;
-           case 6:
-                    ret = "diumenge";
-                    break;
-               
-       }
-       return ret;
-   }
-    
     
 }
