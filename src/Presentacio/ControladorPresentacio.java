@@ -114,6 +114,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
             pGenAul.reseteja();
             pva.setHorariGenetar(true);////////////////////
             pva.setVisible(true);
+           
         }
         
     }

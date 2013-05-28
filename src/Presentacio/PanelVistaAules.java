@@ -330,6 +330,7 @@ public class PanelVistaAules extends javax.swing.JPanel {
         jLabel1.setBounds(20, 130, 100, 15);
         jLayeredPane1.add(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton3.setText("guardar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -347,7 +348,7 @@ public class PanelVistaAules extends javax.swing.JPanel {
                 botoOKActionPerformed(evt);
             }
         });
-        botoOK.setBounds(40, 473, 50, 20);
+        botoOK.setBounds(40, 473, 60, 25);
         jLayeredPane1.add(botoOK, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -374,7 +375,7 @@ public class PanelVistaAules extends javax.swing.JPanel {
                     etiquetes[d][h].escriuEtiquetaEnBlanc();
                 }
             }
-            
+
             boolean aulaAmbAssignacio = false;
             String nomAula = (String) comboBoxLlistaAules.getSelectedItem();
 
@@ -418,10 +419,14 @@ public class PanelVistaAules extends javax.swing.JPanel {
     private void botoOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoOKActionPerformed
         String nom = nomHorari.getText();
         System.out.println(nom);
-        if (!cp.guardar(nom)) {
-            cp.mostraAvis("nom no valid", "ERROR");
+        if (!cp.guardar(nom) || nomHorari.getText().equals("")) {
+            cp.mostraAvis("nom no valid o horari ja existent", "ERROR");
         } else {
             cp.mostraAvis("s ha guardat", "INFORMATION");
+            nomHorari.setText("");
+            nomHorari.setVisible(false);
+            botoOK.setVisible(false);
+            
         }
     }//GEN-LAST:event_botoOKActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -466,6 +471,7 @@ public class PanelVistaAules extends javax.swing.JPanel {
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JTextField nomHorari;
     // End of variables declaration//GEN-END:variables
+
 
     private class Etiqueta extends javax.swing.JPanel {
 
