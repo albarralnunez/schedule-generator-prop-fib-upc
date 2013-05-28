@@ -47,8 +47,12 @@ public class CtrDomini {
             ArrayList params = new ArrayList();
             params.add(nomAsg); //nom
             params.add(nivell); // nivell
-            params.add(mat); //material
-            params.add(proj); //projecotr
+            if( mat)  params.add(1);  //material
+            else params.add(0); 
+            
+            if (proj) params.add(1); //projecotr
+            else params.add(0); 
+            
             params.add(ht); //numero d'hores de teoria
             params.add( intervalsT.size() ); //numero d intervals de teoria
             for(int i = 0; i < intervalsT.size(); ++i) params.add(intervalsT.get(i)); // intervals teoria
