@@ -34,6 +34,7 @@ public class PanelVeureHoraris extends javax.swing.JPanel {
     }
     
     public void carregaLlistaHoraris(){
+        jList1.removeAll();
         ArrayList<String> llistaHoraris = cp.carregaLlistaHoraris();
         DefaultListModel listModel = new DefaultListModel();
         jList1.setModel(listModel);
@@ -59,7 +60,7 @@ public class PanelVeureHoraris extends javax.swing.JPanel {
         botoVeure = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        botoEsborrar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(700, 550));
@@ -104,14 +105,14 @@ public class PanelVeureHoraris extends javax.swing.JPanel {
         jLabel2.setBounds(80, 30, 500, 30);
         jLayeredPane1.add(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jButton3.setText("esborrar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        botoEsborrar.setText("esborrar");
+        botoEsborrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                botoEsborrarActionPerformed(evt);
             }
         });
-        jButton3.setBounds(500, 380, 100, 30);
-        jLayeredPane1.add(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        botoEsborrar.setBounds(500, 380, 100, 30);
+        jLayeredPane1.add(botoEsborrar, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -146,15 +147,22 @@ public class PanelVeureHoraris extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_botoVeureActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        //ESBORRAR
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void botoEsborrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoEsborrarActionPerformed
+        Object[] cadena = jList1.getSelectedValues();
+        int h = cadena.length;
+        if (h == 0) cp.mostraAvis("Seleccioni l'horari que vols esorrar", "WARNING");
+        else{
+            String nomhorari = (String) jList1.getSelectedValue();
+            cp.esborraHorari(nomhorari);
+        }
+        carregaLlistaHoraris();
+    }//GEN-LAST:event_botoEsborrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botoEsborrar;
     private javax.swing.JButton botoVeure;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

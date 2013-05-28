@@ -318,6 +318,10 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         else mostraAvis("No s'han pogut carregar les restriccions", "ERROR");
     }
 
+    void esborraHorari(String nomhorari) {
+        cd.esborraHorari(nomhorari);
+    }
+
 
     
 

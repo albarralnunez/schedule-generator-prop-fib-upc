@@ -866,6 +866,8 @@ public class CtrDomini {
     public boolean carregarHorari( String nomHorari){
         System.out.println("ctrDomini horari "+nomHorari);
         Quadricula qua = cper.carregaHorari(nomHorari);
+        int a = 0;
+        if( qua == null) return false;
         cgen.setQuad(qua);
         return true;
     }
@@ -933,6 +935,10 @@ public class CtrDomini {
 
     public String nomUnitatDocent() {
         return this.nomUnitat;
+    }
+
+    public void esborraHorari(String nomhorari) {
+        cper.esborrahorari( nomhorari );
     }
 
 }
