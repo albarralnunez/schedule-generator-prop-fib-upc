@@ -264,9 +264,6 @@ public class ControladorPresentacio extends javax.swing.JFrame {
 
     public void InicialitzaGenerador(ArrayList<String> aules){
         cd.inicialitzaGenerador(aules, assignatures);
-
-        for (int i = 0; i < assignatures.size(); ++i) System.out.println("ASSIG:" + assignatures.get(i));
-
         cd.inicialitzarClausules();
         cd.inicialitzarClausulesNom();
     }
