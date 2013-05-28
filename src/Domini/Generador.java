@@ -328,7 +328,7 @@ class Generador {
          //if(!this.cjtRestS.ComprovarRes(cl, cln, c,hor,cn.getDia())) return true;
          if(!c.compleixRestsSolapament(cl,cln,c,hor,dia)) return true;
          if (mateixNivell(cn,c,cl,cln,hor)) return true;
-         if (solapamentAssignaturaHora(cn,c,cl,cln,hor)) return true;
+         //if (solapamentAssignaturaHora(cn,c,cl,cln,hor)) return true;
          if (solapamentAssigGrupDia(cn,c,cl,cln,hor)) return true;
          return false;
     }
