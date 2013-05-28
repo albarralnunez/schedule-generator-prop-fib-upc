@@ -66,7 +66,8 @@ public class Assignatura implements Serializable{
      * @param grups Array amb tots els grups de l'assignatura
      */
     public Assignatura(String nm, int niv, int ht, ArrayList<Integer> inteT, int hp,
-            ArrayList<Integer> inteP, int capT, int capP, ArrayList<Integer> grups) {
+            ArrayList<Integer> inteP, int capT, int capP, ArrayList<Integer> grups
+            ,boolean mat, boolean proj) {
         nom = nm;
         nivel = niv;
         horesT = ht;
@@ -76,8 +77,8 @@ public class Assignatura implements Serializable{
         capacitatTeo = capT;
         capacitatLab = capP;
         this.grups = grups;
-        material = false;
-        projector = false;
+        material = mat;
+        projector = proj;
     }
 
     /**

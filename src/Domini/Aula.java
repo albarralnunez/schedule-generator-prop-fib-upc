@@ -68,4 +68,12 @@ public class Aula implements Serializable{
     public boolean capacitatMajorDe(int x) {
         return (capacitat >= x);
     }
+    
+    public boolean isLabAul(){
+        return false;
+    }
+    
+    public boolean isTeoAul(){
+        return false;
+    }
 }

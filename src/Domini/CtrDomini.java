@@ -40,12 +40,15 @@ public class CtrDomini {
      * @param capPra
      * @param grups 
      */
-    public void creaAssignatura( String nomAsg, int nivell, int ht, ArrayList<Integer> intervalsT, int hp,
-            ArrayList<Integer> intervalsP , int capTeo, int capPra ,ArrayList grups ){ 
+    public void creaAssignatura( String nomAsg, int nivell, int ht, ArrayList<Integer> intervalsT,
+            int hp,ArrayList<Integer> intervalsP , int capTeo, int capPra ,
+            ArrayList grups, boolean mat,boolean proj ){ 
         
             ArrayList params = new ArrayList();
             params.add(nomAsg); //nom
             params.add(nivell); // nivell
+            params.add(mat); //material
+            params.add(proj); //projecotr
             params.add(ht); //numero d'hores de teoria
             params.add( intervalsT.size() ); //numero d intervals de teoria
             for(int i = 0; i < intervalsT.size(); ++i) params.add(intervalsT.get(i)); // intervals teoria
@@ -57,6 +60,7 @@ public class CtrDomini {
             for(int i = 0; i < grups.size(); ++i) params.add(grups.get(i));
             cper.creaAssignatura(nomUnitat+"-"+nomAsg , params);
     }
+    
     public void inicialitzarClausules(){
          cgen.inicialitzarClausules();
     }
@@ -196,8 +200,8 @@ public class CtrDomini {
         for(String nom : aules){
            ArrayList<String> atributs = llegirAulaLab(nom);
            if( ! atributs.isEmpty() ){
-                boolean b = false;
-                if (Integer.parseInt (atributs.get(3)) == 1) b = true;
+               Integer bb = Integer.parseInt(atributs.get(3));
+                boolean b = (bb.equals(1));
                 AulaLab a = new AulaLab(nom,Integer.parseInt (atributs.get(2)),b);
                 aLab.add(a);
            }
@@ -209,8 +213,8 @@ public class CtrDomini {
            String nom = nomO.toString();
            ArrayList<String> atributs = llegirAulaTeo(nom);
            if( ! atributs.isEmpty()){
-                boolean b = false;
-                if (Integer.parseInt (atributs.get(3)) == 1) b = true;
+               Integer bb = Integer.parseInt (atributs.get(3));
+                boolean b = (bb.equals(1));
                 AulaTeo a = new AulaTeo(nom,Integer.parseInt (atributs.get(2)),b);
                 aTeo.add(a);
            }
@@ -233,17 +237,21 @@ public class CtrDomini {
      * @return 
      */
     public Assignatura montaAssignatura( String nomAsg ){
-        Assignatura asg = new Assignatura();
+        //Assignatura asg = new Assignatura();
         nomAsg = nomAsg.replace("assig-"+nomUnitat+"-", "");
         nomAsg = nomAsg.replace(".txt", "");
         ArrayList<String> atributs = llegirAssignatura(nomAsg);
         String nom = atributs.get(0);      
         int nvl = Integer.parseInt(atributs.get(1));
-        int numht = Integer.parseInt( atributs.get(2) );
-        int numint =  Integer.parseInt( atributs.get(3) );
+        Integer matt = Integer.parseInt(atributs.get(2));
+        Integer projj = Integer.parseInt(atributs.get(3));
+        boolean mat = (matt.equals(1));
+        boolean proj = (projj.equals(1));
+        int numht = Integer.parseInt( atributs.get(4) );
+        int numint =  Integer.parseInt( atributs.get(5) );
         ArrayList<Integer> intersT = new ArrayList<Integer>(numint); 
-        int contador = numint+4;
-        for( int i = 4; i < numint+4  ; ++i ){
+        int contador = numint+6;
+        for( int i = 6; i < numint+6  ; ++i ){
             int interval = Integer.parseInt(atributs.get(i));
             intersT.add( interval );
         }
@@ -264,12 +272,15 @@ public class CtrDomini {
             int g = Integer.parseInt(atributs.get(++contador));
             grupos.add( g );
         }
-        asg = new Assignatura( nom, nvl, numht, intersT, numhp, intersP, capt, capp, grupos );
+        Assignatura asg = new Assignatura( nom, nvl, numht, intersT, numhp, intersP, capt, 
+                capp, grupos,mat, proj);
         return asg;
     }
+    
     public boolean existeixRest(String nomUnitat){
        return cper.existeixRest(nomUnitat);
     }
+    
     public void montaRestriccions(String nomUnitat){
         ArrayList<String> l = this.cper.llegirRestriccions(this.nomUnitat);
         ArrayList laux;
@@ -866,6 +877,8 @@ public class CtrDomini {
     public boolean carregarHorari( String nomHorari){
         System.out.println("ctrDomini horari "+nomHorari);
         Quadricula qua = cper.carregaHorari(nomHorari);
+        int a = 0;
+        if( qua == null) return false;
         cgen.setQuad(qua);
         return true;
     }
@@ -933,6 +946,10 @@ public class CtrDomini {
 
     public String nomUnitatDocent() {
         return this.nomUnitat;
+    }
+
+    public void esborraHorari(String nomhorari) {
+        cper.esborrahorari( nomhorari );
     }
 
 }
