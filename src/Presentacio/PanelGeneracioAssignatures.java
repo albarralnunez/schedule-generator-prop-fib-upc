@@ -57,6 +57,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -77,7 +78,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
         jTable1.setEnabled(false);
         jScrollPane2.setViewportView(jTable1);
 
-        jScrollPane2.setBounds(0, 20, 670, 220);
+        jScrollPane2.setBounds(0, 20, 690, 220);
         jLayeredPane1.add(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel1.setText("Assignatures:");
@@ -145,13 +146,16 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
         jButton6.setBounds(170, 330, 99, 25);
         jLayeredPane1.add(jButton6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 10));
+        jLabel2.setText("Obtenir assignatures disponibles");
+        jLabel2.setBounds(210, 390, 240, 13);
+        jLayeredPane1.add(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 694, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,6 +283,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
