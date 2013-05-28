@@ -91,6 +91,7 @@ private void botoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
             cp.mostraAvis("El nom de la unitat docent ha de ser \nuna cadena de carácters sense espais en blanc.", "ERROR");
         else { // el nom es valid
             cp.identificarUnitatDocent(nomUnitatDocent);
+            nomUD.setText("");
             cp.canviaPanel("menuPrincipal");
         }
 }//GEN-LAST:event_botoLoginActionPerformed
@@ -102,6 +103,7 @@ private void botoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
             cp.mostraAvis("El nom de la unitat docent ha de ser \nuna cadena de carácters sense espais en blanc.", "ERROR");
         else { // el nom es valid
             cp.identificarUnitatDocent(nomUnitatDocent);
+            nomUD.setText("");
             cp.canviaPanel("menuPrincipal");
         }
     }
