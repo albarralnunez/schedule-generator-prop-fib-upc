@@ -203,4 +203,10 @@ public class CtrPersistencia {
         return cdisc.llistaDirectori("horari-"+nomUnitat);
         
     }
+
+    public void esborrahorari(String nomhorari) {
+       if( ! co.esborra(nomhorari) ){
+           System.out.println("PROBLEMA AL BORRAR");
+       }
+    }
 }
