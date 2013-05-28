@@ -42,7 +42,6 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
     private void initComponents() {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -57,11 +56,6 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
         jButton6 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(686, 421));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setText("Prem");
-        jLabel1.setBounds(40, 30, 40, 30);
-        jLayeredPane1.add(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -116,7 +110,7 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        jButton3.setBounds(90, 30, 30, 25);
+        jButton3.setBounds(40, 30, 30, 25);
         jLayeredPane1.add(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton4.setText("Enrere");
@@ -147,8 +141,8 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
         jLayeredPane1.add(botoReset, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setText("per carregar les aules");
-        jLabel2.setBounds(130, 30, 150, 30);
+        jLabel2.setText("Carregar les aules disponibles");
+        jLabel2.setBounds(80, 30, 210, 30);
         jLayeredPane1.add(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton6.setText("Select All");
@@ -287,7 +281,6 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JList jList1;

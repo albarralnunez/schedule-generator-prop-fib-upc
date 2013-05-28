@@ -65,10 +65,10 @@ public class PanelVeureHoraris extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(700, 550));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("seleciona'n un");
-        jLabel1.setBounds(80, 110, 340, 19);
+        jLabel1.setBounds(80, 110, 340, -1);
         jLayeredPane1.add(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jList1.setModel(new javax.swing.AbstractListModel() {
@@ -99,13 +99,13 @@ public class PanelVeureHoraris extends javax.swing.JPanel {
         jButton2.setBounds(500, 180, 100, 30);
         jLayeredPane1.add(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("-");
         jLabel2.setBounds(80, 30, 500, 30);
         jLayeredPane1.add(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        botoEsborrar.setText("esborrar");
+        botoEsborrar.setText("Borrar");
         botoEsborrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botoEsborrarActionPerformed(evt);
@@ -114,10 +114,10 @@ public class PanelVeureHoraris extends javax.swing.JPanel {
         botoEsborrar.setBounds(500, 380, 100, 30);
         jLayeredPane1.add(botoEsborrar, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Arxius amb Horaris Disponibles:");
-        jLabel3.setBounds(80, 90, 340, 19);
+        jLabel3.setBounds(80, 90, 340, -1);
         jLayeredPane1.add(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -150,7 +150,7 @@ public class PanelVeureHoraris extends javax.swing.JPanel {
     private void botoEsborrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoEsborrarActionPerformed
         Object[] cadena = jList1.getSelectedValues();
         int h = cadena.length;
-        if (h == 0) cp.mostraAvis("Seleccioni l'horari que vols esorrar", "WARNING");
+        if (h == 0) cp.mostraAvis("Seleccioni l'horari que vol esborrar", "WARNING");
         else{
             String nomhorari = (String) jList1.getSelectedValue();
             cp.esborraHorari(nomhorari);
