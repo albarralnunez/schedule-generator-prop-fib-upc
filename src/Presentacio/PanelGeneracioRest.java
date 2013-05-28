@@ -98,7 +98,7 @@ public class PanelGeneracioRest extends javax.swing.JPanel {
         jLabel3.setText("Restriccions Disponibles:");
 
         jList3.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "1. Restringir un grup a una aula.", "2. Restringir que un grup no pugui anar a una aula.", " ", "3. Restringir un grup a un dia i hora.", "4. Restringir un grup abans d'un dia i hora.", "5. Restringir un grup després d'un dia i hora.", " ", "6. Restringir una hora en la que no es pugui impartir una assignatura+grup.", "7. Restringir una hora en la que abans d'aquesta no es pugui impartir una assig+grup.", "8. Restringir una hora en la que després d'aquesta no es pugui impartir una assig+grup.", " ", "9. Restringir una assignatura+grup en un dia.", "10. Restringir una assignatura+grup abans d'un dia.", "11. Restringir una assignatura+grup després un dia.", " ", "12. Dues assig+grup no poden impartir-se a la vegada temporalment parlant.", " ", "13. Restringir un aula a no utilitzar-se un dia/hora.", "14. Restringir un aula a no utilitzar-se abans d'un dia/hora.", "15. Restringir un aula a no utilitzar-se després d'un dia/hora." };
+            String[] strings = { "1. Restringir un grup a una aula.", "2. Restringir que un grup no pugui anar a una aula.", " ", "3. Restringir d'un dia i hora en enrere, que no es pugui impartir classe d'un grup.", "4. Restringir d'un dia i hora en endavant, que no es pugui impartir classe d'un grup.", " ", "5. Restringir una hora a no poder impartir classe d'un grup.", "6. Restringir que no es pugui impartir classe d'un grup d'una hora en enrere.", "7. Restringir que no es pugui impartir classe d'un grup d'una hora en endavant.", " ", "8. Restringir que no es pugui impartir classe d'un grup en un dia.", "9. Restringir que no es pugui impartir classe d'un grup d'un dia, en enrere.", "10. Restringir que no es pugui impartir classe d'un grup d'un dia, en endavant.", " ", "11. Restringir que no es pugui impartir classe d'un grup en un dia i hora.", "12. Restringir que no es pugui impartir classe d'un grup d'un dia i hora en enrere.", "13. Restringir que no es pugui impartir classe d'un grup d'un dia i hora en endavant.", " ", "14. Dos grups no poden fer classe a la vegada temporalment parlant.", " ", "15. Inhabilitar un aula a un dia i hora.", "16. Inhabilitar un aula d'un dia i hora, en enrere.", "17. Inhabilitar un aula d'un dia i hora, en endavant." };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
@@ -281,7 +281,7 @@ public class PanelGeneracioRest extends javax.swing.JPanel {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(jButton13)
                 .addContainerGap())
         );
@@ -317,7 +317,7 @@ public class PanelGeneracioRest extends javax.swing.JPanel {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -344,22 +344,20 @@ public class PanelGeneracioRest extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel3.setBounds(-10, -10, 685, 490);
+        jPanel3.setBounds(0, 10, 685, 490);
         jLayeredPane1.add(jPanel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 666, Short.MAX_VALUE))
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE))
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -371,7 +369,7 @@ public class PanelGeneracioRest extends javax.swing.JPanel {
         if( cp.generar() ){
             cp.canviaPanel("PanelVistaAules");
         }
-        else cp.mostraAvis("no s'ha pogut generar cap horari amb aquesta configuracio", "ERROR");
+        else cp.mostraAvis("No s'ha pogut generar cap horari amb aquesta configuracio", "ERROR");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -400,9 +398,11 @@ public class PanelGeneracioRest extends javax.swing.JPanel {
 
                 if ((cadena[0].toString().equals("1. Restringir un grup a una aula."))) opcio = 1;
                 else opcio = 2;
-            } else if ((cadena[0].toString().equals("3. Restringir un grup a un dia i hora.")) ||
-                    (cadena[0].toString().equals("4. Restringir un grup abans d'un dia i hora.")) ||
-                    (cadena[0].toString().equals("5. Restringir un grup després d'un dia i hora."))) {
+
+
+
+            } else if ((cadena[0].toString().equals("3. Restringir d'un dia i hora en enrere, que no es pugui impartir classe d'un grup.")) ||
+                    (cadena[0].toString().equals("4. Restringir d'un dia i hora en endavant, que no es pugui impartir classe d'un grup."))) {
                 rest = 2; //RESTRICCIO 2;
                 jTextField6.setVisible(true);
                 jTextField7.setVisible(true);
@@ -418,12 +418,13 @@ public class PanelGeneracioRest extends javax.swing.JPanel {
 
                 //SET OPTION
 
-                if ((cadena[0].toString().equals("3. Restringir un grup a un dia i hora."))) opcio = 3;
-                else if ((cadena[0].toString().equals("4. Restringir un grup abans d'un dia i hora."))) opcio = 4;
-                else opcio = 5;
-            } else if ((cadena[0].toString().equals("6. Restringir una hora en la que no es pugui impartir una assignatura+grup.")) ||
-                    (cadena[0].toString().equals("7. Restringir una hora en la que abans d'aquesta no es pugui impartir una assig+grup.")) ||
-                    (cadena[0].toString().equals("8. Restringir una hora en la que després d'aquesta no es pugui impartir una assig+grup."))) {
+                if ((cadena[0].toString().equals("3. Restringir d'un dia i hora en enrere, que no es pugui impartir classe d'un grup."))) opcio = 3;
+                else opcio = 4;
+
+
+            } else if ((cadena[0].toString().equals("5. Restringir una hora a no poder impartir classe d'un grup.")) ||
+                    (cadena[0].toString().equals("6. Restringir que no es pugui impartir classe d'un grup d'una hora en enrere.")) ||
+                    (cadena[0].toString().equals("7. Restringir que no es pugui impartir classe d'un grup d'una hora en endavant."))) {
                 rest = 3; //RESTRICCIO 3;
                 jPanel6.setVisible(true);
                 jTextField6.setVisible(true);
@@ -439,12 +440,15 @@ public class PanelGeneracioRest extends javax.swing.JPanel {
 
                 //SET OPTION
 
-                if ((cadena[0].toString().equals("6. Restringir una hora en la que no es pugui impartir una assignatura+grup."))) opcio = 6;
-                else if ((cadena[0].toString().equals("7. Restringir una hora en la que abans d'aquesta no es pugui impartir una assig+grup."))) opcio = 7;
-                else opcio = 8;
-            } else if ((cadena[0].toString().equals("9. Restringir una assignatura+grup en un dia.")) ||
-                    (cadena[0].toString().equals("10. Restringir una assignatura+grup abans d'un dia.")) ||
-                    (cadena[0].toString().equals("11. Restringir una assignatura+grup després un dia."))) {
+                if ((cadena[0].toString().equals("5. Restringir una hora a no poder impartir classe d'un grup."))) opcio = 5;
+                else if ((cadena[0].toString().equals("6. Restringir que no es pugui impartir classe d'un grup d'una hora en enrere."))) opcio = 6;
+                else opcio = 7;
+
+
+
+            } else if ((cadena[0].toString().equals("8. Restringir que no es pugui impartir classe d'un grup en un dia.")) ||
+                    (cadena[0].toString().equals("9. Restringir que no es pugui impartir classe d'un grup d'un dia, en enrere.")) ||
+                    (cadena[0].toString().equals("10. Restringir que no es pugui impartir classe d'un grup d'un dia, en endavant."))) {
                 rest = 4; //RESTRICCIO 4;
                 jPanel6.setVisible(true);
                 jTextField6.setVisible(true);
@@ -460,15 +464,16 @@ public class PanelGeneracioRest extends javax.swing.JPanel {
 
                 //SET OPTION
 
-                if ((cadena[0].toString().equals("9. Restringir una assignatura+grup en un dia."))) opcio = 9;
-                else if ((cadena[0].toString().equals("10. Restringir una assignatura+grup abans d'un dia."))) opcio = 10;
-                else opcio = 11;
+                if ((cadena[0].toString().equals("8. Restringir que no es pugui impartir classe d'un grup en un dia."))) opcio = 8;
+                else if ((cadena[0].toString().equals("9. Restringir que no es pugui impartir classe d'un grup d'un dia, en enrere."))) opcio = 9;
+                else opcio = 10;
 
 
-            } else if ((cadena[0].toString().equals("13. Restringir un aula a no utilitzar-se un dia/hora.")) ||
-                    (cadena[0].toString().equals("14. Restringir un aula a no utilitzar-se abans d'un dia/hora.")) ||
-                    (cadena[0].toString().equals("15. Restringir un aula a no utilitzar-se després d'un dia/hora."))) {
-                rest = 6; //RESTRICCIO 6;
+            } else if ((cadena[0].toString().equals("11. Restringir que no es pugui impartir classe d'un grup en un dia i hora.")) ||
+                    (cadena[0].toString().equals("12. Restringir que no es pugui impartir classe d'un grup d'un dia i hora en enrere.")) ||
+                    (cadena[0].toString().equals("13. Restringir que no es pugui impartir classe d'un grup d'un dia i hora en endavant."))) {
+
+                rest = 7; //RESTRICCIO 6;
                 jPanel6.setVisible(true);
                 jLabel16.setVisible(true);
                 jTextField8.setVisible(true);
@@ -483,14 +488,39 @@ public class PanelGeneracioRest extends javax.swing.JPanel {
 
                 //SET OPTION
 
-                if ((cadena[0].toString().equals("13. Restringir un aula a no utilitzar-se un dia/hora."))) opcio = 13;
-                else if ((cadena[0].toString().equals("14. Restringir un aula a no utilitzar-se abans d'un dia/hora."))) opcio = 14;
-                else opcio = 15;
-            } else if ((cadena[0].toString().equals("12. Dues assig+grup no poden impartir-se a la vegada temporalment parlant."))) {
+                if ((cadena[0].toString().equals("11. Restringir que no es pugui impartir classe d'un grup en un dia i hora."))) opcio = 11;
+                else if ((cadena[0].toString().equals("12. Restringir que no es pugui impartir classe d'un grup d'un dia i hora en enrere."))) opcio = 12;
+                else opcio = 13;
+
+
+            } else if ((cadena[0].toString().equals("14. Dos grups no poden fer classe a la vegada temporalment parlant."))) {
                 rest = 5; //RESTRICCION 5;
                 jPanel6.setVisible(false);
                 jPanel7.setVisible(true);
-                opcio = 12;
+                opcio = 14;
+
+            } else if ((cadena[0].toString().equals("15. Inhabilitar un aula a un dia i hora.")) ||
+                    (cadena[0].toString().equals("16. Inhabilitar un aula d'un dia i hora, en enrere.")) ||
+                    (cadena[0].toString().equals("17. Inhabilitar un aula d'un dia i hora, en endavant."))) {
+
+                rest = 7; //RESTRICCIO 6;
+                jPanel6.setVisible(true);
+                jLabel16.setVisible(true);
+                jTextField8.setVisible(true);
+                jComboBox1.setVisible(true);
+                jLabel17.setVisible(true);
+                jComboBox2.setVisible(true);
+                jLabel18.setVisible(true);
+                jTextField6.setVisible(false);
+                jTextField7.setVisible(false);
+                jLabel14.setVisible(false);
+                jLabel15.setVisible(false);
+
+                //SET OPTION
+
+                if ((cadena[0].toString().equals("15. Inhabilitar un aula a un dia i hora."))) opcio = 15;
+                else if ((cadena[0].toString().equals("16. Inhabilitar un aula d'un dia i hora, en enrere."))) opcio = 16;
+                else opcio = 17;
 
             }
         }
@@ -600,11 +630,24 @@ public class PanelGeneracioRest extends javax.swing.JPanel {
             else {
                 ArrayList params = new ArrayList();
                 params.add(jTextField8.getText()); //AULA
-                params.add(Integer.parseInt(jComboBox2.getSelectedItem().toString())); //HORA
                 params.add(jComboBox1.getSelectedItem().toString()); //DIA
+                params.add(Integer.parseInt(jComboBox2.getSelectedItem().toString())); //HORA
                 params.add(opcio); //OPCIO
                 cp.afegirRestriccio(rest, params);
                 cp.mostraAvis("S'ha afegit la restricció "+jTextField8.getText()+ " - "+ jComboBox2.getSelectedItem()+ " - "+ jComboBox1.getSelectedItem(), "INFORMATION");
+            }
+        } else if (rest == 7) {
+            if (jTextField6.getText().isEmpty() || jTextField7.getText().isEmpty()) cp.mostraAvis("Falten indicacions per crear la restricció", "ERROR");
+            else {
+                ArrayList params = new ArrayList();
+                params.add(jTextField6.getText()); //ASSIG
+                params.add(Integer.parseInt(jTextField7.getText())); //GRUP
+                params.add(jComboBox1.getSelectedItem().toString()); //DIA
+                params.add(Integer.parseInt(jComboBox2.getSelectedItem().toString())); //HORA
+                params.add(opcio); //OPCIO
+                cp.afegirRestriccio(rest,params);
+                cp.mostraAvis("S'ha afegit la restricció "+jTextField6.getText()+ " - "+ jTextField7.getText()+ " - "+ jComboBox1.getSelectedItem()+ " - "+
+                        jComboBox2.getSelectedItem(), "INFORMATION");
             }
         }
 
