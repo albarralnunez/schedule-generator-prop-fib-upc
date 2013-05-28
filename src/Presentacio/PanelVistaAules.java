@@ -374,7 +374,7 @@ public class PanelVistaAules extends javax.swing.JPanel {
                     etiquetes[d][h].escriuEtiquetaEnBlanc();
                 }
             }
-            
+
             boolean aulaAmbAssignacio = false;
             String nomAula = (String) comboBoxLlistaAules.getSelectedItem();
 
@@ -466,6 +466,7 @@ public class PanelVistaAules extends javax.swing.JPanel {
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JTextField nomHorari;
     // End of variables declaration//GEN-END:variables
+
 
     private class Etiqueta extends javax.swing.JPanel {
 
