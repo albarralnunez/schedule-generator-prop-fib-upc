@@ -43,4 +43,9 @@ public class AulaTeo extends Aula {
     public void setProjector(boolean projector) {
         this.projector = projector;
     }
+    
+    @Override
+    public boolean isTeoAul(){
+        return true;
+    }
 }

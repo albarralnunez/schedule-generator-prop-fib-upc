@@ -15,7 +15,7 @@ public class AulaLab extends Aula {
     /**
      * Crea un Aula de laboratori.
      */
-    public AulaLab(String nom, int cap, boolean mat) {
+    public AulaLab(String nom, int cap,boolean mat) {
         super(nom, cap);
         this.material = mat;
     }
@@ -23,10 +23,10 @@ public class AulaLab extends Aula {
     /**
      * Creadora per defecte
      */
-    public AulaLab() {
+    /*public AulaLab() {
         super();
         this.material = false; //La creadora por defecto no da material al aula.
-    }
+    }*/
 
     /**
      *
@@ -42,5 +42,10 @@ public class AulaLab extends Aula {
      */
     public void setMaterial(boolean material) {
         this.material = material;
+    }
+    
+    @Override
+    public boolean isLabAul(){
+        return true;
     }
 }
