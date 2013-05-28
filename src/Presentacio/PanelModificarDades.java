@@ -1859,6 +1859,9 @@ public class PanelModificarDades extends javax.swing.JPanel {
         ArrayList<String> llistaAssigs =  cp.llistaAssignatures();
         String totesAssig = "";
         String nomUD = cp.getNomUnitatDocent();
+        
+        comboBoxAssigs.removeAllItems();
+        
         for( String nomAssig : llistaAssigs ){
             nomAssig = nomAssig.replace( "assig-"+nomUD+"-", "");
             nomAssig = nomAssig.replace( ".txt", "");
