@@ -285,7 +285,7 @@ class Generador {
                         ++p;
                     }
                     while (i >= 0){
-                       int hor = cnaux.getHora() - i;
+                       int hor = cnaux.getHora() + i;
                        String di = cnaux.getDia();
                        qu.borrarElement(di, hor, e);
                        --i;
