@@ -186,36 +186,7 @@ class Generador {
                     }            
                 }
             }
-            
-  
-    
-    /**
-     * 
-     * @param cn
-     * @param c
-     * @param duracio
-     * @return 
-     */
-    private boolean duracioConsecutiva(ClausulaNom cn,Clausula c, int duracio){
-        ArrayList<ClausulaNom> aux = c.getClausula();
-        if(aux.size() > 1) {
-            int index = aux.indexOf(cn);
-            if((index + (duracio - 1)) < aux.size()){
-                int horaActmes1;
-                int horaSeg;
-                for(int i = 1; i < duracio; ++i){
-                    horaActmes1 = aux.get(index).getHora()+1;
-                    horaSeg = aux.get(index+1).getHora();
-                    if((horaActmes1 != horaSeg) && 
-                            (aux.get(index).getAula() == aux.get(index+1).getAula()))
-                        return false;
-                        ++index;
-                }
-            }
-        }
-        return true;
-        
-    }
+           
 
     private boolean horesiLimits(Clausula c, ClausulaNom cn, Quadricula q) {
         if (!suficientHoresSegui(c,cn,q)) return false;
@@ -325,7 +296,6 @@ class Generador {
             ClausulaNom cln, int hor,String dia) {
          if (solapamentTeoriaPractica (cn,c,cl,cln,hor)) return true;
          if (aulaRepetida(cn,c,cl,cln,hor)) return true;
-         //if(!this.cjtRestS.ComprovarRes(cl, cln, c,hor,cn.getDia())) return true;
          if(!c.compleixRestsSolapament(cl,cln,c,hor,dia)) return true;
          if (mateixNivell(cn,c,cl,cln,hor)) return true;
          //if (solapamentAssignaturaHora(cn,c,cl,cln,hor)) return true;
