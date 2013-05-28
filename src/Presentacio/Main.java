@@ -21,16 +21,16 @@ public class Main {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                Scanner sc = new Scanner(System.in);
+                /*Scanner sc = new Scanner(System.in);
                 System.out.println("1 para el programa de toda la vida");
                 System.out.println("2 para arrancar el tema interfaz");
                 int i = sc.nextInt();
-                if( i == 2)
+                if( i == 2)*/
                     ctp = new ControladorPresentacio();
-                else {
+                /*else {
                     cpres = new CtrPresentacio();
                     cpres.mayn();
-                }
+                }*/
             }
         });
     }

@@ -156,7 +156,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     }
 
     public void identificarUnitatDocent(String nomUnitatDocent) {
-        System.out.println(nomUnitatDocent);
+        //System.out.println(nomUnitatDocent);
         unitatDocent = nomUnitatDocent;
         cd = new CtrDomini(unitatDocent);
     }
@@ -296,7 +296,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         boolean b = cd.carregarHorari(nomhorari);
         ArrayList<String> auls = cd.llistaAules();
         String nomun = cd.nomUnitatDocent();
-        System.out.println(nomun);
+        //System.out.println(nomun);
         ArrayList<String> aulesnom = new ArrayList<String>();
         for( String au : auls){
             au = au.replace("aula-lab-"+nomun+"-", "");
@@ -318,6 +318,10 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         boolean a = cd.existeixRest(unitatDocent);
         if(a) cd.montaRestriccions(unitatDocent);
         else mostraAvis("No s'han pogut carregar les restriccions", "ERROR");
+    }
+
+    void esborraHorari(String nomhorari) {
+        cd.esborraHorari(nomhorari);
     }
 
 

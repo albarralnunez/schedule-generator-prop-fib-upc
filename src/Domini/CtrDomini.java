@@ -567,8 +567,7 @@ public class CtrDomini {
                 r.setHora((Integer)params.get(2));
                 r.setDia((String)params.get(1));
                 r.setId((Integer) params.get(3));
-                boolean b = this.cgen.getQuad().getElementsPosicio(r.getDia(), r.getHora()).isValid();
-                if(b)cgen.afegirRest(tipus, r);
+                cgen.afegirRest(tipus, r);
             }
             
         }
@@ -878,6 +877,8 @@ public class CtrDomini {
     public boolean carregarHorari( String nomHorari){
         System.out.println("ctrDomini horari "+nomHorari);
         Quadricula qua = cper.carregaHorari(nomHorari);
+        int a = 0;
+        if( qua == null) return false;
         cgen.setQuad(qua);
         return true;
     }
@@ -945,6 +946,10 @@ public class CtrDomini {
 
     public String nomUnitatDocent() {
         return this.nomUnitat;
+    }
+
+    public void esborraHorari(String nomhorari) {
+        cper.esborrahorari( nomhorari );
     }
 
 }

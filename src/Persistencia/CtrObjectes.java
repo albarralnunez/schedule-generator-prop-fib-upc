@@ -57,6 +57,14 @@ public class CtrObjectes<Classe> extends CtrDisc implements Serializable {
         return new File("./Data/" + nomObjecte + ".o").canRead();
     }
     
+    public boolean esborra(String nomArxiu) {
+        if (existeix(nomArxiu)) {
+            return new File("./Data/" + nomArxiu + ".o").delete();
+        } else {
+            return false;
+        }
+    }
+    
     /**
      *
      * @param nom nom de la classe a llegir
@@ -67,6 +75,7 @@ public class CtrObjectes<Classe> extends CtrDisc implements Serializable {
         Classe aux = null;
         try {
             ObjectInputStream entrada = new ObjectInputStream(new FileInputStream("./Data/" + nom + ".o"));
+            System.out.println(nom);
             aux = (Classe) entrada.readObject();
             entrada.close();
             return aux;
