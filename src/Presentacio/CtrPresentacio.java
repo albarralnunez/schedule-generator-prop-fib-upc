@@ -391,6 +391,12 @@ public class CtrPresentacio {
        
             System.out.println("nivell");
             int nivell = s.nextInt();
+            System.out.println("necesita material? s/n");
+            String matt = s.next();
+            boolean mat = (matt.equals("s")); 
+            System.out.println("necesita projecotr? s/n");
+            String projj = s.next();
+            boolean proj = (projj.equals("s"));         
             System.out.println("hores de teoria ");
             int horest;
             horest = s.nextInt();
@@ -412,7 +418,7 @@ public class CtrPresentacio {
                 for(int j = 0; j < ngl+1; ++j) grups.add((i+1)*10+j);
             }
             cd.creaAssignatura( nomAsg, nivell , horest, intervalsT, horesp, intervalsP,
-            capTeo ,capLab, grups);
+            capTeo ,capLab, grups,mat,proj);
         
     }
     

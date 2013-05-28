@@ -71,7 +71,7 @@ public class RestSolapament extends Restriccio{
     public boolean CompleixRes(){return false;}
     
     
-    public boolean esPotAfegir(CjtRestSolapament cjtR) {
+    /*public boolean esPotAfegir(CjtRestSolapament cjtR) {
         ArrayList<Restriccio> llista = new ArrayList();
         llista = cjtR.getCjtRes();
         int size = llista.size();
@@ -81,9 +81,9 @@ public class RestSolapament extends Restriccio{
             if(this.equals(resdw)) return false;
         }
         return true;
-    }
+    }*/
     
-    private String transformaIntDia(int i){
+   /* private String transformaIntDia(int i){
         if (i == 0) return "dilluns"; 
         else if (i == 1) return "dimarts";
         else if (i == 2) return "dimecres";
@@ -91,7 +91,7 @@ public class RestSolapament extends Restriccio{
         else if (i == 4) return "divendres";
         else if (i == 5) return "dissabte";
         else return "diumenge";
-    }
+    }*/
     /**
      *El Metode CompleixRes ens adverteix ,amb un bool, de si es compliria la restriccio si afegissim el element "e" en el dia "dia" a la hora "hora" de la quadricula q
      * @param q Quadricula a la qual li volem afegir-li el element
@@ -100,7 +100,7 @@ public class RestSolapament extends Restriccio{
      * @param hora Hora en la que volem afegir el element
      * @return Boolea que indica si es seguiria complint la restriccio un cop afegit el element
      */
-    public boolean CompleixRes(Quadricula q, Element e, String dia,int hora) {
+    /*public boolean CompleixRes(Quadricula q, Element e, String dia,int hora) {
        boolean ass1 = false;
        boolean ass2 = false;
        boolean grup1 = false;
@@ -156,7 +156,7 @@ public class RestSolapament extends Restriccio{
      * @param q Quadricula que volem comprovar
      * @return Boolean que ens informa si compleix la restriccio per tot dia-hora de la quadricula
      */
-   public boolean CompleixRes(Quadricula q){
+   /*public boolean CompleixRes(Quadricula q){
        boolean ass1;
        boolean ass2;
        boolean grup1;
@@ -195,7 +195,7 @@ public class RestSolapament extends Restriccio{
             }
       }
       return true;
-    }
+    }*/
    public boolean CompleixRes(Clausula c, ClausulaNom cn, Clausula e, int hor,String dia){
        if(!(c.getAssignatura().getNom().equals(e.getAssignatura().getNom()) && c.getGrup() == e.getGrup())){
             Assignatura a1 = c.getAssignatura();
@@ -220,7 +220,7 @@ public class RestSolapament extends Restriccio{
     }
        else return true;
    }
-   public boolean CompleixRess(String a, int g, Element e){
+  /* public boolean CompleixRess(String a, int g, Element e){
        boolean combinacio1 = false;
        boolean combinacio2 = false;
        if(this.grupPrincipal != -1 && this.grupSolapament != -1){
@@ -233,6 +233,6 @@ public class RestSolapament extends Restriccio{
        }
        if(combinacio1 || combinacio2) return true;
        else return false;
-   }
+   }*/
    
 }

@@ -77,7 +77,7 @@ public class CjtRestGrupSessio extends CjtRestriccions{
         return false;
     }
 
-    boolean afegeixRestriccio(RestGrupSessio rgs) {
+    /*boolean afegeixRestriccio(RestGrupSessio rgs) {
         for( int i = 0; i < restriccionsGrupSesio.size(); ++i){
             if (restriccionsGrupSesio.get(i) == rgs ){
                 System.out.println("igual");
@@ -87,7 +87,7 @@ public class CjtRestGrupSessio extends CjtRestriccions{
         }
         afegir_rest(rgs);
         return true;
-    }
+    }*/
 
     boolean ComprovarRes(ClausulaNom cn,int duracio) {
         boolean b = true;

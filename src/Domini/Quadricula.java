@@ -64,7 +64,6 @@ public class Quadricula implements Serializable {
      * @param e Element que volem borrar
      */
     public void borrarElement(String dia, int hora, Element e) {
-
         int i;
         if (dia.equals("dilluns")) i = 0;
         else if (dia.equals("dimarts")) i = 1;

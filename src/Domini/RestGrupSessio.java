@@ -60,7 +60,7 @@ public class RestGrupSessio extends Restriccio{
         return canviIntStringDia();
     }
     public void setDia(String d){
-        dia = canviStringIntDia(d);
+        dia = canviDiaInt(d);
     }
     public void setDia( int d){
         dia = d;
@@ -69,7 +69,7 @@ public class RestGrupSessio extends Restriccio{
     public void setHora(Integer hora) {
         this.horaInici = hora;
     }
-    private int canviStringIntDia(String dia){
+    /*private int canviStringIntDia(String dia){
         if(dia.equals("dilluns"))return 0;
         else if(dia.equals("dimarts"))return 1;
         else if(dia.equals("dimecres"))return 2;
@@ -78,7 +78,7 @@ public class RestGrupSessio extends Restriccio{
         else if(dia.equals("dissabte"))return 5;
         else if(dia.equals("diumenge"))return 6;
         return -1;
-    }
+    }*/
     private String canviIntStringDia(){
         if(this.dia == 0) return "dilluns";
         if(this.dia == 1) return "dimarts";
@@ -141,7 +141,7 @@ public class RestGrupSessio extends Restriccio{
      * @return true si es pot afeigir al conjunt de restriccions del tipus o false si no es pot perque provoca alguna incoherencia.
      */
 
-    public boolean esPotAfegir(CjtRestriccions cjtRestGrupSesio) {
+    /*public boolean esPotAfegir(CjtRestriccions cjtRestGrupSesio) {
         boolean espot = true;
         for (Restriccio res: cjtRestGrupSesio.getCjtRes()) {
             RestGrupSessio res_grup_sesio = (RestGrupSessio) res;
@@ -152,6 +152,6 @@ public class RestGrupSessio extends Restriccio{
             }
         }
         return espot;
-    }
+    }*/
 
 }

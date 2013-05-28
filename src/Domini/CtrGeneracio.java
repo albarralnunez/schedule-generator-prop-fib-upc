@@ -171,7 +171,7 @@ public class CtrGeneracio {
        resT.setDiumenge(dg);
     }
 
-    boolean AfegirRestriccioGrupSessio(String nomA, int grup, String dia, int hora, int id) {
+    /*boolean AfegirRestriccioGrupSessio(String nomA, int grup, String dia, int hora, int id) {
          
         // si el dia/horan o es vlaid retorna false
         boolean b = true;
@@ -184,7 +184,7 @@ public class CtrGeneracio {
                         if(b){
                             /*
                             b = gen.AfegirRestriccioGrupSessio( nomA, grup, dia, hora+j,id );
-                            */
+                            
                             int z = 3;
                         }
                     }
@@ -200,7 +200,7 @@ public class CtrGeneracio {
             }
         }
        return b;
-    }
+    }*/
     public void inicialitzarClausules(){
         gen.inicialitzarClausules(cjtAs);
     }

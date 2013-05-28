@@ -1721,9 +1721,9 @@ public class PanelModificarDades extends javax.swing.JPanel {
             
             int capT = Integer.parseInt((String) comboBoxOcupacioTeoria.getSelectedItem());
             int capL = Integer.parseInt((String) ocupacioSubgrups.getSelectedItem());
-            
+            boolean mat = false, proj = false;
             cp.creaAssignatura( nomAsg, nvl , ht, intsT, hp, intsP,
-            capT ,capL, grups);
+            capT ,capL, grups,mat, proj);
 
         return true;
     }
