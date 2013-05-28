@@ -145,6 +145,8 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
+        botoProjector = new javax.swing.JToggleButton();
+        botoMaterial = new javax.swing.JToggleButton();
         comboBoxAssigs = new javax.swing.JComboBox();
         botoOK = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -255,9 +257,9 @@ public class PanelModificarDades extends javax.swing.JPanel {
         labelNomAssignatura2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         labelNomAssignatura2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelNomAssignatura2.setText("nivell");
-        labelNomAssignatura2.setBounds(30, 40, 135, 15);
+        labelNomAssignatura2.setBounds(10, 42, 50, 15);
         panellDadesAssignatura.add(labelNomAssignatura2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        spinnerNivell1.setBounds(190, 40, 40, 20);
+        spinnerNivell1.setBounds(70, 40, 40, 20);
         panellDadesAssignatura.add(spinnerNivell1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         labelOcupacioT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -443,6 +445,16 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jLabel34.setText("2");
         jLabel34.setBounds(130, 260, 20, 14);
         panellDadesAssignatura.add(jLabel34, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        botoProjector.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        botoProjector.setText("Projector");
+        botoProjector.setBounds(120, 40, 110, 23);
+        panellDadesAssignatura.add(botoProjector, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        botoMaterial.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        botoMaterial.setText("Material");
+        botoMaterial.setBounds(240, 40, 110, 23);
+        panellDadesAssignatura.add(botoMaterial, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         botoOK.setText("OK");
         botoOK.addActionListener(new java.awt.event.ActionListener() {
@@ -1448,7 +1460,10 @@ public class PanelModificarDades extends javax.swing.JPanel {
         else if( opcio.equals("MODIFICAR") ){
             String nomAsg = (String) this.comboBoxAssigs.getSelectedItem();
             boolean b = intentaCrearAssignatura(nomAsg);
-            if(b) inicialitza();
+            if(b) {
+                cp.mostraAvis("La assignatura s'ha modificat", "INFORMATION");
+                inicialitza();
+            }
         }
     }//GEN-LAST:event_botoOKActionPerformed
 
@@ -1721,7 +1736,16 @@ public class PanelModificarDades extends javax.swing.JPanel {
             
             int capT = Integer.parseInt((String) comboBoxOcupacioTeoria.getSelectedItem());
             int capL = Integer.parseInt((String) ocupacioSubgrups.getSelectedItem());
-            boolean mat = false, proj = false;
+            
+            boolean mat = false;
+            boolean proj = false;
+            if( this.botoProjector.isSelected() ) {
+                proj = true;
+            }
+            if( this.botoMaterial.isSelected() ) {
+                mat = true;
+            }
+            
             cp.creaAssignatura( nomAsg, nvl , ht, intsT, hp, intsP,
             capT ,capL, grups,mat, proj);
 
@@ -1731,7 +1755,9 @@ public class PanelModificarDades extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botoIntervalsP;
     private javax.swing.JButton botoIntervalsT;
+    private javax.swing.JToggleButton botoMaterial;
     private javax.swing.JButton botoOK;
+    private javax.swing.JToggleButton botoProjector;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox comboBoxAssigs;
