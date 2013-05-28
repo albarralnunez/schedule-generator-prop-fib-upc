@@ -33,15 +33,15 @@ public class PanelModificarDades extends javax.swing.JPanel {
         opcio = -1;
         intervalsT = intervalsP = false;
         initComponents();
-        buttonGroup1.add(jRadioButton1);
-        buttonGroup1.add(jRadioButton2);
+        //buttonGroup1.add(jRadioButton1);
+        //buttonGroup1.add(jRadioButton2);
         buttonGroup2.add(jRadioButton3);
         buttonGroup2.add(jRadioButton4);
         jLayeredPane2.setVisible(false);
         jLayeredPane3.setVisible(false);
-        jLayeredPane6.setVisible(false);
-        jLayeredPane7.setVisible(false);
-        jPanel8.setVisible(false);
+        //jLayeredPane6.setVisible(false);
+        //jLayeredPane7.setVisible(false);
+        //jPanel8.setVisible(false);
 
         jLabel8.setVisible(false);
         jCheckBox2.setVisible(false);
@@ -695,8 +695,8 @@ public class PanelModificarDades extends javax.swing.JPanel {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        jLayeredPane6.setVisible(false);
-        jLayeredPane7.setVisible(false);
+        //jLayeredPane6.setVisible(false);
+        //jLayeredPane7.setVisible(false);
         rest = -1;
         opcio = -1;
         cp.canviaPanel("menuPrincipal");
