@@ -181,59 +181,23 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jList3 = new javax.swing.JList();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jLayeredPane6 = new javax.swing.JLayeredPane();
-        jButton13 = new javax.swing.JButton();
-        jComboBox2 = new javax.swing.JComboBox();
-        jComboBox1 = new javax.swing.JComboBox();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox();
-        jLayeredPane7 = new javax.swing.JLayeredPane();
-        jButton14 = new javax.swing.JButton();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jLabel19 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(700, 550));
 
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(600, 400));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12));
         jLabel1.setText("Assignatures Disponibles:");
 
         llistaAssignatures.setEditable(false);
         llistaAssignatures.setBackground(new java.awt.Color(240, 240, 240));
         llistaAssignatures.setColumns(20);
-        llistaAssignatures.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        llistaAssignatures.setFont(new java.awt.Font("Tahoma", 1, 14));
         llistaAssignatures.setRows(5);
         jScrollPane4.setViewportView(llistaAssignatures);
 
-        comboBoxOpcionsAssig.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        comboBoxOpcionsAssig.setFont(new java.awt.Font("Tahoma", 1, 12));
         comboBoxOpcionsAssig.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CREAR", "MODIFICAR", "ESBORRAR" }));
         comboBoxOpcionsAssig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,52 +205,52 @@ public class PanelModificarDades extends javax.swing.JPanel {
             }
         });
 
-        labelNomAssignatura.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelNomAssignatura.setFont(new java.awt.Font("Tahoma", 1, 12));
         labelNomAssignatura.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelNomAssignatura.setText("hores de teoria");
         labelNomAssignatura.setBounds(20, 80, 110, 20);
         panellDadesAssignatura.add(labelNomAssignatura, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        labelNomAssignatura1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelNomAssignatura1.setFont(new java.awt.Font("Tahoma", 1, 12));
         labelNomAssignatura1.setText("nom de l' assignatura");
-        labelNomAssignatura1.setBounds(30, 10, 135, 15);
+        labelNomAssignatura1.setBounds(30, 10, 135, -1);
         panellDadesAssignatura.add(labelNomAssignatura1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        spinnerHoresT.setBounds(130, 80, 40, 20);
+        spinnerHoresT.setBounds(130, 80, 40, -1);
         panellDadesAssignatura.add(spinnerHoresT, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        labelNomAssignatura2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelNomAssignatura2.setFont(new java.awt.Font("Tahoma", 1, 12));
         labelNomAssignatura2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelNomAssignatura2.setText("nivell");
-        labelNomAssignatura2.setBounds(10, 42, 50, 15);
+        labelNomAssignatura2.setBounds(10, 42, 50, -1);
         panellDadesAssignatura.add(labelNomAssignatura2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        spinnerNivell1.setBounds(70, 40, 40, 20);
+        spinnerNivell1.setBounds(70, 40, 40, -1);
         panellDadesAssignatura.add(spinnerNivell1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        labelOcupacioT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelOcupacioT.setFont(new java.awt.Font("Tahoma", 1, 12));
         labelOcupacioT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelOcupacioT.setText("ocupació");
         labelOcupacioT.setBounds(200, 320, 70, 20);
         panellDadesAssignatura.add(labelOcupacioT, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        spinnerHoresP.setBounds(140, 200, 40, 20);
+        spinnerHoresP.setBounds(140, 200, 40, -1);
         panellDadesAssignatura.add(spinnerHoresP, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        labelNomAssignatura4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelNomAssignatura4.setFont(new java.awt.Font("Tahoma", 1, 12));
         labelNomAssignatura4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelNomAssignatura4.setText("hores de practica");
-        labelNomAssignatura4.setBounds(20, 200, 110, 15);
+        labelNomAssignatura4.setBounds(20, 200, 110, -1);
         panellDadesAssignatura.add(labelNomAssignatura4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        fieldNomAssignatura1.setBounds(190, 10, 110, 20);
+        fieldNomAssignatura1.setBounds(190, 10, 110, -1);
         panellDadesAssignatura.add(fieldNomAssignatura1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        labelGrups.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelGrups.setFont(new java.awt.Font("Tahoma", 1, 12));
         labelGrups.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelGrups.setText("Grups de Teoria");
         labelGrups.setBounds(20, 320, 110, 20);
         panellDadesAssignatura.add(labelGrups, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        numGrupsTeoria.setBounds(140, 320, 50, 20);
+        numGrupsTeoria.setBounds(140, 320, 50, -1);
         panellDadesAssignatura.add(numGrupsTeoria, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        labelGrups1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelGrups1.setFont(new java.awt.Font("Tahoma", 1, 12));
         labelGrups1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelGrups1.setText("Grup de Teoria");
         labelGrups1.setBounds(20, 370, 110, 20);
@@ -297,16 +261,16 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 numSubgrupsActionPerformed(evt);
             }
         });
-        numSubgrups.setBounds(140, 360, 50, 20);
+        numSubgrups.setBounds(140, 360, 50, -1);
         panellDadesAssignatura.add(numSubgrups, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        labelOcupacioT1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelOcupacioT1.setFont(new java.awt.Font("Tahoma", 1, 12));
         labelOcupacioT1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelOcupacioT1.setText("ocupació");
         labelOcupacioT1.setBounds(200, 360, 70, 20);
         panellDadesAssignatura.add(labelOcupacioT1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        labelGrups2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelGrups2.setFont(new java.awt.Font("Tahoma", 1, 12));
         labelGrups2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelGrups2.setText("Subgrups per");
         labelGrups2.setBounds(20, 350, 110, 20);
@@ -318,14 +282,14 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 botoIntervalsPActionPerformed(evt);
             }
         });
-        botoIntervalsP.setBounds(200, 200, 130, 23);
+        botoIntervalsP.setBounds(200, 200, 130, -1);
         panellDadesAssignatura.add(botoIntervalsP, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         comboBoxOcupacioTeoria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10", "20", "30", "40", "50", "60", "70", "80", "90", "100", "150", "200" }));
-        comboBoxOcupacioTeoria.setBounds(280, 320, 60, 20);
+        comboBoxOcupacioTeoria.setBounds(280, 320, 60, -1);
         panellDadesAssignatura.add(comboBoxOcupacioTeoria, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        sliderT.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        sliderT.setFont(new java.awt.Font("Tahoma", 1, 11));
         sliderT.setMaximum(5);
         sliderT.setMinimum(2);
         sliderT.setMinorTickSpacing(1);
@@ -343,15 +307,15 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jLabel4.setText("hores per interval");
         jLabel4.setBounds(10, 160, 110, 20);
         panellDadesAssignatura.add(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jSpinner1.setBounds(130, 160, 29, 20);
+        jSpinner1.setBounds(130, 160, -1, -1);
         panellDadesAssignatura.add(jSpinner1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jSpinner2.setBounds(170, 160, 29, 20);
+        jSpinner2.setBounds(170, 160, -1, -1);
         panellDadesAssignatura.add(jSpinner2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jSpinner3.setBounds(210, 160, 29, 20);
+        jSpinner3.setBounds(210, 160, -1, 20);
         panellDadesAssignatura.add(jSpinner3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jSpinner4.setBounds(250, 160, 29, 20);
+        jSpinner4.setBounds(250, 160, -1, -1);
         panellDadesAssignatura.add(jSpinner4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jSpinner5.setBounds(290, 160, 29, 20);
+        jSpinner5.setBounds(290, 160, -1, -1);
         panellDadesAssignatura.add(jSpinner5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jSlider2.setMaximum(5);
@@ -365,27 +329,27 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jSlider2StateChanged(evt);
             }
         });
-        jSlider2.setBounds(130, 230, 200, 26);
+        jSlider2.setBounds(130, 230, -1, 26);
         panellDadesAssignatura.add(jSlider2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("nombre d'intervals");
-        jLabel5.setBounds(10, 110, 110, 14);
+        jLabel5.setBounds(10, 110, 110, -1);
         panellDadesAssignatura.add(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setText("nombre d'intervals");
-        jLabel21.setBounds(10, 230, 110, 14);
+        jLabel21.setBounds(10, 230, 110, -1);
         panellDadesAssignatura.add(jLabel21, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jSpinner6.setBounds(300, 280, 29, 20);
+        jSpinner6.setBounds(300, 280, -1, -1);
         panellDadesAssignatura.add(jSpinner6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jSpinner7.setBounds(260, 280, 29, 20);
+        jSpinner7.setBounds(260, 280, -1, -1);
         panellDadesAssignatura.add(jSpinner7, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jSpinner8.setBounds(220, 280, 29, 20);
+        jSpinner8.setBounds(220, 280, -1, 20);
         panellDadesAssignatura.add(jSpinner8, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jSpinner9.setBounds(180, 280, 29, 20);
+        jSpinner9.setBounds(180, 280, -1, -1);
         panellDadesAssignatura.add(jSpinner9, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jSpinner10.setBounds(140, 280, 29, 20);
+        jSpinner10.setBounds(140, 280, -1, -1);
         panellDadesAssignatura.add(jSpinner10, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -394,7 +358,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
         panellDadesAssignatura.add(jLabel26, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         ocupacioSubgrups.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10", "20", "30", "40", "50" }));
-        ocupacioSubgrups.setBounds(280, 360, 60, 20);
+        ocupacioSubgrups.setBounds(280, 360, 60, -1);
         panellDadesAssignatura.add(ocupacioSubgrups, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         botoIntervalsT.setText("Definir intervals");
@@ -403,57 +367,57 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 botoIntervalsTActionPerformed(evt);
             }
         });
-        botoIntervalsT.setBounds(200, 80, 130, 23);
+        botoIntervalsT.setBounds(200, 80, 130, -1);
         panellDadesAssignatura.add(botoIntervalsT, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel27.setText("3");
-        jLabel27.setBounds(190, 140, 20, 14);
+        jLabel27.setBounds(190, 140, 20, -1);
         panellDadesAssignatura.add(jLabel27, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel28.setText("4");
-        jLabel28.setBounds(250, 140, 20, 14);
+        jLabel28.setBounds(250, 140, 20, -1);
         panellDadesAssignatura.add(jLabel28, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel29.setText("5");
-        jLabel29.setBounds(310, 140, 20, 14);
+        jLabel29.setBounds(310, 140, 20, -1);
         panellDadesAssignatura.add(jLabel29, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel30.setText("3");
-        jLabel30.setBounds(190, 260, 20, 14);
+        jLabel30.setBounds(190, 260, 20, -1);
         panellDadesAssignatura.add(jLabel30, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel31.setText("2");
-        jLabel31.setBounds(130, 140, 20, 14);
+        jLabel31.setBounds(130, 140, 20, -1);
         panellDadesAssignatura.add(jLabel31, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel32.setText("4");
-        jLabel32.setBounds(250, 260, 20, 14);
+        jLabel32.setBounds(250, 260, 20, -1);
         panellDadesAssignatura.add(jLabel32, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel33.setText("5");
-        jLabel33.setBounds(310, 260, 20, 14);
+        jLabel33.setBounds(310, 260, 20, -1);
         panellDadesAssignatura.add(jLabel33, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel34.setText("2");
-        jLabel34.setBounds(130, 260, 20, 14);
+        jLabel34.setBounds(130, 260, 20, -1);
         panellDadesAssignatura.add(jLabel34, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        botoProjector.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        botoProjector.setFont(new java.awt.Font("Tahoma", 1, 11));
         botoProjector.setText("Projector");
-        botoProjector.setBounds(120, 40, 110, 23);
+        botoProjector.setBounds(120, 40, 110, -1);
         panellDadesAssignatura.add(botoProjector, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        botoMaterial.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        botoMaterial.setFont(new java.awt.Font("Tahoma", 1, 11));
         botoMaterial.setText("Material");
-        botoMaterial.setBounds(240, 40, 110, 23);
+        botoMaterial.setBounds(240, 40, 110, -1);
         panellDadesAssignatura.add(botoMaterial, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         botoOK.setText("OK");
@@ -474,7 +438,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                     .addComponent(jScrollPane4))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                         .addComponent(botoOK)
                         .addGap(270, 270, 270))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -487,7 +451,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(panellDadesAssignatura, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(17, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -546,21 +510,21 @@ public class PanelModificarDades extends javax.swing.JPanel {
             }
         });
 
-        jTextField3.setBounds(150, 20, 113, 20);
+        jTextField3.setBounds(150, 20, 113, -1);
         jLayeredPane2.add(jTextField3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel6.setText("Nom:");
-        jLabel6.setBounds(100, 30, 25, 14);
+        jLabel6.setBounds(100, 30, -1, -1);
         jLayeredPane2.add(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel7.setText("Capacitat:");
-        jLabel7.setBounds(70, 50, 50, 14);
+        jLabel7.setBounds(70, 50, -1, -1);
         jLayeredPane2.add(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jTextField2.setBounds(150, 50, 113, 20);
+        jTextField2.setBounds(150, 50, 113, -1);
         jLayeredPane2.add(jTextField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel8.setText("Material:");
-        jLabel8.setBounds(40, 100, 42, 14);
+        jLabel8.setBounds(40, 100, -1, -1);
         jLayeredPane2.add(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jRadioButton3.setText("Teoria");
@@ -569,7 +533,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jRadioButton3ActionPerformed(evt);
             }
         });
-        jRadioButton3.setBounds(0, 80, 55, 23);
+        jRadioButton3.setBounds(0, 80, -1, -1);
         jLayeredPane2.add(jRadioButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jRadioButton4.setText("Laboratori");
@@ -578,7 +542,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jRadioButton4ActionPerformed(evt);
             }
         });
-        jRadioButton4.setBounds(130, 80, 75, 23);
+        jRadioButton4.setBounds(130, 80, -1, -1);
         jLayeredPane2.add(jRadioButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton2.setText("Cancel·la");
@@ -587,15 +551,15 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        jButton2.setBounds(150, 130, 77, 23);
+        jButton2.setBounds(150, 130, -1, -1);
         jLayeredPane2.add(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jCheckBox2.setBounds(90, 100, 21, 21);
+        jCheckBox2.setBounds(90, 100, -1, -1);
         jLayeredPane2.add(jCheckBox2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel9.setText("Projector:");
-        jLabel9.setBounds(40, 130, 48, 14);
+        jLabel9.setBounds(40, 130, -1, -1);
         jLayeredPane2.add(jLabel9, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jCheckBox1.setBounds(90, 130, 21, 21);
+        jCheckBox1.setBounds(90, 130, -1, -1);
         jLayeredPane2.add(jCheckBox1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton1.setText("Crear");
@@ -604,7 +568,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jButton1.setBounds(150, 160, 77, 23);
+        jButton1.setBounds(150, 160, 77, -1);
         jLayeredPane2.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton11.setText("Modificar");
@@ -613,7 +577,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jButton11ActionPerformed(evt);
             }
         });
-        jButton11.setBounds(100, 140, 75, 23);
+        jButton11.setBounds(100, 140, -1, -1);
         jLayeredPane3.add(jButton11, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton12.setText("Cancel·la");
@@ -622,34 +586,34 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jButton12ActionPerformed(evt);
             }
         });
-        jButton12.setBounds(120, 110, 77, 23);
+        jButton12.setBounds(120, 110, -1, -1);
         jLayeredPane3.add(jButton12, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jCheckBox4.setBounds(80, 90, 21, 21);
+        jCheckBox4.setBounds(80, 90, -1, -1);
         jLayeredPane3.add(jCheckBox4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jCheckBox3.setBounds(80, 140, 21, 21);
+        jCheckBox3.setBounds(80, 140, -1, -1);
         jLayeredPane3.add(jCheckBox3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel13.setText("Projector:");
-        jLabel13.setBounds(10, 140, 48, 14);
+        jLabel13.setBounds(10, 140, -1, -1);
         jLayeredPane3.add(jLabel13, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel12.setText("Material:");
-        jLabel12.setBounds(10, 90, 42, 14);
+        jLabel12.setBounds(10, 90, -1, -1);
         jLayeredPane3.add(jLabel12, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel11.setText("Capacitat:");
-        jLabel11.setBounds(10, 60, 50, 14);
+        jLabel11.setBounds(10, 60, -1, -1);
         jLayeredPane3.add(jLabel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jTextField4.setBounds(70, 60, 113, 20);
+        jTextField4.setBounds(70, 60, 113, -1);
         jLayeredPane3.add(jTextField4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jTextField5.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jTextField5.setFont(new java.awt.Font("Dialog", 1, 12));
         jTextField5.setEnabled(false);
-        jTextField5.setBounds(70, 20, 113, 22);
+        jTextField5.setBounds(70, 20, 113, -1);
         jLayeredPane3.add(jTextField5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel10.setText("Nom:");
-        jLabel10.setBounds(10, 30, 25, 14);
+        jLabel10.setBounds(10, 30, -1, -1);
         jLayeredPane3.add(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -664,18 +628,17 @@ public class PanelModificarDades extends javax.swing.JPanel {
                         .addGap(24, 24, 24))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(33, 33, 33)
-                                .addComponent(jLayeredPane2))
+                                .addComponent(jLayeredPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
                                 .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(60, 60, 60))))))
         );
@@ -699,222 +662,12 @@ public class PanelModificarDades extends javax.swing.JPanel {
                                 .addComponent(jButton3))
                             .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26)
-                        .addComponent(jLayeredPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                        .addComponent(jLayeredPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
                         .addGap(34, 34, 34)))
                 .addContainerGap())
         );
 
         jTabbedPane1.addTab("Aules", jPanel2);
-
-        jLabel3.setText("Restriccions Disponibles:");
-
-        jList3.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "1. Restringir un grup a una aula.", "2. Restringir que un grup no pugui anar a una aula.", " ", "3. Restringir un grup a un dia i hora.", "4. Restringir un grup abans d'un dia i hora.", "5. Restringir un grup després d'un dia i hora.", " ", "6. Restringir una hora en la que no es pugui impartir una assignatura+grup.", "7. Restringir una hora en la que abans d'aquesta no es pugui impartir una assig+grup.", "8. Restringir una hora en la que després d'aquesta no es pugui impartir una assig+grup.", " ", "9. Restringir una assignatura+grup en un dia.", "10. Restringir una assignatura+grup abans d'un dia.", "11. Restringir una assignatura+grup després un dia.", " ", "12. Dues assig+grup no poden impartir-se a la vegada temporalment parlant.", " ", "13. Restringir un aula a no utilitzar-se un dia/hora.", "14. Restringir un aula a no utilitzar-se abans d'un dia/hora.", "15. Restringir un aula a no utilitzar-se després d'un dia/hora." };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jList3.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane3.setViewportView(jList3);
-
-        jButton8.setText("Definir...");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-
-        jButton9.setText("Modificar...");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-
-        jButton10.setText("Borrar...");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-            }
-        });
-
-        jButton13.setText("Definir");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
-            }
-        });
-        jButton13.setBounds(30, 190, 63, 23);
-        jLayeredPane6.add(jButton13, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
-        jComboBox2.setBounds(0, 140, 37, 20);
-        jLayeredPane6.add(jComboBox2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "dilluns", "dimarts", "dimecres", "dijous", "divendres", "dissabte", "diumenge" }));
-        jComboBox1.setBounds(0, 100, 99, 20);
-        jLayeredPane6.add(jComboBox1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jTextField8.setBounds(0, 70, 88, 20);
-        jLayeredPane6.add(jTextField8, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jTextField7.setBounds(0, 40, 56, 20);
-        jLayeredPane6.add(jTextField7, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jTextField6.setBounds(0, 10, 99, 20);
-        jLayeredPane6.add(jTextField6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        jLabel14.setText("Assignatura:");
-        jLabel14.setBounds(120, 10, 61, 14);
-        jLayeredPane6.add(jLabel14, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        jLabel15.setText("nº de Grup:");
-        jLabel15.setBounds(120, 40, 56, 14);
-        jLayeredPane6.add(jLabel15, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        jLabel16.setText("Aula:");
-        jLabel16.setBounds(120, 60, 25, 14);
-        jLayeredPane6.add(jLabel16, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        jLabel17.setText("Dia:");
-        jLabel17.setBounds(120, 90, 19, 14);
-        jLayeredPane6.add(jLabel17, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        jLabel18.setText("Hora:");
-        jLabel18.setBounds(120, 120, 27, 14);
-        jLayeredPane6.add(jLabel18, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        jLabel20.setText("Restricció:");
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel20)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBox3, 0, 160, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jButton14.setText("Definir");
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
-            }
-        });
-        jButton14.setBounds(70, 180, 63, 23);
-        jLayeredPane7.add(jButton14, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jTextField12.setBounds(250, 130, 56, 20);
-        jLayeredPane7.add(jTextField12, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jTextField11.setBounds(230, 80, 93, 20);
-        jLayeredPane7.add(jTextField11, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        jLabel24.setText("Assig 2:");
-        jLabel24.setBounds(180, 80, 38, 14);
-        jLayeredPane7.add(jLabel24, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        jLabel25.setText("Grup 2:");
-        jLabel25.setBounds(200, 130, 36, 14);
-        jLayeredPane7.add(jLabel25, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jTextField9.setBounds(80, 80, 86, 20);
-        jLayeredPane7.add(jTextField9, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        jRadioButton2.setText("Assignatura");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
-            }
-        });
-        jRadioButton2.setBounds(150, 40, 83, 23);
-        jLayeredPane7.add(jRadioButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        jRadioButton1.setText("Grup");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
-            }
-        });
-        jRadioButton1.setBounds(50, 40, 49, 23);
-        jLayeredPane7.add(jRadioButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        jLabel19.setText("Solapament a nivell de grup o d'assignatura?");
-        jLabel19.setBounds(70, 10, 134, 14);
-        jLayeredPane7.add(jLabel19, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jTextField10.setBounds(130, 130, 55, 20);
-        jLayeredPane7.add(jTextField10, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        jLabel23.setText("Grup 1:");
-        jLabel23.setBounds(70, 130, 36, 14);
-        jLayeredPane7.add(jLabel23, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        jLabel22.setText("Assig 1:");
-        jLabel22.setBounds(30, 80, 38, 14);
-        jLayeredPane7.add(jLabel22, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jButton8)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton9)))
-                                .addGap(33, 33, 33)
-                                .addComponent(jButton10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(47, 47, 47)
-                                .addComponent(jLayeredPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(45, 45, 45)
-                                .addComponent(jLayeredPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(3, 3, 3))
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(6, 6, 6)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLayeredPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 10, Short.MAX_VALUE))
-                    .addComponent(jLayeredPane6))
-                .addContainerGap())
-        );
-
-        jTabbedPane1.addTab("Restriccions", jPanel3);
 
         jTabbedPane1.setBounds(10, 10, 690, 510);
         jLayeredPane1.add(jTabbedPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -925,7 +678,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jButton4ActionPerformed(evt);
             }
         });
-        jButton4.setBounds(300, 520, 90, 23);
+        jButton4.setBounds(300, 520, 90, -1);
         jLayeredPane1.add(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -1127,311 +880,6 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jCheckBox4.setSelected(false);
         jLayeredPane3.setVisible(false);
     }//GEN-LAST:event_jButton12ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        jLayeredPane6.setVisible(false);
-        jLayeredPane7.setVisible(false);
-        jPanel8.setVisible(false);
-        Object[] cadena = jList3.getSelectedValues(); //Como máximo solo puede tener un elemento seleccionado!
-        int h = cadena.length;
-        if (h == 0) cp.mostraAvis("Seleccioni la restricció que vol definir", "WARNING");
-        else {
-            if ((cadena[0].toString().equals("1. Restringir un grup a una aula.")) ||
-                (cadena[0].toString().equals("2. Restringir que un grup no pugui anar a una aula."))) {
-                rest = 1; //RESTRICCIO 1
-                jLayeredPane6.setVisible(true);
-                jTextField6.setVisible(true);
-                jTextField7.setVisible(true);
-                jTextField8.setVisible(true);
-                jLabel14.setVisible(true);
-                jLabel15.setVisible(true);
-                jLabel16.setVisible(true);
-                jLabel17.setVisible(false);
-                jLabel18.setVisible(false);
-                jComboBox1.setVisible(false);
-                jComboBox2.setVisible(false);
-
-                //SET OPTION
-
-                if ((cadena[0].toString().equals("1. Restringir un grup a una aula."))) opcio = 1;
-                else opcio = 2;
-            }
-            else if ((cadena[0].toString().equals("3. Restringir un grup a un dia i hora.")) ||
-                     (cadena[0].toString().equals("4. Restringir un grup abans d'un dia i hora.")) ||
-                     (cadena[0].toString().equals("5. Restringir un grup després d'un dia i hora."))) {
-                rest = 2; //RESTRICCIO 2;
-                jTextField6.setVisible(true);
-                jTextField7.setVisible(true);
-                jLabel14.setVisible(true);
-                jLabel15.setVisible(true);
-                jLabel17.setVisible(true);
-                jLabel18.setVisible(true);
-                jComboBox1.setVisible(true);
-                jComboBox2.setVisible(true);
-                jLayeredPane6.setVisible(true);
-                jTextField8.setVisible(false);
-                jLabel16.setVisible(false);
-
-                //SET OPTION
-
-                if ((cadena[0].toString().equals("3. Restringir un grup a un dia i hora."))) opcio = 3;
-                else if ((cadena[0].toString().equals("4. Restringir un grup abans d'un dia i hora."))) opcio = 4;
-                else opcio = 5;
-            }
-            else if ((cadena[0].toString().equals("6. Restringir una hora en la que no es pugui impartir una assignatura+grup.")) ||
-                     (cadena[0].toString().equals("7. Restringir una hora en la que abans d'aquesta no es pugui impartir una assig+grup.")) ||
-                     (cadena[0].toString().equals("8. Restringir una hora en la que després d'aquesta no es pugui impartir una assig+grup."))) {
-                rest = 3; //RESTRICCIO 3;
-                jLayeredPane6.setVisible(true);
-                jTextField6.setVisible(true);
-                jTextField7.setVisible(true);
-                jLabel14.setVisible(true);
-                jLabel15.setVisible(true);
-                jLabel18.setVisible(true);
-                jComboBox2.setVisible(true);
-                jTextField8.setVisible(false);
-                jLabel16.setVisible(false);
-                jComboBox1.setVisible(false);
-                jLabel17.setVisible(false);
-
-                //SET OPTION
-
-                if ((cadena[0].toString().equals("6. Restringir una hora en la que no es pugui impartir una assignatura+grup."))) opcio = 6;
-                else if ((cadena[0].toString().equals("7. Restringir una hora en la que abans d'aquesta no es pugui impartir una assig+grup."))) opcio = 7;
-                else opcio = 8;
-            }
-            else if ((cadena[0].toString().equals("9. Restringir una assignatura+grup en un dia.")) ||
-                     (cadena[0].toString().equals("10. Restringir una assignatura+grup abans d'un dia.")) ||
-                     (cadena[0].toString().equals("11. Restringir una assignatura+grup després un dia."))) {
-                rest = 4; //RESTRICCIO 4;
-                jLayeredPane6.setVisible(true);
-                jTextField6.setVisible(true);
-                jTextField7.setVisible(true);
-                jLabel14.setVisible(true);
-                jLabel15.setVisible(true);
-                jLabel17.setVisible(true);
-                jComboBox1.setVisible(true);
-                jTextField8.setVisible(false);
-                jLabel16.setVisible(false);
-                jComboBox2.setVisible(false);
-                jLabel18.setVisible(false);
-
-                //SET OPTION
-
-                if ((cadena[0].toString().equals("9. Restringir una assignatura+grup en un dia."))) opcio = 9;
-                else if ((cadena[0].toString().equals("10. Restringir una assignatura+grup abans d'un dia."))) opcio = 10;
-                else opcio = 11;
-
-
-            }
-            else if ((cadena[0].toString().equals("13. Restringir un aula a no utilitzar-se un dia/hora.")) ||
-                     (cadena[0].toString().equals("14. Restringir un aula a no utilitzar-se abans d'un dia/hora.")) ||
-                     (cadena[0].toString().equals("15. Restringir un aula a no utilitzar-se després d'un dia/hora."))) {
-                rest = 6; //RESTRICCIO 6;
-                jLayeredPane6.setVisible(true);
-                jLabel16.setVisible(true);
-                jTextField8.setVisible(true);
-                jComboBox1.setVisible(true);
-                jLabel17.setVisible(true);
-                jComboBox2.setVisible(true);
-                jLabel18.setVisible(true);
-                jTextField6.setVisible(false);
-                jTextField7.setVisible(false);
-                jLabel14.setVisible(false);
-                jLabel15.setVisible(false);
-
-                //SET OPTION
-
-                if ((cadena[0].toString().equals("13. Restringir un aula a no utilitzar-se un dia/hora."))) opcio = 13;
-                else if ((cadena[0].toString().equals("14. Restringir un aula a no utilitzar-se abans d'un dia/hora."))) opcio = 14;
-                else opcio = 15;
-            }
-            else if ((cadena[0].toString().equals("12. Dues assig+grup no poden impartir-se a la vegada temporalment parlant."))) {
-                rest = 5; //RESTRICCION 5;
-                jLayeredPane6.setVisible(false);
-                jLayeredPane7.setVisible(true);
-                opcio = 12;
-
-            }
-        }
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        Object[] cadena = jList3.getSelectedValues();
-        int h = cadena.length;
-        if (h == 0) cp.mostraAvis("Seleccioni la restricció que vol modificar", "WARNING");
-        else {
-            jComboBox3.removeAllItems();
-            jPanel8.setVisible(true);
-            //SET OPCIO:
-            if ((cadena[0].toString().equals("1. Restringir un grup a una aula."))) opcio = 1;
-            else if ((cadena[0].toString().equals("2. Restringir que un grup no pugui anar a una aula."))) opcio = 2;
-            else if ((cadena[0].toString().equals("3. Restringir un grup a un dia i hora."))) opcio = 3;
-            else if ((cadena[0].toString().equals("4. Restringir un grup abans d'un dia i hora."))) opcio = 4;
-            else if ((cadena[0].toString().equals("5. Restringir un grup després d'un dia i hora."))) opcio = 5;
-            else if ((cadena[0].toString().equals("6. Restringir una hora en la que no es pugui impartir una assignatura+grup."))) opcio = 6;
-            else if ((cadena[0].toString().equals("7. Restringir una hora en la que abans d'aquesta no es pugui impartir una assig+grup."))) opcio = 7;
-            else if ((cadena[0].toString().equals("8. Restringir una hora en la que després d'aquesta no es pugui impartir una assig+grup."))) opcio = 8;
-            else if ((cadena[0].toString().equals("9. Restringir una assignatura+grup en un dia."))) opcio = 9;
-            else if ((cadena[0].toString().equals("10. Restringir una assignatura+grup abans d'un dia."))) opcio = 10;
-            else if ((cadena[0].toString().equals("11. Restringir una assignatura+grup després un dia."))) opcio = 11;
-            else if ((cadena[0].toString().equals("12. Dues assig+grup no poden impartir-se a la vegada temporalment parlant."))) opcio = 12;
-            else if ((cadena[0].toString().equals("13. Restringir un aula a no utilitzar-se un dia/hora."))) opcio = 13;
-            else if ((cadena[0].toString().equals("14. Restringir un aula a no utilitzar-se abans d'un dia/hora."))) opcio = 14;
-            else if ((cadena[0].toString().equals("15. Restringir un aula a no utilitzar-se després d'un dia/hora."))) opcio = 15;
-
-            /*ArrayList<String> llista = cp.llistaRest(opcio);
-            if (!llista.isEmpty()) {
-                int i;
-                System.out.println(""+llista.get(0));
-                if (opcio != 12) {
-                    for (i = 0; i < llista.size(); ++i) {
-
-                        System.out.println(""+llista.get(i));
-                            if (llista.get(i).toString().length() > 1) jComboBox3.addItem(llista.get(i));
-                        }
-                }
-            } else cp.mostraAvis("LLISTA BUIDA", "ERROR");*/
-
-
-
-        }
-
-
-
-
-    }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        Object[] cadena = jList3.getSelectedValues();
-        int h = cadena.length;
-        if (h == 0) cp.mostraAvis("Seleccioni la restricció que vol borrar", "WARNING");
-    }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // COMPARAMOS rest PARA IDENTIFICAR LA RESTRICCIÓN QUE SE QUIERE DEFINIR
-        if (rest == 1) { //RESTRICCION 1
-
-            if (jTextField6.getText().isEmpty() || jTextField7.getText().isEmpty() || jTextField8.getText().isEmpty()) cp.mostraAvis("Falten indicacions per crear la restricció", "ERROR");
-            else {
-                ArrayList params = new ArrayList();
-                params.add(jTextField6.getText()); //ASSIG
-                params.add(Integer.parseInt(jTextField7.getText())); //GRUP
-                params.add(jTextField8.getText()); //AULA
-                params.add(opcio); //OPCIO
-                cp.afegirRestriccio(rest,params);
-                cp.mostraAvis("S'ha afegit la restricció "+jTextField6.getText()+ " - "+ jTextField7.getText()+ " - "+ jTextField8.getText(), "INFORMATION");
-            }
-        }
-        else if (rest == 2) {
-            if (jTextField6.getText().isEmpty() || jTextField7.getText().isEmpty()) cp.mostraAvis("Falten indicacions per crear la restricció", "ERROR");
-            else {
-                ArrayList params = new ArrayList();
-                params.add(jTextField6.getText()); //ASSIG
-                params.add(Integer.parseInt(jTextField7.getText())); //GRUP
-                params.add(jComboBox1.getSelectedItem().toString()); //DIA
-                params.add(Integer.parseInt(jComboBox2.getSelectedItem().toString())); //HORA
-                params.add(opcio); //OPCIO
-                cp.afegirRestriccio(rest,params);
-                cp.mostraAvis("S'ha afegit la restricció "+jTextField6.getText()+ " - "+ jTextField7.getText()+ " - "+ jComboBox1.getSelectedItem()+ " - "+
-                        jComboBox2.getSelectedItem(), "INFORMATION");
-           
-            }
-        }
-        else if (rest == 3) {
-            if (jTextField6.getText().isEmpty() || jTextField7.getText().isEmpty()) cp.mostraAvis("Falten indicacions per crear la restricció", "ERROR");
-            else{
-                ArrayList params = new ArrayList();
-                params.add(jTextField6.getText()); //ASSIG
-                params.add(Integer.parseInt(jTextField7.getText())); //GRUP
-                params.add(Integer.parseInt(jComboBox2.getSelectedItem().toString())); //HORA
-                params.add(opcio); //OPCIO
-                cp.afegirRestriccio(rest, params);
-                cp.mostraAvis("S'ha afegit la restricció "+jTextField6.getText()+ " - "+ jTextField7.getText()+ " - "+ jComboBox2.getSelectedItem(), "INFORMATION");
-            }
-        }
-        else if (rest == 4) {
-            if (jTextField6.getText().isEmpty() || jTextField7.getText().isEmpty()) cp.mostraAvis("Falten indicacions per crear la restricció", "ERROR");
-            else {
-                ArrayList params = new ArrayList();
-                params.add(jTextField6.getText()); //ASSIG
-                params.add(Integer.parseInt((jTextField7.getText()))); //GRUP
-                params.add(jComboBox1.getSelectedItem().toString()); //DIA
-                params.add(opcio); //OPCIO
-                cp.afegirRestriccio(rest, params);
-                cp.mostraAvis("S'ha afegit la restricció "+jTextField6.getText()+ " - "+ jTextField7.getText()+ " - "+ jComboBox1.getSelectedItem(), "INFORMATION");
-            }
-        }
-        else if (rest == 6) {
-            if (jTextField8.getText().isEmpty()) cp.mostraAvis("Falten indicacions per crear la restricció", "ERROR");
-            else {
-                ArrayList params = new ArrayList();
-                params.add(jTextField8.getText()); //AULA
-                params.add(Integer.parseInt(jComboBox2.getSelectedItem().toString())); //HORA
-                params.add(jComboBox1.getSelectedItem().toString()); //DIA
-                params.add(opcio); //OPCIO
-                cp.afegirRestriccio(rest, params);
-                cp.mostraAvis("S'ha afegit la restricció "+jTextField8.getText()+ " - "+ jComboBox2.getSelectedItem()+ " - "+ jComboBox1.getSelectedItem(), "INFORMATION");
-            }
-        }
-
-        opcio = -1;
-        rest = -1;
-        jTextField6.setText("");
-        jTextField7.setText("");
-        jTextField8.setText("");
-        jLayeredPane6.setVisible(false);
-    }//GEN-LAST:event_jButton13ActionPerformed
-
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        jLabel23.setVisible(false);
-        jLabel25.setVisible(false);
-        jTextField10.setVisible(false);
-        jTextField12.setVisible(false);
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
-
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        jLabel23.setVisible(true);
-        jLabel25.setVisible(true);
-        jTextField10.setVisible(true);
-        jTextField12.setVisible(true);
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
-
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        if (!jRadioButton1.isSelected() && !jRadioButton2.isSelected()) cp.mostraAvis("Seleccioni de quin nivell de solapament parla ", "WARNING");
-        else {
-            boolean error = false;
-            ArrayList params = new ArrayList();
-            if (jTextField9.getText().isEmpty() || jTextField11.getText().isEmpty()) cp.mostraAvis("Falten indicacions per crear la restricció", "ERROR");
-            else {
-                params.add(jTextField9.getText());
-                params.add(jTextField11.getText());
-                if (jRadioButton1.isSelected()) {
-                    if (jTextField10.getText().isEmpty() || jTextField12.getText().isEmpty()) {
-                        cp.mostraAvis("Falten indicacions per crear la restricció", "ERROR");
-                        error = true;
-                    }
-                    else {
-                        params.add(Integer.parseInt(jTextField10.getText()));
-                        params.add(Integer.parseInt(jTextField12.getText()));
-                    }
-                }
-                if (!error){
-                    cp.afegirRestriccio(5, params);
-                    if (jRadioButton2.isSelected()) cp.mostraAvis("S'ha afegit la restricció "+jTextField9.getText()+ " - "+ jTextField11.getText(), "INFORMATION");
-                    else cp.mostraAvis("S'ha afegit la restricció "+jTextField9.getText()+ " - "+ jTextField11.getText()+ " - "+ jTextField10.getText()+ "- "+
-                        jTextField12.getText(), "INFORMATION");
-                }
-            }
-
-            
-            jTextField9.setText("");
-            jTextField10.setText("");
-            jTextField11.setText("");
-            jTextField12.setText("");
-            jLayeredPane7.setVisible(false);
-        }
-    }//GEN-LAST:event_jButton14ActionPerformed
 
     private void botoOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoOKActionPerformed
         
@@ -1765,49 +1213,29 @@ public class PanelModificarDades extends javax.swing.JPanel {
     private javax.swing.JComboBox comboBoxOpcionsAssig;
     private javax.swing.JTextField fieldNomAssignatura1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -1822,22 +1250,13 @@ public class PanelModificarDades extends javax.swing.JPanel {
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JLayeredPane jLayeredPane3;
-    private javax.swing.JLayeredPane jLayeredPane6;
-    private javax.swing.JLayeredPane jLayeredPane7;
     private javax.swing.JList jList2;
-    private javax.swing.JList jList3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSlider jSlider2;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner10;
@@ -1850,17 +1269,10 @@ public class PanelModificarDades extends javax.swing.JPanel {
     private javax.swing.JSpinner jSpinner8;
     private javax.swing.JSpinner jSpinner9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel labelGrups;
     private javax.swing.JLabel labelGrups1;
     private javax.swing.JLabel labelGrups2;
