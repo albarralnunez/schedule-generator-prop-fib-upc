@@ -556,8 +556,7 @@ public class CtrDomini {
                 r.setHora((Integer)params.get(2));
                 r.setDia((String)params.get(1));
                 r.setId((Integer) params.get(3));
-                boolean b = this.cgen.getQuad().getElementsPosicio(r.getDia(), r.getHora()).isValid();
-                if(b)cgen.afegirRest(tipus, r);
+                cgen.afegirRest(tipus, r);
             }
             
         }

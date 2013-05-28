@@ -59,7 +59,7 @@ public class RestAssignatura extends Restriccio {
 
     public void setId(int id) {
         this.id = id;
-    }
+    }/*
     public boolean everyday(){
         if(dia == null) return true;
         else return false;
@@ -67,13 +67,13 @@ public class RestAssignatura extends Restriccio {
     public boolean everthour(){
         if(hora == -1) return true;
         else return false;
-    }
+    }*/
     
     @Override
     public boolean CompleixRes(){return false;}
     
     
-     public boolean esPotAfegir(CjtRestAssignatura cjtResAssig,CjtRestGrupSessio cjtResGS) {
+    /* public boolean esPotAfegir(CjtRestAssignatura cjtResAssig,CjtRestGrupSessio cjtResGS) {
          ArrayList<Restriccio> llista = new ArrayList();
          llista = cjtResAssig.getCjtRes();
          int size = llista.size();
@@ -128,7 +128,7 @@ public class RestAssignatura extends Restriccio {
             if (!compleixResHora(c.getAssignatura(), g, h)) return false;
         }
         return true;
-    }
+    }*/
     public boolean compleixRes5(ClausulaNom cn, int duracio){
             if(this.hora != -1){
                if(this.hora >= cn.getHora() && (this.hora < cn.getHora() + duracio)) return false;
