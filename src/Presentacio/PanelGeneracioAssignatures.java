@@ -63,11 +63,11 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Nom", "Nivell", "HoresT", "IntervalT", "HoresL", "IntervalL", "CapacitatT", "CapacitatL", "Grups"
+                "Nom", "Nivell", "Material", "Projector", "HoresT", "IntervalT", "HoresL", "IntervalL", "CapacitatT", "CapacitatL", "Grups"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -77,7 +77,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
         jTable1.setEnabled(false);
         jScrollPane2.setViewportView(jTable1);
 
-        jScrollPane2.setBounds(0, 20, 660, 200);
+        jScrollPane2.setBounds(0, 20, 670, 220);
         jLayeredPane1.add(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel1.setText("Assignatures:");
@@ -86,7 +86,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
 
         jScrollPane1.setViewportView(jList1);
 
-        jScrollPane1.setBounds(10, 230, 140, 160);
+        jScrollPane1.setBounds(20, 250, 140, 160);
         jLayeredPane1.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton1.setText("Afegir");
@@ -96,7 +96,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jButton1.setBounds(160, 230, 100, 25);
+        jButton1.setBounds(170, 270, 100, 25);
         jLayeredPane1.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton2.setText("Editar...");
@@ -106,7 +106,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        jButton2.setBounds(160, 260, 100, 25);
+        jButton2.setBounds(170, 300, 100, 25);
         jLayeredPane1.add(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton3.setText("Següent");
@@ -115,7 +115,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        jButton3.setBounds(560, 360, 94, 25);
+        jButton3.setBounds(570, 380, 94, 25);
         jLayeredPane1.add(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton4.setText("Enrere");
@@ -124,7 +124,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
                 jButton4ActionPerformed(evt);
             }
         });
-        jButton4.setBounds(470, 360, 81, 25);
+        jButton4.setBounds(480, 380, 81, 25);
         jLayeredPane1.add(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/refresh.png"))); // NOI18N
@@ -133,7 +133,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
                 jButton5ActionPerformed(evt);
             }
         });
-        jButton5.setBounds(160, 360, 30, 30);
+        jButton5.setBounds(170, 380, 30, 30);
         jLayeredPane1.add(jButton5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton6.setText("Select All");
@@ -142,7 +142,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
                 jButton6ActionPerformed(evt);
             }
         });
-        jButton6.setBounds(160, 300, 99, 25);
+        jButton6.setBounds(170, 330, 99, 25);
         jLayeredPane1.add(jButton6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -150,16 +150,12 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -183,20 +179,34 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
                     //AQUI HAY QUE IR ACCEDIENDO A CADA UNA DE LAS PROPIEDADES D LA ASIGNATURA Y RELLENAR LA TABLA
                     ArrayList<String> param = cp.mostraParametresAssignatura(cadenaString);
                     int index;
-                    for (index = 0; index < 4; ++index) {
-                        jTable1.setValueAt(param.get(index), filas, index); //NOMBRE, NIVEL, HOREST, INTERVALT
+                    for (index = 0; index < 2; ++index) {
+                        jTable1.setValueAt(param.get(index), filas, index); //NOMBRE, NIVEL
                     }
-                    Integer interval_t = Integer.parseInt(param.get(3));
-                    index += interval_t;
-                    jTable1.setValueAt(param.get(index), filas, 4); //HORESL
+                    Integer mat = Integer.parseInt(param.get(2)); //MATERIAL
+                    Integer proj = Integer.parseInt(param.get(3)); //PROJECTOR
+
+                    if (mat == 1) jTable1.setValueAt(true, filas, 2);
+                    else jTable1.setValueAt(false, filas, 2);
+
+                    if (proj == 1) jTable1.setValueAt(true, filas, 3);
+                    else jTable1.setValueAt(false, filas, 3);
+
+                    jTable1.setValueAt(param.get(4), filas, 4); //HOREST
+
+                    Integer interval_t = Integer.parseInt(param.get(5)); //INTERVALT
+                    jTable1.setValueAt(param.get(5), filas, 5);
+
+
+                    index = 5 + interval_t;
+                    jTable1.setValueAt(param.get(index), filas, 6); //HORESL
                     ++index;
-                    jTable1.setValueAt(param.get(index), filas, 5); //INTERVALL
+                    jTable1.setValueAt(param.get(index), filas, 7); //INTERVALL
                     Integer interval_l = Integer.parseInt(param.get(index));
                     ++index;
                     index += interval_l; //Nos saltamos tantas filas como interval de lab.
-                    jTable1.setValueAt(param.get(index), filas, 6); //CAPACITAT T;
+                    jTable1.setValueAt(param.get(index), filas, 8); //CAPACITAT T;
                     ++index;
-                    jTable1.setValueAt(param.get(index), filas, 7); //CAPACITAT L;
+                    jTable1.setValueAt(param.get(index), filas, 9); //CAPACITAT L;
                     ++index;
                     String grupos = "";
                     for (int k = index; k < param.size()-1; ++k) {
@@ -204,7 +214,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
                         grupos = grupos + ",";
                     }
                     grupos = grupos + param.get(param.size()-1);
-                    jTable1.setValueAt(grupos, filas, 8); //GRUPS;
+                    jTable1.setValueAt(grupos, filas, 10); //GRUPS;
                 }
             }
         }

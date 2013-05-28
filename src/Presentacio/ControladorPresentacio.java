@@ -261,8 +261,11 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         return cd.aulaAssignadaALes(aula, dia, h, asg, grp);
     }
 
-    public void InicialitzaGenerador(){
+    public void InicialitzaGenerador(ArrayList<String> aules){
         cd.inicialitzaGenerador(aules, assignatures);
+
+        for (int i = 0; i < assignatures.size(); ++i) System.out.println("ASSIG:" + assignatures.get(i));
+
         cd.inicialitzarClausules();
         cd.inicialitzarClausulesNom();
     }
@@ -311,12 +314,14 @@ public class ControladorPresentacio extends javax.swing.JFrame {
 
     public void assigSeleccionades(ArrayList<String> ass) {
         assignatures = ass;
-
     }
 
     public void carregarRestTxt(String nomUnitatDocent) {
         boolean a = cd.existeixRest(unitatDocent);
-        if(a) cd.montaRestriccions(unitatDocent);
+        if (a) {
+            cd.montaRestriccions(unitatDocent);
+            mostraAvis("S'han carregat les restriccions .txt satisfactoriament", "INFORMATION");
+        }
         else mostraAvis("No s'han pogut carregar les restriccions", "ERROR");
     }
 

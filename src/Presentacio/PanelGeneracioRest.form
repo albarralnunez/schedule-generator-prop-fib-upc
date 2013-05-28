@@ -20,17 +20,14 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLayeredPane1" pref="666" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jLayeredPane1" alignment="1" pref="678" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLayeredPane1" pref="476" max="32767" attributes="0"/>
+              <Component id="jLayeredPane1" min="-2" pref="497" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -43,7 +40,7 @@
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
-              <JLayeredPaneConstraints x="-10" y="-10" width="-1" height="-1" layer="0" position="-1"/>
+              <JLayeredPaneConstraints x="0" y="10" width="-1" height="-1" layer="0" position="-1"/>
             </Constraint>
           </Constraints>
 
@@ -76,7 +73,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="22" max="32767" attributes="0"/>
+                      <EmptySpace pref="30" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -144,27 +141,30 @@
                 <Component class="javax.swing.JList" name="jList3">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="20">
+                      <StringArray count="23">
                         <StringItem index="0" value="1. Restringir un grup a una aula."/>
                         <StringItem index="1" value="2. Restringir que un grup no pugui anar a una aula."/>
                         <StringItem index="2" value=" "/>
-                        <StringItem index="3" value="3. Restringir un grup a un dia i hora."/>
-                        <StringItem index="4" value="4. Restringir un grup abans d&apos;un dia i hora."/>
-                        <StringItem index="5" value="5. Restringir un grup despr&#xe9;s d&apos;un dia i hora."/>
-                        <StringItem index="6" value=" "/>
-                        <StringItem index="7" value="6. Restringir una hora en la que no es pugui impartir una assignatura+grup."/>
-                        <StringItem index="8" value="7. Restringir una hora en la que abans d&apos;aquesta no es pugui impartir una assig+grup."/>
-                        <StringItem index="9" value="8. Restringir una hora en la que despr&#xe9;s d&apos;aquesta no es pugui impartir una assig+grup."/>
-                        <StringItem index="10" value=" "/>
-                        <StringItem index="11" value="9. Restringir una assignatura+grup en un dia."/>
-                        <StringItem index="12" value="10. Restringir una assignatura+grup abans d&apos;un dia."/>
-                        <StringItem index="13" value="11. Restringir una assignatura+grup despr&#xe9;s un dia."/>
-                        <StringItem index="14" value=" "/>
-                        <StringItem index="15" value="12. Dues assig+grup no poden impartir-se a la vegada temporalment parlant."/>
-                        <StringItem index="16" value=" "/>
-                        <StringItem index="17" value="13. Restringir un aula a no utilitzar-se un dia/hora."/>
-                        <StringItem index="18" value="14. Restringir un aula a no utilitzar-se abans d&apos;un dia/hora."/>
-                        <StringItem index="19" value="15. Restringir un aula a no utilitzar-se despr&#xe9;s d&apos;un dia/hora."/>
+                        <StringItem index="3" value="3. Restringir d&apos;un dia i hora en enrere, que no es pugui impartir classe d&apos;un grup."/>
+                        <StringItem index="4" value="4. Restringir d&apos;un dia i hora en endavant, que no es pugui impartir classe d&apos;un grup."/>
+                        <StringItem index="5" value=" "/>
+                        <StringItem index="6" value="5. Restringir una hora a no poder impartir classe d&apos;un grup."/>
+                        <StringItem index="7" value="6. Restringir que no es pugui impartir classe d&apos;un grup d&apos;una hora en enrere."/>
+                        <StringItem index="8" value="7. Restringir que no es pugui impartir classe d&apos;un grup d&apos;una hora en endavant."/>
+                        <StringItem index="9" value=" "/>
+                        <StringItem index="10" value="8. Restringir que no es pugui impartir classe d&apos;un grup en un dia."/>
+                        <StringItem index="11" value="9. Restringir que no es pugui impartir classe d&apos;un grup d&apos;un dia, en enrere."/>
+                        <StringItem index="12" value="10. Restringir que no es pugui impartir classe d&apos;un grup d&apos;un dia, en endavant."/>
+                        <StringItem index="13" value=" "/>
+                        <StringItem index="14" value="11. Restringir que no es pugui impartir classe d&apos;un grup en un dia i hora."/>
+                        <StringItem index="15" value="12. Restringir que no es pugui impartir classe d&apos;un grup d&apos;un dia i hora en enrere."/>
+                        <StringItem index="16" value="13. Restringir que no es pugui impartir classe d&apos;un grup d&apos;un dia i hora en endavant."/>
+                        <StringItem index="17" value=" "/>
+                        <StringItem index="18" value="14. Dos grups no poden fer classe a la vegada temporalment parlant."/>
+                        <StringItem index="19" value=" "/>
+                        <StringItem index="20" value="15. Inhabilitar un aula a un dia i hora."/>
+                        <StringItem index="21" value="16. Inhabilitar un aula d&apos;un dia i hora, en enrere."/>
+                        <StringItem index="22" value="17. Inhabilitar un aula d&apos;un dia i hora, en endavant."/>
                       </StringArray>
                     </Property>
                     <Property name="selectionMode" type="int" value="0"/>
@@ -394,7 +394,7 @@
                               <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="41" max="32767" attributes="0"/>
+                          <EmptySpace pref="43" max="32767" attributes="0"/>
                           <Component id="jButton13" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
