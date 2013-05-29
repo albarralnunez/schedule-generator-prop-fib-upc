@@ -956,4 +956,23 @@ public class CtrDomini {
         cper.esborrahorari( nomhorari );
     }
 
+    public boolean esUsada(int d, int h) {
+        Quadricula q = cgen.getQuad();
+        String dia = "dilluns";
+        if ( d == 1) dia = "dimarts";
+        else if (d == 2) dia = "dimecres";
+        else if (d == 3) dia = "dijous";
+        else if (d == 4) dia = "divendres";
+        else if (d == 5) dia = "dissabte";
+        else if (d == 6) dia = "diumenge";
+        
+        CjtElements cje = q.getElementsPosicio(dia, h);
+        if( cje.isValid() ){
+            int ne = cje.numeroElements();
+            System.out.println("ERA VALID");
+            if(ne > 0) return true;
+        }
+        return false;
+    }
+
 }

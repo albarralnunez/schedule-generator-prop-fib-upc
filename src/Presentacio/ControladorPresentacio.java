@@ -121,6 +121,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
             pva.setVisible(true);
         }
         else if (nomPanel.equals("PanelVistaHores")){
+            pvh.pintaUsades();
             pvh.setVisible(true);
         }
         
@@ -332,6 +333,10 @@ public class ControladorPresentacio extends javax.swing.JFrame {
 
     void esborraHorari(String nomhorari) {
         cd.esborraHorari(nomhorari);
+    }
+
+    public boolean usada(int d, int h) {
+        return cd.esUsada(d, h);
     }
 
 

@@ -4,6 +4,8 @@
  */
 package Presentacio;
 
+import java.awt.Color;
+
 /**
  *
  * @author miquel
@@ -11,6 +13,7 @@ package Presentacio;
 public class PanelVistaHores extends javax.swing.JPanel {
 
     ControladorPresentacio cp;
+    Seleccionable selecs[][];
     /**
      * Creates new form PanelVistaHores
      */
@@ -19,6 +22,15 @@ public class PanelVistaHores extends javax.swing.JPanel {
         initComponents();
         this.setBounds(0, 0, 700, 550);
 
+        selecs = new Seleccionable[7][24];
+        
+        for(int d = 0; d < 7; ++d){ // d = 7
+            for(int h = 0; h < 24; ++h){ // h = 24
+                selecs[d][h] = new Seleccionable(d, h);
+                this.jLayeredPane2.add( selecs[d][h]);
+                selecs[d][h].setBounds(d*75, h*22, 75, 22);
+            }
+        }
     }
 
     /**
@@ -64,8 +76,14 @@ public class PanelVistaHores extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLayeredPane2 = new javax.swing.JLayeredPane();
+        assignacio = new javax.swing.JLabel();
 
         botoTornar.setText("Tornar");
+        botoTornar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoTornarActionPerformed(evt);
+            }
+        });
         botoTornar.setBounds(570, 500, 65, 23);
         jLayeredPane1.add(botoTornar, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -259,6 +277,12 @@ public class PanelVistaHores extends javax.swing.JPanel {
         jLayeredPane2.setBounds(30, 20, 525, 528);
         jLayeredPane1.add(jLayeredPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        assignacio.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        assignacio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        assignacio.setText("a");
+        assignacio.setBounds(580, 20, 90, 410);
+        jLayeredPane1.add(assignacio, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -270,7 +294,24 @@ public class PanelVistaHores extends javax.swing.JPanel {
             .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botoTornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoTornarActionPerformed
+        cp.canviaPanel("PanelVistaAules");
+    }//GEN-LAST:event_botoTornarActionPerformed
+
+    public void pintaUsades(){
+        for(int d = 0; d < 7; ++d){ // d = 7
+            for(int h = 0; h < 24; ++h){
+                selecs[d][h].setBackground(new java.awt.Color(255, 255, 255));
+                if( cp.usada(d,h) ){
+                    selecs[d][h].pintaUsada();
+                }
+            }
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel assignacio;
     private javax.swing.JButton botoTornar;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -306,4 +347,39 @@ public class PanelVistaHores extends javax.swing.JPanel {
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;
     // End of variables declaration//GEN-END:variables
+
+    private class Seleccionable extends javax.swing.JPanel {
+
+        private int dia;
+        private int hora;
+
+        public Seleccionable(int d, int h) {
+            dia = d;
+            hora = h;
+
+            setBackground(new java.awt.Color(255, 255, 255));
+            setBorder(javax.swing.BorderFactory.createLineBorder(Color.BLACK));
+            initComponents();
+        }
+
+        public void pintaUsada(){
+            setBackground(new java.awt.Color(229, 113, 113));
+        }
+        
+
+        private void initComponents() {
+
+            javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+            this.setLayout(layout);
+            layout.setHorizontalGroup(
+                    layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGap(0, 400, Short.MAX_VALUE));
+            layout.setVerticalGroup(
+                    layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGap(0, 300, Short.MAX_VALUE));
+        }
+
+        
+    }
+
 }
