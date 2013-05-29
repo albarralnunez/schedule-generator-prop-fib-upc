@@ -18,7 +18,10 @@ import java.util.logging.Logger;
  *
  * @author Miquel Masriera
  *
+ *  * especialitzacio del controlador de disc per treballar amb arxius de text
+ * 
  * TOTES ELS CLASSES QUE ES RELACIONIN AMB AQUESTA HAN DE SER SERIALITZABLES
+ * (implementar la interficie Serializable de Java)
  */
 public class CtrObjectes<Classe> extends CtrDisc implements Serializable {
 
@@ -53,10 +56,23 @@ public class CtrObjectes<Classe> extends CtrDisc implements Serializable {
         return false;
     }
 
+    /**
+     * REDEFINIDA
+     * 
+     * @param nomObjecte nom de l'objecte a buscar
+     * @return cert si l'objecte existeix, fals en cas contrari
+     */
     public boolean existeix(String nomObjecte) {
         return new File("./Data/" + nomObjecte + ".o").canRead();
     }
     
+    
+    /**
+     * REDEFINIDA
+     * 
+     * @param nomArxiu nom de l'objecte a esborrar
+     * @return cert si no hi ha hagut cap problema al esborrar fals tant si no existeix com si no s ha pogut esborrar
+     */
     public boolean esborra(String nomArxiu) {
         if (existeix(nomArxiu)) {
             return new File("./Data/" + nomArxiu + ".o").delete();

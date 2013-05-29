@@ -10,6 +10,9 @@ import java.util.ArrayList;
 /**
  *
  * @author Miquel Masriera
+ * 
+ * controlador de la capa de persistencia
+ * 
  */
 public class CtrPersistencia {
 
@@ -17,6 +20,9 @@ public class CtrPersistencia {
     CtrArxius ca;
     CtrObjectes co;
 
+    /**
+     * creadora per defecte
+     */
     public CtrPersistencia() {
 
         cdisc = new CtrDisc();
@@ -24,31 +30,55 @@ public class CtrPersistencia {
         co = new CtrObjectes();
     }
 
+    /**
+     * 
+     * @return retorna el nombre d'arxius de la carpeta de les dades 
+     */
     public int nuemroArxius() {
         return ca.numArxius();
     }
 
+    /**
+     * 
+     * @param nomUnitat nom de la unitat Docent
+     * @return el nom de totes els assignatures d'aquella unitat docent 
+     */
     public ArrayList<String> llistaAssigantures(String nomUnitat) {
         return ca.llistaDirectori("assig-" + nomUnitat); // te totes les assignatures de la unitat docent 
     }
 
     /**
      *
-     * @param nom
-     * @param parametres
+     * @param nom nom de la assignatura
+     * @param parametres llista amb tots els parametres de la assignatura en ordre
      */
     public void creaAssignatura(String nom, ArrayList parametres) {
         ca.creaArxiu("assig-" + nom, parametres);
     }
 
+    /**
+     * 
+     * @param nom de la assignatura a buscar
+     * @return cert si la assignatura existeix
+     */
     public boolean existeixAssignatura(String nom) {
         return (ca.existeix("assig-" + nom)); // diu si existeix una assignatura amb aquell nom
     }
 
+    /**
+     * 
+     * @param nomAsg assigantura a esborrar
+     * @return cert si la ha trobat i esborrat
+     */
     public boolean esborraAssignatura(String nomAsg) { // nomAsg = UD-nom
         return ca.esborra("assig-" + nomAsg);
     }
 
+    /**
+     * 
+     * @param nomAsg nom de la assignatura a llegir
+     * @return una llista amb tots els parametres de la assignatura en ordre
+     */
     public ArrayList<String> llegirAssignatura(String nomAsg) {
         return ca.llegirArxiu("assig-" + nomAsg);
     }
@@ -81,6 +111,11 @@ public class CtrPersistencia {
         ca.creaArxiu("aula-lab-" + nom, a);
     }
 
+    /**
+     * 
+     * @param aula
+     * @param a 
+     */
     public void creaHorari(String aula,ArrayList a){
         ca.creaArxiu("Horari-FIB-"+aula, a);
     }    
@@ -107,7 +142,7 @@ public class CtrPersistencia {
     /**
      *
      * @param nomUnitat
-     * @return Llegeix un Aula
+     * @return una llista amb tots els parametres de la aula
      */
     public ArrayList<String> llegirAula(String nomAula) {
             ArrayList<String> a = new ArrayList<String>(); 
@@ -116,10 +151,20 @@ public class CtrPersistencia {
             return a;
     }
     
+    /**
+     * 
+     * @param nomAula
+     * @return una llista amb tots els parametres de la aula de teoria
+     */
     public ArrayList<String> llegirAulaTeo (String nomAula) {
             return ca.llegirArxiu("aula-teo-" + nomAula);
     }
     
+    /**
+     * 
+     * @param nomAula
+     * @return una llista amb tots els parametres de la aula de teoria
+     */
     public ArrayList<String> llegirAulaLab(String nomAula) {
             return ca.llegirArxiu("aula-lab-" + nomAula);
 
@@ -163,19 +208,40 @@ public class CtrPersistencia {
          return ca.llegirArxiu(n);
     }
 
-    
+    /**
+     * 
+     * @param nomConfig 
+     * @return una llista amb totes les hores disponibles de cada dia per poder assignar classes
+     */
     public ArrayList<String> llegirConfiguracioHoraria(String nomConfig ) {
         return ca.llegirArxiu(nomConfig);
     }
 
+    /**
+     * 
+     * crea un txt amb ua llista de dies u hores que estaran disponibles per assigar classes
+     * 
+     * @param conf
+     * @param nomUnitat 
+     */
     public void escriuConfiguracioHoraria(ArrayList conf, String nomUnitat) {
         ca.creaArxiu( "configuracioHoraria-"+nomUnitat, conf);
     }
-
+/**
+ * 
+ * @param nomUnitat
+ * @return cert si aquella unitat te un arxiu de disponibilitat horaria
+ */
     public boolean existeixConfiguracioHoraria(String nomUnitat) {
         return cdisc.existeix("configuracioHoraria-"+nomUnitat);
     }
 
+    /**
+     * 
+     * @param nomh
+     * @param q quadricula amb l horari
+     * @return retorna cert si l ha pogut guardar . o fals si no l ha pogut guardar o l horari ja existia
+     */
     public boolean guardaHorari(String nomh, Quadricula q) {
         if( co.existeix(nomh)) 
             return false;
@@ -184,29 +250,61 @@ public class CtrPersistencia {
         return true;
     }
     
+    /**
+     * 
+     * @param nomHorari
+     * @return  retorna una quadricula amb totes les assignacions
+     * en el cas que no es pugui carregar retirna null
+     */
     public Quadricula carregaHorari( String nomHorari ){
         Quadricula q =  (Quadricula) co.llegirObjecte(nomHorari);
         return q;
     }
 
+    /**
+     * 
+     * @param nom
+     * @return cert si troba l horari 
+     */
     public boolean existeixHorari( String nom ) {
         return co.existeix(nom);
     }
+    
+    /**
+     * 
+     * @param nomUnitat
+     * @return una lista amb totes les restriccions de la unitat 
+     */
     public ArrayList<String> llegirRestriccions(String nomUnitat) {
         return ca.llegirArxiu("restriccions-" + nomUnitat);
     }
+    
+    /**
+     * 
+     * @param nomUnitat
+     * @return cert si hi ha un arxiu de restriccions 
+     */
     public boolean existeixRest(String nomUnitat) {
         return ca.existeix("restriccions-"+nomUnitat); //diu si existeix el arixu restriccions-nomUnitat
     }
 
+    /**
+     * 
+     * @param nomUnitat
+     * @return una llista amb tots els noms dels horaris disponibles de la unitat docent
+     */
     public ArrayList<String> getLlistaHoraris(String nomUnitat) {
         return cdisc.llistaDirectori("horari-"+nomUnitat);
         
     }
 
+    /**
+     * esborra l horari
+     * 
+     * @param nomhorari 
+     */
     public void esborrahorari(String nomhorari) {
        if( ! co.esborra(nomhorari) ){
-           System.out.println("PROBLEMA AL BORRAR");
        }
     }
 }

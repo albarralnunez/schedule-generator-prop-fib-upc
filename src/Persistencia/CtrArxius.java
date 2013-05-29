@@ -8,6 +8,8 @@ import java.util.logging.Logger;
 /**
  *
  * @author Miquel Masriera
+ * 
+ * especialitzacio del controlador de disc per treballar amb arxius de text
  */
 public class CtrArxius extends CtrDisc {
 

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Persistencia;
 
 import java.io.BufferedReader;
@@ -18,7 +14,16 @@ import java.util.logging.Logger;
 /**
  *
  * @author Miquel Masriera
+ * 
+ * aquesta classe fa funcions molt generals per a treballar amb arxius
+ * les funcions estan implemenades per a txt pero el controlador d
+ * objectes les redefineix
+ * 
+ * crea el directori de les dades, dona llistes del directori segons alguns 
+ * criteris...
+ * 
  */
+
 public class CtrDisc {
 
     /**
