@@ -10,11 +10,15 @@ package Presentacio;
  */
 public class PanelVistaHores extends javax.swing.JPanel {
 
+    ControladorPresentacio cp;
     /**
      * Creates new form PanelVistaHores
      */
-    public PanelVistaHores() {
+    public PanelVistaHores( ControladorPresentacio cpres ) {
+        cp = cpres;
         initComponents();
+        this.setBounds(0, 0, 700, 550);
+
     }
 
     /**

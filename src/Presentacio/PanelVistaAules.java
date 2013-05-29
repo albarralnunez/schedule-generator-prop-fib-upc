@@ -296,6 +296,11 @@ public class PanelVistaAules extends javax.swing.JPanel {
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setText("<html><div style=text-align: center>  Vista Per</n> Hores </html>");
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jButton1.setBounds(20, 230, 100, 35);
         jLayeredPane1.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -429,6 +434,11 @@ public class PanelVistaAules extends javax.swing.JPanel {
             
         }
     }//GEN-LAST:event_botoOKActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        cp.canviaPanel("PanelVistaHores");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botoOK;
     private javax.swing.JComboBox comboBoxLlistaAules;

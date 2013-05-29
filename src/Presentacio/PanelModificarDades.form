@@ -95,7 +95,7 @@
                                           <Component id="panellDadesAssignatura" min="-2" pref="374" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="17" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -566,7 +566,7 @@
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
-                          <JLayeredPaneConstraints x="200" y="80" width="130" height="-1" layer="0" position="-1"/>
+                          <JLayeredPaneConstraints x="197" y="80" width="130" height="-1" layer="0" position="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -733,7 +733,7 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLayeredPane3" pref="319" max="32767" attributes="0"/>
+                                      <Component id="jLayeredPane3" pref="323" max="32767" attributes="0"/>
                                       <Component id="jLayeredPane2" alignment="0" pref="319" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -764,7 +764,7 @@
                                       <Component id="jLayeredPane2" min="-2" pref="192" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="jLayeredPane3" pref="220" max="32767" attributes="0"/>
+                                  <Component id="jLayeredPane3" pref="222" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
