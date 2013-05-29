@@ -344,6 +344,12 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         return cd.esUsada(d, h, asg);
     }
 
+    public String getAssignacio(int d, int h, String s) {
+        String a = "";
+        a = cd.getAssignacio(d, h, s);
+        return a;
+    }
+
 
     
 

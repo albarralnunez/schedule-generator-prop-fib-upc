@@ -78,8 +78,9 @@ public class PanelVistaHores extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLayeredPane2 = new javax.swing.JLayeredPane();
-        assignacio = new javax.swing.JLabel();
         cBoxAssignatures = new javax.swing.JComboBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         botoTornar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         botoTornar.setText("Tornar");
@@ -281,12 +282,6 @@ public class PanelVistaHores extends javax.swing.JPanel {
         jLayeredPane2.setBounds(30, 20, 525, 528);
         jLayeredPane1.add(jLayeredPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        assignacio.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        assignacio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        assignacio.setText("a");
-        assignacio.setBounds(580, 110, 90, 320);
-        jLayeredPane1.add(assignacio, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         cBoxAssignatures.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TOTES" }));
         cBoxAssignatures.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -295,6 +290,17 @@ public class PanelVistaHores extends javax.swing.JPanel {
         });
         cBoxAssignatures.setBounds(570, 30, 110, 30);
         jLayeredPane1.add(cBoxAssignatures, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jTextArea1.setBackground(new java.awt.Color(240, 240, 240));
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jScrollPane1.setBounds(570, 100, 110, 350);
+        jLayeredPane1.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -309,6 +315,7 @@ public class PanelVistaHores extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botoTornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoTornarActionPerformed
+        this.jTextArea1.setText("");
         cp.canviaPanel("PanelVistaAules");
     }//GEN-LAST:event_botoTornarActionPerformed
 
@@ -329,7 +336,6 @@ public class PanelVistaHores extends javax.swing.JPanel {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel assignacio;
     private javax.swing.JButton botoTornar;
     private javax.swing.JComboBox cBoxAssignatures;
     private javax.swing.JLabel jLabel10;
@@ -365,6 +371,8 @@ public class PanelVistaHores extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 
     public void posaAssignatures(ArrayList<String> assignatures) {
@@ -377,8 +385,16 @@ public class PanelVistaHores extends javax.swing.JPanel {
     
     public void mostraAssignacio(int d, int h){
         String s = (String) cBoxAssignatures.getSelectedItem();
-        System.out.println( s);
+        String out = cp.getAssignacio(d, h, s);
+        this.jTextArea1.setText(out);
     }
+    
+    
+    
+    
+    
+    
+    
 
     private class Seleccionable extends javax.swing.JPanel {
 

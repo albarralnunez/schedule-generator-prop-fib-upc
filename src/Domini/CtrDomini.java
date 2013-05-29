@@ -1014,4 +1014,44 @@ public class CtrDomini {
         return asgs;
     }
 
+    public String getAssignacio(int d, int h, String s) {
+        
+        String resultat = "";
+        
+        Quadricula q = cgen.getQuad();
+        String dia = "dilluns";
+            if ( d == 1) dia = "dimarts";
+            else if (d == 2) dia = "dimecres";
+            else if (d == 3) dia = "dijous";
+            else if (d == 4) dia = "divendres";
+            else if (d == 5) dia = "dissabte";
+            else if (d == 6) dia = "diumenge";
+            
+            CjtElements cje = q.getElementsPosicio(dia, h);
+            
+            if( cje.isValid() ){
+                int ne = cje.numeroElements();
+                if( s == null || s.equals("TOTES") ) { //vull totes les assignacions
+                    for(int i = 0; i < ne; ++i){
+                    String nomA = cje.getElementPosicio(i).getAssignatura().getNom();
+                    int grup = cje.getElementPosicio(i).getGrupo();
+                    resultat = resultat+nomA+" "+grup+"\n";
+                    // <html><div style=text-align: center>  Vista Per</n> Hores </html>
+                    }
+                }
+                else{   //es una assignatura en concret
+                    System.out.println("CDOMINI 1037");
+                    for(int i = 0; i < ne; ++i){
+                        String nomA = cje.getElementPosicio(i).getAssignatura().getNom();
+                        if(nomA.equals(s)){
+                            int grup = cje.getElementPosicio(i).getGrupo();
+                            resultat = resultat+nomA+"  "+grup+"\n";
+                        }
+                    }
+                }
+            }
+        
+        return resultat;
+    }
+
 }
