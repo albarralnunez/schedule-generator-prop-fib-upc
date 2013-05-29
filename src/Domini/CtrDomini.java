@@ -621,247 +621,6 @@ public class CtrDomini {
     public ArrayList<String> llegirAulaTeo(String nom) {
         return cper.llegirAula("aula-teo-"+nomUnitat+"-"+nom);
     }
-    /**
-     * 
-     * @param tipus
-     * @return 
-     */
-    /*
-    public ArrayList<String> llistaRest(int tipus){
-        ArrayList<String> l = new ArrayList();
-        if(0<tipus && tipus <3){
-            CjtRestGrupoAula cjt= cgen.getCjtResGA();
-            int size = cjt.size();
-            for(int i = 0; i < size; ++i){
-                RestGrupoAula a = cjt.get(i);
-                if(tipus == a.getId()){
-                    l.add(a.getAssignatura()+"-"+a.getGrup()+"-"+a.getAula());
-                    Integer j = i;
-                    l.add(j.toString());
-                }
-            }
-        }
-        else if(2<tipus && tipus<6 ){
-            CjtRestGrupSessio cjt = cgen.getCjtRestGS();
-            int size = cjt.size();
-            for(int i = 0; i < size; ++i){
-                RestGrupSessio r = cjt.get(i);
-                if(tipus == r.ObtenirId()){
-                    l.add(r.getAssignatura()+"-"+r.getGrup()+"-"+r.getDiaString()+"-"+r.getHora());
-                    Integer j = i;
-                    l.add(j.toString());
-                }
-            }
-        }
-        else if(5<tipus && tipus <9){
-            CjtRestAssignatura cjt = cgen.getCjtRestAss();
-            int size = cjt.size();
-            for(int i = 0; i < size; ++i){
-                RestAssignatura r = cjt.get(i);
-                if(r.getHora()!= -1){
-                    if(tipus == r.getId()){
-                        l.add(r.getAssignatura().getNom()+"-"+r.getGrup()+"-"+r.getHora());
-                        Integer j = i;
-                        l.add(j.toString());
-                    }
-                }
-            }
-        }
-        else if(8<tipus && tipus < 12){
-            CjtRestAssignatura cjt = cgen.getCjtRestAss();
-            int size = cjt.size();
-            for(int i = 0; i < size; ++i){
-                RestAssignatura r = cjt.get(i);
-                if(r.getDia() != null){
-                    if(tipus == r.getId()){
-                        l.add(r.getAssignatura().getNom()+"-"+r.getGrup()+"-"+r.getDia());
-                        Integer j = i;
-                        l.add(j.toString());
-                    }
-                }
-            }
-        }
-        else if(11<tipus && tipus < 15){
-            CjtRestAssignatura cjt = cgen.getCjtRestAss();
-            int size = cjt.size();
-            for(int i = 0; i < size; ++i){
-                RestAssignatura r = cjt.get(i);
-                if(r.getDia() != null){
-                    if(tipus == r.getId()){
-                        l.add(r.getAssignatura().getNom()+"-"+r.getGrup()+"-"+r.getDia()+"-"+r.getHora());
-                        Integer j = i;
-                        l.add(j.toString());
-                    }
-                }
-            }
-        }
-        else if(tipus == 15){
-            CjtRestSolapament cjt = cgen.getCjtRestS();
-            int size = cjt.size();
-            for(int i = 0; i < size; ++i){
-                RestSolapament r = cjt.get(i);
-                if(r.getGrupPrincipal() == -1 && r.getGrupSolapament() == -1){
-                    l.add(r.getAssignaturaPrincipal().getNom()+"-"+r.getAssignaturaSolapament().getNom());
-                }
-                else{
-                    l.add(r.getAssignaturaPrincipal().getNom()+"-"+r.getGrupPrincipal()+"-"+r.getAssignaturaSolapament().getNom()+"-"+r.getGrupSolapament());
-                }
-            }
-        }
-        else if (15<tipus && tipus<19) {
-            CjtRestriccioAula cjt = cgen.getCjtRestAul();
-            int size = cjt.size();
-            for(int i = 0; i < size; ++i){
-                RestriccioAula r = cjt.get(i);
-                if(tipus == r.getId()) {
-                    l.add(r.getAula().getNom()+"-"+r.getDia()+"-"+r.getHora());
-                    Integer j = i;
-                    l.add(j.toString());
-                }
-            }
-        }
-        return l;
-    }*/
-    /**
-     * 
-     * @param tipus
-     * @param params 
-     */
-    /*public void modificarRest(int tipus,ArrayList params){
-        switch (tipus) {
-            case 1: 
-                    RestGrupoAula r; 
-                    r = cgen.getCjtResGA().get((Integer)params.get(0));
-                    r.setAssignatura((String)params.get(1));
-                    r.setGrup((Integer)params.get(2));
-                    r.setAula((String)params.get(3));
-                    break;
-            case 2:  
-                    RestGrupSessio rGS; 
-                    rGS = cgen.getCjtRestGS().get((Integer)params.get(0));
-                    rGS.setAssignatura((String)params.get(1));
-                    rGS.setGrup((Integer)params.get(2));
-                    rGS.setDia((String)params.get(3));
-                    rGS.setHora((Integer)params.get(4));
-                     break;
-            case 3:  
-                    RestAssignatura rA;
-                    rA = cgen.getCjtRestAss().get(((Integer)params.get(0)));
-                    Assignatura a = new Assignatura();
-                    String ass = (String)params.get(1);
-                    boolean trobat = false;
-                    for(int i = 0;i < cgen.getCjtAs().size() && !trobat; ++i){
-                        if(cgen.getCjtAs().get(i).getNom().equals(ass)) {a = cgen.getCjtAs().get(i); trobat = true;}
-                    }
-                    if(trobat){
-                        rA.setAssignatura(a);
-                        rA.setGrup((Integer)params.get(2));
-                        rA.setHora((Integer)params.get(3));
-                    }    
-                     break;
-            case 4:  
-                    RestAssignatura rA2;
-                    rA2 = cgen.getCjtRestAss().get(((Integer)params.get(0)));
-                    Assignatura aa = new Assignatura();
-                    String asss = (String)params.get(1);
-                    boolean trobat1 = false;
-                    for(int i = 0;i < cgen.getCjtAs().size() && !trobat1; ++i){
-                        if(cgen.getCjtAs().get(i).getNom().equals(asss)) {aa = cgen.getCjtAs().get(i); trobat1 = true;}
-                    }
-                    if(trobat1){
-                        rA2.setAssignatura(aa);
-                        rA2.setGrup((Integer)params.get(2));
-                        rA2.setDia((String)params.get(3));
-                    }    
-                     break;
-            case 5:  
-                    RestSolapament rs;
-                    rs = cgen.getCjtRestS().get((Integer)params.get(0));
-                    boolean trobat2 = false;
-                    boolean trobat3 = false;
-                    String as1 = (String)params.get(1);
-                    String as2 = (String)params.get(3);
-                    Assignatura a1 = new Assignatura();
-                    Assignatura a2 = new Assignatura();
-                    for(int i = 0;i < cgen.getCjtAs().size() && (!trobat2 || !trobat3); ++i){
-                        if(cgen.getCjtAs().get(i).getNom().equals(as1)) {a1 = cgen.getCjtAs().get(i); trobat2 = true;}
-                        else if(cgen.getCjtAs().get(i).getNom().equals(as2)) {a2 = cgen.getCjtAs().get(i); trobat3 = true;}
-                    }
-                    if(trobat2 && trobat3){
-                     rs.setAssignaturaPrincipal(a1);
-                     rs.setAssignaturaSolapament(a2);
-                     rs.setGrupPrincipal((Integer)params.get(2));
-                     rs.setGrupSolapament((Integer)params.get(4));
-                    }
-                     break;
-            case 6:  
-                    RestriccioAula rAul;
-                    rAul = cgen.getCjtRestAul().get((Integer)params.get(0));
-                    Aula aul = new Aula();
-                    String Aul = (String)params.get(1);
-                    boolean trobat4 = false;
-                    for(int i = 0; i < cgen.getCjtAulLab().size() && !trobat4;++i){
-                        if(cgen.getCjtAulLab().get(i).getNom().equals(Aul)) {aul = cgen.getCjtAulLab().get(i); trobat4 = true;}
-                    } 
-                    for(int i = 0; i < cgen.getCjtAulTeo().size() && !trobat4;++i){
-                        if(cgen.getCjtAulTeo().get(i).getNom().equals(Aul)) {aul = cgen.getCjtAulTeo().get(i); trobat4=true;}
-                    }
-                    if(trobat4){
-                        rAul.setAula(aul);
-                        rAul.setDia((String)params.get(2));
-                        rAul.setHora((Integer)params.get(3));
-                    }
-                    break;
-            case 7:
-                    RestAssignatura rA3;
-                    rA3 = cgen.getCjtRestAss().get(((Integer)params.get(0)));
-                    Assignatura aaa = new Assignatura();
-                    String aass = (String)params.get(1);
-                    boolean trobatt = false;
-                    for(int i = 0;i < cgen.getCjtAs().size() && !trobatt; ++i){
-                        if(cgen.getCjtAs().get(i).getNom().equals(aass)) {aaa = cgen.getCjtAs().get(i); trobatt = true;}
-                    }
-                    if(trobatt){
-                        rA3.setAssignatura(aaa);
-                        rA3.setGrup((Integer)params.get(2));
-                        rA3.setDia((String)params.get(3));
-                        rA3.setHora((Integer) params.get(4));
-                    }    
-                     break;
-        }
-    }*/
-    
-    /**
-     * 
-     * @param tipus
-     * @param numRest 
-     */
-    /*public void esborraRest(int tipus,int numRest){
-        switch (tipus){
-            case 1: case 2:
-                    cgen.getCjtResGA().remove(numRest);
-                    break;
-            case 3: case 4: case 5:
-                    cgen.getCjtRestGS().remove(numRest);
-                    break;
-            case 6: case 7: case 8:
-                    cgen.getCjtRestAss().remove(numRest);
-                    break;
-            case 9: case 10: case 11:
-                    cgen.getCjtRestAss().remove(numRest);
-                    break;
-            case 12: case 13: case 14:
-                    cgen.getCjtRestAss().remove(numRest);
-                    break;    
-            case 15: 
-                    cgen.getCjtRestS().remove(numRest);
-                    break;
-            case 16: case 17: case 18:
-                    cgen.getCjtRestAul().remove(numRest);
-                    break;
-       }
-        
-    }*/
 
     public boolean existeixConfiguracioHoraria() {
         return cper.existeixConfiguracioHoraria(nomUnitat);
@@ -880,6 +639,15 @@ public class CtrDomini {
         return true;
     }
     
+    /**
+     * 
+     * @param aula
+     * @param dia
+     * @param h
+     * @param asg
+     * @param grp
+     * @return 
+     */
     public boolean aulaAssignadaALes(String aula, int dia, int h, String asg, int grp){
         
         Quadricula q = cgen.getQuad();
@@ -906,6 +674,14 @@ public class CtrDomini {
         return false;
     }
 
+    /**
+     * 
+     * @param nomAula 
+     * @param d dia
+     * @param h hora
+     * @return si la aula te una assignacio a la hora h del dia d, retorna dos strings
+     * un per la assignatura i un altre pel grup
+     */
     public ArrayList<String> aulaAssignadaALes(String nomAula, int d, int h) {
         ArrayList<String> resultat = new ArrayList<String>();
         
@@ -937,18 +713,37 @@ public class CtrDomini {
         return resultat;
     }
 
+    /**
+     * 
+     * @return llista mab tots els noms dels horaris guardats 
+     */
     public ArrayList<String> carregaLlistaHoraris() {
        return cper.getLlistaHoraris( nomUnitat);
     }
 
+    /**
+     * 
+     * @return el nom de la unitat docent 
+     */
     public String nomUnitatDocent() {
         return this.nomUnitat;
     }
-
+    
+    /**
+     * 
+     * @param nomhorari horari a esborrar 
+     */
     public void esborraHorari(String nomhorari) {
         cper.esborrahorari( nomhorari );
     }
 
+    /**
+     * 
+     * @param d dia 
+     * @param h hora
+     * @param asg assignatura
+     * @return retorna cert si en aquell dia i aquella hora la assignatura asg esta assignada
+     */
     public boolean esUsada(int d, int h, String asg) {
         Quadricula q = cgen.getQuad();
         String dia = "dilluns";
@@ -974,7 +769,10 @@ public class CtrDomini {
         }
         return false;
     }
-
+    
+    /**
+     * @return llista amb els noms de totes les assignatures de l horari 
+     */
     public ArrayList<String> AssignaturesUsades() {
         ArrayList<String> asgs = new ArrayList<String>();
         
@@ -1006,6 +804,13 @@ public class CtrDomini {
         return asgs;
     }
 
+    /**
+     * 
+     * @param d dia
+     * @param h hora
+     * @param s assigatura
+     * @return retorna una cadena amb totes les assignacions d aquella assignatura ne aquella hora i aquell dia
+     */
     public String getAssignacio(int d, int h, String s) {
         
         String resultat = "";
