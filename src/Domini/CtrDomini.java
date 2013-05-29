@@ -1027,7 +1027,8 @@ public class CtrDomini {
                     for(int i = 0; i < ne; ++i){
                     String nomA = cje.getElementPosicio(i).getAssignatura().getNom();
                     int grup = cje.getElementPosicio(i).getGrupo();
-                    resultat = resultat+nomA+" "+grup+"\n";
+                    String nomAula = cje.getElementPosicio(i).getAula().getNom();
+                    resultat = resultat+nomA+" "+grup+" "+nomAula+"\n";
                     }
                 }
                 else{   //es una assignatura en concret
@@ -1035,7 +1036,8 @@ public class CtrDomini {
                         String nomA = cje.getElementPosicio(i).getAssignatura().getNom();
                         if(nomA.equals(s)){
                             int grup = cje.getElementPosicio(i).getGrupo();
-                            resultat = resultat+nomA+"  "+grup+"\n";
+                            String nomAula = cje.getElementPosicio(i).getAula().getNom();
+                            resultat = resultat+nomA+"  "+grup+" "+nomAula+"\n";
                         }
                     }
                 }
