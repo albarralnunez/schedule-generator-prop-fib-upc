@@ -510,21 +510,21 @@ public class PanelModificarDades extends javax.swing.JPanel {
             }
         });
 
-        jTextField3.setBounds(150, 20, 113, -1);
+        jTextField3.setBounds(90, 10, 113, 19);
         jLayeredPane2.add(jTextField3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel6.setText("Nom:");
-        jLabel6.setBounds(100, 30, -1, -1);
+        jLabel6.setBounds(10, 20, 36, 15);
         jLayeredPane2.add(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel7.setText("Capacitat:");
-        jLabel7.setBounds(70, 50, -1, -1);
+        jLabel7.setBounds(10, 40, 73, 15);
         jLayeredPane2.add(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jTextField2.setBounds(150, 50, 113, -1);
+        jTextField2.setBounds(90, 40, 113, 19);
         jLayeredPane2.add(jTextField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel8.setText("Material:");
-        jLabel8.setBounds(40, 100, -1, -1);
+        jLabel8.setBounds(40, 120, 64, 15);
         jLayeredPane2.add(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jRadioButton3.setText("Teoria");
@@ -533,7 +533,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jRadioButton3ActionPerformed(evt);
             }
         });
-        jRadioButton3.setBounds(0, 80, -1, -1);
+        jRadioButton3.setBounds(70, 70, 70, 23);
         jLayeredPane2.add(jRadioButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jRadioButton4.setText("Laboratori");
@@ -542,7 +542,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jRadioButton4ActionPerformed(evt);
             }
         });
-        jRadioButton4.setBounds(130, 80, -1, -1);
+        jRadioButton4.setBounds(150, 70, 100, 23);
         jLayeredPane2.add(jRadioButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton2.setText("Cancel·la");
@@ -551,15 +551,15 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        jButton2.setBounds(150, 130, -1, -1);
+        jButton2.setBounds(200, 130, 99, 25);
         jLayeredPane2.add(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jCheckBox2.setBounds(90, 100, -1, -1);
+        jCheckBox2.setBounds(110, 120, 21, 21);
         jLayeredPane2.add(jCheckBox2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel9.setText("Projector:");
-        jLabel9.setBounds(40, 130, -1, -1);
+        jLabel9.setBounds(40, 150, 70, 15);
         jLayeredPane2.add(jLabel9, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jCheckBox1.setBounds(90, 130, -1, -1);
+        jCheckBox1.setBounds(110, 150, 21, 21);
         jLayeredPane2.add(jCheckBox1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton1.setText("Crear");
@@ -568,7 +568,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jButton1.setBounds(150, 160, 77, -1);
+        jButton1.setBounds(200, 160, 100, 25);
         jLayeredPane2.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton11.setText("Modificar");
@@ -577,7 +577,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jButton11ActionPerformed(evt);
             }
         });
-        jButton11.setBounds(100, 140, -1, -1);
+        jButton11.setBounds(210, 160, 99, 25);
         jLayeredPane3.add(jButton11, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton12.setText("Cancel·la");
@@ -586,34 +586,34 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jButton12ActionPerformed(evt);
             }
         });
-        jButton12.setBounds(120, 110, -1, -1);
+        jButton12.setBounds(210, 130, 99, 25);
         jLayeredPane3.add(jButton12, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jCheckBox4.setBounds(80, 90, -1, -1);
+        jCheckBox4.setBounds(90, 110, 21, 21);
         jLayeredPane3.add(jCheckBox4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jCheckBox3.setBounds(80, 140, -1, -1);
+        jCheckBox3.setBounds(90, 160, 21, 21);
         jLayeredPane3.add(jCheckBox3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel13.setText("Projector:");
-        jLabel13.setBounds(10, 140, -1, -1);
+        jLabel13.setBounds(20, 160, 70, 15);
         jLayeredPane3.add(jLabel13, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel12.setText("Material:");
-        jLabel12.setBounds(10, 90, -1, -1);
+        jLabel12.setBounds(20, 110, 64, 15);
         jLayeredPane3.add(jLabel12, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel11.setText("Capacitat:");
-        jLabel11.setBounds(10, 60, -1, -1);
+        jLabel11.setBounds(20, 50, 73, 15);
         jLayeredPane3.add(jLabel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jTextField4.setBounds(70, 60, 113, -1);
+        jTextField4.setBounds(100, 50, 113, 19);
         jLayeredPane3.add(jTextField4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jTextField5.setFont(new java.awt.Font("Dialog", 1, 12));
+        jTextField5.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jTextField5.setEnabled(false);
-        jTextField5.setBounds(70, 20, 113, -1);
+        jTextField5.setBounds(100, 20, 113, 19);
         jLayeredPane3.add(jTextField5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel10.setText("Nom:");
-        jLabel10.setBounds(10, 30, -1, -1);
+        jLabel10.setBounds(20, 20, 36, 15);
         jLayeredPane3.add(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -629,18 +629,16 @@ public class PanelModificarDades extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(33, 33, 33)
-                                .addComponent(jLayeredPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(60, 60, 60))))))
+                            .addComponent(jLayeredPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
+                            .addComponent(jLayeredPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -662,8 +660,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                                 .addComponent(jButton3))
                             .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26)
-                        .addComponent(jLayeredPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                        .addGap(34, 34, 34)))
+                        .addComponent(jLayeredPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -685,7 +682,9 @@ public class PanelModificarDades extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
