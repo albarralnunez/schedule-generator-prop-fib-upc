@@ -246,7 +246,6 @@ public class CtrPersistencia {
         if( co.existeix(nomh)) 
             return false;
         co.creaObjecte( nomh , q);
-        System.out.println("creat "+nomh);
         return true;
     }
     

@@ -18,6 +18,9 @@ import java.util.ArrayList;
 /**
  *
  * @author miquel.masriera
+ * 
+ * aquesta classe controla tota la capa de pesentacio, es un frame que conté
+ * i genstiona totes les vistes
  */
 public class ControladorPresentacio extends javax.swing.JFrame {
     
@@ -173,7 +176,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     
     /**
      * 
-     * @param nomUnitatDocent 
+     * @param nomUnitatDocent inicia tota la capa de domini per a aquesta unitat Docent
      */
     public void identificarUnitatDocent(String nomUnitatDocent) {
         unitatDocent = nomUnitatDocent;
@@ -283,18 +286,36 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         }
 
 
+    /**
+     * 
+     * @param nomAula 
+     */
     public void esborraAula(String nomAula) {
          cd.esborraAula(nomAula);
     }
 
+    /**
+     * 
+     * @param i
+     * @param params 
+     */
     public void afegirRestriccio(Integer i, ArrayList params) {
         cd.afegirRestriccio(i, params);
     }
 
+    /**
+     * 
+     * @return 
+     */
     public ArrayList<String> getAssignatures(){
         return assignatures;
     }
 
+    /**
+     * 
+     * @param nomAsg
+     * @return 
+     */
     public boolean esborrarAssignatura(String nomAsg) {
          if ( ! cd.esborraAssignatura(nomAsg)){
             mostraAvis("ERROR, no s ha pogut esborrar.", "ERROR");
@@ -304,30 +325,59 @@ public class ControladorPresentacio extends javax.swing.JFrame {
             return true;
     }
 
-    boolean existeixAsignatura(String nomAsg) {
+    /**
+     * 
+     * @param nomAsg
+     * @return 
+     */
+    public boolean existeixAsignatura(String nomAsg) {
         return cd.existeixAssignatura(nomAsg);
     }
 
+    /**
+     * 
+     * @param nomAsg
+     * @param nvl
+     * @param ht
+     * @param intsT
+     * @param hp
+     * @param intsP
+     * @param capT
+     * @param capL
+     * @param grups
+     * @param mat
+     * @param proj 
+     */
     public void creaAssignatura(String nomAsg, int nvl, int ht, 
             ArrayList<Integer> intsT, int hp, ArrayList<Integer> intsP, int capT, 
             int capL, ArrayList<Integer> grups, boolean mat, boolean proj) {
         cd.creaAssignatura(nomAsg, nvl, ht, intsT, hp, intsP, capT, capL, grups,mat,proj);
     }
-    
+    /**
+     * 
+     * @param as 
+     */
     public void aulesSeleccionades( ArrayList<String> as){
         aules = as;
         pva.posaConjuntAules(as);
     }
     
     
-
+    /**
+     * 
+     * @param aules 
+     */
     public void InicialitzaGenerador(ArrayList<String> aules){
         cd.inicialitzaGenerador(aules, assignatures);
         cd.inicialitzarClausules();
         cd.inicialitzarClausulesNom();
     }
 
-        
+       
+    /**
+     * 
+     * @return 
+     */
     public boolean generar() {
         if ( cd.generar() ){
             cd.imprimeixHorari();
@@ -336,19 +386,39 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         return false;  
     }
 
-    ArrayList<String> aulaAssignadaALes(String nomAula, int d, int h) {
+    /**
+     * 
+     * @param nomAula
+     * @param d
+     * @param h
+     * @return 
+     */
+    public ArrayList<String> aulaAssignadaALes(String nomAula, int d, int h) {
         return cd.aulaAssignadaALes(nomAula, d, h);
     }
 
-    boolean guardar(String nomH) {
+    /**
+     * 
+     * @param nomH
+     * @return 
+     */
+    public boolean guardar(String nomH) {
         if(  nomH == null )return false;
         return cd.guardaHorari(nomH);
     }
 
-    ArrayList<String> carregaLlistaHoraris() {
+    /**
+     * 
+     * @return 
+     */
+    public ArrayList<String> carregaLlistaHoraris() {
         return cd.carregaLlistaHoraris();
     }
 
+    /**
+     * 
+     * @param nomhorari 
+     */
     public void carregaHorari(String nomhorari) {
         boolean b = cd.carregarHorari(nomhorari);
         ArrayList<String> auls = cd.llistaAules();
@@ -369,10 +439,18 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         canviaPanel("PanelVistaAules");
     }
 
+    /**
+     * 
+     * @param ass 
+     */
     public void assigSeleccionades(ArrayList<String> ass) {
         assignatures = ass;
     }
 
+    /**
+     * 
+     * @param nomUnitatDocent 
+     */
     public void carregarRestTxt(String nomUnitatDocent) {
         boolean a = cd.existeixRest(unitatDocent);
         if (a) {
@@ -382,19 +460,38 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         else mostraAvis("No s'han pogut carregar les restriccions", "ERROR");
     }
 
-    void esborraHorari(String nomhorari) {
+    /**
+     * 
+     * @param nomhorari 
+     */
+    public void esborraHorari(String nomhorari) {
         cd.esborraHorari(nomhorari);
     }
 
+    /**
+     * 
+     * @param d
+     * @param h
+     * @param asg
+     * @return 
+     */
     public boolean usada(int d, int h, String asg) {
         return cd.esUsada(d, h, asg);
     }
 
+    /**
+     * 
+     * @param d
+     * @param h
+     * @param s
+     * @return 
+     */
     public String getAssignacio(int d, int h, String s) {
         String a = "";
         a = cd.getAssignacio(d, h, s);
         return a;
     }
+
 
 
     

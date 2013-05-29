@@ -301,7 +301,7 @@ public class PanelVistaAules extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jButton1.setBounds(20, 230, 100, 35);
+        jButton1.setBounds(20, 210, 100, 35);
         jLayeredPane1.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -312,7 +312,7 @@ public class PanelVistaAules extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        jButton2.setBounds(20, 320, 100, 35);
+        jButton2.setBounds(20, 300, 100, 35);
         jLayeredPane1.add(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         comboBoxLlistaAules.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -322,7 +322,7 @@ public class PanelVistaAules extends javax.swing.JPanel {
                 comboBoxLlistaAulesActionPerformed(evt);
             }
         });
-        comboBoxLlistaAules.setBounds(20, 150, 100, 33);
+        comboBoxLlistaAules.setBounds(20, 100, 100, 33);
         jLayeredPane1.add(comboBoxLlistaAules, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLayeredPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -332,7 +332,7 @@ public class PanelVistaAules extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Selecciona aula");
-        jLabel1.setBounds(20, 130, 100, 15);
+        jLabel1.setBounds(20, 70, 100, 15);
         jLayeredPane1.add(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -342,9 +342,9 @@ public class PanelVistaAules extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        jButton3.setBounds(20, 400, 100, 23);
+        jButton3.setBounds(20, 370, 100, 23);
         jLayeredPane1.add(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        nomHorari.setBounds(20, 440, 100, 20);
+        nomHorari.setBounds(20, 400, 100, 20);
         jLayeredPane1.add(nomHorari, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         botoOK.setText("OK");
@@ -353,7 +353,7 @@ public class PanelVistaAules extends javax.swing.JPanel {
                 botoOKActionPerformed(evt);
             }
         });
-        botoOK.setBounds(40, 473, 60, 25);
+        botoOK.setBounds(40, 430, 60, 25);
         jLayeredPane1.add(botoOK, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
