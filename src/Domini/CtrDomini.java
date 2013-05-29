@@ -397,13 +397,11 @@ public class CtrDomini {
             else if (i == 4) dia = "divendres";
             else if (i == 5) dia = "dissabte";
             else dia = "diumenge";
-            System.out.println("DIA: "+ dia); //DIA: DILLUNS
             for (int j=0; j < 24; ++j) {
                 CjtElements cjt_elem = new CjtElements();
                 cjt_elem = q.getElementsPosicio(dia, j);
                 if (cjt_elem.isValid() && !cjt_elem.getAssignacions().isEmpty()) {
-                    System.out.println(" "+j+": ");
-                    //Si el conjunto de elementos es valido
+                    //Si el conjunt d elements es valid
                     ArrayList<Element> assignacions;
                     assignacions = cjt_elem.getAssignacions();
                     for (Element e1 : assignacions) {
@@ -413,7 +411,6 @@ public class CtrDomini {
                         a = e1.getAula();
                         ass = e1.getAssignatura();
                         grupo = e1.getGrupo();
-                        System.out.println("     "+ass.getNom()+", "+grupo+", "+a.getNom());
                     }
                 }
             }
@@ -434,12 +431,10 @@ public class CtrDomini {
             else if (i == 4) dia = "divendres";
             else if (i == 5) dia = "dissabte";
             else dia = "diumenge";
-            System.out.println("DIA: "+ dia); //DIA: DILLUNS
             for (int j=0; j < 24; ++j) {
                 CjtElements cjt_elem = new CjtElements();
                 cjt_elem = q.getElementsPosicio(dia, j);
                 if (cjt_elem.isValid() && !cjt_elem.getAssignacions().isEmpty()) {
-                    System.out.println(" "+j+": ");
                     //Si el conjunto de elementos es valido
                     ArrayList<Element> assignacions;
                     assignacions = cjt_elem.getAssignacions();
@@ -450,7 +445,6 @@ public class CtrDomini {
                         a = e1.getAula();
                         ass = e1.getAssignatura();
                         grupo = e1.getGrupo();
-                        System.out.println("     "+ass.getNom()+", "+grupo+", "+a.getNom());
                     }
                 }
             }
@@ -879,7 +873,6 @@ public class CtrDomini {
     }
     
     public boolean carregarHorari( String nomHorari){
-        System.out.println("ctrDomini horari "+nomHorari);
         Quadricula qua = cper.carregaHorari(nomHorari);
         int a = 0;
         if( qua == null) return false;
@@ -969,7 +962,6 @@ public class CtrDomini {
         CjtElements cje = q.getElementsPosicio(dia, h);
         if( cje.isValid() ){
             int ne = cje.numeroElements();
-            //System.out.println("ERA VALID");
             if(ne > 0) {
                 if( asg == null || asg.equals("TOTES") ) return true;
                 else {
@@ -1036,11 +1028,9 @@ public class CtrDomini {
                     String nomA = cje.getElementPosicio(i).getAssignatura().getNom();
                     int grup = cje.getElementPosicio(i).getGrupo();
                     resultat = resultat+nomA+" "+grup+"\n";
-                    // <html><div style=text-align: center>  Vista Per</n> Hores </html>
                     }
                 }
                 else{   //es una assignatura en concret
-                    System.out.println("CDOMINI 1037");
                     for(int i = 0; i < ne; ++i){
                         String nomA = cje.getElementPosicio(i).getAssignatura().getNom();
                         if(nomA.equals(s)){
