@@ -5,6 +5,8 @@
 package Presentacio;
 
 import java.awt.Color;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 /**
  *
@@ -26,7 +28,7 @@ public class PanelVistaHores extends javax.swing.JPanel {
         
         for(int d = 0; d < 7; ++d){ // d = 7
             for(int h = 0; h < 24; ++h){ // h = 24
-                selecs[d][h] = new Seleccionable(d, h);
+                selecs[d][h] = new Seleccionable(d, h, this);
                 this.jLayeredPane2.add( selecs[d][h]);
                 selecs[d][h].setBounds(d*75, h*22, 75, 22);
             }
@@ -77,14 +79,16 @@ public class PanelVistaHores extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLayeredPane2 = new javax.swing.JLayeredPane();
         assignacio = new javax.swing.JLabel();
+        cBoxAssignatures = new javax.swing.JComboBox();
 
+        botoTornar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         botoTornar.setText("Tornar");
         botoTornar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botoTornarActionPerformed(evt);
             }
         });
-        botoTornar.setBounds(570, 500, 65, 23);
+        botoTornar.setBounds(570, 490, 110, 30);
         jLayeredPane1.add(botoTornar, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -280,8 +284,17 @@ public class PanelVistaHores extends javax.swing.JPanel {
         assignacio.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         assignacio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         assignacio.setText("a");
-        assignacio.setBounds(580, 20, 90, 410);
+        assignacio.setBounds(580, 110, 90, 320);
         jLayeredPane1.add(assignacio, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        cBoxAssignatures.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TOTES" }));
+        cBoxAssignatures.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cBoxAssignaturesActionPerformed(evt);
+            }
+        });
+        cBoxAssignatures.setBounds(570, 30, 110, 30);
+        jLayeredPane1.add(cBoxAssignatures, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -299,11 +312,16 @@ public class PanelVistaHores extends javax.swing.JPanel {
         cp.canviaPanel("PanelVistaAules");
     }//GEN-LAST:event_botoTornarActionPerformed
 
-    public void pintaUsades(){
+    private void cBoxAssignaturesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBoxAssignaturesActionPerformed
+        String s = (String) cBoxAssignatures.getSelectedItem();
+        pintaUsades(s);
+    }//GEN-LAST:event_cBoxAssignaturesActionPerformed
+
+    public void pintaUsades( String asg){
         for(int d = 0; d < 7; ++d){ // d = 7
             for(int h = 0; h < 24; ++h){
                 selecs[d][h].setBackground(new java.awt.Color(255, 255, 255));
-                if( cp.usada(d,h) ){
+                if( cp.usada(d,h, asg) ){
                     selecs[d][h].pintaUsada();
                 }
             }
@@ -313,6 +331,7 @@ public class PanelVistaHores extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel assignacio;
     private javax.swing.JButton botoTornar;
+    private javax.swing.JComboBox cBoxAssignatures;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -348,14 +367,29 @@ public class PanelVistaHores extends javax.swing.JPanel {
     private javax.swing.JLayeredPane jLayeredPane2;
     // End of variables declaration//GEN-END:variables
 
+    public void posaAssignatures(ArrayList<String> assignatures) {
+        this.cBoxAssignatures.removeAllItems();
+        cBoxAssignatures.addItem("TOTES");
+        for( int i = 0; i < assignatures.size(); ++i){
+            this.cBoxAssignatures.addItem( assignatures.get(i) );
+        }
+    }
+    
+    public void mostraAssignacio(int d, int h){
+        String s = (String) cBoxAssignatures.getSelectedItem();
+        System.out.println( s);
+    }
+
     private class Seleccionable extends javax.swing.JPanel {
 
         private int dia;
         private int hora;
+        PanelVistaHores p;
 
-        public Seleccionable(int d, int h) {
+        public Seleccionable(int d, int h, PanelVistaHores pv) {
             dia = d;
             hora = h;
+            p = pv;
 
             setBackground(new java.awt.Color(255, 255, 255));
             setBorder(javax.swing.BorderFactory.createLineBorder(Color.BLACK));
@@ -366,8 +400,19 @@ public class PanelVistaHores extends javax.swing.JPanel {
             setBackground(new java.awt.Color(229, 113, 113));
         }
         
+        private void formMouseClicked(MouseEvent evt) {
+            p.mostraAssignacio( dia, hora);
+            
+    }
+        
 
         private void initComponents() {
+            
+            addMouseListener( new java.awt.event.MouseAdapter() {
+            public void mouseClicked( java.awt.event.MouseEvent evt ){
+                formMouseClicked(evt);
+            }
+        });
 
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
             this.setLayout(layout);

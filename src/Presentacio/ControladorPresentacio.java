@@ -121,10 +121,11 @@ public class ControladorPresentacio extends javax.swing.JFrame {
             pva.setVisible(true);
         }
         else if (nomPanel.equals("PanelVistaHores")){
-            pvh.pintaUsades();
+            pvh.pintaUsades("TOTES");
+            assignatures = cd.AssignaturesUsades();
+            pvh.posaAssignatures( assignatures );
             pvh.setVisible(true);
-        }
-        
+        }   
     }
 
     @SuppressWarnings("unchecked")
@@ -238,9 +239,9 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         cd.afegirRestriccio(i, params);
     }
 
-    /*public ArrayList< String> llistaRest(int opcio) {
-        return cd.llistaRest(opcio);
-    }*/
+    public ArrayList<String> getAssignatures(){
+        return assignatures;
+    }
 
     public boolean esborrarAssignatura(String nomAsg) {
          if ( ! cd.esborraAssignatura(nomAsg)){
@@ -266,9 +267,10 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         pva.posaConjuntAules(as);
     }
     
+    /*
     public boolean aulaAssignadaALes(String aula, int dia, int h, String asg, int grp){
         return cd.aulaAssignadaALes(aula, dia, h, asg, grp);
-    }
+    }*/
 
     public void InicialitzaGenerador(ArrayList<String> aules){
         cd.inicialitzaGenerador(aules, assignatures);
@@ -315,6 +317,9 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         }
         pva.posaConjuntAules(aulesnom);
         
+        ///////ara per posar assignatures
+        assignatures = cd.AssignaturesUsades();
+        
         canviaPanel("PanelVistaAules");
     }
 
@@ -335,8 +340,8 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         cd.esborraHorari(nomhorari);
     }
 
-    public boolean usada(int d, int h) {
-        return cd.esUsada(d, h);
+    public boolean usada(int d, int h, String asg) {
+        return cd.esUsada(d, h, asg);
     }
 
 

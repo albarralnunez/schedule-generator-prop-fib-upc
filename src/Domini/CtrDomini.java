@@ -956,7 +956,7 @@ public class CtrDomini {
         cper.esborrahorari( nomhorari );
     }
 
-    public boolean esUsada(int d, int h) {
+    public boolean esUsada(int d, int h, String asg) {
         Quadricula q = cgen.getQuad();
         String dia = "dilluns";
         if ( d == 1) dia = "dimarts";
@@ -969,10 +969,49 @@ public class CtrDomini {
         CjtElements cje = q.getElementsPosicio(dia, h);
         if( cje.isValid() ){
             int ne = cje.numeroElements();
-            System.out.println("ERA VALID");
-            if(ne > 0) return true;
+            //System.out.println("ERA VALID");
+            if(ne > 0) {
+                if( asg == null || asg.equals("TOTES") ) return true;
+                else {
+                    for(int i = 0; i < ne; ++i){
+                        String nasig = cje.getElementPosicio(i).getAssignatura().getNom();
+                        if( nasig.equals(asg) )return true;
+                    }
+                }
+            }
         }
         return false;
+    }
+
+    public ArrayList<String> AssignaturesUsades() {
+        ArrayList<String> asgs = new ArrayList<String>();
+        
+        Quadricula q = cgen.getQuad();
+        
+        for(int d = 0; d < 7; ++d){
+            for(int h = 0; h < 24; ++ h){
+                
+                String dia = "dilluns";
+            if ( d == 1) dia = "dimarts";
+            else if (d == 2) dia = "dimecres";
+            else if (d == 3) dia = "dijous";
+            else if (d == 4) dia = "divendres";
+            else if (d == 5) dia = "dissabte";
+            else if (d == 6) dia = "diumenge";
+            
+            CjtElements cje = q.getElementsPosicio(dia, h);
+            if( cje.isValid() ){
+                int ne = cje.numeroElements();
+                for(int i = 0; i < ne; ++i){
+                    String nomA = cje.getElementPosicio(i).getAssignatura().getNom();
+                    if( ! asgs.contains(nomA) ) asgs.add(nomA); 
+                }
+            }
+            
+            }
+        }
+        
+        return asgs;
     }
 
 }
