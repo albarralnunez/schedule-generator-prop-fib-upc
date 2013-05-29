@@ -386,6 +386,8 @@ public class CtrDomini {
     
     public void imprimeixHorari() {
         
+        ArrayList<String> horari = new ArrayList<String>();//////////
+        
         Quadricula q = cgen.getQuad();
         
         for(int i=0; i < 7; ++i) {
@@ -397,11 +399,17 @@ public class CtrDomini {
             else if (i == 4) dia = "divendres";
             else if (i == 5) dia = "dissabte";
             else dia = "diumenge";
+            
+            horari.add(dia);////////////////////
+            
             for (int j=0; j < 24; ++j) {
                 CjtElements cjt_elem = new CjtElements();
                 cjt_elem = q.getElementsPosicio(dia, j);
                 if (cjt_elem.isValid() && !cjt_elem.getAssignacions().isEmpty()) {
                     //Si el conjunt d elements es valid
+                    
+                    horari.add(j+" :");////////////////////
+                    
                     ArrayList<Element> assignacions;
                     assignacions = cjt_elem.getAssignacions();
                     for (Element e1 : assignacions) {
@@ -411,13 +419,21 @@ public class CtrDomini {
                         a = e1.getAula();
                         ass = e1.getAssignatura();
                         grupo = e1.getGrupo();
+                        
+                        horari.add( "  "+ass.getNom()+"  "+grupo+"  "+a.getNom() );//////////
                     }
                 }
             }
         }
+        ///////////////
+        //GUARDAR ARRAY EN TXT
+        ////////
     }
     
-    
+    /**
+     * 
+     * @param qu 
+     */
     public void imprimeixHorari( Quadricula qu) {
         
         Quadricula q = qu;
@@ -594,17 +610,7 @@ public class CtrDomini {
             
         }
     }
-    /**
-     * 
-     * @param nomA
-     * @param grup
-     * @param dia
-     * @param hora
-     * @return 
-     */
-    /*public boolean AfegirRestriccioGrupSessio( String nomA, int grup, String dia, int hora,int id ){
-        return cgen.AfegirRestriccioGrupSessio( nomA, grup, dia, hora,id);
-    }*/
+    
     /**
      * 
      * @param nom
@@ -622,15 +628,29 @@ public class CtrDomini {
         return cper.llegirAula("aula-teo-"+nomUnitat+"-"+nom);
     }
 
+    /**
+     * 
+     * @return cert si existeix un arxiu de configuracio horaria per a a questa unitat docent
+     */
     public boolean existeixConfiguracioHoraria() {
         return cper.existeixConfiguracioHoraria(nomUnitat);
     }
 
+    /**
+     * 
+     * @param nomh nom amb el que guardar l horari
+     * @return  retorna cert si s ha pogut guardar l horari
+     */
     public boolean guardaHorari( String nomh) {
         Quadricula q = cgen.getQuad();
         return cper.guardaHorari( "horari-"+nomUnitat+"-"+nomh ,q);
     }
     
+    /**
+     * 
+     * @param nomHorari
+     * @return cert si s ha pogut crregar l horari
+     */
     public boolean carregarHorari( String nomHorari){
         Quadricula qua = cper.carregaHorari(nomHorari);
         int a = 0;
@@ -639,40 +659,6 @@ public class CtrDomini {
         return true;
     }
     
-    /**
-     * 
-     * @param aula
-     * @param dia
-     * @param h
-     * @param asg
-     * @param grp
-     * @return 
-     */
-    public boolean aulaAssignadaALes(String aula, int dia, int h, String asg, int grp){
-        
-        Quadricula q = cgen.getQuad();
-        String d = "dilluns";
-        if ( dia == 1) d = "dimarts";
-        else if (dia == 2) d = "dimecres";
-        else if (dia == 3) d = "dijous";
-        else if (dia == 4) d = "divendres";
-        else if (dia == 5) d = "dissabte";
-        else if (dia == 6) d = "diumenge";
-        CjtElements cje = q.getElementsPosicio(d, h);
-
-        if ( cje.isValid() ){
-            int nume = cje.numeroElements();
-            for( int i = 0; 0 < nume ; ++i){
-                if( cje.getElementPosicio(i).getAula().getNom().equals(aula) ){
-                    asg = cje.getElementPosicio(i).getAssignatura().getNom();
-                    grp = cje.getElementPosicio(i).getGrupo();
-                    
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
 
     /**
      * 

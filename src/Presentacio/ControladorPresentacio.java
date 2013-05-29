@@ -37,6 +37,9 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     ArrayList<String> aules;
     ArrayList<String> assignatures;
 
+    /**
+     * Creadora, inicialitza totes les vistes
+     */
     public ControladorPresentacio() {
         initComponents();
         this.setResizable(false);
@@ -96,7 +99,6 @@ public class ControladorPresentacio extends javax.swing.JFrame {
             pHorariLectiu.carregaConfHoraria();
             pHorariLectiu.setVisible(true);
         }
-        //else if (nomPanel.equals("GeneracioAssignatures")) pGenAss.setVisible(true);
         else if (nomPanel.equals("PanelModificarDades")) {
             pModDades.inicialitza();
             pModDades.setVisible(true);
@@ -156,49 +158,90 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     private javax.swing.JLayeredPane Layered;
     // End of variables declaration//GEN-END:variables
 
+    
+    /**
+     * 
+     * @param text text a mostrar
+     * @param tipo tius de missatge
+     */
     public void mostraAvis(String text, String tipo) {
-        //PODEMOS TENER UN SEGUNDO PARAMETRO QUE INDICARA QUE TIPO DE AVISO ES PARA MOSTRAR UN WARNING_MESSAGE O OTRO TIPO DE MENSAJE.
-        //TIPOS DE MENSAJE: WARNING_MESSAGE, ERROR_MESSAGE, PLAIN_MESSAGE, INFORMATION_MESSAGE
         if (tipo.equals("WARNING")) JOptionPane.showMessageDialog(this, text, "GeneradorHoraris::WARNING", JOptionPane.WARNING_MESSAGE);
         else if (tipo.equals("ERROR")) JOptionPane.showMessageDialog(this, text, "GeneradorHoraris::ERROR", JOptionPane.ERROR_MESSAGE);
         else if (tipo.equals("PLAIN")) JOptionPane.showMessageDialog(this, text, "GeneradorHoraris::_", JOptionPane.PLAIN_MESSAGE);
         else if (tipo.equals("INFORMATION")) JOptionPane.showMessageDialog(this, text, "GeneradorHoraris::INFO.", JOptionPane.INFORMATION_MESSAGE);
     }
-
+    
+    /**
+     * 
+     * @param nomUnitatDocent 
+     */
     public void identificarUnitatDocent(String nomUnitatDocent) {
-        //System.out.println(nomUnitatDocent);
         unitatDocent = nomUnitatDocent;
         cd = new CtrDomini(unitatDocent);
     }
 
+    /**
+     * 
+     * @return llista d assignatures usades
+     */
     public ArrayList<String> llistaAssignatures() {
         return cd.llistaAssignatures();
     }
 
+    /**
+     * 
+     * @return llista de totes les aules 
+     */
     public ArrayList<String> llistaAules() {
         return cd.llistaAules();
     }
 
+    /**
+     * 
+     * @return  retorna els dies i hores especificats en el document de configuraciio horaria per a assignar classes 
+     */
     public ArrayList<String> llegeixConfiguracioHoraria(){
         return cd.llegeixConfiguracioHoraria();
     }
 
+    /**
+     * 
+     * @param conf guarda els canvis fets en a cnfiguracio horaria
+     */
     public void guardaConfiguracioHoraria( ArrayList conf) {
         cd.escriuConfigurcioHoraria(conf);
     }
 
+    /**
+     * 
+     * @return cert si existeix un fitxer de configuracio oraria per a aquella unitat docent 
+     */
     public boolean existeixConfiguracioHoraria() {
         return cd.existeixConfiguracioHoraria();
     }
     
+    /**
+     * 
+     * @return el nom de la unitat docent 
+     */
     public String getNomUnitatDocent(){
         return this.unitatDocent;
     }
 
+    /**
+     * 
+     * @param nomAss
+     * @return 
+     */
     public ArrayList<String> mostraParametresAssignatura(String nomAss) {
         return cd.mostraParametresAssignatura(nomAss);
     }
 
+    /**
+     * 
+     * @param nomaul
+     * @return 
+     */
     public ArrayList<String> mostraParametresAula(String nomaul) {
         String tipo_aula = nomaul.substring(0, 9);
         nomaul = nomaul.substring(9, nomaul.length()); //QUITAMOS EL aula-teo-
@@ -213,6 +256,15 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * 
+     * @param nom
+     * @param tipo
+     * @param capacitat
+     * @param proj
+     * @param mat
+     * @param modify 
+     */
     public void creaAula(String nom, boolean tipo, Integer capacitat, boolean proj, boolean mat, boolean modify) {
             if (!modify) if (cd.existeixAula(nom)) mostraAvis("No se puede crear una aula que ya existe!", "ERROR");
             int teo, boo;
@@ -267,10 +319,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         pva.posaConjuntAules(as);
     }
     
-    /*
-    public boolean aulaAssignadaALes(String aula, int dia, int h, String asg, int grp){
-        return cd.aulaAssignadaALes(aula, dia, h, asg, grp);
-    }*/
+    
 
     public void InicialitzaGenerador(ArrayList<String> aules){
         cd.inicialitzaGenerador(aules, assignatures);
@@ -280,9 +329,6 @@ public class ControladorPresentacio extends javax.swing.JFrame {
 
         
     public boolean generar() {
-        ///////////////////////
-        //boolean a = cd.existeixRest(unitatDocent);
-        //if(a) cd.montaRestriccions(unitatDocent);
         if ( cd.generar() ){
             cd.imprimeixHorari();
             return true;
