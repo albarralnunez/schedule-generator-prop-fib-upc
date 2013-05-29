@@ -400,7 +400,9 @@ public class CtrDomini {
             else if (i == 5) dia = "dissabte";
             else dia = "diumenge";
             
-            horari.add(dia);////////////////////
+            horari.add("");
+            horari.add(dia);
+            horari.add("");
             
             for (int j=0; j < 24; ++j) {
                 CjtElements cjt_elem = new CjtElements();
@@ -408,7 +410,7 @@ public class CtrDomini {
                 if (cjt_elem.isValid() && !cjt_elem.getAssignacions().isEmpty()) {
                     //Si el conjunt d elements es valid
                     
-                    horari.add(j+" :");////////////////////
+                    horari.add(j+" :");
                     
                     ArrayList<Element> assignacions;
                     assignacions = cjt_elem.getAssignacions();
@@ -420,20 +422,20 @@ public class CtrDomini {
                         ass = e1.getAssignatura();
                         grupo = e1.getGrupo();
                         
-                        horari.add( "  "+ass.getNom()+"  "+grupo+"  "+a.getNom() );//////////
+                        horari.add( "  "+ass.getNom()+"  "+grupo+"  "+a.getNom() );
                     }
                 }
             }
         }
         ///////////////
-        //GUARDAR ARRAY EN TXT
+        cper.imprimeixHorari( nomUnitat, horari);
         ////////
     }
     
     /**
      * 
      * @param qu 
-     */
+     
     public void imprimeixHorari( Quadricula qu) {
         
         Quadricula q = qu;
@@ -465,7 +467,7 @@ public class CtrDomini {
                 }
             }
         }
-    }
+    }*/
     
     /**
      * 

@@ -306,4 +306,8 @@ public class CtrPersistencia {
        if( ! co.esborra(nomhorari) ){
        }
     }
+
+    public void imprimeixHorari( String nomUD, ArrayList<String> horari) {
+        ca.creaArxiu( "HORARI-GENERAT-"+nomUD, horari);
+    }
 }

@@ -381,6 +381,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     public boolean generar() {
         if ( cd.generar() ){
             cd.imprimeixHorari();
+            this.mostraAvis("S' ha guardat l horari generat en un txt", "INFORMATION");
             return true;
         }
         return false;  
