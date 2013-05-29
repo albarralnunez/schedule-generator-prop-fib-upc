@@ -425,9 +425,9 @@ public class PanelVistaAules extends javax.swing.JPanel {
         String nom = nomHorari.getText();
         System.out.println(nom);
         if (!cp.guardar(nom) || nomHorari.getText().equals("")) {
-            cp.mostraAvis("nom no valid o horari ja existent", "ERROR");
+            cp.mostraAvis("Nom no vàlid o horari ja existent", "ERROR");
         } else {
-            cp.mostraAvis("s ha guardat", "INFORMATION");
+            cp.mostraAvis("S'ha guardar l'horari satisfactoriament.", "INFORMATION");
             nomHorari.setText("");
             nomHorari.setVisible(false);
             botoOK.setVisible(false);
