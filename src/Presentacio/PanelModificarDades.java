@@ -1307,6 +1307,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
             totesAssig = totesAssig.concat(nomAssig+"\n");
         }
        this.llistaAssignatures.setText(totesAssig);
+       
     }
 
     

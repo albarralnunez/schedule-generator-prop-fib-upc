@@ -47,7 +47,6 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -55,7 +54,7 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(686, 421));
+        setPreferredSize(new java.awt.Dimension(686, 550));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -76,12 +75,12 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
         jTable1.setEnabled(false);
         jScrollPane1.setViewportView(jTable1);
 
-        jScrollPane1.setBounds(310, 40, 360, 370);
+        jScrollPane1.setBounds(310, 40, 360, 390);
         jLayeredPane1.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jScrollPane2.setViewportView(jList1);
 
-        jScrollPane2.setBounds(40, 70, 140, 340);
+        jScrollPane2.setBounds(40, 70, 140, 360);
         jLayeredPane1.add(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton1.setText("Afegir >");
@@ -91,18 +90,8 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jButton1.setBounds(190, 80, 100, 25);
+        jButton1.setBounds(190, 150, 100, 25);
         jLayeredPane1.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        jButton2.setText("Editar..");
-        jButton2.setEnabled(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jButton2.setBounds(190, 120, 100, 25);
-        jLayeredPane1.add(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/refresh.png"))); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -119,7 +108,7 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
                 jButton4ActionPerformed(evt);
             }
         });
-        jButton4.setBounds(190, 350, 100, 25);
+        jButton4.setBounds(160, 470, 100, 25);
         jLayeredPane1.add(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton5.setText("Següent");
@@ -128,7 +117,7 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
                 jButton5ActionPerformed(evt);
             }
         });
-        jButton5.setBounds(190, 380, 100, 25);
+        jButton5.setBounds(390, 470, 100, 25);
         jLayeredPane1.add(jButton5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         botoReset.setText("Reset");
@@ -137,7 +126,7 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
                 botoResetActionPerformed(evt);
             }
         });
-        botoReset.setBounds(190, 160, 100, 25);
+        botoReset.setBounds(190, 200, 100, 25);
         jLayeredPane1.add(botoReset, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -151,7 +140,7 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
                 jButton6ActionPerformed(evt);
             }
         });
-        jButton6.setBounds(190, 190, 100, 25);
+        jButton6.setBounds(190, 90, 100, 23);
         jLayeredPane1.add(jButton6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -162,7 +151,7 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -187,12 +176,7 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
             listModel.addElement(aul);
         }
         jButton1.setEnabled(true);
-        jButton2.setEnabled(true);
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        cp.canviaPanel("PanelModificarDades");
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
@@ -265,7 +249,6 @@ public class PanelGeneracioAules extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botoReset;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
