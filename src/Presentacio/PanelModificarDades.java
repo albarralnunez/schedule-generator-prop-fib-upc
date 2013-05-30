@@ -1094,7 +1094,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 }
            } 
            if(interror){
-               cp.mostraAvis("intervals de Teoria Erronis", "ERROR");
+               cp.mostraAvis("Intervals de Teoria Erronis", "ERROR");
            }
            int a =0;
          }
@@ -1162,17 +1162,17 @@ public class PanelModificarDades extends javax.swing.JPanel {
          if( numgt == null ) return false;
          int ngt = Integer.parseInt( numgt );
          if(ngt < 1) {
-             cp.mostraAvis( "el nombre de grups de teoria ha de ser major que 0", "ERROR");
+             cp.mostraAvis( "El nombre de grups de teoria ha de ser major que 0", "ERROR");
              return false;
          }
          String numgp = numSubgrups.getText();
          if( numgp == null ){
-             cp.mostraAvis( "el nombre de subgrups ha de ser major o igual a 0", "ERROR");
+             cp.mostraAvis( "El nombre de subgrups ha de ser major o igual a 0", "ERROR");
              return false;
          }
          int ngp = Integer.parseInt( numgp );
          if(ngp < 0) {
-             cp.mostraAvis( "el nombre subgrups ha de ser major o igual a 0", "ERROR");
+             cp.mostraAvis( "El nombre subgrups ha de ser major o igual a 0", "ERROR");
              return false;
          }
          

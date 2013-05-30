@@ -78,7 +78,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
         jTable1.setEnabled(false);
         jScrollPane2.setViewportView(jTable1);
 
-        jScrollPane2.setBounds(0, 20, 690, 220);
+        jScrollPane2.setBounds(10, 20, 690, 220);
         jLayeredPane1.add(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel1.setText("Assignatures:");
@@ -87,7 +87,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
 
         jScrollPane1.setViewportView(jList1);
 
-        jScrollPane1.setBounds(20, 250, 140, 160);
+        jScrollPane1.setBounds(10, 250, 140, 160);
         jLayeredPane1.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton1.setText("Afegir");
@@ -97,7 +97,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jButton1.setBounds(170, 270, 100, 25);
+        jButton1.setBounds(160, 270, 100, 25);
         jLayeredPane1.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton2.setText("Editar...");
@@ -107,7 +107,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        jButton2.setBounds(170, 300, 100, 25);
+        jButton2.setBounds(160, 300, 100, 25);
         jLayeredPane1.add(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton3.setText("Següent");
@@ -116,7 +116,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        jButton3.setBounds(570, 380, 94, 25);
+        jButton3.setBounds(550, 380, 94, 25);
         jLayeredPane1.add(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton4.setText("Enrere");
@@ -125,7 +125,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
                 jButton4ActionPerformed(evt);
             }
         });
-        jButton4.setBounds(480, 380, 81, 25);
+        jButton4.setBounds(460, 380, 81, 25);
         jLayeredPane1.add(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/refresh.png"))); // NOI18N
@@ -134,7 +134,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
                 jButton5ActionPerformed(evt);
             }
         });
-        jButton5.setBounds(170, 380, 30, 30);
+        jButton5.setBounds(160, 380, 30, 30);
         jLayeredPane1.add(jButton5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton6.setText("Select All");
@@ -143,23 +143,27 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
                 jButton6ActionPerformed(evt);
             }
         });
-        jButton6.setBounds(170, 330, 99, 25);
+        jButton6.setBounds(160, 330, 99, 25);
         jLayeredPane1.add(jButton6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 10));
         jLabel2.setText("Obtenir assignatures disponibles");
-        jLabel2.setBounds(210, 390, 240, 13);
+        jLabel2.setBounds(200, 390, 240, 13);
         jLayeredPane1.add(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 694, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
