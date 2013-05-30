@@ -65,9 +65,15 @@ public class CtrDomini {
             cper.creaAssignatura(nomUnitat+"-"+nomAsg , params);
     }
     
+    /**
+     * 
+     */
     public void inicialitzarClausules(){
          cgen.inicialitzarClausules();
     }
+    /**
+     * 
+     */
     public void inicialitzarClausulesNom(){
         cgen.inicialitzarClausulesNom();
     }
@@ -226,11 +232,17 @@ public class CtrDomini {
         
         cgen.inicialitzarGenerador(configuracioInicial, assignatures, aLab, aTeo); 
     }
-    
+    /**
+     * 
+     * @return 
+     */
      public ArrayList<String> llegeixConfiguracioHoraria(){
          return cper.llegirConfiguracioHoraria("configuracioHoraria-"+nomUnitat);
     }
-     
+     /**
+      * 
+      * @param conf 
+      */
     public void escriuConfigurcioHoraria( ArrayList conf ){
         cper.escriuConfiguracioHoraria(conf, nomUnitat);
     }
@@ -281,10 +293,18 @@ public class CtrDomini {
         return asg;
     }
     
+    /**
+     * 
+     * @param nomUnitat
+     * @return 
+     */
     public boolean existeixRest(String nomUnitat){
        return cper.existeixRest(nomUnitat);
     }
-    
+    /**
+     * 
+     * @param nomUnitat 
+     */
     public void montaRestriccions(String nomUnitat){
         ArrayList<String> l = this.cper.llegirRestriccions(this.nomUnitat);
         ArrayList laux;
@@ -383,7 +403,9 @@ public class CtrDomini {
         
     }
     
-    
+    /**
+     * 
+     */
     public void imprimeixHorari() {
         
         ArrayList<String> horari = new ArrayList<String>();//////////
@@ -436,38 +458,7 @@ public class CtrDomini {
      * 
      * @param qu 
      
-    public void imprimeixHorari( Quadricula qu) {
-        
-        Quadricula q = qu;
-        
-        for(int i=0; i < 7; ++i) {
-            String dia;
-            if (i == 0) dia = "dilluns";
-            else if (i == 1) dia = "dimarts";
-            else if (i == 2) dia = "dimecres";
-            else if (i == 3) dia = "dijous";
-            else if (i == 4) dia = "divendres";
-            else if (i == 5) dia = "dissabte";
-            else dia = "diumenge";
-            for (int j=0; j < 24; ++j) {
-                CjtElements cjt_elem = new CjtElements();
-                cjt_elem = q.getElementsPosicio(dia, j);
-                if (cjt_elem.isValid() && !cjt_elem.getAssignacions().isEmpty()) {
-                    //Si el conjunto de elementos es valido
-                    ArrayList<Element> assignacions;
-                    assignacions = cjt_elem.getAssignacions();
-                    for (Element e1 : assignacions) {
-                        Aula a = new Aula();
-                        Assignatura ass = new Assignatura();
-                        int grupo;
-                        a = e1.getAula();
-                        ass = e1.getAssignatura();
-                        grupo = e1.getGrupo();
-                    }
-                }
-            }
-        }
-    }*/
+    
     
     /**
      * 
