@@ -508,17 +508,17 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jLayeredPane2.add(jTextField3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel6.setText("Nom:");
-        jLabel6.setBounds(10, 20, 25, 14);
+        jLabel6.setBounds(10, 20, 50, 14);
         jLayeredPane2.add(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel7.setText("Capacitat:");
-        jLabel7.setBounds(10, 40, 50, 14);
+        jLabel7.setBounds(10, 40, 60, 14);
         jLayeredPane2.add(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jTextField2.setBounds(90, 40, 113, 20);
         jLayeredPane2.add(jTextField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel8.setText("Material:");
-        jLabel8.setBounds(40, 120, 42, 14);
+        jLabel8.setBounds(40, 120, 70, 14);
         jLayeredPane2.add(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jRadioButton3.setText("Teoria");
@@ -527,7 +527,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jRadioButton3ActionPerformed(evt);
             }
         });
-        jRadioButton3.setBounds(70, 70, 55, 23);
+        jRadioButton3.setBounds(50, 70, 80, 23);
         jLayeredPane2.add(jRadioButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jRadioButton4.setText("Laboratori");
@@ -536,7 +536,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jRadioButton4ActionPerformed(evt);
             }
         });
-        jRadioButton4.setBounds(150, 70, 75, 23);
+        jRadioButton4.setBounds(180, 70, 100, 23);
         jLayeredPane2.add(jRadioButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton2.setText("Cancel·la");
@@ -545,15 +545,15 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        jButton2.setBounds(200, 130, 77, 23);
+        jButton2.setBounds(170, 110, 100, 23);
         jLayeredPane2.add(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jCheckBox2.setBounds(110, 120, 21, 21);
+        jCheckBox2.setBounds(120, 110, 21, 21);
         jLayeredPane2.add(jCheckBox2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel9.setText("Projector:");
-        jLabel9.setBounds(40, 150, 48, 14);
+        jLabel9.setBounds(40, 150, 70, 14);
         jLayeredPane2.add(jLabel9, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jCheckBox1.setBounds(110, 150, 21, 21);
+        jCheckBox1.setBounds(120, 150, 21, 21);
         jLayeredPane2.add(jCheckBox1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton1.setText("Crear");
@@ -562,7 +562,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jButton1.setBounds(200, 160, 100, 23);
+        jButton1.setBounds(170, 150, 100, 23);
         jLayeredPane2.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton11.setText("Modificar");
@@ -588,15 +588,15 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jLayeredPane3.add(jCheckBox3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel13.setText("Projector:");
-        jLabel13.setBounds(20, 160, 48, 14);
+        jLabel13.setBounds(20, 160, 60, 14);
         jLayeredPane3.add(jLabel13, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel12.setText("Material:");
-        jLabel12.setBounds(20, 130, 42, 14);
+        jLabel12.setBounds(20, 130, 60, 14);
         jLayeredPane3.add(jLabel12, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel11.setText("Capacitat:");
-        jLabel11.setBounds(20, 50, 50, 14);
+        jLabel11.setBounds(20, 50, 70, 14);
         jLayeredPane3.add(jLabel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jTextField4.setBounds(100, 50, 113, 20);
         jLayeredPane3.add(jTextField4, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -607,7 +607,7 @@ public class PanelModificarDades extends javax.swing.JPanel {
         jLayeredPane3.add(jTextField5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel10.setText("Nom:");
-        jLabel10.setBounds(20, 20, 25, 14);
+        jLabel10.setBounds(20, 20, 50, 14);
         jLayeredPane3.add(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
