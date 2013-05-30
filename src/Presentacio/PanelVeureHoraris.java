@@ -29,10 +29,18 @@ public class PanelVeureHoraris extends javax.swing.JPanel {
         this.setBounds(0, 0, 700, 550);
     }
 
+    /**
+     * mostra el nom de la unitat docent
+     * 
+     * @param nomUD 
+     */
     public void setNomUnitatDocent(String nomUD){
         this.jLabel2.setText(nomUD);
     }
     
+    /**
+     * busca tots els horaris de la unitat docent i els posa a la llista
+     */
     public void carregaLlistaHoraris(){
         jList1.removeAll();
         ArrayList<String> llistaHoraris = cp.carregaLlistaHoraris();

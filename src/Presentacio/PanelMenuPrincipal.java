@@ -8,6 +8,8 @@ package Presentacio;
 /**
  *
  * @author miquel
+ * 
+ * la vista del menú principal que et permet accedir a les opcions d'el programa per a una unitat docent
  */
 public class PanelMenuPrincipal extends javax.swing.JPanel {
 
@@ -21,6 +23,10 @@ public class PanelMenuPrincipal extends javax.swing.JPanel {
         this.setBounds(0,0,700,500);
     }
     
+    /**
+     * passa al domini el nom de la unitat docent
+     * @param nomUD 
+     */
     public void setNomUnitatDocent( String nomUD ){
         this.etiquetaNom.setText(nomUD);
     } 

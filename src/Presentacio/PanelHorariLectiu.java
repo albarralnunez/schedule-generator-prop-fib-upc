@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author albertomarin
+ * @author miquel
  */
 public class PanelHorariLectiu extends javax.swing.JPanel {
 
@@ -41,7 +41,9 @@ public class PanelHorariLectiu extends javax.swing.JPanel {
         
     }
     
-    
+    /**
+     * inicialitza la matriu amb les dades de configuracio horaria del txt
+     */
     public void carregaConfHoraria(){
         boolean b = false;
         if( cp.existeixConfiguracioHoraria() ) {

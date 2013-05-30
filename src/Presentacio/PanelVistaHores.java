@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Presentacio;
 
 import java.awt.Color;
@@ -11,13 +8,19 @@ import java.util.ArrayList;
 /**
  *
  * @author miquel
+ * 
+ * 
  */
 public class PanelVistaHores extends javax.swing.JPanel {
 
     ControladorPresentacio cp;
     Seleccionable selecs[][];
+    
+    
     /**
-     * Creates new form PanelVistaHores
+     * cradora per defecte
+     * 
+     * @param cpres 
      */
     public PanelVistaHores( ControladorPresentacio cpres ) {
         cp = cpres;
@@ -324,6 +327,12 @@ public class PanelVistaHores extends javax.swing.JPanel {
         pintaUsades(s);
     }//GEN-LAST:event_cBoxAssignaturesActionPerformed
 
+    /**
+     * 
+     * pinta de vermell les caselles que tenen alguna assignació
+     * 
+     * @param asg assignatura 
+     */
     public void pintaUsades( String asg){
         for(int d = 0; d < 7; ++d){ // d = 7
             for(int h = 0; h < 24; ++h){
@@ -375,6 +384,11 @@ public class PanelVistaHores extends javax.swing.JPanel {
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * posa en el comboBox les assignatures usades
+     * 
+     * @param assignatures  
+     */
     public void posaAssignatures(ArrayList<String> assignatures) {
         this.cBoxAssignatures.removeAllItems();
         cBoxAssignatures.addItem("TOTES");
@@ -383,6 +397,13 @@ public class PanelVistaHores extends javax.swing.JPanel {
         }
     }
     
+    /**
+     * 
+     * escriu en el Textarea de la dreta les assignacions de la assignatura d aquell dia a aquesta hora
+     * 
+     * @param d dia
+     * @param h hora
+     */
     public void mostraAssignacio(int d, int h){
         String s = (String) cBoxAssignatures.getSelectedItem();
         String out = cp.getAssignacio(d, h, s);
@@ -390,12 +411,10 @@ public class PanelVistaHores extends javax.swing.JPanel {
     }
     
     
-    
-    
-    
-    
-    
-
+    /**
+     * aquesta classe es cada n dels elements de l horari, cada seleccionable es un dia i una hora,
+     * i al clickarlo mostra les assignacions que li pertanyen
+     */
     private class Seleccionable extends javax.swing.JPanel {
 
         private int dia;

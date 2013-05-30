@@ -33,16 +33,10 @@ public class PanelModificarDades extends javax.swing.JPanel {
         opcio = -1;
         intervalsT = intervalsP = false;
         initComponents();
-        //buttonGroup1.add(jRadioButton1);
-        //buttonGroup1.add(jRadioButton2);
         buttonGroup2.add(jRadioButton3);
         buttonGroup2.add(jRadioButton4);
         jLayeredPane2.setVisible(false);
         jLayeredPane3.setVisible(false);
-        //jLayeredPane6.setVisible(false);
-        //jLayeredPane7.setVisible(false);
-        //jPanel8.setVisible(false);
-
         jLabel8.setVisible(false);
         jCheckBox2.setVisible(false);
         jLabel9.setVisible(false);
@@ -1033,7 +1027,14 @@ public class PanelModificarDades extends javax.swing.JPanel {
        jCheckBox1.setVisible(false);
     }//GEN-LAST:event_jRadioButton4ActionPerformed
 
-    
+    /**
+     * 
+     * intenta crear una assignatura amb totes les dades que s'han entrat per interficie,
+     * si tot es correcte retorna cert i crea la assignatura 
+     * 
+     * @param nomAsg nom de la assignatura a crear
+     * @return cert si ha creat la assignatura
+     */
     private boolean intentaCrearAssignatura(String nomAsg) {
         int nvl = (Integer) spinnerNivell1.getValue();
         if( nvl < 0 ) {
@@ -1292,6 +1293,10 @@ public class PanelModificarDades extends javax.swing.JPanel {
     private javax.swing.JSpinner spinnerNivell1;
     // End of variables declaration//GEN-END:variables
 
+    
+    /**
+     * inicialitza les llistes d'assignatures dels elements de la interfaz
+     */
     public void inicialitza() {
         ArrayList<String> llistaAssigs =  cp.llistaAssignatures();
         String totesAssig = "";

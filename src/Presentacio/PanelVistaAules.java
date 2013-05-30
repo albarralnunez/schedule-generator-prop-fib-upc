@@ -10,6 +10,10 @@ import java.util.ArrayList;
 /**
  *
  * @author miquel
+ * 
+ * aquesta classe conté un horari i et permet veure per a cada aula,
+ * les assignacions d'assignatures que li corresponen
+ * 
  */
 public class PanelVistaAules extends javax.swing.JPanel {
 
@@ -51,6 +55,12 @@ public class PanelVistaAules extends javax.swing.JPanel {
         }
     }
 
+    /**
+     * 
+     * posa un vlaor a l atribut horariGenerat
+     * 
+     * @param b indica si hi ha un horari generat
+     */
     public void setHorariGenetar(boolean b) {
         horarigenerat = b;
     }
@@ -483,6 +493,9 @@ public class PanelVistaAules extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
 
+    /**
+     * classe privada que son les caselles que representen una assignacio d un dia a una hora
+     */
     private class Etiqueta extends javax.swing.JPanel {
 
         private int dia;
@@ -516,7 +529,7 @@ public class PanelVistaAules extends javax.swing.JPanel {
                     layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGap(0, 300, Short.MAX_VALUE));
         }
-
+        
         private void escriuEtiquetaEnBlanc() {
             etiqueta.setText("");
         }
