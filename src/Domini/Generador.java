@@ -58,7 +58,10 @@ class Generador {
         }
         return listaRefactor;
     }   
-     
+     /**
+      * 
+      * @param ass 
+      */
      public void inicialitzarClausules(ArrayList<Assignatura> ass){
         ArrayList<Clausula> clausules = new ArrayList();
         for (int i = 0; i < ass.size(); ++i) {
@@ -225,20 +228,32 @@ class Generador {
         
     }
 
-
+    /**
+     * 
+     * @param c
+     * @param cn
+     * @param q
+     * @return 
+     */
     private boolean horesiLimits(Clausula c, ClausulaNom cn, Quadricula q) {
         if (!suficientHoresSegui(c,cn,q)) return false;
         if (foraLimits (c,cn)) return false;
         return true;
     }
-
+    /**
+     * Redueix les ClausulaNom de totes les Clausules
+     */
     private void reduirClausulesNom(){
         for(Clausula c : this.clausules){
             c.reduccioClausules();
         }
     }
     private Stack<ArrayList<Clausula>> backUp;
-    
+    /**
+     * 
+     * @param q
+     * @return 
+     */
     public boolean generar( Quadricula q) {
         reduirClausulesNom();  
         backUp = new Stack<ArrayList<Clausula>>();  		
@@ -246,7 +261,13 @@ class Generador {
         boolean b = backtracking(this.clausules, q,0);
         return b;
     }
-
+    /**
+     * 
+     * @param clau
+     * @param qu
+     * @param j
+     * @return 
+     */
     private boolean backtracking(ArrayList<Clausula> clau, Quadricula qu, int j) {
         if (clau.size() == j) return true;
         else {
@@ -291,7 +312,13 @@ class Generador {
             return false;
         }
     }
-
+    /**
+     * 
+     * @param c
+     * @param cn
+     * @param q
+     * @return 
+     */
     private boolean suficientHoresSegui(Clausula c, ClausulaNom cn, Quadricula q) {
         int du = c.getDuracio();
         int h = cn.getHora();
@@ -303,11 +330,24 @@ class Generador {
         }
         return true;
     }
-
+    /**
+     * 
+     * @param c
+     * @param cn
+     * @return 
+     */
     private boolean foraLimits(Clausula c, ClausulaNom cn) {
         return (c.getDuracio()+cn.getHora() > 23);
     }
-    
+    /**
+     * 
+     * @param clau
+     * @param cn
+     * @param c
+     * @param hor
+     * @param p
+     * @return 
+     */
     private boolean propagaRest(ArrayList<Clausula> clau, ClausulaNom cn, 
             Clausula c,int hor, int p){
         Stack<Clausula> stackclau  = new Stack<Clausula>();
@@ -327,7 +367,16 @@ class Generador {
         }        
         return true;
     }
-    
+    /**
+     * 
+     * @param cn
+     * @param c
+     * @param cl
+     * @param cln
+     * @param hor
+     * @param dia
+     * @return 
+     */
     private boolean conflicte(ClausulaNom cn, Clausula c, Clausula cl, 
             ClausulaNom cln, int hor,String dia) {
          if (solapamentTeoriaPractica (cn,c,cl,cln,hor)) return true;
@@ -338,7 +387,15 @@ class Generador {
          if (solapamentAssigGrupDia(cn,c,cl,cln,hor)) return true;
          return false;
     }
-    
+    /**
+     * 
+     * @param cn
+     * @param c
+     * @param cl
+     * @param cln
+     * @param hor
+     * @return 
+     */
     private boolean solapamentTeoriaPractica (ClausulaNom cn, Clausula c, 
             Clausula cl,ClausulaNom cln, int hor) {
             int grc = c.getGrup();
@@ -350,7 +407,15 @@ class Generador {
                 grc%10 != grcl%10 && grc/10 == grcl/10) return true;
         return false;
     }
-
+    /**
+     * 
+     * @param cn
+     * @param c
+     * @param cl
+     * @param cln
+     * @param hor
+     * @return 
+     */
         private boolean solapamentAssigGrupDia (ClausulaNom cn, Clausula c, 
             Clausula cl,ClausulaNom cln, int hor) {
             int grc = c.getGrup();
@@ -360,7 +425,15 @@ class Generador {
                 grc == grcl) return true;
         return false;
     }
-        
+     /**
+      * 
+      * @param cn
+      * @param c
+      * @param cl
+      * @param cln
+      * @param hor
+      * @return 
+      */   
     private boolean aulaRepetida(ClausulaNom cn, Clausula c, Clausula cl, 
             ClausulaNom cln, int hor) {
         if (    cn.getDia().equals(cln.getDia()) &&
@@ -370,7 +443,15 @@ class Generador {
                 ) return true;
         return false;
     }
-
+    /**
+     * 
+     * @param cn
+     * @param c
+     * @param cl
+     * @param cln
+     * @param hor
+     * @return 
+     */
     private boolean mateixNivell(ClausulaNom cn, Clausula c, Clausula cl, 
             ClausulaNom cln, int hor) {
        int grc = c.getGrup();
@@ -384,7 +465,12 @@ class Generador {
         return false;
     }
     
-    
+    /**
+     * 
+     * @param tipus
+     * @param r
+     * @return 
+     */
     public boolean afegirRest(int tipus,Restriccio r){
         if(tipus == 1){
             RestGrupoAula rga = (RestGrupoAula) r;
@@ -442,7 +528,15 @@ class Generador {
         }
         return true;
     }
-
+    /**
+     * 
+     * @param cn
+     * @param c
+     * @param cl
+     * @param cln
+     * @param hor
+     * @return 
+     */
     private boolean solapamentAssignaturaHora(ClausulaNom cn, Clausula c, 
             Clausula cl, ClausulaNom cln, int hor) {
             boolean b = c.getAssignatura().equals(cl.getAssignatura());

@@ -98,7 +98,11 @@ public class CjtRestGrupSessio extends CjtRestriccions{
         }
         return b;
     }
-    
+    /**
+     * Comprova si la Restriccio r , que es vol afegir, existeix en el conjunt 
+     * @param r
+     * @return Retorna un boolean que indica si es valida la insercio 
+     */
     private boolean esValid(RestGrupSessio r){
         for(RestGrupSessio rs : this.restriccionsGrupSesio){
             if(rs.ObtenirId()==r.ObtenirId()){

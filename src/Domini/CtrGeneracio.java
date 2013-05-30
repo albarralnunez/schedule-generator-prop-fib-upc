@@ -37,63 +37,111 @@ public class CtrGeneracio {
         
         
     }
-
+    /**
+     * 
+     * @return 
+     */
     public RestriccioTemps getResT() {
         return resT;
     }
-
+    /**
+     * 
+     * @param resT 
+     */
     public void setResT(RestriccioTemps resT) {
         this.resT = resT;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public ArrayList<AulaLab> getCjtAulLab() {
         return cjtAulLab;
     }
-
+    /**
+     * 
+     * @param cjtAulLab 
+     */
     public void setCjtAulLab(ArrayList<AulaLab> cjtAulLab) {
         this.cjtAulLab = cjtAulLab;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public ArrayList<AulaTeo> getCjtAulTeo() {
         return cjtAulTeo;
     }
-
+    /**
+     * 
+     * @param cjtAulTeo 
+     */
     public void setCjtAulTeo(ArrayList<AulaTeo> cjtAulTeo) {
         this.cjtAulTeo = cjtAulTeo;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public ArrayList<Assignatura> getCjtAs() {
         return cjtAs;
     }
-
+    /**
+     * 
+     * @param cjtAs 
+     */
     public void setCjtAs(ArrayList<Assignatura> cjtAs) {
         this.cjtAs = cjtAs;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public String getNomUnitat() {
         return nomUnitat;
     }
-
+    /**
+     * 
+     * @param nomUnitat 
+     */
     public void setNomUnitat(String nomUnitat) {
         this.nomUnitat = nomUnitat;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public Quadricula getQuad() {
         return quad;
     }
-
+    /**
+     * 
+     * @param quad 
+     */
     public void setQuad(Quadricula quad) {
         this.quad = quad;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public Generador getGen() {
         return gen;
     }
-
+    /**
+     * 
+     * @param gen 
+     */
     public void setGen(Generador gen) {
         this.gen = gen;
     }
-    
+    /**
+     * 
+     * @param confHoraria
+     * @param assignatures
+     * @param aulesL
+     * @param aulesT 
+     */
     public void inicialitzarGenerador(ArrayList<String> confHoraria, ArrayList<Assignatura> assignatures, ArrayList<AulaLab> aulesL, 
        ArrayList<AulaTeo> aulesT ){
        montaRestriccionsTemps(confHoraria); // inicalitza rest de temps + quadricula
@@ -101,7 +149,11 @@ public class CtrGeneracio {
        this.cjtAulLab = aulesL;
        this.cjtAulTeo = aulesT;
     }
-    
+    /**
+     * 
+     * @param configuracioInicial
+     * @return 
+     */
     public boolean generar(ArrayList<String> configuracioInicial) {
         montaRestriccionsTemps(configuracioInicial);
         return gen.generar(quad);
@@ -201,12 +253,24 @@ public class CtrGeneracio {
         }
        return b;
     }*/
+    /**
+     * 
+     */
     public void inicialitzarClausules(){
         gen.inicialitzarClausules(cjtAs);
     }
+    /**
+     * 
+     */
     public void inicialitzarClausulesNom(){
         gen.inicialitzarClausulesNom(cjtAulTeo, cjtAulLab,resT, quad);
     }
+    /**
+     * 
+     * @param tipus
+     * @param r
+     * @return 
+     */
     public boolean afegirRest(int tipus, Restriccio r){
         return gen.afegirRest(tipus,r);
     }

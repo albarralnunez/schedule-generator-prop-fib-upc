@@ -35,17 +35,32 @@ public class CjtRestGrupoAula extends CjtRestriccions{
     public ArrayList<RestGrupoAula> getRestGrupoAula() {
         return restGrupoAula;
     }
-
+    /**
+     * 
+     * @param rest_grupo_aula 
+     */
     public void setRestGrupoAula(ArrayList<RestGrupoAula> rest_grupo_aula) {
         this.restGrupoAula = rest_grupo_aula;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public int size(){
          return restGrupoAula.size();
     }
+    /**
+     * 
+     * @param i
+     * @return 
+     */
     public RestGrupoAula get(int i){
       return  restGrupoAula.get(i);
     }
+    /**
+     * 
+     * @param index 
+     */
     public void remove(int index){
         restGrupoAula.remove(index);
     }
@@ -79,7 +94,11 @@ public class CjtRestGrupoAula extends CjtRestriccions{
         }
         return false;
     }
-
+    /**
+     * Comprova si la Aula de una ClausulaNom compleix les restriccions
+     * @param au
+     * @return Retorna un boolean indican si compleix totes les restriccions
+     */
     boolean ComprovarRes(Aula au) {
         boolean b = true;
         for (RestGrupoAula rga : this.restGrupoAula) {
@@ -89,14 +108,18 @@ public class CjtRestGrupoAula extends CjtRestriccions{
         }
         return b;
     }
-    
-private boolean esValid(RestGrupoAula r){
-    for(RestGrupoAula rga: this.restGrupoAula){
-        if(rga.ObtenirId() == r.ObtenirId()){
-            if(rga.getAssignatura().equals(r.getAssignatura()) && rga.getGrup().equals(r.getGrup()) && rga.getAula().equals(r.getAula())) return false;
+    /**
+     * Comprova si la restriccio r, que es vol afegir, existeix en el conjunt
+     * @param r 
+     * @return Retorna un boolean que indica si es pot fer la insercio
+     */
+    private boolean esValid(RestGrupoAula r){
+        for(RestGrupoAula rga: this.restGrupoAula){
+            if(rga.ObtenirId() == r.ObtenirId()){
+                if(rga.getAssignatura().equals(r.getAssignatura()) && rga.getGrup().equals(r.getGrup()) && rga.getAula().equals(r.getAula())) return false;
+            }
         }
+        return true;
     }
-    return true;
-}
 
 }

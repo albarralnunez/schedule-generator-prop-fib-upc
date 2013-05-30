@@ -14,7 +14,9 @@ public class RestAssignatura extends Restriccio {
        private int grup;
        private String dia;
        private int hora;
-
+    /**
+     * 
+     */
     public RestAssignatura(){
         super(3);
         assignatura = null;
@@ -22,6 +24,13 @@ public class RestAssignatura extends Restriccio {
         dia = null;
         hora = -1;
     }
+    /**
+     * 
+     * @param assignatura
+     * @param grup
+     * @param dia
+     * @param hora 
+     */
     public RestAssignatura(Assignatura assignatura, int grup, String dia, int hora){
         super(3);
         this.assignatura = assignatura;
@@ -29,106 +38,86 @@ public class RestAssignatura extends Restriccio {
         this.dia = dia;
         this.hora = hora;
     }
+    /**
+     * 
+     * @param assignatura 
+     */
     public void setAssignatura(Assignatura assignatura){
         this.assignatura = assignatura;
     }
+    /**
+     * 
+     * @param grup 
+     */
     public void setGrup(int grup){
         this.grup = grup;
     }
+    /**
+     * 
+     * @param dia 
+     */
     public void setDia(String dia){
         this.dia = dia;
     }
+    /**
+     * 
+     * @param hora 
+     */
     public void setHora(int hora){
         this.hora = hora;
     }
+    /**
+     * 
+     * @return 
+     */
     public Assignatura getAssignatura(){
         return assignatura;
     }
+    /**
+     * 
+     * @return 
+     */
     public int getGrup(){
         return grup;
     }
+    /**
+     * 
+     * @return 
+     */
     public String getDia(){
         return dia;
     }
+    /**
+     * 
+     * @return 
+     */
     public int getHora(){
         return hora;
     }
+    /**
+     * 
+     * @return 
+     */
     public int getId() {
         return id;
     }
-
+    /**
+     * 
+     * @param id 
+     */
     public void setId(int id) {
         this.id = id;
-    }/*
-    public boolean everyday(){
-        if(dia == null) return true;
-        else return false;
     }
-    public boolean everthour(){
-        if(hora == -1) return true;
-        else return false;
-    }*/
     
     @Override
     public boolean CompleixRes(){return false;}
     
-    
-    /* public boolean esPotAfegir(CjtRestAssignatura cjtResAssig,CjtRestGrupSessio cjtResGS) {
-         ArrayList<Restriccio> llista = new ArrayList();
-         llista = cjtResAssig.getCjtRes();
-         int size = llista.size();
-         for(int i = 0; i < size; ++i){
-             Restriccio res = llista.get(i);
-             RestAssignatura resdw = (RestAssignatura) res;
-             if(resdw.getAssignatura().equals(this.assignatura) && resdw.getGrup
-                     () == this.grup && resdw.getDia().equals(this.dia) && 
-                     resdw.getHora() == this.hora) return false;
-         }
-         llista = cjtResGS.getCjtRes();
-         size = llista.size();
-         for(int i = 0; i < size; ++i){
-             Restriccio res = llista.get(i);
-             RestGrupSessio resdw = (RestGrupSessio) res;
-             if( (resdw.getAssignatura().equals(this.assignatura.getNom())) && (resdw.getGrup() == this.grup) && (resdw.getHora() == this.hora) ) return false;
-         }
-         return true;
-    }
-    
-    public boolean compleixResHora(Assignatura assignatura, int grup, int hora) {
-        boolean comp = true;
-        if (this.assignatura.equals(assignatura) && this.grup == grup) {
-            if(this.hora == hora) comp = false;
-        }
-        return comp;
-    }
-    public boolean compleixResDia(Assignatura assignatura, int grup, String dia){
-        boolean comp = true;
-        if(this.assignatura == assignatura && this.grup == grup){
-            if(this.dia.equals(dia)) comp = false;
-        }
-        return comp;
-    }
-    
-    public boolean CompleixResDiaHora(Assignatura assignatura, int grup, String dia,int hora){
-        if(compleixResHora(assignatura, grup, hora) && compleixResDia(assignatura, grup, dia)) return false;
-        else return true;
-   }
-
-    public boolean compleixRes(Clausula c, ClausulaNom cn) {
-        String d = cn.getDia();
-        Integer h = cn.getHora();
-        int g = c.getGrup();
-        if(h !=-1 && dia != null){
-            if (!CompleixResDiaHora(c.getAssignatura(), g, d, h)) return false;
-        }
-        else if(dia!=null){
-            if (!compleixResDia(c.getAssignatura(), g, d)) return false;
-        }
-        else if(h != -1){
-            if (!compleixResHora(c.getAssignatura(), g, h)) return false;
-        }
-        return true;
-    }*/
+    /**
+     * 
+     * @param cn
+     * @param duracio
+     * @return 
+     */
     public boolean compleixRes5(ClausulaNom cn, int duracio){
             if(this.hora != -1){
                if(this.hora >= cn.getHora() && (this.hora < cn.getHora() + duracio)) return false;
@@ -140,6 +129,11 @@ public class RestAssignatura extends Restriccio {
        
         return true;
     }
+    /**
+     * 
+     * @param cn
+     * @return 
+     */
     public boolean compleixRes6(ClausulaNom cn){
             if(this.hora != -1){
                 /*if ((cn.getHora() > (this.hora+1)) && ((cn.getHora() + c.getDuracio()) > (this.hora+1))) return true;
@@ -149,6 +143,12 @@ public class RestAssignatura extends Restriccio {
             }
         return true;
     }
+    /**
+     * 
+     * @param cn
+     * @param duracio
+     * @return 
+     */
     public boolean compleixRes7(ClausulaNom cn,int duracio){
             if(this.hora != -1){
                 //if ((cn.getHora() < this.hora) && ((cn.getHora() + duracio) > this.hora)) return false;
@@ -160,6 +160,11 @@ public class RestAssignatura extends Restriccio {
             }
         return true;
     }
+    /**
+     * 
+     * @param cn
+     * @return 
+     */
     public boolean compleixRes8(ClausulaNom cn){
             if(this.dia != null){
                 if(cn.getDia().equals(this.dia)) return false;
@@ -167,6 +172,11 @@ public class RestAssignatura extends Restriccio {
             }
         return true;
     }
+    /**
+     * 
+     * @param dia
+     * @return 
+     */
     private int canviDiaInt(String dia){
         int d = -1;
         if ( dia.equals("dilluns") ) d = 0;
@@ -178,6 +188,11 @@ public class RestAssignatura extends Restriccio {
         else if (dia.equals("diumenge"))d = 6;
         return d;
     }
+    /**
+     * 
+     * @param cn
+     * @return 
+     */
     public boolean compleixRes9(ClausulaNom cn){
             if(this.dia != null){
                 int diaR = canviDiaInt(this.dia);
@@ -188,6 +203,11 @@ public class RestAssignatura extends Restriccio {
         return true;
         
     }
+    /**
+     * 
+     * @param cn
+     * @return 
+     */
     public boolean compleixRes10(ClausulaNom cn){
             if(this.dia != null){
                 int diaR = canviDiaInt(this.dia);
@@ -197,11 +217,21 @@ public class RestAssignatura extends Restriccio {
             }
         return true;
     }
+    /**
+     * 
+     * @param cn
+     * @return 
+     */
     public boolean compleixRes11(ClausulaNom cn){
             if(this.dia.equals(cn.getDia()) && this.hora == cn.getHora()) return false;
             else return true;
         
     }
+    /**
+     * 
+     * @param cn
+     * @return 
+     */
     public boolean compleixRes12(ClausulaNom cn){
             if (this.dia.equals(cn.getDia())) {
                     //if ((cn.getHora() > (this.hora+1)) && ((cn.getHora() + c.getDuracio()) > (this.hora+1))) return true;
@@ -213,6 +243,12 @@ public class RestAssignatura extends Restriccio {
             else if (canviDiaInt(cn.getDia()) > canviDiaInt(this.dia))return true;
             return true;
     }
+    /**
+     * 
+     * @param cn
+     * @param duracio
+     * @return 
+     */
     public boolean compleixRes13(ClausulaNom cn,int duracio){
             if (this.dia.equals(cn.getDia())) {
                     if ((cn.getHora() < this.hora) && ((cn.getHora() + duracio) > this.hora )) return false;

@@ -15,9 +15,16 @@ public class CjtRestSolapament extends CjtRestriccions{
     private ArrayList<RestSolapament> restriccionsSolapament;
 
     //Constructora por defecto:
+    /**
+     * Constructora per defecte
+     */
     public CjtRestSolapament() {
         restriccionsSolapament = new ArrayList();
     }
+    /**
+     * Constructora
+     * @param cjt 
+     */
     public CjtRestSolapament(CjtRestSolapament cjt) {
         restriccionsSolapament = new ArrayList();
         for(int i = 0; i < cjt.size();++i){
@@ -32,19 +39,39 @@ public class CjtRestSolapament extends CjtRestriccions{
         }
     }
     //Getters y Setters
+    /**
+     * 
+     * @return 
+     */
     public ArrayList<RestSolapament> getRestriccionsSolapament() {
         return restriccionsSolapament;
     }
-
+    /**
+     * 
+     * @param restriccions_solapament 
+     */
     public void setRestriccionsSolapament(ArrayList<RestSolapament> restriccions_solapament) {
         this.restriccionsSolapament = restriccions_solapament;
     }
+    /**
+     * 
+     * @return 
+     */
     public int size(){
          return restriccionsSolapament.size();
     }
+    /**
+     * 
+     * @param i
+     * @return 
+     */
     public RestSolapament get(int i){
       return  restriccionsSolapament.get(i);
     }
+    /**
+     * 
+     * @param index 
+     */
     public void remove(int index){
         restriccionsSolapament.remove(index);
     }
@@ -77,6 +104,15 @@ public class CjtRestSolapament extends CjtRestriccions{
         }
         return false;
     }
+    /**
+     * Comprova si la Clausula c amb la ClausulaNom cn compleix totes les restriccions 
+     * @param c
+     * @param cn
+     * @param e
+     * @param h
+     * @param dia
+     * @return Retorna un boolean que indica si compleix totes les restriccions
+     */
      boolean ComprovarRes(Clausula c, ClausulaNom cn, Clausula e,int h,String dia) {
         boolean b = true;
         for (RestSolapament rga : this.restriccionsSolapament) {
@@ -87,17 +123,11 @@ public class CjtRestSolapament extends CjtRestriccions{
         }
         return b;
     }
-    /*boolean ComprovarRess(String a,int g,Element e){
-       boolean b = true;
-        for (RestSolapament rga : this.restriccionsSolapament) {
-            if (!b) {
-                break;
-            }
-            b = rga.CompleixRess(a,g, e);
-        }
-        return b;
-        
-   }*/
+     /**
+      * Comprova si la restriccio r, que es vol afegir, existeix en el conjunt
+      * @param r
+      * @return Retorna un boolean que indica si la insercio es valida
+      */
      private boolean esValid(RestSolapament r){
          for(RestSolapament rs : this.restriccionsSolapament){
                  boolean b =rs.getAssignaturaPrincipal().getNom().equals(r.getAssignaturaPrincipal().getNom());
