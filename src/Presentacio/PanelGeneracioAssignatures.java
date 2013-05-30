@@ -266,6 +266,7 @@ public class PanelGeneracioAssignatures extends javax.swing.JPanel {
         cp.canviaPanel("PanelGeneracioAules");
     }//GEN-LAST:event_jButton3ActionPerformed
 
+   
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
       int end = jList1.getModel().getSize() - 1;
       if (end >= 0) jList1.setSelectionInterval(0, end);
