@@ -163,6 +163,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
 
     
     /**
+     * mostra una finestra de dialeg amb el text
      * 
      * @param text text a mostrar
      * @param tipo tius de missatge
@@ -243,7 +244,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     /**
      * 
      * @param nomaul
-     * @return 
+     * @return tots els paramentres de l'aula
      */
     public ArrayList<String> mostraParametresAula(String nomaul) {
         String tipo_aula = nomaul.substring(0, 9);
@@ -335,6 +336,8 @@ public class ControladorPresentacio extends javax.swing.JFrame {
     }
 
     /**
+     * crea una assignatura
+     * 
      * 
      * @param nomAsg
      * @param nvl
@@ -354,8 +357,9 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         cd.creaAssignatura(nomAsg, nvl, ht, intsT, hp, intsP, capT, capL, grups,mat,proj);
     }
     /**
+     * donada una assignatura, et retorna totes aules que fa servir
      * 
-     * @param as 
+     * @param as nom de l'assignatura 
      */
     public void aulesSeleccionades( ArrayList<String> as){
         aules = as;
@@ -375,8 +379,9 @@ public class ControladorPresentacio extends javax.swing.JFrame {
 
        
     /**
+     * intenta generar un horari, si pot l'imprimeix en un txt
      * 
-     * @return 
+     * @return cert si ha pogut generar un horari
      */
     public boolean generar() {
         if ( cd.generar() ){
@@ -389,10 +394,13 @@ public class ControladorPresentacio extends javax.swing.JFrame {
 
     /**
      * 
+     * si no hi ha cap assignacio, a la primera posicio hi ha l String "BUIDA"
+     * 
      * @param nomAula
-     * @param d
-     * @param h
-     * @return 
+     * @param d dia
+     * @param h hora
+     * @return donada una aula i una hora, retorna u string amb 2 posicions
+     * a la primera hi ha la assignatura, i a la segona el grup
      */
     public ArrayList<String> aulaAssignadaALes(String nomAula, int d, int h) {
         return cd.aulaAssignadaALes(nomAula, d, h);
@@ -400,8 +408,9 @@ public class ControladorPresentacio extends javax.swing.JFrame {
 
     /**
      * 
-     * @param nomH
-     * @return 
+     * 
+     * @param nomH 
+     * @return cert si ha pogut guardar l horari ammb el nom indicat 
      */
     public boolean guardar(String nomH) {
         if(  nomH == null )return false;
@@ -410,13 +419,14 @@ public class ControladorPresentacio extends javax.swing.JFrame {
 
     /**
      * 
-     * @return 
+     * @return una llista amb els noms de tots els horaris que te guardats aquella unitat docent
      */
     public ArrayList<String> carregaLlistaHoraris() {
         return cd.carregaLlistaHoraris();
     }
 
     /**
+     * carrega l horari indicat
      * 
      * @param nomhorari 
      */
@@ -424,7 +434,7 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         boolean b = cd.carregarHorari(nomhorari);
         ArrayList<String> auls = cd.llistaAules();
         String nomun = cd.nomUnitatDocent();
-        //System.out.println(nomun);
+       
         ArrayList<String> aulesnom = new ArrayList<String>();
         for( String au : auls){
             au = au.replace("aula-lab-"+nomun+"-", "");
@@ -434,7 +444,6 @@ public class ControladorPresentacio extends javax.swing.JFrame {
         }
         pva.posaConjuntAules(aulesnom);
         
-        ///////ara per posar assignatures
         assignatures = cd.AssignaturesUsades();
         
         canviaPanel("PanelVistaAules");
@@ -442,13 +451,17 @@ public class ControladorPresentacio extends javax.swing.JFrame {
 
     /**
      * 
-     * @param ass 
+     * actualitza la llista d assignatures amb les que s han fet servi
+     * 
+     * @param ass actualitza la llista d assignatures amb les que s han fet servir
      */
     public void assigSeleccionades(ArrayList<String> ass) {
         assignatures = ass;
     }
 
     /**
+     * 
+     * carrega les restriccions guardades en el fitxer de text 
      * 
      * @param nomUnitatDocent 
      */
@@ -463,6 +476,8 @@ public class ControladorPresentacio extends javax.swing.JFrame {
 
     /**
      * 
+     * esborra l horari indicat
+     * 
      * @param nomhorari 
      */
     public void esborraHorari(String nomhorari) {
@@ -471,10 +486,11 @@ public class ControladorPresentacio extends javax.swing.JFrame {
 
     /**
      * 
-     * @param d
-     * @param h
-     * @param asg
-     * @return 
+     * 
+     * @param d dia
+     * @param h hora
+     * @param asg assignatura
+     * @return cert si la assignatura ha estat assignada a alguna aula el dia d a la hora h
      */
     public boolean usada(int d, int h, String asg) {
         return cd.esUsada(d, h, asg);
@@ -482,10 +498,12 @@ public class ControladorPresentacio extends javax.swing.JFrame {
 
     /**
      * 
-     * @param d
-     * @param h
-     * @param s
-     * @return 
+     * 
+     * @param d dia
+     * @param h hora
+     * @param s nom de l assignatura
+     * @return un string que conté totes les assignacions de la assingatura a aquell dia en aquella hora
+     * assignacio = nomAssignatua+grup+aula
      */
     public String getAssignacio(int d, int h, String s) {
         String a = "";

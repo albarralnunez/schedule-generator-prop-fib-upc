@@ -10,6 +10,9 @@ import java.awt.event.MouseEvent;
 /**
  *
  * @author miquel
+ * 
+ * les caselles de la configuracio horaria
+ * 
  */
 public class Casella extends javax.swing.JPanel {
     
@@ -17,6 +20,11 @@ public class Casella extends javax.swing.JPanel {
     int hora;
     boolean activada;
     
+    /**
+     * 
+     * @param d  dia 
+     * @param h hora
+     */
     public Casella(int d, int h){ 
         dia = d;
         hora = h;
@@ -26,11 +34,18 @@ public class Casella extends javax.swing.JPanel {
         setBorder( javax.swing.BorderFactory.createLineBorder(Color.BLACK) );
         initComponents();
     }
-
+    
+    /**
+     * 
+     * @return si la casella esta activada
+     */
     public boolean getEstat(){
         return activada;
     }
     
+    /**
+     * 
+     */
     private void initComponents() {
         
         //MOUSE LISTENER
@@ -52,10 +67,14 @@ public class Casella extends javax.swing.JPanel {
         );
     }
     
+    
     private void formMouseClicked(MouseEvent evt) {
         canviaEstat();
     }
     
+    /**
+     *  passa d'activada a desacivada i veceversa
+     */
     public void canviaEstat(){
         if(activada){
             setBackground( new java.awt.Color( 255, 255, 255 ) ); //blanc
@@ -67,6 +86,9 @@ public class Casella extends javax.swing.JPanel {
         }
     }
     
+    /**
+     * desactiva la casella
+     */
     public void reset(){
             setBackground( new java.awt.Color( 255, 255, 255 ) ); //blanc
             activada = false;
