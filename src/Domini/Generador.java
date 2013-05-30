@@ -244,10 +244,6 @@ class Generador {
         backUp = new Stack<ArrayList<Clausula>>();  		
 	long timeInMillis = System.currentTimeMillis();
         boolean b = backtracking(this.clausules, q,0);
-        long timeInMillis1 = System.currentTimeMillis();
-        System.out.println("-------------Time in milis-B------------");
-        System.out.println(timeInMillis1-timeInMillis);
-        System.out.println("-------------Time in milis-------------\n");
         return b;
     }
 

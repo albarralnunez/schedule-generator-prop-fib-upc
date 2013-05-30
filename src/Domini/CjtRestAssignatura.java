@@ -139,6 +139,11 @@ public class CjtRestAssignatura extends CjtRestriccions {
         }
         return b;
     }
+    /**
+     * Comprova si es pot afegir la restriccio en el conjunt, es a dir, que no sigui repetida
+     * @param r Restriccio de Assignatura
+     * @return Retorna un boolean que indica si es valida la insercio
+     */
     private boolean esValid(RestAssignatura r){
         for(RestAssignatura ra: this.restsAssignatura){
             if(ra.ObtenirId() == r.ObtenirId()){

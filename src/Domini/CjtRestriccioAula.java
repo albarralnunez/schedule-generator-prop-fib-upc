@@ -34,16 +34,32 @@ public class CjtRestriccioAula extends CjtRestriccions{
     public ArrayList<RestriccioAula> getRestriccionsAula() {
         return this.restriccionsAula;
     }
-
+    /**
+     * 
+     * @param restriccions_aula 
+     */
     public void setRestriccions_aula(ArrayList<RestriccioAula> restriccions_aula) {
         this.restriccionsAula = restriccions_aula;
     }
+    /**
+     * 
+     * @return 
+     */
     public int size(){
          return restriccionsAula.size();
     }
+    /**
+     * 
+     * @param i
+     * @return 
+     */
     public RestriccioAula get(int i){
       return  restriccionsAula.get(i);
     }
+    /**
+     * 
+     * @param index 
+     */
     public void remove(int index){
         restriccionsAula.remove(index);
     }
@@ -75,7 +91,12 @@ public class CjtRestriccioAula extends CjtRestriccions{
         }
         return false;
     }
-
+    /**
+     * Comprova per a cada restriccio del conjunt si la ClausulaNom compleix totes les restriccions
+     * @param cn 
+     * @param duracio Duracio de la Clausula que conte la ClausulaNom cn
+     * @return Retorna un boolean que indica si compleix totes les restriccions 
+     */
     boolean ComprovarRes(ClausulaNom cn,int duracio) {
         boolean b = true;
         for (RestriccioAula rga : this.restriccionsAula) {
@@ -86,10 +107,19 @@ public class CjtRestriccioAula extends CjtRestriccions{
         }
         return b; 
     }
-    
+    /**
+     * 
+     * @param r
+     * @return 
+     */
     boolean conteRestriccio(RestriccioAula r){
         return restriccionsAula.contains(r);
     }
+    /**
+     * Comprova si la RestriccioAula r, que es vol afegir, està ja en el conjunt de restriccions
+     * @param r RestriccioAula que es vol comprovar 
+     * @return Retorna un boolean que indica si es valida la insercio de la restriccio 
+     */
     private boolean esValid(RestriccioAula r){
         for(RestriccioAula ra : this.restriccionsAula){
             if(r.ObtenirId() == ra.ObtenirId()){

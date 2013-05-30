@@ -26,6 +26,13 @@ public class RestSolapament extends Restriccio{
         assignaturaSolapament = null;
         grupSolapament = -1;
     }
+    /**
+     * 
+     * @param assignaturaP
+     * @param grupP
+     * @param assignaturaS
+     * @param grupS 
+     */
     public RestSolapament(Assignatura assignaturaP, int grupP, Assignatura assignaturaS, int grupS){
         super(0);
         this.assignaturaPrincipal = assignaturaP;
@@ -33,35 +40,60 @@ public class RestSolapament extends Restriccio{
         this.assignaturaSolapament = assignaturaS;
         this.grupSolapament = grupS;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public Assignatura getAssignaturaPrincipal() {
         return assignaturaPrincipal;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public int getGrupPrincipal() {
         return grupPrincipal;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public Assignatura getAssignaturaSolapament() {
         return assignaturaSolapament;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public int getGrupSolapament() {
         return grupSolapament;
     }
-
+    /**
+     * 
+     * @param assignaturaPrincipal 
+     */
     public void setAssignaturaPrincipal(Assignatura assignaturaPrincipal) {
         this.assignaturaPrincipal = assignaturaPrincipal;
     }
-
+    /**
+     * 
+     * @param grupPrincipal 
+     */
     public void setGrupPrincipal(int grupPrincipal) {
         this.grupPrincipal = grupPrincipal;
     }
-
+    /**
+     * 
+     * @param assignaturaSolapament 
+     */
     public void setAssignaturaSolapament(Assignatura assignaturaSolapament) {
         this.assignaturaSolapament = assignaturaSolapament;
     }
-
+    /**
+     * 
+     * @param grupSolapament 
+     */
+    
     public void setGrupSolapament(int grupSolapament) {
         this.grupSolapament = grupSolapament;
     }
@@ -71,131 +103,16 @@ public class RestSolapament extends Restriccio{
     public boolean CompleixRes(){return false;}
     
     
-    /*public boolean esPotAfegir(CjtRestSolapament cjtR) {
-        ArrayList<Restriccio> llista = new ArrayList();
-        llista = cjtR.getCjtRes();
-        int size = llista.size();
-        for(int i = 0; i < size; ++i){
-            Restriccio res = llista.get(i);
-            RestSolapament resdw = (RestSolapament) res;
-            if(this.equals(resdw)) return false;
-        }
-        return true;
-    }*/
     
-   /* private String transformaIntDia(int i){
-        if (i == 0) return "dilluns"; 
-        else if (i == 1) return "dimarts";
-        else if (i == 2) return "dimecres";
-        else if (i == 3) return "dijous";
-        else if (i == 4) return "divendres";
-        else if (i == 5) return "dissabte";
-        else return "diumenge";
-    }*/
     /**
-     *El Metode CompleixRes ens adverteix ,amb un bool, de si es compliria la restriccio si afegissim el element "e" en el dia "dia" a la hora "hora" de la quadricula q
-     * @param q Quadricula a la qual li volem afegir-li el element
-     * @param e Element que volem afegir 
-     * @param dia Dia en el que volem afegir el element
-     * @param hora Hora en la que volem afegir el element
-     * @return Boolea que indica si es seguiria complint la restriccio un cop afegit el element
+     * Comprova que les dos Clausules i Clausules Nom compleixin la restriccio
+     * @param c Clausula
+     * @param cn ClausulaNom
+     * @param e Clausula 
+     * @param hor La hora de la ClausulaNom de e
+     * @param dia El dia de la ClausulaNom de e
+     * @return 
      */
-    /*public boolean CompleixRes(Quadricula q, Element e, String dia,int hora) {
-       boolean ass1 = false;
-       boolean ass2 = false;
-       boolean grup1 = false;
-       boolean grup2 = false;
-       CjtElements cjt = new CjtElements();
-       cjt = q.getElementsPosicio(dia, hora);
-       int size = cjt.numeroElements();
-       if(e.getAssignatura().equals(assignaturaPrincipal)){
-           ass1 = true;
-           if(grupPrincipal >= 0){
-               if(grupPrincipal != e.getGrupo()) ass1 = false;
-               else grup1 = true;
-           }
-       }
-       else if(e.getAssignatura().equals(assignaturaSolapament)){
-            ass2 = true;
-            if(grupSolapament >= 0){
-               if(grupSolapament != e.getGrupo()) ass2 = false;
-               else grup2 = true;
-           }
-       }
-       if (ass1 == false && ass2 == false) return true;
-       for(int i = 0; i < size; ++i){
-           if(ass1 != false){
-               if(cjt.getElementPosicio(i).getAssignatura().equals(assignaturaSolapament)) {
-                    ass2 = true;
-                    if(cjt.getElementPosicio(i).getGrupo() == grupSolapament) grup2 = true;
-                }
-           }
-           else if(ass2 != false){
-                if(cjt.getElementPosicio(i).getAssignatura().equals(assignaturaPrincipal)) {
-                    ass1 = true;
-                    if(cjt.getElementPosicio(i).getGrupo() == grupPrincipal) grup1 = true;
-                }   
-           }
-            if(grupPrincipal <0 && grupSolapament < 0) {
-                if(ass1 && ass2) return false;
-            }
-            else if(grupPrincipal <0 && grupSolapament >= 0){
-                if(ass1 && ass2 && grup2) return false;
-            }
-            else if(grupPrincipal >=0 && grupSolapament < 0){
-                if(ass1 && ass2 && grup1) return false;
-            }
-            else {
-                if(ass1 && ass2 && grup1 && grup2) return false;
-            }
-        }
-        return true;
-   }
-    /**
-     * CompleixRes(Quadricula q) comprova per a cada dia i hora de la quadricula q si es compleix la restriccio
-     * @param q Quadricula que volem comprovar
-     * @return Boolean que ens informa si compleix la restriccio per tot dia-hora de la quadricula
-     */
-   /*public boolean CompleixRes(Quadricula q){
-       boolean ass1;
-       boolean ass2;
-       boolean grup1;
-       boolean grup2;
-       
-       CjtElements cjt = new CjtElements();
-       for(int i=0; i < 7; ++i) {
-            for (int j=0; j < 24; ++j) { 
-                ass1 = false;
-                ass2 = false;
-                grup1 = false;
-                grup2 = false;
-                cjt = q.getElementsPosicio(transformaIntDia(i), j);
-                for(int k = 0; k < cjt.numeroElements(); ++k){
-                    if(cjt.getElementPosicio(k).getAssignatura().equals(assignaturaPrincipal)) {
-                        ass1 = true;
-                        if(cjt.getElementPosicio(k).getGrupo() == grupPrincipal) grup1 = true;
-                    }
-                    if(cjt.getElementPosicio(k).getAssignatura().equals(assignaturaSolapament)) {
-                         ass2 = true;
-                        if(cjt.getElementPosicio(k).getGrupo() == grupSolapament) grup2 = true;
-                    }
-                    if(grupPrincipal <0 && grupSolapament < 0) {
-                        if(ass1 && ass2) return false;
-                    }
-                    else if(grupPrincipal <0 && grupSolapament >= 0){
-                        if(ass1 && ass2 && grup2) return false;
-                    }
-                    else if(grupPrincipal >=0 && grupSolapament < 0){
-                        if(ass1 && ass2 && grup1) return false;
-                    }
-                    else {
-                        if(ass1 && ass2 && grup1 && grup2) return false;
-                    }
-               }
-            }
-      }
-      return true;
-    }*/
    public boolean CompleixRes(Clausula c, ClausulaNom cn, Clausula e, int hor,String dia){
        if(!(c.getAssignatura().getNom().equals(e.getAssignatura().getNom()) && c.getGrup() == e.getGrup())){
             Assignatura a1 = c.getAssignatura();
@@ -220,19 +137,5 @@ public class RestSolapament extends Restriccio{
     }
        else return true;
    }
-  /* public boolean CompleixRess(String a, int g, Element e){
-       boolean combinacio1 = false;
-       boolean combinacio2 = false;
-       if(this.grupPrincipal != -1 && this.grupSolapament != -1){
-            combinacio1 =(a.equals(this.assignaturaPrincipal.getNom())) && (g == this.grupPrincipal) && (e.getAssignatura().getNom().equals(this.assignaturaSolapament.getNom())) && (e.getGrupo() == this.grupSolapament);
-            combinacio2 = (e.getAssignatura().getNom().equals(this.assignaturaPrincipal.getNom())) && (e.getGrupo() == this.grupPrincipal) && (a.equals(this.assignaturaSolapament.getNom())) && (g == this.grupSolapament);
-       }
-       else {
-            combinacio1 =(a.equals(this.assignaturaPrincipal.getNom())) && (e.getAssignatura().getNom().equals(this.assignaturaSolapament.getNom()));
-            combinacio2 = (e.getAssignatura().getNom().equals(this.assignaturaPrincipal.getNom())) &&(a.equals(this.assignaturaSolapament.getNom()));  
-       }
-       if(combinacio1 || combinacio2) return true;
-       else return false;
-   }*/
-   
+  
 }

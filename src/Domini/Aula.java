@@ -68,11 +68,17 @@ public class Aula implements Serializable{
     public boolean capacitatMajorDe(int x) {
         return (capacitat >= x);
     }
-    
+    /**
+     * 
+     * @return Es una funcio gantxo
+     */
     public boolean isLabAul(){
         return false;
     }
-    
+    /**
+     * 
+     * @return Es una funcio gantxo
+     */
     public boolean isTeoAul(){
         return false;
     }
